@@ -5,22 +5,22 @@ font-family: "JetBrainsMono Nerd Font";
 font-weight: bold;
 min-height: 0;
 /* set font-size to 100% if font scaling is set to 1.00 using nwg-look */
-font-size: 97%;
+font-size: 98%;
 font-feature-settings: '"zero", "ss01", "ss02", "ss03", "ss04", "ss05", "cv31"';
 }
 
 @import "../waybar/style/catppuccin-themes/latte.css";
 
 window#waybar {
-  transition-property: background-color;
-  transition-duration: 0.5s;
-  border-bottom: 0px solid @sapphire;
-  background: #000000;
-  border-radius: 10px;
+    transition-property: background-color;
+    transition-duration: 0.5s;
+    border-bottom: 0px solid @sapphire;
+    background: #000000;
+    border-radius: 10px;
 }
 
 window#waybar.hidden {
-  opacity: 0.2;
+    opacity: 0.2;
 }
 
 window#waybar.empty,
@@ -30,47 +30,46 @@ window#waybar.empty #window {
     border: 0px;
 }
 
-#taskbar button,
+#workspaces {
+    border: 3px solid @teal;
+    border-radius: 20px;
+} 
+  
 #workspaces button {
-    box-shadow: none;
-	text-shadow: none;
-    padding: 0px;
     border-radius: 9px;
-    padding-left: 4px;
-    padding-right: 4px;
+    padding-left: 6px;
+    padding-right: 8px;
     animation: gradient_f 20s ease-in infinite;
     transition: all 0.5s cubic-bezier(.55,-0.68,.48,1.682);
 }
 
-#taskbar button:hover,
 #workspaces button:hover {
-	border-radius: 10px;
-	color: @overlay0;
-	background-color: @surface0;
- 	padding-left: 2px;
-    padding-right: 2px;
+    border-radius: 10px;
+    padding-left: 6px;
+    padding-right: 8px;
     animation: gradient_f 20s ease-in infinite;
     transition: all 0.3s cubic-bezier(.55,-0.68,.48,1.682);
 }
 
 #workspaces button.persistent {
-	color: @surface1;
-	border-radius: 10px;
+    color: @surface1;
+    border-radius: 10px;
+    padding-left: 4px;
+    padding-right: 6px;
 }
 
-#taskbar button.active,
 #workspaces button.active {
-	color: @peach;
-  	border-radius: 10px;
-    padding-left: 8px;
+    color: @peach;
+    border-radius: 10px;
+    padding-left: 6px;
     padding-right: 8px;
     animation: gradient_f 20s ease-in infinite;
     transition: all 0.3s cubic-bezier(.55,-0.68,.48,1.682);
 }
 
 #workspaces button.urgent {
-	color: @red;
- 	border-radius: 0px;
+    color: @red;
+    border-radius: 10px;
 }
 
 #backlight,
@@ -165,25 +164,45 @@ window#waybar.empty #window {
 
 #custom-swaync {
   	color: @green;
+        border: 3px solid @teal;
+        border-radius: 20px;
+	padding-left: 15px;
+	padding-right: 15px;
 	font-size: 150%;
 }
 
 #custom-keyboard,
 
 #cpu {
-  	color: @sapphire;
+	padding-left:10px;
+  	color: @white;
+	border-top: 3px solid @teal;
+	border-bottom: 3px solid @teal;
+	border-left: 3px solid @teal;
+        border-radius: 20px 0px 0px 20px;
 }
 
 #memory {
-  	color: @sapphire;
-}
-
-#disk {
-  	color: @sapphire;
+  	color: @white;
+	border-bottom: 3px solid @teal;
+	border-top: 3px solid @teal;
+        border-radius: 0px;
 }
 
 #temperature {
-  	color: @sapphire;
+  	color: @white;
+	border-bottom: 3px solid @teal;
+	border-top: 3px solid @teal;
+        border-radius: 0px;
+}
+
+#disk {
+	padding-right:15px;
+  	color: @white;
+	border-top: 3px solid @teal;
+	border-bottom: 3px solid @teal;
+	border-right: 3px solid @teal;
+        border-radius: 0px 20px 20px 0px;
 }
 
 #temperature.critical {
@@ -209,18 +228,22 @@ window#waybar.empty #window {
 #custom-menu {
   	color: @teal;
 	padding-left: 15px;
-	padding-right: 15px;
+	padding-right: 25px;
 	font-size: 150%;
 }
 
 #custom-power {
   	color: @red;
+	padding-left: 20px;
 	font-size: 150%;
 }
 
 #custom-updater {
-  	color: @white;
-	padding-left: 10px;
+  	color: @red;
+        border: 3px solid @teal;
+        border-radius: 20px;
+	padding-left: 15px;
+	padding-right: 15px;
 	font-size: 150%;
 }
 

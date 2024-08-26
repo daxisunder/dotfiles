@@ -12,7 +12,7 @@
 "spacing": 6,
 "fixed-center": true,
 "ipc": true,
-"margin-top": 6,
+"margin-top": 2,
 "margin-left": 6,
 "margin-right": 6,
 
@@ -37,7 +37,7 @@
 	"group/audio",
 	"custom/separator#blank_2",
 	"custom/swaync",
-	"custom/separator#blank_2",
+	"custom/separator#blank_1",
 	"custom/power",
 	],
 
