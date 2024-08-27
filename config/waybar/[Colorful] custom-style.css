@@ -31,7 +31,7 @@ window#waybar.empty #window {
 }
 
 #workspaces {
-    border: 3px solid @teal;
+    border: 2px solid @teal;
     border-radius: 20px;
 } 
   
@@ -164,7 +164,7 @@ window#waybar.empty #window {
 
 #custom-swaync {
   	color: @green;
-        border: 3px solid @teal;
+        border: 2px solid @teal;
         border-radius: 20px;
 	padding-left: 15px;
 	padding-right: 15px;
@@ -176,32 +176,32 @@ window#waybar.empty #window {
 #cpu {
 	padding-left:10px;
   	color: @white;
-	border-top: 3px solid @teal;
-	border-bottom: 3px solid @teal;
-	border-left: 3px solid @teal;
+	border-top: 2px solid @teal;
+	border-bottom: 2px solid @teal;
+	border-left: 2px solid @teal;
         border-radius: 20px 0px 0px 20px;
 }
 
 #memory {
   	color: @white;
-	border-bottom: 3px solid @teal;
-	border-top: 3px solid @teal;
+	border-bottom: 2px solid @teal;
+	border-top: 2px solid @teal;
         border-radius: 0px;
 }
 
 #temperature {
   	color: @white;
-	border-bottom: 3px solid @teal;
-	border-top: 3px solid @teal;
+	border-bottom: 2px solid @teal;
+	border-top: 2px solid @teal;
         border-radius: 0px;
 }
 
 #disk {
 	padding-right:15px;
   	color: @white;
-	border-top: 3px solid @teal;
-	border-bottom: 3px solid @teal;
-	border-right: 3px solid @teal;
+	border-top: 2px solid @teal;
+	border-bottom: 2px solid @teal;
+	border-right: 2px solid @teal;
         border-radius: 0px 20px 20px 0px;
 }
 
@@ -240,7 +240,7 @@ window#waybar.empty #window {
 
 #custom-updater {
   	color: @red;
-        border: 3px solid @teal;
+        border: 2px solid @teal;
         border-radius: 20px;
 	padding-left: 15px;
 	padding-right: 15px;
