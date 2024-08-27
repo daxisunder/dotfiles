@@ -15,7 +15,7 @@ window#waybar {
     transition-property: background-color;
     transition-duration: 0.5s;
     border-bottom: 0px solid @sapphire;
-    background: #000000;
+    background: @black;
     border-radius: 10px;
 }
 
@@ -25,7 +25,7 @@ window#waybar.hidden {
 
 window#waybar.empty,
 window#waybar.empty #window {
-    background-color: #000000;
+    background-color: @black;
     padding: 0px;
     border: 0px;
 }
@@ -36,17 +36,19 @@ window#waybar.empty #window {
 } 
   
 #workspaces button {
-    border-radius: 9px;
+    border-radius: 10px;
     padding-left: 6px;
-    padding-right: 8px;
+    padding-right: 9px;
     animation: gradient_f 20s ease-in infinite;
     transition: all 0.5s cubic-bezier(.55,-0.68,.48,1.682);
 }
 
 #workspaces button:hover {
-    border-radius: 10px;
+    background: @black;
+    border: 2px solid @yellow;
+    border-radius: 20px;
     padding-left: 6px;
-    padding-right: 8px;
+    padding-right: 9px;
     animation: gradient_f 20s ease-in infinite;
     transition: all 0.3s cubic-bezier(.55,-0.68,.48,1.682);
 }
@@ -54,22 +56,24 @@ window#waybar.empty #window {
 #workspaces button.persistent {
     color: @surface1;
     border-radius: 10px;
-    padding-left: 4px;
-    padding-right: 6px;
+    padding-left: 6px;
+    padding-right: 9px;
 }
 
 #workspaces button.active {
-    color: @peach;
-    border-radius: 10px;
+    color: @yellow;
+    border: 2px solid @yellow;
+    border-radius: 20px;
     padding-left: 6px;
-    padding-right: 8px;
+    padding-right: 9px;
     animation: gradient_f 20s ease-in infinite;
     transition: all 0.3s cubic-bezier(.55,-0.68,.48,1.682);
 }
 
 #workspaces button.urgent {
     color: @red;
-    border-radius: 10px;
+    border: 2px solid @red;
+    border-radius: 20px;
 }
 
 #backlight,
@@ -174,7 +178,7 @@ window#waybar.empty #window {
 #custom-keyboard,
 
 #cpu {
-	padding-left:10px;
+	padding-left:15px;
   	color: @white;
 	border-top: 2px solid @teal;
 	border-bottom: 2px solid @teal;
@@ -184,6 +188,7 @@ window#waybar.empty #window {
 
 #memory {
   	color: @white;
+	padding-right: 10px;
 	border-bottom: 2px solid @teal;
 	border-top: 2px solid @teal;
         border-radius: 0px;
@@ -197,7 +202,7 @@ window#waybar.empty #window {
 }
 
 #disk {
-	padding-right:15px;
+	padding-right:20px;
   	color: @white;
 	border-top: 2px solid @teal;
 	border-bottom: 2px solid @teal;
