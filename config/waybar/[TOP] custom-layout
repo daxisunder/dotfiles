@@ -16,7 +16,7 @@
 
 "modules-left": [
 	"custom/menu",
-	"hyprland/workspaces#pacman",
+	"hyprland/workspaces",
 	"custom/separator#blank_2",
 	"hyprland/window",
 	],
