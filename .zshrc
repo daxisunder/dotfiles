@@ -35,8 +35,11 @@ alias la='eza -a --tree --level=1 --icons'
 alias x='exit'
 alias yayd='yay --devel'
 alias yayr='yay -Rsn'
-alias yayq='yay -Qq'
-alias yayi='yay -Qi'
+alias yayru='yay -Rsu'
+alias yays='yay -Ss'
+alias yayqd='yay -Qdt'
+alias yayqe='yay -Qet'
+alias yayqi='yay -Qi'
 
 # Search for man pages
 alias fman='compgen -c | fzf | xargs man'
