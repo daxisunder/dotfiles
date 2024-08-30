@@ -5,7 +5,7 @@ font-family: "JetBrainsMono Nerd Font";
 font-weight: bold;
 min-height: 0;
 /* set font-size to 100% if font scaling is set to 1.00 using nwg-look */
-font-size: 97%;
+font-size: 90%;
 font-feature-settings: '"zero", "ss01", "ss02", "ss03", "ss04", "ss05", "cv31"';
 }
 
@@ -28,52 +28,6 @@ window#waybar.empty #window {
     background-color: @black;
     padding: 0px;
     border: 0px;
-}
-
-#workspaces {
-    border: 2px solid @teal;
-    border-radius: 20px 10px 20px 10px ;
-} 
-  
-#workspaces button {
-    border-radius: 10px;
-    padding-left: 6px;
-    padding-right: 9px;
-    animation: gradient_f 20s ease-in infinite;
-    transition: all 0.5s cubic-bezier(.55,-0.68,.48,1.682);
-}
-
-#workspaces button:hover {
-    background: @black;
-    border: 2px solid @yellow;
-    border-radius: 20px;
-    padding-left: 6px;
-    padding-right: 9px;
-    animation: gradient_f 20s ease-in infinite;
-    transition: all 0.3s cubic-bezier(.55,-0.68,.48,1.682);
-}
-
-#workspaces button.persistent {
-    color: @surface1;
-    border-radius: 10px;
-    padding-left: 6px;
-    padding-right: 9px;
-}
-
-#workspaces button.active {
-    color: @yellow;
-    border: 2px solid @yellow;
-    border-radius: 20px;
-    padding-left: 6px;
-    padding-right: 9px;
-    animation: gradient_f 20s ease-in infinite;
-    transition: all 0.3s cubic-bezier(.55,-0.68,.48,1.682);
-}
-
-#workspaces button.urgent {
-    color: @red;
-    border: 2px solid @red;
-    border-radius: 20px;
 }
 
 #backlight,
@@ -128,6 +82,52 @@ window#waybar.empty #window {
 	padding-left: 6px;
 }
 
+#workspaces {
+    border: 2px solid @teal;
+    border-radius: 20px 10px 20px 10px ;
+} 
+  
+#workspaces button {
+    border-radius: 10px;
+    padding-left: 3px;
+    padding-right: 6px;
+    animation: gradient_f 20s ease-in infinite;
+    transition: all 0.5s cubic-bezier(.55,-0.68,.48,1.682);
+}
+
+#workspaces button:hover {
+    background: @black;
+    border: 2px solid @yellow;
+    border-radius: 20px;
+    padding-left: 3px;
+    padding-right: 6px;
+    animation: gradient_f 20s ease-in infinite;
+    transition: all 0.3s cubic-bezier(.55,-0.68,.48,1.682);
+}
+
+#workspaces button.persistent {
+    color: @surface1;
+    border-radius: 10px;
+    padding-left: 3px;
+    padding-right: 6px;
+}
+
+#workspaces button.active {
+    color: @yellow;
+    border: 2px solid @yellow;
+    border-radius: 20px;
+    padding-left: 3px;
+    padding-right: 6px;
+    animation: gradient_f 20s ease-in infinite;
+    transition: all 0.3s cubic-bezier(.55,-0.68,.48,1.682);
+}
+
+#workspaces button.urgent {
+    color: @yellow;
+    border: 2px solid @red;
+    border-radius: 20px;
+}
+
 #idle_inhibitor {
   	color: @blue;
 }
@@ -169,8 +169,8 @@ window#waybar.empty #window {
 
 #custom-swaync {
   	color: @green;
-        border: 2px solid @teal;
-        border-radius: 20px;
+    border: 2px solid @teal;
+    border-radius: 20px;
 	padding-left: 15px;
 	padding-right: 15px;
 	font-size: 150%;
@@ -179,6 +179,7 @@ window#waybar.empty #window {
 #custom-keyboard,
 
 #cpu {
+	font-size: 120%;
 	padding-left:15px;
   	color: @white;
 	border-top: 2px solid @teal;
@@ -188,6 +189,7 @@ window#waybar.empty #window {
 }
 
 #memory {
+	font-size: 120%;
   	color: @white;
 	padding-right: 10px;
 	border-bottom: 2px solid @teal;
@@ -196,6 +198,7 @@ window#waybar.empty #window {
 }
 
 #temperature {
+	font-size: 120%;
   	color: @white;
 	border-bottom: 2px solid @teal;
 	border-top: 2px solid @teal;
@@ -203,6 +206,7 @@ window#waybar.empty #window {
 }
 
 #disk {
+	font-size: 120%;
 	padding-right:20px;
   	color: @white;
 	border-top: 2px solid @teal;
@@ -279,8 +283,8 @@ window#waybar.empty #window {
 }
 
 #window {
+	font-size: 120%;
   	color: @mauve;
-	font-size: 100%;
 }
 
 #mpris {
