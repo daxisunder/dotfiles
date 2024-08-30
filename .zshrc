@@ -36,6 +36,7 @@ alias x='exit'
 alias yayd='yay --devel'
 alias yayrn='yay -Rsn'
 alias yayru='yay -Rsu'
+alias yayrnu='yay -Rsnu'
 alias yays='yay -S'
 alias yayss='yay -Ss'
 alias yayqd='yay -Qdt'
@@ -58,5 +59,3 @@ eval "$(zoxide init zsh)"
 
 # Zellij integration
 eval "$(zellij setup --generate-auto-start zsh)"
-
-
