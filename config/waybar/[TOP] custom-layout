@@ -16,6 +16,7 @@
 
 "modules-left": [
 	"custom/menu",
+	"custom/separator#blank_2",
 	"hyprland/workspaces",
 	"custom/separator#blank_2",
 	"hyprland/window",
@@ -35,7 +36,7 @@
 	"group/audio",
 	"custom/separator#blank_2",
 	"custom/swaync",
-	"custom/separator#blank_1",
+	"custom/separator#blank_2",
 	"custom/power",
 	],
 

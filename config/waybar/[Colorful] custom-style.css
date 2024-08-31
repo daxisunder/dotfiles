@@ -237,14 +237,14 @@ window#waybar.empty #window {
 
 #custom-menu {
   	color: @teal;
-	padding-left: 15px;
-	padding-right: 25px;
+	padding-left: 12px;
+	padding-right: 4px;
 	font-size: 150%;
 }
 
 #custom-power {
   	color: @red;
-	padding-left: 20px;
+	padding-left: 0px;
 	font-size: 150%;
 }
 
