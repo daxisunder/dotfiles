@@ -89,8 +89,8 @@ window#waybar.empty #window {
   
 #workspaces button {
     border-radius: 10px;
-    padding-left: 3px;
-    padding-right: 6px;
+    padding-left: 2px;
+    padding-right: 4px;
     animation: gradient_f 20s ease-in infinite;
     transition: all 0.5s cubic-bezier(.55,-0.68,.48,1.682);
 }
@@ -99,8 +99,8 @@ window#waybar.empty #window {
     background: @black;
     border: 2px solid @yellow;
     border-radius: 20px;
-    padding-left: 3px;
-    padding-right: 6px;
+    padding-left: 2px;
+    padding-right: 4px;
     animation: gradient_f 20s ease-in infinite;
     transition: all 0.3s cubic-bezier(.55,-0.68,.48,1.682);
 }
@@ -108,16 +108,16 @@ window#waybar.empty #window {
 #workspaces button.persistent {
     color: @surface1;
     border-radius: 10px;
-    padding-left: 3px;
-    padding-right: 6px;
+    padding-left: 2px;
+    padding-right: 4px;
 }
 
 #workspaces button.active {
     color: @yellow;
     border: 2px solid @yellow;
     border-radius: 20px;
-    padding-left: 3px;
-    padding-right: 6px;
+    padding-left: 2px;
+    padding-right: 4px;
     animation: gradient_f 20s ease-in infinite;
     transition: all 0.3s cubic-bezier(.55,-0.68,.48,1.682);
 }
