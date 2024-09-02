@@ -185,7 +185,7 @@ window#waybar.empty #window {
 	border-top: 2px solid @teal;
 	border-bottom: 2px solid @teal;
 	border-left: 2px solid @teal;
-        border-radius: 10px 0px 0px 20px;
+    border-radius: 10px 0px 0px 20px;
 }
 
 #memory {
@@ -194,7 +194,7 @@ window#waybar.empty #window {
 	padding-right: 10px;
 	border-bottom: 2px solid @teal;
 	border-top: 2px solid @teal;
-        border-radius: 0px;
+    border-radius: 0px;
 }
 
 #temperature {
@@ -202,7 +202,7 @@ window#waybar.empty #window {
   	color: @white;
 	border-bottom: 2px solid @teal;
 	border-top: 2px solid @teal;
-        border-radius: 0px;
+    border-radius: 0px;
 }
 
 #disk {
@@ -212,7 +212,7 @@ window#waybar.empty #window {
 	border-top: 2px solid @teal;
 	border-bottom: 2px solid @teal;
 	border-right: 2px solid @teal;
-        border-radius: 0px 20px 10px 0px;
+    border-radius: 0px 20px 10px 0px;
 }
 
 #temperature.critical {
@@ -250,8 +250,8 @@ window#waybar.empty #window {
 
 #custom-updater {
   	color: @red;
-        border: 2px solid @teal;
-        border-radius: 20px;
+    border: 2px solid @teal;
+    border-radius: 20px;
 	padding-left: 15px;
 	padding-right: 15px;
 	font-size: 150%;
