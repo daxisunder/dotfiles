@@ -3,12 +3,19 @@
 
 export ZSH="$HOME/.oh-my-zsh"
 
+# Set prompt
+ZSH_THEME="jonathan"
+
 # Set editor
 export VISUAL="nvim"
 export EDITOR="nvim"
 
-# Set prompt
-ZSH_THEME="jonathan"
+# Set case insensitive autocompletions
+setopt nocaseglob
+setopt nocasematch
+
+# Set autocorrect
+setopt correct
 
 # Check archlinux plugin commands here
 # https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/archlinux
