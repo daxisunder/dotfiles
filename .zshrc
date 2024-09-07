@@ -68,4 +68,4 @@ eval "$(zoxide init zsh)"
 eval "$(zellij setup --generate-auto-start zsh)"
 
 # Auto-start "zombie-zfetch"
-source $HOME/.config/zfetch/.zfetchrc
+source $HOME/.config/zfetch/zfetchrc
