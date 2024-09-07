@@ -7,7 +7,7 @@ export ZSH="$HOME/.oh-my-zsh"
 ZSH_THEME="jonathan"
 
 # Set editor
-export VISUAL="nvim"
+export VISUAL="${EDITOR}"
 export EDITOR="nvim"
 
 # Set case insensitive autocompletions
@@ -66,3 +66,6 @@ eval "$(zoxide init zsh)"
 
 # Zellij integration
 eval "$(zellij setup --generate-auto-start zsh)"
+
+# Auto-start "zombie-zfetch"
+source $HOME/.config/zfetch/.zfetchrc
