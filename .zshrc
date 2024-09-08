@@ -55,6 +55,12 @@ expand-or-complete-with-dots() {
 zle -N expand-or-complete-with-dots
 bindkey "^I" expand-or-complete-with-dots
 
+# command not found
+command_not_found_handler() {
+	printf "%s%s? I don't know what that is!\n" "$acc" "$0" >&2
+    return 127
+}
+
 # History
 HISTFILE=~/.zsh_history
 HISTSIZE=10000
@@ -78,12 +84,6 @@ plugins=(
 )
 
 source $ZSH/oh-my-zsh.sh
-
-# command not found
-command_not_found_handler() {
-	printf "%s%s? I don't know what that is!\n" "$acc" "$0" >&2
-    return 127
-}
 
 # Set-up icons for files/folders in terminal (eza)
 alias ls='eza -a --icons'
