@@ -14,7 +14,7 @@ export EDITOR="nvim"
 setopt nocaseglob          # Case insensitive autocompletions
 setopt nocasematch         # Case insensitive autocompletions
 setopt MENU_COMPLETE       # Automatically highlight first element of completion menu
-setopt LIST_PACKED		   # The completion menu takes less space
+setopt LIST_PACKED		     # The completion menu takes less space
 setopt AUTO_LIST           # Automatically list choices on ambiguous completion
 setopt COMPLETE_IN_WORD    # Complete from both ends of a word
 setopt correct             # Auto-corrections
