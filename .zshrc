@@ -79,6 +79,7 @@ setopt hist_find_no_dups
 plugins=(
     git
     archlinux
+    sudo
     zsh-autosuggestions
     zsh-syntax-highlighting
 )
