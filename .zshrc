@@ -14,7 +14,7 @@ export EDITOR="nvim"
 setopt nocaseglob          # Case insensitive autocompletions
 setopt nocasematch         # Case insensitive autocompletions
 setopt MENU_COMPLETE       # Automatically highlight first element of completion menu
-setopt LIST_PACKED		     # The completion menu takes less space
+setopt LIST_PACKED	   # The completion menu takes less space
 setopt AUTO_LIST           # Automatically list choices on ambiguous completion
 setopt COMPLETE_IN_WORD    # Complete from both ends of a word
 setopt correct             # Auto-corrections
@@ -80,6 +80,7 @@ plugins=(
     git
     archlinux
     sudo
+    web search
     zsh-autosuggestions
     zsh-syntax-highlighting
 )
@@ -103,6 +104,7 @@ alias yayqd='yay -Qdt'
 alias yayqe='yay -Qet'
 alias yayqi='yay -Qi'
 alias fman='compgen -c | fzf | xargs man' # Search for man pages
+alias src='source ~/.zshrc
 
 # FZF integration + key bindings (CTRL R for fuzzy history finder)
 source <(fzf --zsh)
