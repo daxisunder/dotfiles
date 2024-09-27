@@ -1,6 +1,9 @@
 # If you come from bash you might have to change your $PATH.
 #export PATH=$HOME/bin:/usr/local/bin:$PATH
 
+# If not running interactively, don't do anything
+[[ $- != *i* ]] && return
+
 export ZSH="$HOME/.oh-my-zsh"
 
 # Set prompt
@@ -55,7 +58,7 @@ expand-or-complete-with-dots() {
 zle -N expand-or-complete-with-dots
 bindkey "^I" expand-or-complete-with-dots
 
-# command not found
+# Set "command not found" handler
 command_not_found_handler() {
 	printf "%s%s? I don't know what that is!\n" "$acc" "$0" >&2
     return 127
@@ -106,7 +109,7 @@ alias yayqi='yay -Qi'
 alias fman='compgen -c | fzf | xargs man' # Search for man pages
 alias src='source ~/.zshrc
 
-# FZF integration + key bindings (CTRL R for fuzzy history finder)
+# FZF integration + key bindings (CTRL+R for fuzzy history finder)
 source <(fzf --zsh)
 
 # Zoxide integration
