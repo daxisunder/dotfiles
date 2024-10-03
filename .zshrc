@@ -97,6 +97,7 @@ alias la='eza -a --tree --level=1 --icons'
 
 # Some useful aliases
 alias x='exit'
+alias z='cd'
 alias yayd='yay --devel'
 alias yayrn='yay -Rsn'
 alias yayru='yay -Rsu'
