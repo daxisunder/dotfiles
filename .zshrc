@@ -10,8 +10,9 @@ export ZSH="$HOME/.oh-my-zsh"
 ZSH_THEME="jonathan"
 
 # Set editor
-export VISUAL="${EDITOR}"
 export EDITOR="nvim"
+export SUDO_EDITOR="nvim"
+export VISUAL="${EDITOR}"
 
 # Set some cool ZSH options
 setopt nocaseglob          # Case insensitive autocompletions
