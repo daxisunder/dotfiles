@@ -18,7 +18,7 @@ export VISUAL="${EDITOR}"
 setopt nocaseglob          # Case insensitive autocompletions
 setopt nocasematch         # Case insensitive autocompletions
 setopt MENU_COMPLETE       # Automatically highlight first element of completion menu
-setopt LIST_PACKED	       # The completion menu takes less space
+setopt LIST_PACKED		   # The completion menu takes less space
 setopt AUTO_LIST           # Automatically list choices on ambiguous completion
 setopt COMPLETE_IN_WORD    # Complete from both ends of a word
 setopt correct             # Auto-corrections
@@ -62,7 +62,7 @@ bindkey "^I" expand-or-complete-with-dots
 # Set command not found handler (fetch pacman files database first with pacman -Fy)
 function command_not_found_handler {
     local purple='\e[1;35m' bright='\e[0;1m' green='\e[1;32m' reset='\e[0m'
-    printf 'zsh: command not found: %s\n' "$1"
+    printf 'zsh: Command not found!: %s\n' "$1"
     local entries=(
         ${(f)"$(/usr/bin/pacman -F --machinereadable -- "/usr/bin/$1")"}
     )
@@ -105,8 +105,8 @@ setopt hist_find_no_dups
 plugins=(
     git
     archlinux
-    sudo
-    web-search
+	sudo
+	web-search
     zsh-autosuggestions
     zsh-syntax-highlighting
 )
@@ -131,9 +131,9 @@ alias yayqd='yay -Qdt'
 alias yayqe='yay -Qet'
 alias yayqi='yay -Qi'
 alias fman='compgen -c | fzf | xargs man' # Search for man pages
-alias src='source ~/.zshrc
+alias src='source ~/.zshrc'
 
-# FZF integration + key bindings (CTRL+R for fuzzy history finder)
+# FZF integration + key bindings (CTRL R for fuzzy history finder)
 source <(fzf --zsh)
 
 # Zoxide integration
