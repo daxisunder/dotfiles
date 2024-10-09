@@ -106,7 +106,7 @@ plugins=(
     git
     archlinux
     sudo
-    web search
+    web-search
     zsh-autosuggestions
     zsh-syntax-highlighting
 )
