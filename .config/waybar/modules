@@ -319,6 +319,7 @@
 },
 "clock": {
 	"interval": 1,
+	"timezone": "Europe/Sarajevo",
     //"format": " {:%I:%M %p}", // AM PM format
     "format": "{:%H:%M:%S}", // 24H
 	"format-alt": "{:%H:%M  %d %B, %A}",
@@ -326,11 +327,10 @@
 	"calendar": {
 		"mode": "year",
 		"mode-mon-col": 3,
-		"weeks-pos": "right",
 		"on-scroll": 1,
 		"format": {
 			"months": "<span color='#ffead3'><b>{}</b></span>",
-			"days": "<span color='#ecc6d9'><b>{}</b></span>",
+			"days": "<span color='#ffffff'><b>{}</b></span>",
 			"weeks": "<span color='#99ffdd'><b>W{}</b></span>",
 			"weekdays": "<span color='#ffcc66'><b>{}</b></span>",
 			"today": "<span color='#ff6699'><b><u>{}</u></b></span>"
@@ -400,7 +400,7 @@
 },
 "hyprland/window": {
 	"format": "{}",
-	"max-length": 30,
+	"max-length": 45,
 	"separate-outputs": true,
 	"offscreen-css": true,
 	"offscreen-css-text": "(inactive)",
@@ -684,7 +684,7 @@
 "custom/swaync": {
 	"tooltip": true,
 	"tooltip-format": "Left Click: Launch Notification Center\nRight Click: Do not Disturb",
-	"format": "{icon} {}",
+	"format": "{}{icon}",
 	"format-icons": {
 		"notification": "<span foreground='red'><sup></sup></span>",
 		"none": "",
