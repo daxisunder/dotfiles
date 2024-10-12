@@ -18,7 +18,7 @@ export VISUAL="${EDITOR}"
 setopt nocaseglob          # Case insensitive autocompletions
 setopt nocasematch         # Case insensitive autocompletions
 setopt MENU_COMPLETE       # Automatically highlight first element of completion menu
-setopt LIST_PACKED		   # The completion menu takes less space
+setopt LIST_PACKED         # The completion menu takes less space
 setopt AUTO_LIST           # Automatically list choices on ambiguous completion
 setopt COMPLETE_IN_WORD    # Complete from both ends of a word
 setopt correct             # Auto-corrections
@@ -105,11 +105,11 @@ setopt hist_find_no_dups
 plugins=(
     git
     archlinux
-	  sudo
-	  web-search
+    sudo
+    web-search
     zsh-autosuggestions
     zsh-syntax-highlighting
-	  you-should-use
+    you-should-use
 )
 
 source $ZSH/oh-my-zsh.sh
