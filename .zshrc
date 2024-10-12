@@ -105,11 +105,11 @@ setopt hist_find_no_dups
 plugins=(
     git
     archlinux
-	sudo
-	web-search
+	  sudo
+	  web-search
     zsh-autosuggestions
     zsh-syntax-highlighting
-	you-should-use
+	  you-should-use
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -133,6 +133,7 @@ alias yayqe='yay -Qet'
 alias yayqi='yay -Qi'
 alias fman='compgen -c | fzf | xargs man' # Search for man pages
 alias src='source ~/.zshrc'
+alias nnn='nnn -d -c -H -r -D -i'
 
 # FZF integration + key bindings (CTRL R for fuzzy history finder)
 source <(fzf --zsh)
