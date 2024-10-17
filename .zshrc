@@ -124,22 +124,20 @@ plugins=(
 
 source $ZSH/oh-my-zsh.sh
 
-# Set-up icons for files/folders in terminal (eza)
+# Some useful aliases
 alias ls='eza -a --icons'
 alias lal='eza -al --icons'
 alias la='eza -a --tree --level=1 --icons'
-
-# Some useful aliases
 alias x='exit'
 alias z='cd'
 alias yayd='yay --devel'
-alias yayrn='yay -Rsn'
-alias yayru='yay -Rsu'
-alias yayrnu='yay -Rsnu'
+alias yayrsn='yay -Rsn'
+alias yayrsu='yay -Rsu'
+alias yayrsnu='yay -Rsnu'
 alias yays='yay -S'
 alias yayss='yay -Ss'
-alias yayqd='yay -Qdt'
-alias yayqe='yay -Qet'
+alias yayqdt='yay -Qdt'
+alias yayqet='yay -Qet'
 alias yayqi='yay -Qi'
 alias fman='compgen -c | fzf | xargs man' # Search for man pages
 alias src='source ~/.zshrc'
