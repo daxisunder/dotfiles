@@ -142,6 +142,7 @@ alias yayqi='yay -Qi'
 alias fman='compgen -c | fzf | xargs man' # Search for man pages
 alias src='source ~/.zshrc'
 alias nnn='nnn -d -c -H -r -D -i'
+alias tty='tty-clock -C1 -c'
 
 # FZF integration + key bindings (CTRL R for fuzzy history finder)
 source <(fzf --zsh)
