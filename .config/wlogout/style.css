@@ -1,10 +1,10 @@
-/* Import wallust colors */
+/* Importing wallust colors */
 
 @import '../../.config/waybar/wallust/colors-waybar.css';
 
 window {
     font-family: Fira Code Medium;
-    font-size: 20pt;
+    font-size: 0pt;
     color: #cdd6f4; /* text */
     background-color: rgba(30, 30, 46, 0.6);
 }
@@ -19,8 +19,13 @@ button {
 }
 
 button:focus {
+    background-color: @color12; 
+    color: #1e1e2e;
     background-size: 40%;
-	border: 0px;
+    margin: 30px;
+    border-radius: 80px; 
+    transition: all 0.3s cubic-bezier(.55, 0.0, .28, 1.682), box-shadow 0.2s ease-in-out, background-color 0.2s ease-in-out;
+    box-shadow: 0 0 50px @color7;
 
 }
 
