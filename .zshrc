@@ -1,10 +1,3 @@
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-# Initialization code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block; everything else may go below.
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
-
 # If you come from bash you might have to change your $PATH.
 #export PATH=$HOME/bin:/usr/local/bin:$PATH
 
@@ -139,7 +132,7 @@ alias yayss='yay -Ss'
 alias yayqdt='yay -Qdt'
 alias yayqet='yay -Qet'
 alias yayqi='yay -Qi'
-alias fman='compgen -c | fzf | xargs man' # Search for man pages
+alias fman='compgen -c | fzf | xargs tldr' # Search for man pages with tldr
 alias src='source ~/.zshrc'
 alias nnn='nnn -d -c -H -r -D -i'
 alias tty='tty-clock -C1 -c'
@@ -166,3 +159,4 @@ source $HOME/.config/zfetch/zfetchrc
 # Atuin integration (pretty history)
 . "$HOME/.atuin/bin/env"
 eval "$(atuin init zsh)"
+
