@@ -129,23 +129,30 @@ alias yayrsu='yay -Rsu'
 alias yayrsnu='yay -Rsnu'
 alias yays='yay -S'
 alias yayss='yay -Ss'
-alias yayqdt='yay -Qdt'
+alias yayqdtq='yay -Qdtq'
 alias yayqet='yay -Qet'
 alias yayqi='yay -Qi'
+alias yaysi='yay -Si'
+alias yaysii='yay -Sii' # List reverse dependencies
+alias yayrq='yay -Rsn $(yay -Qdtq)' # List & remove all unneeded dependencies
 alias pacsyu='sudo pacman -Syu'
 alias pacrsn='sudo pacman -Rsn'
 alias pacrsu='sudo pacman -Rsu'
 alias pacrsnu='sudo pacman -Rsnu'
 alias pacs='sudo pacman -S'
 alias pacss='pacman -Ss'
-alias pacqdt='pacman -Qdt'
+alias pacqdtq='pacman -Qdtq'
 alias pacqet='pacman -Qet'
 alias pacqi='pacman -Qi'
+alias pacsi='pacman -Si'
+alias pacsii='pacman -Sii' # List reverse dependencies
+alias pacrq='sudo pacman -Rsn $(pacman -Qtdq)' # List & remove all unneeded dependencies
 alias ftldr='compgen -c | fzf | xargs tldr' # Search for man pages with tldr + fzf
 alias fman='compgen -c | fzf | xargs tldr' # Search for man pages with man + fzf
 alias src='source ~/.zshrc'
 alias nnn='nnn -d -c -H -r -D -i'
 alias tty='tty-clock -C1 -c'
+alias expacs="expac -S '%r/%n: %D'" # List dependencies w/o additional info
 
 # FZF integration + key bindings (CTRL R for fuzzy history finder)
 source <(fzf --zsh)
