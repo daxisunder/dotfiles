@@ -121,7 +121,7 @@ source $ZSH/oh-my-zsh.sh
 alias ls='eza -a --icons'
 alias lal='eza -al --icons'
 alias la='eza -a --tree --level=1 --icons'
-alias x='exit'
+alias q='exit'
 alias z='cd'
 alias yayd='yay --devel'
 alias yayrsn='yay -Rsn'
