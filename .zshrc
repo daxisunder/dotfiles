@@ -113,7 +113,13 @@ plugins=(
     you-should-use
     zsh-autosuggestions
     zsh-syntax-highlighting
+    zsh-vi-mode
 )
+
+# Bind ESC to jj in zsh-vi-mode
+function zvm_config() {
+  ZVM_VI_INSERT_ESCAPE_BINDKEY=jj
+}
 
 source $ZSH/oh-my-zsh.sh
 
