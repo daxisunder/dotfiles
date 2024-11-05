@@ -14,6 +14,14 @@ export EDITOR="nvim"
 export SUDO_EDITOR="nvim"
 export VISUAL="${EDITOR}"
 
+# Set bat as manpager
+export BAT_THEME="ansi"
+export BAT_STYLE="full"
+#export MANPAGER="sh -c 'col -bx | bat -l man -p'"
+
+# Set neovim as manpager
+export MANPAGER='nvim +Man!'
+
 # Set some cool ZSH options
 setopt nocaseglob          # Case insensitive autocompletions
 setopt nocasematch         # Case insensitive autocompletions
@@ -154,7 +162,7 @@ alias pacsi='pacman -Si'
 alias pacsii='pacman -Sii' # List reverse dependencies
 alias pacrq='sudo pacman -Rsn $(pacman -Qtdq)' # List & remove all unneeded dependencies
 alias ftldr='compgen -c | fzf | xargs tldr' # Search for man pages with tldr + fzf
-alias fman='compgen -c | fzf | xargs tldr' # Search for man pages with man + fzf
+alias fman='compgen -c | fzf | xargs man' # Search for man pages with man + fzf
 alias src='source ~/.zshrc'
 alias nnn='nnn -d -c -H -r -D -i'
 alias tty='tty-clock -C1 -c'
@@ -182,4 +190,5 @@ source $HOME/.config/zfetch/zfetchrc
 # Atuin integration (pretty history)
 . "$HOME/.atuin/bin/env"
 eval "$(atuin init zsh)"
+
 
