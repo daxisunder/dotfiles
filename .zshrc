@@ -30,7 +30,7 @@ setopt LIST_PACKED         # The completion menu takes less space
 setopt AUTO_LIST           # Automatically list choices on ambiguous completion
 setopt COMPLETE_IN_WORD    # Complete from both ends of a word
 setopt correct             # Auto-corrections
-setopt AUTOCD              # Change directory just by typing its name
+setopt autocd              # Change directory just by typing its name
 setopt PROMPT_SUBST        # Enable command substitution in prompt
 
 # Load engine (completions)
