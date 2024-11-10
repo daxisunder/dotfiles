@@ -81,10 +81,6 @@
                 {
                     "label": "󰝟",
                     "command": "pactl set-sink-mute @DEFAULT_SINK@ toggle"
-                },
-                {
-                    "label": "󰂯",
-                    "command": "blueman-manager"
                 }
             ]
         }
