@@ -1,8 +1,8 @@
-github_token = "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"
+github_token = "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"
 
 [graph_colors]
-level1 = "0,255,0"
-level2 = "160,32,240"
+level1 = "13,68,41"
+level2 = "0,255,0"
 level3 = "0,0,255"
 level4 = "255,0,0"
 
