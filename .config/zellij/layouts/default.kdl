@@ -15,7 +15,7 @@ layout {
                 border_enabled  "false"
                 mode_normal  "#[fg=yellow]NORMAL   "
                 // mode_normal  "#[fg=yellow]   "
-                mode_locked  "#[fg=red]LOCKED   "
+                mode_locked  "#[fg=red]LOCKED   "
                 mode_tmux    "#[bg=cyan]TMUX   "
                 // 
                 // ●
