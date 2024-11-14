@@ -6,7 +6,7 @@ layout {
         children
         pane size=1 borderless=true {
             plugin location="file:~/.config/zellij/plugins/zjstatus.wasm" {
-                format_left   "{mode}#[fg=black]{tabs}"
+                format_left   "{mode}#[fg=black]{tabs}  #[fg=green]{swap_layout}"
                 format_center "#[fg=cyan]-- {session} --"
                 format_right  "#[fg=#7CFC00,bold]  {datetime} #[fg=yellow] "
                 format_space  "#[fg=yellow] "
@@ -119,10 +119,18 @@ layout {
                 // separator between the tabs
                 tab_separator           "#[fg=cyan,bold] ⋮ "
 
+                // format when renaming a tab
+                tab_rename              "#[fg=#eba0ac,bg=#181825] {index} {name} {floating_indicator} "
+
                 // indicators
                 tab_sync_indicator       " "
                 tab_fullscreen_indicator " "
                 tab_floating_indicator   ""
+
+                // limit tab display count
+                tab_display_count         "3"  // limit to showing 3 tabs
+                tab_truncate_start_format "#[fg=red,bg=#181825] < +{count} ..."
+                tab_truncate_end_format   "#[fg=red,bg=#181825] ... +{count} >"
 
                 datetime        "#[fg=cyan,bold] {format}"
                 datetime_format "%A, %d %b %Y %H:%M"
