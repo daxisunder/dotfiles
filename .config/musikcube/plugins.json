@@ -1,0 +1,16 @@
+{
+  "libalsaout.so": true,
+  "libffmpegdecoder.so": true,
+  "libgmedecoder.so": true,
+  "libhttpdatastream.so": true,
+  "libmpris.so": true,
+  "libnullout.so": true,
+  "libopenmptdecoder.so": true,
+  "libpipewireout.so": true,
+  "libportaudioout.so": true,
+  "libpulseout.so": true,
+  "libserver.so": true,
+  "libstockencoders.so": true,
+  "libsupereqdsp.so": true,
+  "libtaglibreader.so": true
+}
