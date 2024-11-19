@@ -16,7 +16,7 @@ layout {
                 mode_normal  "#[fg=yellow,bold]NORMAL   "
                 // mode_normal  "#[fg=yellow]   "
                 mode_locked  "#[fg=red,bold]LOCKED   "
-                mode_tmux    "#[bg=cyan,bold]TMUX   "
+                mode_tmux    "#[fg=cyan,bold]TMUX   "
                 // 
                 // ●
                 // 
@@ -112,12 +112,12 @@ layout {
                 tab_normal_sync         "#[fg=#6C7086]{name}"
 
                 // formatting for the current active tab
-                tab_active              "#[fg=blue,bold]{name}#[fg=yellow,bold]{floating_indicator}"
+                tab_active              "#[fg=cyan,bold]{name}#[fg=yellow,bold]{floating_indicator}"
                 tab_active_fullscreen   "#[fg=yellow,bold]{name}#[fg=yellow,bold]{fullscreen_indicator}"
                 tab_active_sync         "#[fg=green,bold]{name}#[fg=yellow,bold]{sync_indicator}"
 
                 // separator between the tabs
-                tab_separator           "#[fg=cyan,bold] ⋮ "
+                tab_separator           "#[fg=blue,bold] ⋮ "
 
                 // format when renaming a tab
                 tab_rename              "#[fg=#eba0ac,bg=#181825] {index} {name} {floating_indicator} "
