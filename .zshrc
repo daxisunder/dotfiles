@@ -30,7 +30,7 @@ setopt LIST_PACKED         # The completion menu takes less space
 setopt AUTO_LIST           # Automatically list choices on ambiguous completion
 setopt COMPLETE_IN_WORD    # Complete from both ends of a word
 setopt correct             # Auto-corrections
-setopt autocd              # Change directory just by typing its name
+setopt AUTOCD              # Change directory just by typing its name
 setopt PROMPT_SUBST        # Enable command substitution in prompt
 
 # Load engine (completions)
@@ -165,7 +165,7 @@ alias ftldr='compgen -c | fzf | xargs tldr' # Search for man pages with tldr + f
 alias fman='compgen -c | fzf | xargs man' # Search for man pages with man + fzf
 alias src='source ~/.zshrc'
 alias nnn='nnn -d -c -H -r -D -i'
-alias tty='tty-clock -C1 -c'
+alias ttc='tty-clock -C6 -c'
 alias expacs="expac -S '%r/%n: %D'" # List dependencies w/o additional info
 
 # FZF integration + key bindings (CTRL R for fuzzy history finder)
@@ -191,4 +191,6 @@ source $HOME/.config/zfetch/zfetchrc
 . "$HOME/.atuin/bin/env"
 eval "$(atuin init zsh)"
 
+# Wikiman integration
+source /usr/share/wikiman/widgets/widget.zsh
 
