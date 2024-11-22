@@ -188,13 +188,12 @@ window#waybar.empty #window {
 
 #custom-cycle_wall {
   color: @peach;
-  padding-left: 5px;
+  padding-left: 20px;
   font-size: 150%;
 }
 
 #custom-hint {
   color: @peach;
-  padding-right: 10px;
   font-size: 150%;
 }
 
@@ -258,13 +257,13 @@ window#waybar.empty #window {
 #custom-menu {
   color: @teal;
   padding-left: 12px;
-  padding-right: 10px;
+  padding-right: 5px;
   font-size: 150%;
 }
 
 #custom-power {
   color: @red;
-  padding-left: 5px;
+  padding-left: 15px;
   font-size: 150%;
 }
 
@@ -284,6 +283,10 @@ window#waybar.empty #window {
 #custom-weather {
   color: @yellow;
   font-size: 150%;
+}
+
+#custom-speaker {
+  color: @yellow;
 }
 
 #pulseaudio {
