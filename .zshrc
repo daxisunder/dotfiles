@@ -198,3 +198,6 @@ eval "$(atuin init zsh)"
 # Wikiman integration
 source /usr/share/wikiman/widgets/widget.zsh
 
+# Pay-respects (better command-not-found) integration
+eval "$(pay-respects zsh --alias)"
+
