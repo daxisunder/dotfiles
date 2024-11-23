@@ -119,6 +119,7 @@ plugins=(
     sudo
     web-search
     you-should-use
+    zsh-autopair
     zsh-autosuggestions
     zsh-syntax-highlighting
     zsh-vi-mode
@@ -128,6 +129,9 @@ plugins=(
 function zvm_config() {
   ZVM_VI_INSERT_ESCAPE_BINDKEY=jj
 }
+
+# Replace Zsh's default readkey engine (ZLE to NEX)
+ZVM_READKEY_ENGINE=$ZVM_READKEY_ENGINE_NEX
 
 source $ZSH/oh-my-zsh.sh
 
