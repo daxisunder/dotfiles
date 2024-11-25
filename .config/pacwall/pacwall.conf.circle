@@ -1,0 +1,25 @@
+hook: "swaybg -i '$W' -m center -c '#000000'"
+attributes: {
+    graph: "bgcolor='#000000'"
+    package: {
+        common:     "shape=point, height=0.1, fontname=monospace, fontsize=10"
+        implicit:   "color='#dc322faa'"
+        explicit:   "color='#268bd2aa'"
+        orphan:     "color='#2aa198aa', fontcolor='#2aa198', peripheries=2, xlabel='\\N'"
+        unneeded:   ""
+        outdated:   "color='#b58900aa', fontcolor='#b58900', peripheries=3, xlabel='\\N'"
+        unresolved: "color='#d33682aa', fontcolor='#d33682', peripheries=4, xlabel='\\N'"
+        repository: {
+            core: ""
+            extra: ""
+            community: ""
+            multilib: ""
+            *: "color='#859900aa'"
+        }
+    }
+    dependency: {
+        common:   "color='#fdf6e30a'"
+        hard:     ""
+        optional: "arrowhead=empty, style=dashed"
+    }
+}
