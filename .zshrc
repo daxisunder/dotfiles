@@ -112,6 +112,7 @@ setopt hist_find_no_dups
 
 plugins=(
     archlinux
+    auto-notify
     colored-man-pages
     colorize
     fancy-ctrl-z
@@ -130,7 +131,7 @@ function zvm_config() {
   ZVM_VI_INSERT_ESCAPE_BINDKEY=jj
 }
 
-# Replace Zsh's default readkey engine (ZLE to NEX)
+# Replace zsh's default readkey engine (ZLE to NEX)
 ZVM_READKEY_ENGINE=$ZVM_READKEY_ENGINE_NEX
 
 source $ZSH/oh-my-zsh.sh
