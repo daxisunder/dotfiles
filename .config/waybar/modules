@@ -20,14 +20,16 @@
 		"6": [],
 		"7": [],
 		"8": [],
+		"9": [],
+		"10": [],
 	},
 	"format-icons": {
-		"active": "",
-		"default": "",
+		"active": "󰪥",
+		"default": "󰄰",
 	},
 },
-// ROMAN Numerals style
-"hyprland/workspaces#roman": {
+// Numbers style
+"hyprland/workspaces#num": {
 	"active-only": false,
 	"all-outputs": true,
 	"format": "{icon}",
@@ -41,18 +43,24 @@
 		"3": [],
 		"4": [],
 		"5": [],
+		"5": [],
+		"6": [],
+		"7": [],
+		"8": [],
+		"9": [],
+		"10": [],
 	},
 	"format-icons": {
-		"1": "I",
-		"2": "II",
-		"3": "III",
-		"4": "IV",
-		"5": "V",
-		"6": "VI",
-		"7": "VII",
-		"8": "VIII",
-		"9": "IX",
-		"10": "X",
+		"1": "01",
+		"2": "02",
+		"3": "03",
+		"4": "04",
+		"5": "05",
+		"6": "06",
+		"7": "07",
+		"8": "08",
+		"9": "09",
+		"10": "10",
 	},
 },
 // PACMAN Style
@@ -72,7 +80,9 @@
 		"5": [],
 		"6": [],
 		"7": [],
-		"8": []
+		"8": [],
+		"9": [],
+		"10": [],
 	},
 	"format": "{icon}",
 	"format-icons": {
@@ -400,7 +410,7 @@
 },
 "hyprland/window": {
 	"format": "{}",
-	"max-length": 55,
+	"max-length": 30,
 	"separate-outputs": true,
 	"offscreen-css": true,
 	"offscreen-css-text": "(inactive)",
@@ -622,9 +632,10 @@
 },
 "custom/hint": {
 	"format": "",
-	"on-click": "~/.config/hypr/scripts/KeyHints.sh",
+	"on-click": "$HOME/.config/hypr/scripts/KeyHints.sh",
+	"on-click-right": "$HOME/.config/hypr/scripts/KeyBinds.sh",
 	"tooltip": true,
-	"tooltip-format": "󱧣 Quick Tips",
+	"tooltip-format": "Left Click: Quick Tips\nRight Click: Keybinds",
 },
 "custom/keyboard": {
 	"exec": "cat ~/.cache/kb_layout",
@@ -685,7 +696,7 @@
 "custom/swaync": {
 	"tooltip": true,
 	"tooltip-format": "Left Click: Launch Notification Center\nRight Click: Do not Disturb",
-	"format": "{}{icon}",
+	"format": "{} {icon}",
 	"format-icons": {
 		"notification": "<span foreground='red'><sup></sup></span>",
 		"none": "",
