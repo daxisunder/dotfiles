@@ -98,7 +98,7 @@ window#waybar.empty #window {
 
 #workspaces button:hover {
   background: @black;
-  border: 2px solid @yellow;
+  border: 1px solid @yellow;
   border-radius: 20px;
   padding-left: 2px;
   padding-right: 4px;
@@ -115,7 +115,7 @@ window#waybar.empty #window {
 
 #workspaces button.active {
   color: @yellow;
-  border: 2px solid @yellow;
+  border: 1px solid @yellow;
   border-radius: 20px;
   padding-left: 2px;
   padding-right: 4px;
@@ -125,7 +125,7 @@ window#waybar.empty #window {
 
 #workspaces button.urgent {
   color: @yellow;
-  border: 2px solid @red;
+  border: 1px solid @red;
   border-radius: 20px;
 }
 
@@ -181,13 +181,14 @@ window#waybar.empty #window {
   color: @yellow;
   border: 2px solid @teal;
   border-radius: 20px;
-  padding-left: 15px;
-  padding-right: 15px;
+  padding-left: 14px;
+  padding-right: 12px;
   font-size: 150%;
 }
 
 #custom-cycle_wall {
   color: @peach;
+  padding-left: 8px;
   font-size: 150%;
 }
 
@@ -257,13 +258,13 @@ window#waybar.empty #window {
 #custom-menu {
   color: @teal;
   padding-left: 12px;
-  padding-right: 5px;
+  padding-right: 12px;
   font-size: 150%;
 }
 
 #custom-power {
   color: @red;
-  padding-left: 15px;
+  padding-left: 7px;
   font-size: 150%;
 }
 
