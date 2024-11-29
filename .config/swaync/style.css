@@ -18,7 +18,7 @@
 .control-center .notification-row:hover {
     opacity: 1;
     background: @noti-bg;
-    border-radius: 10px
+    border-radius: 6px
 }
 
 .notification-row {
@@ -164,7 +164,7 @@
     background: @noti-bg;
     border: 1.5px solid @noti-border-color;
 	color: @text-color;
-    border-radius: 10px;
+    border-radius: 8px;
 }
 
 .control-center-list {
@@ -186,7 +186,7 @@
 .widget-title {
     color: @noti-border-color;
     background: @noti-bg-alt;
-    padding: 3px 6px;
+    padding: 0px 6px;
     margin: 5px;
     font-size: 1rem;
     border-radius: 6px;
