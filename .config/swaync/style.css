@@ -186,7 +186,7 @@
 .widget-title {
     color: @noti-border-color;
     background: @noti-bg-alt;
-    padding: 0px 6px;
+    padding: 3px 6px;
     margin: 5px;
     font-size: 1rem;
     border-radius: 6px;
