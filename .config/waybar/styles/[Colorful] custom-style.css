@@ -172,8 +172,8 @@ window#waybar.empty #window {
   color: @green;
   border: 2px solid @teal;
   border-radius: 20px;
-  padding-left: 15px;
-  padding-right: 18px;
+  padding-left: 12px;
+  padding-right: 12px;
   font-size: 150%;
 }
 
@@ -200,7 +200,7 @@ window#waybar.empty #window {
 
 #cpu {
   font-size: 150%;
-  padding-left:15px;
+  padding-left:12px;
   color: @white;
   border-top: 2px solid @teal;
   border-bottom: 2px solid @teal;
@@ -227,7 +227,7 @@ window#waybar.empty #window {
 
 #disk {
   font-size: 150%;
-  padding-right:20px;
+  padding-right:16px;
   color: @white;
   border-top: 2px solid @teal;
   border-bottom: 2px solid @teal;
@@ -272,8 +272,8 @@ window#waybar.empty #window {
   color: @blue;
   border: 2px solid @teal;
   border-radius: 20px;
-  padding-left: 15px;
-  padding-right: 15px;
+  padding-left: 12px;
+  padding-right: 12px;
   font-size: 150%;
 }
 
