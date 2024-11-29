@@ -305,7 +305,6 @@ window#waybar.empty #window {
 #window {
   font-size: 120%;
   color: @mauve;
-  padding-left: 5px;
 }
 
 #mpris {
