@@ -43,11 +43,11 @@ window {
     cursor:                     "default";
     spacing:                    0px;
     border:                     2px;
-    border-radius:              10px;
+    border-radius:              8px;
     location:                   northwest;
     anchor:                     center;
-    x-offset:                   15px;
-    y-offset:                   15px;
+    x-offset:                   12px;
+    y-offset:                   11px;
 
     // Style Values
     width:                      50%;
