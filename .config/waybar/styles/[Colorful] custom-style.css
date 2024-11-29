@@ -169,11 +169,11 @@ window#waybar.empty #window {
 }
 
 #custom-swaync {
-  color: @green;
+  color: @peach;
   border: 2px solid @teal;
   border-radius: 20px;
-  padding-left: 12px;
-  padding-right: 14px;
+  padding-left: 14px;
+  padding-right: 16px;
   font-size: 150%;
 }
 
@@ -269,7 +269,7 @@ window#waybar.empty #window {
 }
 
 #custom-updater {
-  color: @blue;
+  color: @red;
   border: 2px solid @teal;
   border-radius: 20px;
   padding-left: 12px;
