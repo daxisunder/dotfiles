@@ -194,13 +194,13 @@ window#waybar.empty #window {
 
 #custom-hint {
   color: @peach;
-  padding-right: 12px;
+  padding-right: 13px;
   font-size: 150%;
 }
 
 #cpu {
   font-size: 150%;
-  padding-left:12px;
+  padding-left:10px;
   color: @white;
   border-top: 2px solid @teal;
   border-bottom: 2px solid @teal;
@@ -227,7 +227,7 @@ window#waybar.empty #window {
 
 #disk {
   font-size: 150%;
-  padding-right:16px;
+  padding-right:14px;
   color: @white;
   border-top: 2px solid @teal;
   border-bottom: 2px solid @teal;
@@ -305,6 +305,7 @@ window#waybar.empty #window {
 #window {
   font-size: 120%;
   color: @mauve;
+  padding-left: 8px;
 }
 
 #mpris {
