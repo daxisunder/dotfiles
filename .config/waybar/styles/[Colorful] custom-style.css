@@ -200,7 +200,7 @@ window#waybar.empty #window {
 
 #cpu {
   font-size: 150%;
-  padding-left:10px;
+  padding-left:9px;
   color: @white;
   border-top: 2px solid @teal;
   border-bottom: 2px solid @teal;
@@ -284,6 +284,7 @@ window#waybar.empty #window {
 #custom-weather {
   color: @yellow;
   font-size: 150%;
+  padding-right: 20px;
 }
 
 #custom-speaker {
