@@ -29,7 +29,9 @@ youtube = "mov-cli-youtube"
 [mov-cli.scrapers]
 # default = "youtube"
 test = "test.DEFAULT"
-yt = "youtube.DEFAULT"
+# yt = "youtube.DEFAULT"
+# yt = "youtube.pytube"
+yt = "youtube.yt-dlp"
 
 [mov-cli.http] # Don't mess with it if you don't know what you are doing!
 timeout = 15
