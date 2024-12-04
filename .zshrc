@@ -176,6 +176,10 @@ alias expacs="expac -S '%r/%n: %D'" # List dependencies w/o additional info
 # FZF integration + key bindings (CTRL R for fuzzy history finder)
 source <(fzf --zsh)
 
+# FZF previews
+export FZF_CTRL_T_OPTS="--preview 'bat --color=always -n --line-range :500 {}'"
+export FZF_ALT_C_OPTS="--preview 'eza --tree --color=always {} | head -200'"
+
 # Zoxide integration
 eval "$(zoxide init zsh)"
 
