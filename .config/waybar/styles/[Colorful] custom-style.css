@@ -1,7 +1,7 @@
 /* Custom Style */
 
 * {
-font-family: "JetBrainsMono Nerd Font";
+font-family: "zai Courier Polski 1941";
 font-weight: bold;
 min-height: 0;
 /* set font-size to 100% if font scaling is set to 1.00 using nwg-look */
@@ -15,7 +15,7 @@ font-feature-settings: '"zero", "ss01", "ss02", "ss03", "ss04", "ss05", "cv31"';
 window#waybar {
   transition-property: background-color;
   transition-duration: 0.5s;
-  border-bottom: 0px solid @sapphire;
+  border: 0px solid @sapphire;
   background: @black;
   border-radius: 10px;
 }
