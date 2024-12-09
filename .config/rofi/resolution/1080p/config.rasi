@@ -4,10 +4,10 @@
 
 /* ---- Configuration ---- */
 configuration {
-	font: "Fira Code SemiBold 12";
+	  font: "zai Courier Polski 1941 10";
 }
 
 element-text {
-    font:	"Fira Code SemiBold 14";
+    font:	"zai Courier Polski 1941 12";
 }
 

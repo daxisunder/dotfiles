@@ -4,7 +4,7 @@
 
 /* ---- Configuration ---- */
 configuration {
-	font:	"Fira Code SemiBold 13";
+	  font:	"zai Courier Polski 1941 12";
 }
 /* ---- Window ---- */
 window {
@@ -27,6 +27,6 @@ button {
 }
 
 element-text {
-    font:	"Fira Code SemiBold 16";
+    font:	"zai Courier Polski 1941 14";
 }
 
