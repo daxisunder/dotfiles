@@ -10,7 +10,7 @@
 @define-color text-color-alt @foreground;
 @define-color text-color-disabled rgba(150, 150, 150, 0.8);
 * {
-    font-family: "JetBrains Mono Nerd Font";
+    font-family: "zai Courier Polski 1941";
     font-weight: bold;
 }
 
@@ -27,7 +27,7 @@
 }
 
 .notification {
-	margin-top: 5px;
+	margin-top: 4px;
 	border-radius: 6px;
 }
 
