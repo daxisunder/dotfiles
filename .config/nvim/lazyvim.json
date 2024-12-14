@@ -5,6 +5,7 @@
     "lazyvim.plugins.extras.coding.yanky",
     "lazyvim.plugins.extras.editor.mini-diff",
     "lazyvim.plugins.extras.editor.mini-files",
+    "lazyvim.plugins.extras.editor.telescope",
     "lazyvim.plugins.extras.lang.git",
     "lazyvim.plugins.extras.lang.go",
     "lazyvim.plugins.extras.lang.java",
@@ -21,7 +22,7 @@
     "lazyvim.plugins.extras.util.mini-hipatterns"
   ],
   "news": {
-    "NEWS.md": "7429"
+    "NEWS.md": "10960"
   },
   "version": 7
 }
