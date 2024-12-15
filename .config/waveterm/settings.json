@@ -2,5 +2,5 @@
   "telemetry:enabled": false,
   "window:transparent": true,
   "window:opacity": 0.8,
-  "window:bgcolor": "#000000"
+  "window:bgcolor": "#00000080"
 }
