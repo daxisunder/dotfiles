@@ -1,8 +1,0 @@
-/* Hide tabbar completely */
-#TabsToolbar {
-    visibility: collapse;
-}
-
-#navigator-toolbox:hover #TabsToolbar {
-    visibility: colapse;
-}

@@ -4,6 +4,9 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
+# Set proper colors
+export TERM="xterm-256color"
+
 export ZSH="$HOME/.oh-my-zsh"
 
 # Set prompt
@@ -20,7 +23,7 @@ export BAT_STYLE="full"
 #export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 
 # Set neovim as manpager
-export MANPAGER='nvim +Man!'
+export MANPAGER="nvim +Man!"
 
 # Set some cool ZSH options
 setopt nocaseglob          # Case insensitive autocompletions
@@ -54,9 +57,9 @@ zstyle ':completion:*' matcher-list \
 		'm:{a-zA-Z}={A-Za-z}' \
 		'+r:|[._-]=* r:|=*' \
 		'+l:|=*'
-zstyle ':completion:*:warnings' format "%B%F{red}No matches for:%f %F{magenta}%d%b"
+zstyle ':completion:*:warnings' format '%B%F{red}No matches for:%f %F{magenta}%d%b'
 zstyle ':completion:*:descriptions' format '%F{yellow}[-- %d --]%f'
-zstyle ':vcs_info:*' formats ' %B%s-[%F{magenta}%f %F{yellow}%b%f]-'
+zstyle ':vcs_info:*' formats '%B%s-[%F{magenta}%f %F{yellow}%b%f]-'
 
 # Set waiting dots
 expand-or-complete-with-dots() {
@@ -126,9 +129,9 @@ plugins=(
     zsh-vi-mode
 )
 
-# Bind ESC to jj in zsh-vi-mode
+# Bind ESC to jk in zsh-vi-mode
 function zvm_config() {
-  ZVM_VI_INSERT_ESCAPE_BINDKEY=jj
+  ZVM_VI_INSERT_ESCAPE_BINDKEY=jk
 }
 
 # Replace zsh's default readkey engine (ZLE to NEX)
@@ -142,6 +145,7 @@ alias lal='eza -al --icons'
 alias la='eza -a --tree --level=1 --icons'
 alias q='exit'
 alias z='cd'
+alias nv='nvim'
 alias yayd='yay --devel'
 alias yayrsn='yay -Rsn'
 alias yayrsu='yay -Rsu'
@@ -172,6 +176,7 @@ alias src='source ~/.zshrc'
 alias nnn='nnn -d -c -H -r -D -i'
 alias ttc='tty-clock -C6 -c'
 alias expacs="expac -S '%r/%n: %D'" # List dependencies w/o additional info
+alias cfg='/usr/bin/git --git-dir=/home/daxis/.cfg/ --work-tree=/home/daxis' # For dotfiles repo (.cfg)
 
 # FZF integration + key bindings (CTRL R for fuzzy history finder)
 source <(fzf --zsh)
@@ -205,4 +210,5 @@ source /usr/share/wikiman/widgets/widget.zsh
 
 # Pay-respects (better command-not-found) integration
 eval "$(pay-respects zsh --alias)"
+
 
