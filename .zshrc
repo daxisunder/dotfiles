@@ -172,6 +172,7 @@ alias src='source ~/.zshrc'
 alias nnn='nnn -d -c -H -r -D -i'
 alias ttc='tty-clock -C6 -c'
 alias expacs="expac -S '%r/%n: %D'" # List dependencies w/o additional info
+alias nv='nvim'
 
 # FZF integration + key bindings (CTRL R for fuzzy history finder)
 source <(fzf --zsh)
