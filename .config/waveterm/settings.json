@@ -1,6 +1,6 @@
 {
   "telemetry:enabled": false,
   "window:transparent": true,
-  "window:opacity": 0.8,
+  "window:opacity": 0.7,
   "window:bgcolor": "#000000"
 }
