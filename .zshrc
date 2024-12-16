@@ -20,7 +20,7 @@ export BAT_STYLE="full"
 #export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 
 # Set neovim as manpager
-export MANPAGER='nvim +Man!'
+export MANPAGER="nvim +Man!"
 
 # Set some cool ZSH options
 setopt nocaseglob          # Case insensitive autocompletions
@@ -190,6 +190,9 @@ eval "$(zellij setup --generate-auto-start zsh)"
 # Display Pokemon-colorscripts
 #Project page: https://gitlab.com/phoneybadger/pokemon-colorscripts#on-other-distros-and-macos
 #pokemon-colorscripts --no-title -s -r
+
+# Start colorscript
+#source $HOME/scripts/arch
 
 # Auto-start "zombie-zfetch"
 source $HOME/.config/zfetch/zfetchrc
