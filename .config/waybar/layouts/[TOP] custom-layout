@@ -10,7 +10,7 @@
 "spacing": 6,
 "fixed-center": true,
 "ipc": true,
-"margin-top": 0,
+"margin-top": 2,
 "margin-bottom": 0,
 "margin-left": 6,
 "margin-right": 6,
@@ -18,7 +18,7 @@
 "modules-left": [
 	"custom/menu",
 	"custom/separator#blank",
-	"hyprland/workspaces",
+  "custom/updater",
 	"custom/separator#blank",
 	"custom/cycle_wall",
 	"custom/hint",
@@ -30,7 +30,7 @@
 "modules-center": [
 	"clock",
 	"custom/separator#blank",
-	"custom/updater",
+	"hyprland/workspaces#num",
 	"custom/separator#blank",
 	"custom/weather",	
 	],
