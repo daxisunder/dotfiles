@@ -20,8 +20,6 @@
 		"6": [],
 		"7": [],
 		"8": [],
-		"9": [],
-		"10": [],
 	},
 	"format-icons": {
 		"active": "󰪥",
@@ -47,8 +45,6 @@
 		"6": [],
 		"7": [],
 		"8": [],
-		"9": [],
-		"10": [],
 	},
 	"format-icons": {
 		"1": "01",
@@ -59,8 +55,6 @@
 		"6": "06",
 		"7": "07",
 		"8": "08",
-		"9": "09",
-		"10": "10",
 	},
 },
 // PACMAN Style
@@ -81,8 +75,6 @@
 		"6": [],
 		"7": [],
 		"8": [],
-		"9": [],
-		"10": [],
 	},
 	"format": "{icon}",
 	"format-icons": {
@@ -410,7 +402,7 @@
 },
 "hyprland/window": {
 	"format": "{}",
-	"max-length": 30,
+	"max-length": 50,
 	"separate-outputs": true,
 	"offscreen-css": true,
 	"offscreen-css-text": "(inactive)",
@@ -660,8 +652,8 @@
 },
 "custom/menu": {
 	//"format": "",
-	//"format": "",
-	"format": "",
+	"format": "",
+	//"format": "",
 	"on-click": "pkill rofi || rofi -show drun -modi run,drun,filebrowser,window",
 	"on-click-middle": "~/.config/hypr/UserScripts/WallpaperSelect.sh",
 	"on-click-right": "~/.config/hypr/scripts/WaybarLayout.sh",
@@ -687,7 +679,7 @@
 	"smooth-scrolling-threshold": 1,
 },
 "custom/power": {
-	"format": "⏻ ",
+	"format": "󱄇",
 	"on-click": "~/.config/hypr/scripts/Wlogout.sh",
 	"on-click-right": "~/.config/hypr/scripts/ChangeBlur.sh",
 	"tooltip": true,
