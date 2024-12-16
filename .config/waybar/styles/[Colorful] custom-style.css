@@ -1,7 +1,7 @@
 /* Custom Style */
 
 * {
-font-family: "Veteran Typewriter";
+font-family: "zai Courier Polski 1941";
 font-weight: bold;
 min-height: 0;
 /* set font-size to 100% if font scaling is set to 1.00 using nwg-look */
@@ -84,48 +84,48 @@ window#waybar.empty #window {
 }
 
 #workspaces {
-  border: 2px solid @teal;
+  font-size: 150%;
   border-radius: 20px 10px 20px 10px ;
 }
 
 #workspaces button {
   border-radius: 10px;
-  padding-left: 2px;
-  padding-right: 4px;
+  padding-left: 8px;
+  padding-right: 8px;
   animation: gradient_f 20s ease-in infinite;
   transition: all 0.5s cubic-bezier(.55,-0.68,.48,1.682);
 }
 
 #workspaces button:hover {
   background: @black;
-  border: 1px solid @yellow;
+  border: 2px solid @yellow;
   border-radius: 20px;
-  padding-left: 2px;
-  padding-right: 4px;
+  padding-left: 8px;
+  padding-right: 8px;
   animation: gradient_f 20s ease-in infinite;
   transition: all 0.3s cubic-bezier(.55,-0.68,.48,1.682);
 }
 
 #workspaces button.persistent {
-  color: @surface1;
-  border-radius: 10px;
-  padding-left: 2px;
-  padding-right: 4px;
+  color: @surface0;
+  border-radius:20px;
+  padding-left: 8px;
+  padding-right: 8px;
 }
 
 #workspaces button.active {
   color: @yellow;
-  border: 1px solid @yellow;
+  border: 2px solid @teal;
   border-radius: 20px;
-  padding-left: 2px;
-  padding-right: 4px;
+  padding-left: 8px;
+  padding-right: 8px;
   animation: gradient_f 20s ease-in infinite;
   transition: all 0.3s cubic-bezier(.55,-0.68,.48,1.682);
 }
 
 #workspaces button.urgent {
   color: @yellow;
-  border: 1px solid @red;
+  border: 2px solid @red;
   border-radius: 20px;
 }
 
@@ -182,7 +182,7 @@ window#waybar.empty #window {
   border: 2px solid @teal;
   border-radius: 20px;
   padding-left: 14px;
-  padding-right: 12px;
+  padding-right: 14px;
   font-size: 150%;
 }
 
@@ -257,7 +257,7 @@ window#waybar.empty #window {
 
 #custom-menu {
   color: @teal;
-  padding-left: 12px;
+  padding-left: 10px;
   padding-right: 12px;
   font-size: 150%;
 }
@@ -265,6 +265,7 @@ window#waybar.empty #window {
 #custom-power {
   color: @red;
   padding-left: 7px;
+  padding-right:14px;
   font-size: 150%;
 }
 
@@ -304,7 +305,7 @@ window#waybar.empty #window {
 }
 
 #window {
-  font-size: 120%;
+  font-size: 125%;
   color: @mauve;
   padding-left: 8px;
 }
