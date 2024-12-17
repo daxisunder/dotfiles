@@ -173,6 +173,9 @@ alias nnn='nnn -d -c -H -r -D -i'
 alias ttc='tty-clock -C6 -c'
 alias expacs="expac -S '%r/%n: %D'" # List dependencies w/o additional info
 alias nv='nvim'
+alias pd='pushd'
+alias ppd='popd'
+alias dv='dirs -v'
 
 # FZF integration + key bindings (CTRL R for fuzzy history finder)
 source <(fzf --zsh)
@@ -191,8 +194,8 @@ eval "$(zellij setup --generate-auto-start zsh)"
 #Project page: https://gitlab.com/phoneybadger/pokemon-colorscripts#on-other-distros-and-macos
 #pokemon-colorscripts --no-title -s -r
 
-# Start colorscript
-#source $HOME/scripts/arch
+# Display colorscrips
+#source $HOME/scripts/skull
 
 # Auto-start "zombie-zfetch"
 source $HOME/.config/zfetch/zfetchrc
