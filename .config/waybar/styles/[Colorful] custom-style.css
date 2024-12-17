@@ -84,8 +84,8 @@ window#waybar.empty #window {
 }
 
 #workspaces {
-  font-size: 150%;
-  border-radius: 20px 10px 20px 10px ;
+  font-size: 175%;
+  border-radius: 20px;
 }
 
 #workspaces button {
@@ -98,7 +98,6 @@ window#waybar.empty #window {
 
 #workspaces button:hover {
   background: @black;
-  border: 2px solid @yellow;
   border-radius: 20px;
   padding-left: 8px;
   padding-right: 8px;
@@ -107,15 +106,14 @@ window#waybar.empty #window {
 }
 
 #workspaces button.persistent {
-  color: @surface0;
+  color: @white;
   border-radius:20px;
   padding-left: 8px;
   padding-right: 8px;
 }
 
 #workspaces button.active {
-  color: @yellow;
-  border: 2px solid @teal;
+  color: @teal;
   border-radius: 20px;
   padding-left: 8px;
   padding-right: 8px;
@@ -124,8 +122,7 @@ window#waybar.empty #window {
 }
 
 #workspaces button.urgent {
-  color: @yellow;
-  border: 2px solid @red;
+  color: @rd;
   border-radius: 20px;
 }
 
@@ -165,7 +162,7 @@ window#waybar.empty #window {
 #clock {
   color: @yellow;
   font-size: 150%;
-  padding-right: 5px;
+  padding-right: 7px;
 }
 
 #custom-swaync {
@@ -200,12 +197,12 @@ window#waybar.empty #window {
 
 #cpu {
   font-size: 150%;
-  padding-left:9px;
+  padding-left:12px;
   color: @white;
   border-top: 2px solid @teal;
   border-bottom: 2px solid @teal;
   border-left: 2px solid @teal;
-  border-radius: 10px 0px 0px 20px;
+  border-radius: 20px 0px 0px 20px;
 }
 
 #memory {
@@ -227,12 +224,12 @@ window#waybar.empty #window {
 
 #disk {
   font-size: 150%;
-  padding-right:14px;
+  padding-right:16px;
   color: @white;
   border-top: 2px solid @teal;
   border-bottom: 2px solid @teal;
   border-right: 2px solid @teal;
-  border-radius: 0px 20px 10px 0px;
+  border-radius: 0px 20px 20px 0px;
 }
 
 #temperature.critical {
@@ -305,8 +302,8 @@ window#waybar.empty #window {
 }
 
 #window {
-  font-size: 125%;
-  color: @mauve;
+  font-size: 150%;
+  color: @white;
   padding-left: 8px;
 }
 
