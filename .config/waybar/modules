@@ -45,6 +45,8 @@
 		"6": [],
 		"7": [],
 		"8": [],
+    "9": [],
+    "10": [],
 	},
 	"format-icons": {
 		"1": "01",
@@ -55,6 +57,8 @@
 		"6": "06",
 		"7": "07",
 		"8": "08",
+    "9": "09",
+    "10": "10",
 	},
 },
 // PACMAN Style
@@ -402,7 +406,7 @@
 },
 "hyprland/window": {
 	"format": "{}",
-	"max-length": 50,
+	"max-length": 32,
 	"separate-outputs": true,
 	"offscreen-css": true,
 	"offscreen-css-text": "(inactive)",
