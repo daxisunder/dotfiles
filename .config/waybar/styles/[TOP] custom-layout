@@ -1,0 +1,50 @@
+// ### Minimal - Long ### //
+
+{
+"include": "~/.config/waybar/modules",
+"layer": "top",
+//"mode": "dock",
+"exclusive": true,
+"passthrough": false,
+"position": "top",
+"spacing": 6,
+"fixed-center": true,
+"ipc": true,
+"margin-top": 2,
+"margin-bottom": 0,
+"margin-left": 6,
+"margin-right": 6,
+
+"modules-left": [
+	"custom/menu",
+	"custom/separator#blank",
+  "custom/updater",
+	"custom/separator#blank",
+	"custom/cycle_wall",
+	"custom/hint",
+	"custom/separator#blank",
+	"custom/keyboard",
+	"custom/separator#blank",
+	"hyprland/window",
+	],
+"modules-center": [
+	"clock",
+	"custom/separator#blank",
+	"hyprland/workspaces#num",
+	"custom/separator#blank",
+	"custom/weather",	
+	],
+"modules-right": [
+	"tray",
+	"custom/separator#blank",
+	"group/motherboard",
+	"custom/separator#blank",
+	"pulseaudio#1",
+	"pulseaudio/slider",
+	"custom/separator#blank",
+	"custom/swaync",
+	"custom/separator#blank",
+	"custom/power",
+	],
+
+}
