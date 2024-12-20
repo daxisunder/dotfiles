@@ -1,10 +1,6 @@
 return {
-  { "Abstract-IDE/Abstract-cs", priority = 1000 },
-
-  {
-    "LazyVim/LazyVim",
-    opts = {
-      colorscheme = "tokyonight-night",
-    },
+  "LazyVim/LazyVim",
+  opts = {
+    colorscheme = "tokyonight-night",
   },
 }
