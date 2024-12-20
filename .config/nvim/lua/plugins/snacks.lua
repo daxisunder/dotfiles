@@ -23,6 +23,7 @@ return {
     terminal = {
       win = {
         position = "float",
+        style = "minimal",
         border = "rounded",
       },
     },
@@ -70,7 +71,7 @@ return {
         formats = {
           icon = function(item)
             if item.file and item.icon == "file" or item.icon == "directory" then
-              return M.icon(item.file, item.icon)
+              return { item.icon, width = 2, hl = "icon" }
             end
             return { item.icon, width = 2, hl = "icon" }
           end,
