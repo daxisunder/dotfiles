@@ -1,11 +1,10 @@
 return {
   "folke/snacks.nvim",
-    priority = 1000,
-    lazy = false,
+  priority = 1000,
+  lazy = false,
   ---@type snacks.Config
   opts = {
     bigfile = { enabled = true },
-    dashboard = { enabled = true },
     indent = { enabled = false },
     input = { enabled = true },
     notifier = {
@@ -24,12 +23,10 @@ return {
     terminal = {
       win = {
         position = "float",
+        border = "rounded",
       },
     },
     dashboard = {
-      ---@class snacks.dashboard.Config
-      ---@field sections snacks.dashboard.Section
-      ---@field formats table<string, snacks.dashboard.Text|fun(item:snacks.dashboard.Item, ctx:snacks.dashboard.Format.ctx):snacks.dashboard.Text>
       {
         width = 60,
         row = nil, -- dashboard position. nil for center
