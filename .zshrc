@@ -128,7 +128,7 @@ plugins=(
 
 # Bind ESC to jj in zsh-vi-mode
 function zvm_config() {
-  ZVM_VI_INSERT_ESCAPE_BINDKEY=jj
+  ZVM_VI_INSERT_ESCAPE_BINDKEY=jk
 }
 
 # Replace zsh's default readkey engine (ZLE to NEX)
@@ -194,7 +194,7 @@ eval "$(zellij setup --generate-auto-start zsh)"
 #Project page: https://gitlab.com/phoneybadger/pokemon-colorscripts#on-other-distros-and-macos
 #pokemon-colorscripts --no-title -s -r
 
-# Display colorscrips
+# Display colorscripts
 #source $HOME/scripts/skull
 
 # Auto-start "zombie-zfetch"
@@ -212,4 +212,14 @@ source /usr/share/wikiman/widgets/widget.zsh
 
 # Pay-respects (better command-not-found) integration
 eval "$(pay-respects zsh --alias)"
+
+# Yazi integration
+function y() {
+	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+	yazi "$@" --cwd-file="$tmp"
+	if cwd="$(command cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+		builtin cd -- "$cwd"
+	fi
+	rm -f -- "$tmp"
+}
 
