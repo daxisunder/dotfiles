@@ -2,7 +2,7 @@ return {
   "echasnovski/mini.files",
   require("mini.files").setup({
     windows = {
-      preview = false,
+      preview = true,
       width_focus = 30,
       width_preview = 30,
     },
