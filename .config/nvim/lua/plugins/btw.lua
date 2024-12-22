@@ -3,7 +3,7 @@ return {
   enabled = false,
   config = function()
     require("btw").setup({
-      text = "I use Arch, btw... and NeoVim too.",
+      text = "I use Arch, btw...",
     })
   end,
 }
