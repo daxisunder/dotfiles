@@ -22,11 +22,11 @@ return {
       "renderer",
       wilder.popupmenu_renderer(wilder.popupmenu_border_theme({
         highlights = {
-          border = "Normal",
+          border = "FloatBorder",
         },
         -- stylua: ignore
         border = {
-          '╭──', '──', '──╮',
+          '╭──', '── Cmd ──', '──╮',
           '│', '│',
           '╰──', '──', '──╯',
         },
