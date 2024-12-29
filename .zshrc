@@ -142,6 +142,8 @@ alias lal='eza -al --icons'
 alias la='eza -a --tree --level=1 --icons'
 alias q='exit'
 alias z='cd'
+alias ..='cd ..'
+alias ...='cd ../..'
 alias yayd='yay --devel'
 alias yayrsn='yay -Rsn'
 alias yayrsu='yay -Rsu'
@@ -166,6 +168,8 @@ alias pacqi='pacman -Qi'
 alias pacsi='pacman -Si'
 alias pacsii='pacman -Sii' # List reverse dependencies
 alias pacrq='sudo pacman -Rsn $(pacman -Qtdq)' # List & remove all unneeded dependencies
+alias yu="yay -Qq|fzf -m --preview \"yay -Qil {}\" --layout=reverse|xargs -ro sudo yay -Rsn"
+alias yi="yay -Slq|fzf -m --preview 'cat <(yay -Qi {1}|grep -e \"Install Reason\";echo '') <(yay`` -Si {1}) <(yay -Fl {1}|awk \"{print \$2}\")'|xargs -ro yay -S"
 alias ftldr='compgen -c | fzf | xargs tldr' # Search for man pages with tldr + fzf
 alias fman='compgen -c | fzf | xargs man' # Search for man pages with man + fzf
 alias src='source ~/.zshrc'
