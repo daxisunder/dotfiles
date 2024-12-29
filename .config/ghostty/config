@@ -1,0 +1,14 @@
+gtk-titlebar = false
+background = 000000
+foreground = ffffff
+theme = Abernathy
+shell-integration = zsh
+confirm-close-surface = false
+background-opacity = 0.8
+background-blur-radius = 20
+font-family = Jet Brains Mono NF
+font-family-bold = Jet Brains Mono NF Bold
+font-family-italic = Jet Brains Mono NF Italic
+font-family-bold-italic = auto
+font-size = 11.0
+copy-on-select = clipboard
