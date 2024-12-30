@@ -260,26 +260,26 @@ on_force_close "quit"
 // For more examples, see: https://github.com/zellij-org/zellij/tree/main/example/themes
 // Once these themes are defined, one of them should to be selected in the "theme" section of this file
 //
-// themes {
-//     dracula {
-//         fg 248 248 242
-//         bg 40 42 54
-//         red 255 85 85
-//         green 80 250 123
-//         yellow 241 250 140
-//         blue 98 114 164
-//         magenta 255 121 198
-//         orange 255 184 108
-//         cyan 139 233 253
-//         black 0 0 0
-//         white 255 255 255
-//     }
-// }
+themes {
+  tokyo-night {
+      fg 255 255 255
+      bg 0 0 0
+      black 0 0 0
+      red 249 51 87
+      green 158 206 106
+      yellow 224 175 104
+      blue 122 162 247
+      magenta 187 154 247
+      cyan 42 195 222
+      white 255 255 255
+      orange 255 158 100
+  }
+}
 
 // Choose the theme that is specified in the themes section.
 // Default: default
 //
-// theme "default"
+theme "tokyo-night"
 
 // The name of the default layout to load on startup
 // Default: "default"
@@ -289,7 +289,7 @@ default_layout "default"
 // Choose the mode that zellij uses when starting up.
 // Default: normal
 //
-// default_mode "locked"
+default_mode "locked"
 
 // Toggle enabling the mouse mode.
 // On certain configurations, or terminals this could
