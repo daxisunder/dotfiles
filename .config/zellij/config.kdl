@@ -262,7 +262,7 @@ on_force_close "quit"
 //
 themes {
   tokyo-night {
-      fg 255 255 255
+      fg 255 255 237
       bg 0 0 0
       black 0 0 0
       red 249 51 87
