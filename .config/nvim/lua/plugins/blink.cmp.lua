@@ -17,7 +17,7 @@ return {
     signature = { window = { border = "rounded" } },
   },
   sources = {
-    default = { "lsp", "path", "snippets", "buffer", "copilot" },
+    default = { "lsp", "path", "snippets", "buffer", "copilot", "orgmode" },
     providers = {
       copilot = {
         name = "copilot",
@@ -33,6 +33,10 @@ return {
           end
           return items
         end,
+      },
+      orgmode = {
+        name = "Orgmode",
+        module = "orgmode.org.autocompletion.blink",
       },
     },
   },
