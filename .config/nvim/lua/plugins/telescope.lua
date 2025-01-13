@@ -1,5 +1,16 @@
 return {
   "nvim-telescope/telescope.nvim",
+  config = function()
+    require("telescope").setup({
+      defaults = {
+        layout_config = {
+          horizontal = {
+            preview_width = 0.55,
+          },
+        },
+      },
+    })
+  end,
   keys = {
     -- add a keymap to browse plugin files
     -- stylua: ignore
