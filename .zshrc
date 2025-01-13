@@ -95,6 +95,31 @@ function command_not_found_handler {
     return 127
 }
 
+# Archive extraction (usage: ex <file>)
+ex() {
+  if [ -f "$1" ] ; then
+    case $1 in
+      *.tar.bz2)   tar xjf $1    ;;
+      *.tar.gz)    tar xzf $1    ;;
+      *.bz2)       bunzip2 $1    ;;
+      *.rar)       unrar x $1    ;;
+      *.gz)        gunzip $1     ;;
+      *.tar)       tar xf $1     ;;
+      *.tbz2)      tar xjf $1    ;;
+      *.tgz)       tar xzf $1    ;;
+      *.zip)       unzip $1      ;;
+      *.Z)         uncompress $1 ;;
+      *.7z)        7z x $1       ;;
+      *.deb)       ar x $1       ;;
+      *.tar.xz)    tar xf $1     ;;
+      *.tar.zst)   unzstd xf $1  ;;
+      *)           echo "'$1' cannot be extracted via ex()" ;;
+    esac
+  else
+    echo "'$1' is not a valid file"
+  fi
+}
+
 # History
 HISTFILE=~/.zsh_history
 HISTSIZE=10000
@@ -126,7 +151,7 @@ plugins=(
     zsh-vi-mode
 )
 
-# Bind ESC to jj in zsh-vi-mode
+# Bind ESC to jk in zsh-vi-mode
 function zvm_config() {
   ZVM_VI_INSERT_ESCAPE_BINDKEY=jk
 }
@@ -140,10 +165,22 @@ source $ZSH/oh-my-zsh.sh
 alias ls='eza -a --icons'
 alias lal='eza -al --icons'
 alias la='eza -a --tree --level=1 --icons'
+alias l.='eza -a | egrep "^\."'  # Show only hidden files
 alias q='exit'
 alias z='cd'
 alias ..='cd ..'
-alias ...='cd ../..'
+alias .2='cd ../..'
+alias .3='cd ../../..'
+alias .4='cd ../../../..'
+alias .5='cd ../../../../..'
+alias cp='cp -i' # Confirm before overwriting something
+alias mv='mv -i' # Confirm before overwriting something
+alias rm='rm -i' # Confirm before removing something
+alias mkdir='mkdir -p' # Create parent directories on the fly
+alias ping='ping -c 5'
+alias df='df -h'
+alias du='du -h'
+alias ysua='yay -Sua' # Update only AUR packages
 alias yayd='yay --devel'
 alias yayrsn='yay -Rsn'
 alias yayrsu='yay -Rsu'
@@ -156,7 +193,10 @@ alias yayqi='yay -Qi'
 alias yaysi='yay -Si'
 alias yaysii='yay -Sii' # List reverse dependencies
 alias yayrq='yay -Rsn $(yay -Qdtq)' # List & remove all unneeded dependencies
+alias yi="yay -Slq|fzf -m --preview 'cat <(yay -Qi {1}|grep -e \"Install Reason\";echo '') <(yay`` -Si {1}) <(yay -Fl {1}|awk \"{print \$2}\")'|xargs -ro yay -S"
+alias yu="yay -Qq|fzf -m --preview \"yay -Qil {}\" --layout=reverse|xargs -ro sudo yay -Rsn"
 alias pacsyu='sudo pacman -Syu'
+alias pacsyyu='sudo pacman -Syyu' # Update only standard packages
 alias pacrsn='sudo pacman -Rsn'
 alias pacrsu='sudo pacman -Rsu'
 alias pacrsnu='sudo pacman -Rsnu'
@@ -168,18 +208,24 @@ alias pacqi='pacman -Qi'
 alias pacsi='pacman -Si'
 alias pacsii='pacman -Sii' # List reverse dependencies
 alias pacrq='sudo pacman -Rsn $(pacman -Qtdq)' # List & remove all unneeded dependencies
-alias yu="yay -Qq|fzf -m --preview \"yay -Qil {}\" --layout=reverse|xargs -ro sudo yay -Rsn"
-alias yi="yay -Slq|fzf -m --preview 'cat <(yay -Qi {1}|grep -e \"Install Reason\";echo '') <(yay`` -Si {1}) <(yay -Fl {1}|awk \"{print \$2}\")'|xargs -ro yay -S"
+alias unlock='sudo rm -f /var/lib/pacman/db.lck' # Unlock pacman
 alias ftldr='compgen -c | fzf | xargs tldr' # Search for man pages with tldr + fzf
 alias fman='compgen -c | fzf | xargs man' # Search for man pages with man + fzf
 alias src='source ~/.zshrc'
-alias nnn='nnn -d -c -H -r -D -i'
 alias ttc='tty-clock -C6 -c'
 alias expacs="expac -S '%r/%n: %D'" # List dependencies w/o additional info
 alias nv='nvim'
 alias pd='pushd'
 alias ppd='popd'
 alias dv='dirs -v'
+alias grep='grep --color=auto'
+alias egrep='egrep --color=auto'
+alias fgrep='fgrep --color=auto'
+alias psmem='ps auxf | sort -nr -k 4 | head -10' # Show top 10 memory-consuming processes
+alias pscpu='ps auxf | sort -nr -k 3 | head -10' # Show top 10 CPU-consuming processes
+alias ssn='sudo shutdown now'
+alias sr='sudo reboot'
+alias jctl='journalctl -p 3-xb' # Show logs with priority 3 and above (errors)
 
 # FZF integration + key bindings (CTRL R for fuzzy history finder)
 source <(fzf --zsh)
@@ -195,11 +241,11 @@ eval "$(zoxide init zsh)"
 eval "$(zellij setup --generate-auto-start zsh)"
 
 # Display Pokemon-colorscripts
-#Project page: https://gitlab.com/phoneybadger/pokemon-colorscripts#on-other-distros-and-macos
+# Project page: https://gitlab.com/phoneybadger/pokemon-colorscripts#on-other-distros-and-macos
 #pokemon-colorscripts --no-title -s -r
 
 # Display colorscripts
-#source $HOME/scripts/skull
+#colorscript -r
 
 # Auto-start "zombie-zfetch"
 source $HOME/.config/zfetch/zfetchrc
