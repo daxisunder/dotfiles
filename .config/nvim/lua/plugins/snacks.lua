@@ -55,7 +55,7 @@ return {
         {
           pane = 2,
           section = "terminal",
-          cmd = "~/scripts/square",
+          cmd = "colorscript -e square",
           height = 7,
           padding = 1,
         },
@@ -97,6 +97,7 @@ return {
     },
     terminal = {
       win = {
+        relative = "editor",
         position = "float",
         style = "minimal",
         border = "rounded",
