@@ -5,14 +5,14 @@ return {
   config = function()
     require("screenkey").setup({
       win_opts = {
-        row = vim.o.lines - vim.o.cmdheight - 1,
-        col = vim.o.columns - 1,
+        row = vim.o.lines - vim.o.cmdheight - 0,
+        col = vim.o.columns - 0,
         relative = "editor",
         anchor = "SE",
         width = 40,
         height = 3,
         border = "rounded",
-        title = "Screenkey",
+        title = " Screenkey ",
         title_pos = "center",
         style = "minimal",
         focusable = false,
