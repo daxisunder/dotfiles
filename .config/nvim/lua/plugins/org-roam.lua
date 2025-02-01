@@ -7,9 +7,9 @@ return {
   },
   config = function()
     require("org-roam").setup({
-      directory = "~/Dropbox/org.roam",
+      directory = "~/Dropbox/orgroam",
       org_files = {
-        "~/Dropbox/org.files",
+        "~/Dropbox/orgfiles",
       },
     })
   end,
