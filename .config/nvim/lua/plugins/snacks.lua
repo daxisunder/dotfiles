@@ -27,9 +27,10 @@ return {
             desc = "Config",
             action = ":lua Snacks.dashboard.pick('files', {cwd = vim.fn.stdpath('config')})",
           },
-          { icon = " ", key = "s", desc = "Restore Session", section = "session" },
-          { icon = "󱋒", key = "l", desc = "Lazy", action = ":Lazy", enabled = package.loaded.lazy ~= nil },
-          { icon = "", key = "x", desc = "LazyExtras", action = ":LazyExtras" },
+          { icon = "󱄍", key = "s", desc = "Restore Session", section = "session" },
+          { icon = "󰒳", key = "l", desc = "Lazy", action = ":Lazy", enabled = package.loaded.lazy ~= nil },
+          { icon = "", key = "x", desc = "Lazy Extras", action = ":LazyExtras" },
+          { icon = "󰘥", key = "h", desc = "Help Files", action = ":lua Snacks.dashboard.pick('help_tags')" },
           { icon = "", key = "q", desc = "Quit", action = ":qa" },
         },
         -- Used by the `header` section
