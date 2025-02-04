@@ -4,7 +4,6 @@ return {
   lazy = false,
   ---@type snacks.Config
   opts = {
-    dashoad = { enabled = true },
     dashboard = {
       width = 60,
       row = nil, -- dashboard position. nil for center
@@ -98,6 +97,8 @@ return {
     },
     animate = { enzbled = true },
     bigfile = { enabled = true },
+    blame_line = { enabled = true },
+    gitbrowse = { enabled = true },
     indent = { enabled = false },
     input = { enabled = true },
     notifier = {
@@ -105,11 +106,12 @@ return {
       timeout = 6000,
     },
     quickfile = { enabled = true },
+    scope = { enabled = true },
     scroll = { enabled = true },
     statuscolumn = { enabled = true },
-    words = { enabled = true },
     styles = {
       notification = {
+        relative = "editor",
         wo = { wrap = true }, -- Wrap notifications
       },
     },
@@ -121,5 +123,6 @@ return {
         border = "rounded",
       },
     },
+    words = { enabled = true },
   },
 }
