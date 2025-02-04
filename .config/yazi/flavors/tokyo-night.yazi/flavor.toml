@@ -5,8 +5,8 @@ highlight = "~/.config/yazi/flavors/tokyo-night.yazi/tmtheme.xml"
 cwd = { fg = "#a9b1d6", italic = true }
 
 # Hovered
-hovered = { bg = "#292e42" }
-preview_hovered = { bg = "#292e42" }
+hovered = { fg = "#9fe044", bg = "#292e42", italic = true }
+preview_hovered = { fg = "#0db9d7", bg = "#292e42", italic = true }
 
 # Find
 find_keyword = { fg = "#16161e", bg = "#ff9e64", bold = true }
