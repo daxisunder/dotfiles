@@ -24,7 +24,7 @@ return {
       wilder.popupmenu_renderer(wilder.popupmenu_border_theme({
         highlights = {
           border = "FloatBorder",
-          accent = wilder.make_hl("WilderAccent", "Pmenu", { { a = 1 }, { a = 1 }, { foreground = "#469494" } }),
+          accent = wilder.make_hl("WilderAccent", "Pmenu", { { a = 1 }, { a = 1 }, { foreground = "#069494" } }),
         },
         -- stylua: ignore
         border = "rounded",
