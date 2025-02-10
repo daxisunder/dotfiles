@@ -1,7 +1,7 @@
 return {
   "nvim-treesitter/nvim-treesitter",
-  opts = {
-    ensure_installed = {
+  opts = function(_, opts)
+    vim.list_extend(opts.ensure_installed, {
       "bash",
       "css",
       "html",
@@ -22,8 +22,8 @@ return {
       "typescript",
       "vim",
       "yaml",
-    },
-  },
+    })
+  end,
   vim.filetype.add({
     pattern = { [".*/hypr/.*%.conf"] = "hyprlang" },
   }),
