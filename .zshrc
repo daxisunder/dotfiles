@@ -1,8 +1,11 @@
-# If you come from bash you might have to change your $PATH.
-#export PATH=$HOME/bin:/usr/local/bin:$PATH
-
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
+
+# If you come from bash you might have to change your $PATH.
+export PATH=$HOME/bin:/usr/local/bin:$PATH
+
+# Created by `pipx` on 2025-02-10 20:34:32
+export PATH="$PATH:/home/daxis/.local/bin"
 
 export ZSH="$HOME/.oh-my-zsh"
 
