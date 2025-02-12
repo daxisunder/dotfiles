@@ -32,8 +32,8 @@ keymap = [
   { on = [
     "g",
     "g",
-  ], run = "arrow -99999999", desc = "Move cursor to the top" },
-  { on = "G", run = "arrow 99999999", desc = "Move cursor to the bottom" },
+  ], run = "arrow top", desc = "Move cursor to the top" },
+  { on = "G", run = "arrow bot", desc = "Move cursor to the bottom" },
 
   # Navigation
   { on = "h", run = "leave", desc = "Go back to the parent directory" },
@@ -481,3 +481,32 @@ keymap = [
   # Filtering
   { on = "f", run = "filter", desc = "Apply a filter for the help items" },
 ]
+
+[[input.prepend_keymap]]
+on = "<Esc>"
+run = "close"
+desc = "Cancel input"
+
+[[manager.prepend_keymap]]
+on = "p"
+run = "plugin smart-paste"
+desc = "Paste into the hovered directory or CWD"
+
+[[manager.prepend_keymap]]
+on = "M"
+run = "plugin mount"
+
+[[manager.prepend_keymap]]
+on = ["c", "m"]
+run = "plugin chmod"
+desc = "Chmod on selected files"
+
+[[manager.prepend_keymap]]
+on = "T"
+run = "plugin max-preview"
+desc = "Maximize or restore preview"
+
+[[manager.prepend_keymap]]
+on = "F"
+run = "plugin smart-filter"
+desc = "Smart filter"
