@@ -7,6 +7,9 @@ export PATH=$HOME/bin:/usr/local/bin:$PATH
 # Created by `pipx` on 2025-02-10 20:34:32
 export PATH="$PATH:/home/daxis/.local/bin"
 
+# Ruby path
+export PATH="$PATH:/home/daxis/.local/share/gem/ruby/3.3.0/bin"
+
 export ZSH="$HOME/.oh-my-zsh"
 
 # Set prompt
@@ -184,33 +187,33 @@ alias ping='ping -c 5'
 alias df='df -h'
 alias du='du -h'
 alias ysua='yay -Sua' # Update only AUR packages
-alias yayd='yay --devel'
-alias yayrsn='yay -Rsn'
-alias yayrsu='yay -Rsu'
-alias yayrsnu='yay -Rsnu'
-alias yays='yay -S'
-alias yayss='yay -Ss'
-alias yayqdtq='yay -Qdtq'
-alias yayqet='yay -Qet'
-alias yayqi='yay -Qi'
-alias yaysi='yay -Si'
-alias yaysii='yay -Sii' # List reverse dependencies
-alias yayrq='yay -Rsn $(yay -Qdtq)' # List & remove all unneeded dependencies
+alias yd='yay --devel'
+alias yrsn='yay -Rsn'
+alias yrsu='yay -Rsu'
+alias yrsnu='yay -Rsnu'
+alias ys='yay -S'
+alias yss='yay -Ss'
+alias yqdtq='yay -Qdtq'
+alias yqet='yay -Qet'
+alias yqi='yay -Qi'
+alias ysi='yay -Si'
+alias ysii='yay -Sii' # List reverse dependencies
+alias yrq='yay -Rsn $(yay -Qdtq)' # List & remove all unneeded dependencies
 alias yi="yay -Slq|fzf -m --preview 'cat <(yay -Qi {1}|grep -e \"Install Reason\";echo '') <(yay`` -Si {1}) <(yay -Fl {1}|awk \"{print \$2}\")'|xargs -ro yay -S"
 alias yu="yay -Qq|fzf -m --preview \"yay -Qil {}\" --layout=reverse|xargs -ro sudo yay -Rsn"
-alias pacsyu='sudo pacman -Syu'
-alias pacsyyu='sudo pacman -Syyu' # Update only standard packages
-alias pacrsn='sudo pacman -Rsn'
-alias pacrsu='sudo pacman -Rsu'
-alias pacrsnu='sudo pacman -Rsnu'
-alias pacs='sudo pacman -S'
-alias pacss='pacman -Ss'
-alias pacqdtq='pacman -Qdtq'
-alias pacqet='pacman -Qet'
-alias pacqi='pacman -Qi'
-alias pacsi='pacman -Si'
-alias pacsii='pacman -Sii' # List reverse dependencies
-alias pacrq='sudo pacman -Rsn $(pacman -Qtdq)' # List & remove all unneeded dependencies
+alias psyu='sudo pacman -Syu'
+alias psyyu='sudo pacman -Syyu' # Update only standard packages
+alias prsn='sudo pacman -Rsn'
+alias prsu='sudo pacman -Rsu'
+alias prsnu='sudo pacman -Rsnu'
+alias ps='sudo pacman -S'
+alias pss='pacman -Ss'
+alias pqdtq='pacman -Qdtq'
+alias pqet='pacman -Qet'
+alias pqi='pacman -Qi'
+alias psi='pacman -Si'
+alias psii='pacman -Sii' # List reverse dependencies
+alias prq='sudo pacman -Rsn $(pacman -Qtdq)' # List & remove all unneeded dependencies
 alias unlock='sudo rm -f /var/lib/pacman/db.lck' # Unlock pacman
 alias ftldr='compgen -c | fzf | xargs tldr' # Search for man pages with tldr + fzf
 alias fman='compgen -c | fzf | xargs man' # Search for man pages with man + fzf
@@ -218,8 +221,6 @@ alias src='source ~/.zshrc'
 alias ttc='tty-clock -C6 -c'
 alias expacs="expac -S '%r/%n: %D'" # List dependencies w/o additional info
 alias n='nvim'
-alias pd='pushd'
-alias ppd='popd'
 alias dv='dirs -v'
 alias grep='grep --color=auto'
 alias egrep='egrep --color=auto'
