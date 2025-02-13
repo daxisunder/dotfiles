@@ -76,10 +76,3 @@ layout {
     tab name="tab 󰎩"
     tab name="tab 󰎬"
 }
-keybinds {
-    shared {
-        bind "Alt 1" { NewTab; }
-        bind "Alt 2" { GoToNextTab; }
-        bind "Alt 3" { CloseTab; }
-    }
-}
