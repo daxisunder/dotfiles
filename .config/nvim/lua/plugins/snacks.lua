@@ -103,8 +103,9 @@ return {
     notifier = {
       enabled = true,
       timeout = 6000,
+      style = "fancy",
     },
-    picker = { enabled = false },
+    picker = { enabled = true },
     quickfile = { enabled = true },
     scope = { enabled = true },
     scroll = { enabled = true },
