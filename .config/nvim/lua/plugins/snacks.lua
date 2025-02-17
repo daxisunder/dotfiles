@@ -96,24 +96,38 @@ return {
       },
     },
     bigfile = { enabled = true },
+    git = { enabled = true },
+    gitbrowse = { enabled = true },
     explorer = { enabled = true },
     image = { enabled = true },
     indent = { enabled = false },
     input = { enabled = true },
+    lazygit = { enabled = true },
     notifier = {
       enabled = true,
       timeout = 6000,
       style = "fancy",
     },
     picker = { enabled = true },
+    project = { enabled = true },
     quickfile = { enabled = true },
     scope = { enabled = true },
+    scratch = { enabled = true },
     scroll = { enabled = true },
     statuscolumn = { enabled = true },
     styles = {
       notification = {
         relative = "editor",
         wo = { wrap = true }, -- Wrap notifications
+      },
+      blame_line = {
+        relative = "editor",
+        width = 0.6,
+        height = 0.6,
+        border = "rounded",
+        title = " Git Blame ",
+        title_pos = "center",
+        ft = "git",
       },
     },
     terminal = {
