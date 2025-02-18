@@ -6,73 +6,60 @@ layout {
         children
         pane size=1 borderless=true {
             plugin location="file:~/.config/zellij/plugins/zjstatus.wasm" {
-                format_left   "{mode}#[fg=black]{tabs}  #[fg=green]{swap_layout}"
-                format_center "#[fg=cyan,bold]-- {session} --"
-                format_right  "#[fg=blue,bold]--{datetime}"
-                format_space  "#[fg=yellow] "
+                format_left                "{mode}#[fg=black]{tabs}  #[fg=green]{swap_layout}"
+                format_center              "#[fg=cyan,bold]-- {session} --"
+                format_right               "#[fg=blue,bold]--{datetime}"
+                format_space               "#[fg=yellow] "
                 hide_frame_for_single_pane "false"
-                border_enabled  "false"
-                mode_normal  "#[fg=yellow,bold]NORMAL   "
-                mode_locked  "#[fg=red,bold]LOCKED   "
-                mode_tmux    "#[fg=cyan,bold]TMUX   "
-                // 󰎥
-                // 󰎦
-                // 󰎨
-                // 󰎩
-                // 󰎫
-                // 󰎬
-                // 󰎲
-                // 󰎮
-                // 󰎯
-                // 󰎰
-                // mode_normal        "#[bg=#89B4FA] {name} "
-                // mode_locked        "#[bg=#89B4FA] {name} "
-                mode_resize        "#[bg=#000000] {name} "
-                mode_pane          "#[bg=#000000] {name} "
-                mode_tab           "#[bg=#000000] {name} "
-                mode_scroll        "#[bg=#000000] {name} "
-                mode_enter_search  "#[bg=#000000] {name} "
-                mode_search        "#[bg=#000000] {name} "
-                mode_rename_tab    "#[bg=#000000] {name} "
-                mode_rename_pane   "#[bg=#000000] {name} "
-                mode_session       "#[bg=#000000] {name} "
-                mode_move          "#[bg=#000000] {name} "
-                mode_prompt        "#[bg=#000000] {name} "
-                // mode_tmux          "#[bg=#ffc387] {name} "
+                border_enabled             "false"
+                mode_normal                "#[fg=yellow,bold]NORMAL   "
+                mode_locked                "#[fg=red,bold]LOCKED   "
+                mode_tmux                  "#[fg=cyan,bold]TMUX   "
+                mode_resize                "#[bg=#000000]{name} 󰩨  "
+                mode_pane                  "#[bg=#000000]{name}   "
+                mode_tab                   "#[bg=#000000]{name} 󰓩  "
+                mode_scroll                "#[bg=#000000]{name} 󰡏  "
+                mode_enter_search          "#[bg=#000000]{name}   "
+                mode_search                "#[bg=#000000]{name}   "
+                mode_rename_tab            "#[bg=#000000]{name} 󰑕  "
+                mode_rename_pane           "#[bg=#000000]{name} 󰑕  "
+                mode_session               "#[bg=#000000]{name}   "
+                mode_move                  "#[bg=#000000]{name}   "
+                mode_prompt                "#[bg=#000000]{name}   "
 
                 // formatting for inactive tabs
-                tab_normal              "#[fg=#6C7086]{name}"
-                tab_normal_fullscreen   "#[fg=#6C7086]{name}"
-                tab_normal_sync         "#[fg=#6C7086]{name}"
+                tab_normal                 "#[fg=#6C7086]{name}"
+                tab_normal_fullscreen      "#[fg=#6C7086]{name}"
+                tab_normal_sync            "#[fg=#6C7086]{name}"
 
                 // formatting for the current active tab
-                tab_active              "#[fg=cyan,bold]{name}#[fg=yellow,bold]{floating_indicator}"
-                tab_active_fullscreen   "#[fg=yellow,bold]{name}#[fg=yellow,bold]{fullscreen_indicator}"
-                tab_active_sync         "#[fg=green,bold]{name}#[fg=yellow,bold]{sync_indicator}"
+                tab_active                 "#[fg=cyan,bold]{name}#[fg=yellow,bold]{floating_indicator}"
+                tab_active_fullscreen      "#[fg=yellow,bold]{name}#[fg=yellow,bold]{fullscreen_indicator}"
+                tab_active_sync            "#[fg=green,bold]{name}#[fg=yellow,bold]{sync_indicator}"
 
                 // separator between the tabs
-                tab_separator           "#[fg=blue,bold] ⋮ "
+                tab_separator              "#[fg=blue,bold]  "
 
                 // format when renaming a tab
-                tab_rename              "#[fg=#eba0ac,bg=#181825] {index} {name} {floating_indicator} "
+                tab_rename                 "#[fg=#eba0ac,bg=#181825] {index} {name} {floating_indicator} "
 
                 // indicators
-                tab_sync_indicator       " "
-                tab_fullscreen_indicator " "
-                tab_floating_indicator   ""
+                tab_sync_indicator         "  "
+                tab_fullscreen_indicator   "  "
+                tab_floating_indicator     "  "
 
                 // limit tab display count
-                tab_display_count         "3"  // limit to showing 3 tabs
-                tab_truncate_start_format "#[fg=red,bg=#181825] < +{count} ..."
-                tab_truncate_end_format   "#[fg=red,bg=#181825] ... +{count} >"
+                tab_display_count          "3"  // limit to showing 3 tabs
+                tab_truncate_start_format  "#[fg=red,bg=#181825] < +{count} ..."
+                tab_truncate_end_format    "#[fg=red,bg=#181825] ... +{count} >"
 
-                datetime        "#[fg=blue,bold] {format}"
-                datetime_format "%A, %d %b %Y %H:%M"
-                datetime_timezone "Europe/Sarajevo"
+                datetime                   "#[fg=blue,bold] {format}"
+                datetime_format            "%A, %d %b %Y %H:%M"
+                datetime_timezone          "Europe/Sarajevo"
             }
         }
     }
-    tab name="tab 󰎦" focus=true borderless=false
-    tab name="tab 󰎩"
-    tab name="tab 󰎬"
+    tab name="tab 1" focus=true borderless=false
+    tab name="tab 2"
+    tab name="tab 3"
 }
