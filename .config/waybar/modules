@@ -694,16 +694,16 @@
 "custom/swaync": {
 	"tooltip": true,
 	"tooltip-format": "Left Click: Launch Notification Center\nRight Click: Do not Disturb",
-	"format": "{}{icon}",
+	"format": "{} {icon}",
 	"format-icons": {
-		"notification": "<span foreground='red'><sup></sup></span>",
-		"none": "",
-		"dnd-notification": "<span foreground='red'><sup></sup></span>",
-		"dnd-none": "",
-		"inhibited-notification": "<span foreground='red'><sup></sup></span>",
-		"inhibited-none": "",
-		"dnd-inhibited-notification": "<span foreground='red'><sup></sup></span>",
-		"dnd-inhibited-none": ""
+		"notification": "󰗖<span foreground='red'><sup></sup></span>",
+		"none": "󰗖",
+		"dnd-notification": "󰀨<span foreground='red'><sup></sup></span>",
+		"dnd-none": "󰀨",
+		"inhibited-notification": "󰗖<span foreground='red'><sup></sup></span>",
+		"inhibited-none": "󰗖",
+		"dnd-inhibited-notification": "󰀨<span foreground='red'><sup></sup></span>",
+		"dnd-inhibited-none": "󰀨"
 	},
 	"return-type": "json",
 	"exec-if": "which swaync-client",
@@ -715,7 +715,7 @@
 
 // NOTE:! This is only for Arch and Arch Based Distros  depend: pacman-contrib
 "custom/updater": {
-	"format": " {}",
+	"format": "󰚰 {}",
 	"exec": "checkupdates | wc -l",
 	"exec-if": "[[ $(checkupdates | wc -l) ]]",
 	"interval": 15,
