@@ -1,4 +1,4 @@
-// ### Minimal - Long ### //
+// ### custom-layout ### //
 
 {
 "include": "~/.config/waybar/modules",
@@ -25,6 +25,7 @@
 	"custom/separator#blank",
 	"custom/keyboard",
 	"custom/separator#blank",
+  "custom/separator#home",
 	"hyprland/window",
 	],
 "modules-center": [
