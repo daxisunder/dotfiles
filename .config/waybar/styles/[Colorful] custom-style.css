@@ -16,7 +16,7 @@ window#waybar {
   transition-duration: 0.5s;
   border: 0px solid #00ffff;
   background: #000000;
-  border-radius: 10px;
+  border-radius: 4px;
 }
 
 window#waybar.hidden {
@@ -163,12 +163,18 @@ window#waybar.empty #window {
 }
 
 #custom-cycle_wall {
-  color: #9fe044;
+  color: #c0caf5;
   padding-left: 8px;
   font-size: 150%;
 }
 
 #custom-hint {
+  color: #c0caf5;
+  padding-right: 13px;
+  font-size: 150%;
+}
+
+#custom-github {
   color: #9fe044;
   padding-right: 13px;
   font-size: 150%;
@@ -284,7 +290,6 @@ window#waybar.empty #window {
 #window {
   font-size: 150%;
   color: #ffffed;
-  padding-left: 8px;
 }
 
 #mpris {
@@ -339,4 +344,10 @@ window#waybar.empty #window {
 #backlight-slider highlight {
   min-width: 10px;
   border-radius: 5px;
+}
+
+#custom-separator {
+  font-size: 150%;
+  color: #f7768e;
+  padding-left: 8px;
 }
