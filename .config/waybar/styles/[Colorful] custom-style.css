@@ -148,8 +148,8 @@ window#waybar.empty #window {
   color: #9fe044;
   border: 2px solid #7dcfff;
   border-radius: 20px;
-  padding-left: 12px;
-  padding-right: 14px;
+  padding-left: 13px;
+  padding-right: 15px;
   font-size: 150%;
 }
 
