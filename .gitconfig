@@ -1,0 +1,55 @@
+[user]
+	email = no-prophet@proton.me
+	name = daxisunder
+
+[github]
+  user = daxisunder
+
+[core]
+  pager = delta --side-by-side -w ${FZF_PREVIEW_COLUMNS:-$COLUMNS}
+  ignoreCase = true
+
+[apply]
+  whitespace = fix
+[grep]
+  lineNumber = true
+
+[init]
+  defaultBranch = main
+
+[branch]
+  sort = -committerdate
+
+[color]
+  ui = true
+
+[log]
+  decorate = short
+	date = iso
+
+[help]
+  autocorrect = prompt
+
+[interactive]
+  diffFilter = delta --color-only --features=interactive
+
+[delta]
+  dark = true
+  features = decorations
+  hyperlinks = true
+  line-numbers = true
+  navigate = true
+  side-by-side = true
+  true-color = always
+
+[delta "interactive"]
+  keep-plus-minus-markers = true
+
+[delta "decorations"]
+  file-style = omit
+  hunk-header-style = file line-number syntax
+
+[diff]
+  colorMoved = default
+  tool = delta
+
