@@ -327,12 +327,12 @@
 "clock": {
 	"interval": 1,
 	"timezone": "Europe/Sarajevo",
-    //"format": " {:%I:%M %p}", // AM PM format
-    "format": "{:%H:%M:%S}", // 24H
+  //"format": " {:%I:%M %p}", // AM PM format
+  "format": "{:%H:%M:%S}", // 24H
 	"format-alt": "{:%H:%M  %d %B, %A}",
 	"tooltip-format": "<tt><small>{calendar}</small></tt>",
 	"calendar": {
-		"mode": "year",
+		"mode": "month",
 		"mode-mon-col": 3,
 		"on-scroll": 1,
 		"format": {
@@ -620,7 +620,7 @@
 		],
 },
 "custom/cycle_wall": {
-	"format": "",
+	"format": "󰸉",
 	"on-click": "~/.config/hypr/UserScripts/WallpaperSelect.sh",
 	"on-click-right": "~/.config/hypr/UserScripts/WallpaperRandom.sh",
 	"on-click-middle": "~/.config/hypr/scripts/WaybarStyles.sh",
@@ -628,7 +628,7 @@
 	"tooltip-format": "Left Click: Wallpaper Menu\nMiddle Click: Random wallpaper\nRight Click: Waybar Styles Menu",
 },
 "custom/hint": {
-	"format": "",
+	"format": "󰘥",
 	"on-click": "$HOME/.config/hypr/scripts/KeyHints.sh",
 	"on-click-right": "$HOME/.config/hypr/scripts/KeyBinds.sh",
 	"tooltip": true,
@@ -715,7 +715,7 @@
 
 // NOTE:! This is only for Arch and Arch Based Distros  depend: pacman-contrib
 "custom/updater": {
-	"format": "󰚰 {}",
+	"format": " {}",
 	"exec": "checkupdates | wc -l",
 	"exec-if": "[[ $(checkupdates | wc -l) ]]",
 	"interval": 15,
