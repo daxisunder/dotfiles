@@ -59,7 +59,7 @@ modelbutton.flat:selected,
 .nautilus-window flowboxchild:selected .icon-item-background,
 flowbox flowboxchild:selected {
   color: #27a1b9;
-  background-color: rgba(39, 161, 185, 0.2);
+  background-color: rgba(26, 27, 38, 0.2);
 }
 
 .nemo-window .nemo-window-pane widget.entry:selected,
@@ -79,7 +79,7 @@ widget.view:selected {
 
 treeview.view:selected,
 .view:selected {
-  color: rgba(226, 227, 238, 1);
+  color: rgba(247, 118, 142, 1);
   background-color: #1a1b26;
 }
 
