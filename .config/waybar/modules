@@ -719,7 +719,7 @@
 	"exec": "checkupdates | wc -l",
 	"exec-if": "[[ $(checkupdates | wc -l) ]]",
 	"interval": 15,
-	"on-click": "if command -v paru &> /dev/null; then kitty -T update paru -Syu; else kitty -T update yay -Syu; fi && notify-send 'The system has been updated'",
+	"on-click": "if command -v yay &> /dev/null; then kitty -T update yay -Syu --devel; else kitty -T update paru -Syu --devel; fi && notify-send 'The system has been updated'",
 	"tooltip": true,
 	"tooltip-format": "Left Click: Update System\nArch Linux Only",
 },
