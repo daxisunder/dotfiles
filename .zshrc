@@ -10,6 +10,7 @@ export PATH="$PATH:/home/daxis/.local/bin"
 # Ruby path
 export PATH="$PATH:/home/daxis/.local/share/gem/ruby/3.3.0/bin"
 
+# OMZ path
 export ZSH="$HOME/.oh-my-zsh"
 
 # Set prompt
@@ -199,8 +200,8 @@ alias yqi='yay -Qi'
 alias ysi='yay -Si'
 alias ysii='yay -Sii' # List reverse dependencies
 alias yrq='yay -Rsn $(yay -Qdtq)' # List & remove all unneeded dependencies
-alias yi="yay -Slq|fzf -m --preview 'cat <(yay -Qi {1}|grep -e \"Install Reason\";echo '') <(yay`` -Si {1}) <(yay -Fl {1}|awk \"{print \$2}\")'|xargs -ro yay -S"
-alias yu="yay -Qq|fzf -m --preview \"yay -Qil {}\" --layout=reverse|xargs -ro sudo yay -Rsn"
+alias yi="yay -Slq|fzf -m --border=bold --border=rounded --margin=3% --preview 'cat <(yay -Qi {1}|grep -e \"Install Reason\";echo '') <(yay`` -Si {1}) <(yay -Fl {1}|awk \"{print \$2}\")'|xargs -ro yay -S"
+alias yu="yay -Qq|fzf -m --border=bold --border=rounded --margin=3% --preview \"yay -Qil {}\" --layout=reverse|xargs -ro yay -Rsn"
 alias psyu='sudo pacman -Syu'
 alias psyyu='sudo pacman -Syyu' # Update only standard packages
 alias prsn='sudo pacman -Rsn'
@@ -215,8 +216,8 @@ alias psi='pacman -Si'
 alias psii='pacman -Sii' # List reverse dependencies
 alias prq='sudo pacman -Rsn $(pacman -Qtdq)' # List & remove all unneeded dependencies
 alias unlock='sudo rm -f /var/lib/pacman/db.lck' # Unlock pacman
-alias ftldr='compgen -c | fzf | xargs tldr' # Search for man pages with tldr + fzf
-alias fman='compgen -c | fzf | xargs man' # Search for man pages with man + fzf
+alias ftldr='compgen -c | fzf --border=bold --border=rounded --margin=3% | xargs tldr' # Search for man pages with tldr + fzf
+alias fman='compgen -c | fzf --border=bold --border=rounded --margin=3% | xargs man' # Search for man pages with man + fzf
 alias src='source ~/.zshrc'
 alias ttc='tty-clock -C6 -c'
 alias expacs="expac -S '%r/%n: %D'" # List dependencies w/o additional info
@@ -230,13 +231,14 @@ alias pscpu='ps auxf | sort -nr -k 3 | head -10' # Show top 10 CPU-consuming pro
 alias ssn='sudo shutdown now'
 alias sr='sudo reboot'
 alias jctl='journalctl -p 3-xb' # Show logs with priority 3 and above (errors)
+alias fz='fzf --layout=reverse --border=bold --border=rounded --margin=3%'
 
 # FZF integration + key bindings (CTRL R for fuzzy history finder)
 source <(fzf --zsh)
 
 # FZF previews
-export FZF_CTRL_T_OPTS="--preview 'bat --color=always -n --line-range :500 {}'"
-export FZF_ALT_C_OPTS="--preview 'eza --tree --color=always {} | head -200'"
+export FZF_CTRL_T_OPTS="--border=bold --border=rounded --margin=3% --preview 'bat --color=always -n --line-range :500 {}'"
+export FZF_ALT_C_OPTS="--border=bold --border=rounded --margin=3% --preview 'eza --tree --color=always {} | head -200'"
 
 # Zoxide integration
 eval "$(zoxide init zsh)"
@@ -282,3 +284,5 @@ export CARAPACE_BRIDGES='zsh,fish,bash,inshellisense' # optional
 zstyle ':completion:*' format $'\e[2;37mCompleting %d\e[m'
 source <(carapace _carapace)
 
+# broot integration
+source /home/daxis/.config/broot/launcher/bash/br
