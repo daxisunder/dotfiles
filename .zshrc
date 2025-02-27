@@ -200,8 +200,8 @@ alias yqi='yay -Qi'
 alias ysi='yay -Si'
 alias ysii='yay -Sii' # List reverse dependencies
 alias yrq='yay -Rsn $(yay -Qdtq)' # List & remove all unneeded dependencies
-alias yi="yay -Slq|fzf -m --style full --preview 'cat <(yay -Qi {1}|grep -e \"Install Reason\";echo '') <(yay`` -Si {1}) <(yay -Fl {1}|awk \"{print \$2}\")' | xargs -ro yay -S"
-alias yu="yay -Qq|fzf -m --style full --preview \"yay -Qil {}\" | xargs -ro yay -Rsn"
+alias yi="yay -Slq|fzf -m --preview 'cat <(yay -Qi {1}|grep -e \"Install Reason\";echo '') <(yay`` -Si {1}) <(yay -Fl {1}|awk \"{print \$2}\")' | xargs -ro yay -S"
+alias yu="yay -Qq|fzf -m --preview \"yay -Qil {}\" | xargs -ro yay -Rsn"
 alias psyu='sudo pacman -Syu'
 alias psyyu='sudo pacman -Syyu' # Update only standard packages
 alias prsn='sudo pacman -Rsn'
@@ -216,8 +216,8 @@ alias psi='pacman -Si'
 alias psii='pacman -Sii' # List reverse dependencies
 alias prq='sudo pacman -Rsn $(pacman -Qtdq)' # List & remove all unneeded dependencies
 alias unlock='sudo rm -f /var/lib/pacman/db.lck' # Unlock pacman
-alias ftldr='compgen -c | fzf --style full | xargs tldr' # Search for man pages with tldr + fzf
-alias fman='compgen -c | fzf --style full | xargs man' # Search for man pages with man + fzf
+alias ftldr='compgen -c | fzf | xargs tldr' # Search for man pages with tldr + fzf (print page to stdout)
+alias fman='compgen -c | fzf | xargs man' # Search for man pages with man + fzf (view page with $MANPAGER)
 alias src='source ~/.zshrc'
 alias ttc='tty-clock -C6 -c'
 alias expacs="expac -S '%r/%n: %D'" # List dependencies w/o additional info
@@ -230,15 +230,45 @@ alias psmem='ps auxf | sort -nr -k 4 | head -10' # Show top 10 memory-consuming 
 alias pscpu='ps auxf | sort -nr -k 3 | head -10' # Show top 10 CPU-consuming processes
 alias ssn='sudo shutdown now'
 alias sr='sudo reboot'
-alias jctl='journalctl -p 3-xb' # Show logs with priority 3 and above (errors)
-alias fz="fzf --style full --preview 'bat --color=always -n {}'"
+alias jctl='journalctl -p 3' # Show logs with priority 3 and above (errors)
+alias fz="fzf --preview 'bat --color=always -n {}'"
 
 # FZF integration + key bindings (CTRL R for fuzzy history finder)
 source <(fzf --zsh)
 
+# FZF theme
+export FZF_DEFAULT_OPTS="$FZF_DEFAULT_OPTS \
+  --style full
+  --highlight-line \
+  --info=inline-right \
+  --ansi \
+  --color=bg+:#283457 \
+  --color=border:#27a1b9 \
+  --color=fg:#c0caf5 \
+  --color=gutter:#16161e \
+  --color=header:#ff9e64 \
+  --color=hl+:#2ac3de \
+  --color=hl:#2ac3de \
+  --color=info:#545c7e \
+  --color=marker:#ff007c \
+  --color=pointer:#ff007c \
+  --color=prompt:#2ac3de \
+  --color=query:#c0caf5:regular \
+  --color=scrollbar:#27a1b9 \
+  --color=separator:#ff9e64 \
+  --color=spinner:#ff007c \
+"
+
 # FZF previews
-export FZF_CTRL_T_OPTS="--style full --preview 'bat --color=always -n --line-range :500 {}'"
-export FZF_ALT_C_OPTS="--style full --preview 'eza --tree --color=always {} | head -200'"
+# Preview file content using bat (https://github.com/sharkdp/bat)
+export FZF_CTRL_T_OPTS="
+  --walker-skip .git,node_modules,target
+  --preview 'bat -n --color=always {}'
+  --bind 'ctrl-/:change-preview-window(down|hidden|)'"
+# Print tree structure in the preview window
+export FZF_ALT_C_OPTS="
+  --walker-skip .git,node_modules,target
+  --preview 'eza --tree --color=always {}'"
 
 # Zoxide integration
 eval "$(zoxide init zsh)"
