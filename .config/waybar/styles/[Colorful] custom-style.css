@@ -239,7 +239,7 @@ window#waybar.empty #window {
 
 #custom-menu {
   color: #7dcfff;
-  padding-left: 10px;
+  padding-left: 14px;
   padding-right: 12px;
   font-size: 150%;
 }
@@ -247,7 +247,7 @@ window#waybar.empty #window {
 #custom-power {
   color: #f7768e;
   padding-left: 7px;
-  padding-right: 14px;
+  padding-right: 18px;
   font-size: 150%;
 }
 
