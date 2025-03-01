@@ -170,7 +170,7 @@ keybinds {
               "toggle floating pane"  "ctrl + p + w"
               "toggle embed pane"     "ctrl + p + e"
               "choose right pane"     "ctrl + p + l"
-              "choose left pane"      "ctrl + p + r"
+              "choose left pane"      "ctrl + p + h"
               "choose upper pane"     "ctrl + p + k"
               "choose lower pane"     "ctrl + p + j"
               "new tab"               "ctrl + t + n"
@@ -309,7 +309,7 @@ on_force_close "quit"
 // Options:
 //   - true
 //   - false (default)
-// serialize_pane_viewport true
+serialize_pane_viewport true
 
 // Scrollback lines to serialize along with the pane viewport when serializing sessions, 0
 // defaults to the scrollback size. If this number is higher than the scrollback size, it will
@@ -424,3 +424,11 @@ default_mode "locked"
 // Default: false
 //
 // disable_session_metadata true
+
+// Set whether the pane frames (if visible) should have rounded corners.
+ui {
+    pane_frames {
+        rounded_corners true
+    }
+}
+
