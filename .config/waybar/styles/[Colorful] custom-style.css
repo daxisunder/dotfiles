@@ -88,7 +88,6 @@ window#waybar.empty #window {
 }
 
 #workspaces button {
-  border-radius: 10px;
   padding-left: 8px;
   padding-right: 8px;
   animation: gradient_f 20s ease-in infinite;
@@ -96,9 +95,7 @@ window#waybar.empty #window {
 }
 
 #workspaces button:hover {
-  background: #000000;
   color: #faba4a;
-  border-radius: 20px;
   padding-left: 8px;
   padding-right: 8px;
   animation: gradient_f 20s ease-in infinite;
@@ -107,14 +104,12 @@ window#waybar.empty #window {
 
 #workspaces button.persistent {
   color: #ffffed;
-  border-radius: 20px;
   padding-left: 8px;
   padding-right: 8px;
 }
 
 #workspaces button.active {
   color: #00ffff;
-  border-radius: 20px;
   padding-left: 8px;
   padding-right: 8px;
   animation: gradient_f 20s ease-in infinite;
@@ -123,7 +118,6 @@ window#waybar.empty #window {
 
 #workspaces button.urgent {
   color: #f7768e;
-  border-radius: 20px;
 }
 
 #idle_inhibitor {
