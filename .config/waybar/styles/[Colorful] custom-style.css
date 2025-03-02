@@ -5,7 +5,7 @@
   font-weight: bold;
   min-height: 0;
   /* set font-size to 100% if font scaling is set to 1.00 using nwg-look */
-  font-size: 90%;
+  font-size: 100%;
   font-feature-settings: '"zero", "ss01", "ss02", "ss03", "ss04", "ss05", "cv31"';
 }
 
@@ -14,7 +14,6 @@
 window#waybar {
   transition-property: background-color;
   transition-duration: 0.5s;
-  border: 0px solid #00ffff;
   background: #000000;
   border-radius: 4px;
 }
@@ -76,14 +75,14 @@ window#waybar.empty #window {
 #custom-weather.showyIcyDay,
 #custom-weather.snowyIcyNight,
 #custom-weather.sunnyDay {
-  padding-top: 4px;
-  padding-bottom: 4px;
+  padding-top: 2px;
+  padding-bottom: 2px;
   padding-right: 6px;
   padding-left: 6px;
 }
 
 #workspaces {
-  font-size: 175%;
+  font-size: 100%;
   border-radius: 20px;
 }
 
@@ -134,17 +133,18 @@ window#waybar.empty #window {
 
 #clock {
   color: #9fe044;
-  font-size: 150%;
+  font-size: 100%;
   padding-right: 7px;
 }
 
 #custom-swaync {
   color: #9fe044;
   border: 2px solid #7dcfff;
+  font-size: 100%;
   border-radius: 20px;
   padding-left: 13px;
   padding-right: 15px;
-  font-size: 150%;
+  font-size: 100%;
 }
 
 #custom-keyboard {
@@ -153,29 +153,29 @@ window#waybar.empty #window {
   border-radius: 20px;
   padding-left: 14px;
   padding-right: 14px;
-  font-size: 150%;
+  font-size: 100%;
 }
 
 #custom-cycle_wall {
   color: #c0caf5;
   padding-left: 8px;
-  font-size: 150%;
+  font-size: 110%;
 }
 
 #custom-hint {
   color: #c0caf5;
-  padding-right: 11px;
-  font-size: 150%;
+  padding-right: 10px;
+  font-size: 110%;
 }
 
 #custom-github {
   color: #9fe044;
   padding-right: 13px;
-  font-size: 150%;
+  font-size: 100%;
 }
 
 #cpu {
-  font-size: 150%;
+  font-size: 100%;
   padding-left: 12px;
   color: #ffffed;
   border-top: 2px solid #7dcfff;
@@ -185,7 +185,7 @@ window#waybar.empty #window {
 }
 
 #memory {
-  font-size: 150%;
+  font-size: 100%;
   color: #ffffed;
   padding-right: 10px;
   border-bottom: 2px solid #7dcfff;
@@ -194,7 +194,7 @@ window#waybar.empty #window {
 }
 
 #temperature {
-  font-size: 150%;
+  font-size: 100%;
   color: #ffffed;
   border-bottom: 2px solid #7dcfff;
   border-top: 2px solid #7dcfff;
@@ -202,7 +202,7 @@ window#waybar.empty #window {
 }
 
 #disk {
-  font-size: 150%;
+  font-size: 100%;
   padding-right: 16px;
   color: #ffffed;
   border-top: 2px solid #7dcfff;
@@ -232,17 +232,19 @@ window#waybar.empty #window {
 }
 
 #custom-menu {
+  font-size: 125%;
   color: #7dcfff;
   padding-left: 14px;
-  padding-right: 12px;
-  font-size: 150%;
+  padding-right: 10px;
+  font-size: 100%;
 }
 
 #custom-power {
+  font-size: 125%;
   color: #f7768e;
-  padding-left: 7px;
+  padding-left: 8px;
   padding-right: 18px;
-  font-size: 150%;
+  font-size: 100%;
 }
 
 #custom-updater {
@@ -251,7 +253,7 @@ window#waybar.empty #window {
   border-radius: 20px;
   padding-left: 10pt;
   padding-right: 14px;
-  font-size: 150%;
+  font-size: 100%;
 }
 
 #custom-light_dark {
@@ -260,7 +262,7 @@ window#waybar.empty #window {
 
 #custom-weather {
   color: #9fe044;
-  font-size: 150%;
+  font-size: 100%;
   padding-right: 20px;
 }
 
@@ -270,7 +272,7 @@ window#waybar.empty #window {
 
 #pulseaudio {
   color: #faba4a;
-  font-size: 150%;
+  font-size: 100%;
 }
 
 #pulseaudio.bluetooth {
@@ -282,7 +284,7 @@ window#waybar.empty #window {
 }
 
 #window {
-  font-size: 150%;
+  font-size: 80%;
   color: #ffffed;
 }
 
@@ -341,7 +343,7 @@ window#waybar.empty #window {
 }
 
 #custom-separator {
-  font-size: 150%;
+  font-size: 100%;
   color: #f7768e;
   padding-left: 8px;
 }
