@@ -330,10 +330,10 @@
   //"format": " {:%I:%M %p}", // AM PM format
   "format": "{:%H:%M:%S}", // 24H
 	"format-alt": "{:%H:%M  %d %B, %A}",
-	"tooltip-format": "<tt><small>{calendar}</small></tt>",
+	"tooltip-format": "<tt><big>{calendar}</big></tt>",
 	"calendar": {
 		"mode": "month",
-		"mode-mon-col": 3,
+		"mode-mon-col": 2,
 		"on-scroll": 1,
 		"format": {
 			"months": "<span color='#ffead3'><b>{}</b></span>",
@@ -520,9 +520,9 @@
   }
 },
 "pulseaudio": {
-	"format": "{icon} {volume}%",
+	"format": "{icon}{volume}%",
 	"format-bluetooth": "{icon} 󰂰 {volume}%",
-	"format-muted": "󰖁",
+	"format-muted": "󰖁 {volume}%",
 	"format-icons": {
 		"headphone": " ",
 		"hands-free": "",
@@ -628,7 +628,7 @@
 	"tooltip-format": "Left Click: Wallpaper Menu\nMiddle Click: Random wallpaper\nRight Click: Waybar Styles Menu",
 },
 "custom/hint": {
-	"format": "󰘥",
+	"format": "󱦄",
 	"on-click": "$HOME/.config/hypr/scripts/KeyHints.sh",
 	"on-click-right": "$HOME/.config/hypr/scripts/KeyBinds.sh",
 	"tooltip": true,
@@ -657,8 +657,8 @@
 },
 "custom/menu": {
 	//"format": "",
-	"format": "",
-	//"format": "",
+	//"format": "",
+	"format": "",
 	"on-click": "pkill rofi || rofi -show drun -modi run,drun,filebrowser,window",
 	"on-click-middle": "~/.config/hypr/UserScripts/WallpaperSelect.sh",
 	"on-click-right": "~/.config/hypr/scripts/WaybarLayout.sh",
