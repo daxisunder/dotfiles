@@ -67,3 +67,11 @@ vim.api.nvim_create_autocmd("User", {
     Snacks.rename.on_rename_file(event.data.from, event.data.to)
   end,
 })
+
+-- Disable auto-commenting new lines
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "*",
+  callback = function()
+    vim.opt_local.formatoptions:remove({ "c", "r", "o" })
+  end,
+})
