@@ -5,7 +5,7 @@ return {
     preset = "classic",
     win = {
       -- don't allow the popup to overlap with the cursor
-      no_overlap = true,
+      no_overlap = false,
       -- width = 1,
       -- height = { min = 4, max = 25 },
       -- col = 0,
@@ -22,7 +22,10 @@ return {
       },
     },
     layout = {
-      width = { max = 35 }, -- min and max width of the columns
+      width = {
+        min = 35,
+        max = 35,
+      }, -- min and max width of the columns
       spacing = 1, -- spacing between columns
     },
   },

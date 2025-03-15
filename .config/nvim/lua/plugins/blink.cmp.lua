@@ -17,35 +17,60 @@ return {
     signature = { window = { border = "rounded" } },
   },
   sources = {
-    default = { "lsp", "path", "snippets", "buffer", "copilot", "lazydev" },
+    default = { "lsp", "path", "snippets", "buffer", "copilot", "lazydev", "ripgrep" },
     per_filetype = {
       org = { "orgmode" },
-      providers = {
-        copilot = {
-          name = "copilot",
-          module = "blink-cmp-copilot",
-          score_offset = 100,
-          async = true,
-          transform_items = function(_, items)
-            local CompletionItemKind = require("blink.cmp.types").CompletionItemKind
-            local kind_idx = #CompletionItemKind + 1
-            CompletionItemKind[kind_idx] = "Copilot"
-            for _, item in ipairs(items) do
-              item.kind = kind_idx
-            end
-            return items
+    },
+    providers = {
+      copilot = {
+        name = "copilot",
+        module = "blink-cmp-copilot",
+        score_offset = 100,
+        async = true,
+        transform_items = function(_, items)
+          local CompletionItemKind = require("blink.cmp.types").CompletionItemKind
+          local kind_idx = #CompletionItemKind + 1
+          CompletionItemKind[kind_idx] = "Copilot"
+          for _, item in ipairs(items) do
+            item.kind = kind_idx
+          end
+          return items
+        end,
+      },
+      orgmode = {
+        name = "Orgmode",
+        module = "orgmode.org.autocompletion.blink",
+        fallbacks = "buffer",
+      },
+      lazydev = {
+        name = "LazyDev",
+        module = "lazydev.integrations.blink",
+        -- make lazydev completions top priority (see `:h blink.cmp`)
+        score_offset = 100,
+      },
+      ripgrep = {
+        module = "blink-cmp-rg",
+        name = "Ripgrep",
+        -- options below are optional, these are the default values
+        opts = {
+          -- `min_keyword_length` only determines whether to show completion items in the menu,
+          -- not whether to trigger a search. And we only has one chance to search.
+          prefix_min_len = 3,
+          get_command = function(context, prefix)
+            return {
+              "rg",
+              "--no-config",
+              "--json",
+              "--word-regexp",
+              "--ignore-case",
+              "--",
+              prefix .. "[\\w_-]+",
+              vim.fs.root(0, ".git") or vim.fn.getcwd(),
+            }
           end,
-        },
-        orgmode = {
-          name = "Orgmode",
-          module = "orgmode.org.autocompletion.blink",
-          fallbacks = "buffer",
-        },
-        lazydev = {
-          name = "LazyDev",
-          module = "lazydev.integrations.blink",
-          -- make lazydev completions top priority (see `:h blink.cmp`)
-          score_offset = 100,
+          get_prefix = function(context)
+            return context.line:sub(1, context.cursor[2]):match("[%w_-]+$") or ""
+          end,
         },
       },
     },
