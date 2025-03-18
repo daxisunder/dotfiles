@@ -20,6 +20,8 @@
 		"6": [],
 		"7": [],
 		"8": [],
+		"9": [],
+		"10": [],
 	},
 	"format-icons": {
 		"active": "󰪥",
@@ -327,29 +329,31 @@
 "clock": {
 	"interval": 1,
 	"timezone": "Europe/Sarajevo",
-  //"format": " {:%I:%M %p}", // AM PM format
+  //"format": "{:%I:%M %p}", // AM PM format
   "format": "{:%H:%M:%S}", // 24H
-	"format-alt": "{:%H:%M  %d %B, %A}",
-	"tooltip-format": "<tt><big>{calendar}</big></tt>",
+	"format-alt": "{:%A, %B %d, %Y}",
+	"tooltip-format": "<span size='9pt' font='Sans Regular'>{calendar}</span>",
 	"calendar": {
-		"mode": "month",
-		"mode-mon-col": 2,
-		"on-scroll": 1,
+		"mode"          : "year",
+		"mode-mon-col"  : 3,
+		"weeks-pos"     : "",
+		"on-scroll"     : 1,
+		"on-click-right": "mode",
 		"format": {
-			"months": "<span color='#ffead3'><b>{}</b></span>",
-			"days": "<span color='#ffffff'><b>{}</b></span>",
-			"weeks": "<span color='#99ffdd'><b>W{}</b></span>",
-			"weekdays": "<span color='#ffcc66'><b>{}</b></span>",
-			"today": "<span color='#ff6699'><b><u>{}</u></b></span>"
+			"months":     "<span color='#c0caf5'><b>{}</b></span>",
+			"days":       "<span color='#ffffed'><b>{}</b></span>",
+			"weeks":      "<span color='#99ffdd'><b>W{}</b></span>",
+			"weekdays":   "<span color='#ffcc66'><b>{}</b></span>",
+			"today":      "<span color='#ff6699'><b><u>{}</u></b></span>"
 		}
+	},
+	"actions": {
+		"on-click-right": "mode",
+		"on-click-forward": "tz_up",
+		"on-click-backward": "tz_down",
+		"on-scroll-up": "shift_up",
+		"on-scroll-down": "shift_down"
 	}
-},
-"actions": {
-	"on-click-right": "mode",
-	"on-click-forward": "tz_up",
-	"on-click-backward": "tz_down",
-	"on-scroll-up": "shift_up",
-	"on-scroll-down": "shift_down"
 },
 "clock#2": {
     //"format": " {:%I:%M %p}", // AM PM format
@@ -628,7 +632,7 @@
 	"tooltip-format": "Left Click: Wallpaper Menu\nMiddle Click: Random wallpaper\nRight Click: Waybar Styles Menu",
 },
 "custom/hint": {
-	"format": "󱦄",
+	"format": "󱜦",
 	"on-click": "$HOME/.config/hypr/scripts/KeyHints.sh",
 	"on-click-right": "$HOME/.config/hypr/scripts/KeyBinds.sh",
 	"tooltip": true,
@@ -710,7 +714,7 @@
 	"exec": "swaync-client -swb",
 	"on-click": "sleep 0.1 && swaync-client -t -sw",
 	"on-click-right": "swaync-client -d -sw",
-	"escape": true,
+	"escape": true
 },
 
 // NOTE:! This is only for Arch and Arch Based Distros  depend: pacman-contrib
@@ -721,7 +725,7 @@
 	"interval": 15,
 	"on-click": "if command -v yay &> /dev/null; then kitty -T update yay -Syu --devel; else kitty -T update paru -Syu --devel; fi && notify-send 'The system has been updated'",
 	"tooltip": true,
-	"tooltip-format": "Left Click: Update System\nArch Linux Only",
+	"tooltip-format": "Left Click: Update System\nArch Linux Only"
 },
 
 "custom/weather": {
@@ -733,12 +737,19 @@
 },
 
 "custom/github": {
-  "format": "{}",
-  "tooltip": true,
-  "return-type": "json",
-  "interval": 60,
-  "exec": "$HOME/.config/hypr/UserScripts/github.sh",
-  "on-click": "xdg-open https://github.com/notifications"
+    "format": "",
+    "tooltip": true,
+    "interval": 60,
+    "exec": "$HOME/.config/hypr/UserScripts/github.sh",
+    "on-click": "xdg-open https://github.com/notifications"
+},
+
+"custom/hyprWindowMode": {
+	"exec": "~/.config/hypr/UserScripts/hyprWindowMode.sh",
+	"return-type": "json",
+	"format": "{}",
+	"on-click": "~/.config/hypr/UserScripts/hyprWindowMode.sh toggle",
+	"tooltip": true
 },
 
 // Separators
