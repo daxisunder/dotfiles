@@ -698,7 +698,7 @@
 "custom/swaync": {
 	"tooltip": true,
 	"tooltip-format": "Left Click: Launch Notification Center\nRight Click: Do not Disturb",
-	"format": "{} {icon}",
+	"format": "󰗖 {}",
 	"format-icons": {
 		"notification": "󰗖<span foreground='red'><sup></sup></span>",
 		"none": "󰗖",
