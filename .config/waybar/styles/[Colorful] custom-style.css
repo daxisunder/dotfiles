@@ -54,7 +54,9 @@ window#waybar.empty #window {
 #workspaces,
 #custom-backlight,
 #custom-cycle_wall,
+#custom-github,
 #custom-hint,
+#custom-hyprWindowMode,
 #custom-keyboard,
 #custom-light_dark,
 #custom-lock,
@@ -158,24 +160,33 @@ window#waybar.empty #window {
 #custom-cycle_wall {
   color: #c0caf5;
   padding-left: 8px;
+  padding-right: 4px;
   font-size: 125%;
 }
 
 #custom-hint {
   color: #c0caf5;
-  padding-right: 10px;
+  padding-left: 0px;
+  padding-right: 4px;
   font-size: 125%;
 }
 
 #custom-github {
-  color: #9fe044;
-  padding-right: 13px;
-  font-size: 100%;
+  color: #c0caf5;
+  padding-left: 0px;
+  padding-right: 10px;
+  font-size: 125%;
+}
+
+#custom-hyprWindowMode {
+  color: #c0caf5;
+  padding-left: 6px;
+  font-size: 125%;
 }
 
 #cpu {
   font-size: 125%;
-  padding-left: 8px;
+  padding-left: 10px;
   padding-right: 3px;
   color: #ffffed;
   border-top: 2px solid #7dcfff;
@@ -203,7 +214,7 @@ window#waybar.empty #window {
 
 #disk {
   font-size: 125%;
-  padding-right: 14px;
+  padding-right: 16px;
   color: #ffffed;
   border-top: 2px solid #7dcfff;
   border-bottom: 2px solid #7dcfff;
@@ -340,7 +351,6 @@ window#waybar.empty #window {
 }
 
 #custom-separator {
-  font-size: 100%;
+  font-size: 125%;
   color: #f7768e;
-  padding-left: 8px;
 }
