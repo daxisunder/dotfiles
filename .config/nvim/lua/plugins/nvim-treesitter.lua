@@ -20,6 +20,7 @@ return {
       "toml",
       "tsx",
       "typescript",
+      "typst",
       "vim",
       "yaml",
     })

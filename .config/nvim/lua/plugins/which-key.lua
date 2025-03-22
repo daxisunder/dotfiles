@@ -10,7 +10,7 @@ return {
       -- height = { min = 4, max = 25 },
       -- col = 0,
       -- row = math.huge,
-      border = "rounded",
+      border = "rounded", -- none, single, double, shadow
       padding = { 0, 0 }, -- extra window padding [top/bottom, right/left]
       title = true,
       title_pos = "center",
@@ -23,10 +23,11 @@ return {
     },
     layout = {
       width = {
-        min = 35,
-        max = 35,
-      }, -- min and max width of the columns
-      spacing = 1, -- spacing between columns
+        -- min and max width of the columns
+        min = 25,
+        max = 105,
+      },
+      spacing = 3, -- spacing between columns
     },
   },
   keys = {

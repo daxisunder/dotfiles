@@ -14,7 +14,7 @@ return {
           download_remote_images = true,
           only_render_image_at_cursor = false,
           floating_windows = true, -- if true, images will be rendered in floating markdown windows
-          filetypes = { "orgmode", "markdown", "vimwiki" }, -- markdown extensions (ie. quarto) can go here
+          filetypes = { "org", "markdown", "vimwiki" }, -- markdown extensions (ie. quarto) can go here
         },
         neorg = {
           enabled = false,

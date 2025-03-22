@@ -16,31 +16,33 @@ return {
         ---@type fun(cmd:string, opts:table)|nil
         pick = nil,
         keys = {
-          { icon = " ", key = "n", desc = "New File", action = ":ene | startinsert" },
-          { icon = " ", key = "r", desc = "Recent Files", action = ":lua Snacks.dashboard.pick('oldfiles')" },
+          { icon = "󰻭 ", key = "n", desc = "New File", action = ":ene | startinsert" },
+          { icon = "󱀲 ", key = "r", desc = "Recent Files", action = ":lua Snacks.dashboard.pick('oldfiles')" },
+          { icon = "󱀵 ", key = "p", desc = "Project Files", action = ":lua Snacks.dashboard.pick('projects')" },
           {
             icon = " ",
             key = "c",
             desc = "Config Files",
             action = ":lua Snacks.dashboard.pick('files', {cwd = vim.fn.stdpath('config')})",
           },
-          { icon = "󰘥 ", key = "h", desc = "Help Files", action = ":help" },
           { icon = "󰱽 ", key = "f", desc = "Find File", action = ":lua Snacks.dashboard.pick('files')" },
           { icon = "󱩾 ", key = "g", desc = "Find Text", action = ":lua Snacks.dashboard.pick('live_grep')" },
           { icon = "󰒳 ", key = "l", desc = "Lazy", action = ":Lazy", enabled = package.loaded.lazy ~= nil },
-          { icon = " ", key = "x", desc = "Lazy Extras", action = ":LazyExtras" },
+          { icon = "󰛉 ", key = "x", desc = "Lazy Extras", action = ":LazyExtras" },
           { icon = " ", key = "m", desc = "Mason", action = ":Mason" },
-          { icon = "󱀸 ", key = "s", desc = "Restore Session", section = "session" },
-          { icon = " ", key = "q", desc = "Quit", action = ":qa" },
+          { icon = "󰬳 ", key = "s", desc = "Restore Session", section = "session" },
+          { icon = " ", key = "q", desc = "Quit", action = ":qa" },
         },
         -- Used by the `header` section
         header = [[
-███╗   ██╗███████╗ ██████╗ ██╗   ██╗██╗███╗   ███╗
-████╗  ██║██╔════╝██╔═══██╗██║   ██║██║████╗ ████║
-██╔██╗ ██║█████╗  ██║   ██║██║   ██║██║██╔████╔██║
-██║╚██╗██║██╔══╝  ██║   ██║╚██╗ ██╔╝██║██║╚██╔╝██║
-██║ ╚████║███████╗╚██████╔╝ ╚████╔╝ ██║██║ ╚═╝ ██║
-╚═╝  ╚═══╝╚══════╝ ╚═════╝   ╚═══╝  ╚═╝╚═╝     ╚═╝]],
+                                                                     
+       ████ ██████           █████      ██                     
+      ███████████             █████                             
+      █████████ ███████████████████ ███   ███████████   
+     █████████  ███    █████████████ █████ ██████████████   
+    █████████ ██████████ █████████ █████ █████ ████ █████   
+  ███████████ ███    ███ █████████ █████ █████ ████ █████  
+ ██████  █████████████████████ ████ █████ █████ ████ ██████ ]],
       },
       -- item field formatters
       formats = {
@@ -73,13 +75,34 @@ return {
         { section = "startup" },
       },
     },
+    animate = { enabled = true },
     bigfile = { enabled = true },
-    git = { enabled = true },
-    gitbrowse = { enabled = true },
+    dim = { enabled = true },
     explorer = { enabled = true },
-    image = { enabled = true },
+    gitbrowse = { enabled = true },
+    image = {
+      -- define these here, so that we don't need to load the image module
+      formats = {
+        "png",
+        "jpg",
+        "jpeg",
+        "gif",
+        "bmp",
+        "webp",
+        "tiff",
+        "heic",
+        "avif",
+        "mp4",
+        "mov",
+        "avi",
+        "mkv",
+        "webm",
+        "pdf",
+      },
+    },
     indent = { enabled = false },
     input = { enabled = true },
+    layout = { enabled = true },
     lazygit = { enabled = true },
     notifier = {
       enabled = true,
@@ -88,6 +111,7 @@ return {
     },
     picker = { enabled = true },
     project = { enabled = true },
+    profiler = { enabled = true },
     quickfile = { enabled = true },
     scope = { enabled = true },
     scratch = { enabled = true },
@@ -116,7 +140,10 @@ return {
         border = "rounded",
       },
     },
+    toggle = { enabled = true },
+    win = { enabled = true },
     words = { enabled = true },
+    zen = { enabled = true },
   },
   keys = {
     -- Top Pickers & Explorer
@@ -610,21 +637,6 @@ return {
           Snacks.debug.backtrace()
         end
         vim.print = _G.dd -- Override print to use snacks for `:=` command
-
-        -- Create some toggle mappings
-        Snacks.toggle.option("spell", { name = "Spelling" }):map("<leader>us")
-        Snacks.toggle.option("wrap", { name = "Wrap" }):map("<leader>uw")
-        Snacks.toggle.option("relativenumber", { name = "Relative Number" }):map("<leader>uL")
-        Snacks.toggle.diagnostics():map("<leader>ud")
-        Snacks.toggle.line_number():map("<leader>ul")
-        Snacks.toggle
-          .option("conceallevel", { off = 0, on = vim.o.conceallevel > 0 and vim.o.conceallevel or 2 })
-          :map("<leader>uc")
-        Snacks.toggle.treesitter():map("<leader>uT")
-        Snacks.toggle.option("background", { off = "light", on = "dark", name = "Dark Background" }):map("<leader>ub")
-        Snacks.toggle.inlay_hints():map("<leader>uh")
-        Snacks.toggle.indent():map("<leader>ug")
-        Snacks.toggle.dim():map("<leader>uD")
       end,
     })
   end,

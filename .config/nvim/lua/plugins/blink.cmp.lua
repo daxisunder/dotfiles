@@ -1,77 +1,48 @@
 return {
   "saghen/blink.cmp",
   dependencies = {
+    { "Kaiser-Yang/blink-cmp-dictionary" },
+    { "nvim-lua/plenary.nvim" },
     { "echasnovski/mini.snippets" },
     { "rafamadriz/friendly-snippets" },
     { "giuxtaposition/blink-cmp-copilot" },
   },
   opts = {
-    snippets = { preset = "default" },
+    snippets = {
+      preset = "default",
+    },
     completion = {
-      menu = { border = "rounded" },
-      documentation = { window = { border = "rounded" } },
-      keyword = { range = "full" },
-      accept = { auto_brackets = { enabled = false } },
-      list = { selection = { preselect = false, auto_insert = true } },
-    },
-    signature = { window = { border = "rounded" } },
-  },
-  sources = {
-    default = { "lsp", "path", "snippets", "buffer", "copilot", "lazydev", "ripgrep" },
-    per_filetype = {
-      org = { "orgmode" },
-    },
-    providers = {
-      copilot = {
-        name = "copilot",
-        module = "blink-cmp-copilot",
-        score_offset = 100,
-        async = true,
-        transform_items = function(_, items)
-          local CompletionItemKind = require("blink.cmp.types").CompletionItemKind
-          local kind_idx = #CompletionItemKind + 1
-          CompletionItemKind[kind_idx] = "Copilot"
-          for _, item in ipairs(items) do
-            item.kind = kind_idx
-          end
-          return items
-        end,
+      menu = {
+        border = "rounded",
       },
-      orgmode = {
-        name = "Orgmode",
-        module = "orgmode.org.autocompletion.blink",
-        fallbacks = "buffer",
-      },
-      lazydev = {
-        name = "LazyDev",
-        module = "lazydev.integrations.blink",
-        -- make lazydev completions top priority (see `:h blink.cmp`)
-        score_offset = 100,
-      },
-      ripgrep = {
-        module = "blink-cmp-rg",
-        name = "Ripgrep",
-        -- options below are optional, these are the default values
-        opts = {
-          -- `min_keyword_length` only determines whether to show completion items in the menu,
-          -- not whether to trigger a search. And we only has one chance to search.
-          prefix_min_len = 3,
-          get_command = function(context, prefix)
-            return {
-              "rg",
-              "--no-config",
-              "--json",
-              "--word-regexp",
-              "--ignore-case",
-              "--",
-              prefix .. "[\\w_-]+",
-              vim.fs.root(0, ".git") or vim.fn.getcwd(),
-            }
-          end,
-          get_prefix = function(context)
-            return context.line:sub(1, context.cursor[2]):match("[%w_-]+$") or ""
-          end,
+      documentation = {
+        auto_show = true,
+        window = {
+          border = "rounded",
         },
+      },
+      -- Displays a preview of the selected item on the current line
+      ghost_text = {
+        enabled = true,
+      },
+      keyword = {
+        range = "full",
+      },
+      accept = {
+        auto_brackets = {
+          enabled = false,
+        },
+      },
+      list = {
+        selection = {
+          preselect = false,
+          auto_insert = true,
+        },
+      },
+    },
+    signature = {
+      window = {
+        border = "rounded",
       },
     },
     appearance = {
@@ -108,6 +79,50 @@ return {
         Event = "󱐋",
         Operator = "󰪚",
         TypeParameter = "󰬛",
+      },
+    },
+    sources = {
+      default = { "lsp", "path", "snippets", "buffer", "copilot", "dictionary" },
+      per_filetype = {
+        org = { "orgmode" },
+      },
+      providers = {
+        copilot = {
+          name = "copilot",
+          module = "blink-cmp-copilot",
+          score_offset = 100,
+          async = true,
+          transform_items = function(_, items)
+            local CompletionItemKind = require("blink.cmp.types").CompletionItemKind
+            local kind_idx = #CompletionItemKind + 1
+            CompletionItemKind[kind_idx] = "Copilot"
+            for _, item in ipairs(items) do
+              item.kind = kind_idx
+            end
+            return items
+          end,
+        },
+        orgmode = {
+          name = "Orgmode",
+          module = "orgmode.org.autocompletion.blink",
+          fallbacks = "buffer",
+        },
+        dictionary = {
+          module = "blink-cmp-dictionary",
+          name = "Dict",
+          -- Make sure this is at least 2.
+          -- 3 is recommended
+          min_keyword_length = 3,
+          opts = {
+            -- Don't specify files here, only  directories (with files inside)
+            dictionary_directories = { vim.fn.expand("/usr/share/wordnet") },
+            -- Specify files here (.txt, .dict, .add)
+            dictionary_files = {
+              vim.fn.expand("~/.config/harper-ls/harper-core/words.txt"),
+              vim.fn.expand("~/.config/harper-ls/harper-core/dictionary.dict"),
+            },
+          },
+        },
       },
     },
   },
