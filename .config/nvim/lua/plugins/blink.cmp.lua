@@ -8,45 +8,40 @@ return {
     { "giuxtaposition/blink-cmp-copilot" },
   },
   opts = {
-    snippets = {
-      preset = "default",
-    },
+    snippets = { preset = "luasnip" }, -- or default (friendly-snipets), luasnip
+    cmdline = { enabled = false },
+    fuzzy = { implementation = "prefer_rust_with_warning" },
     completion = {
       menu = {
+        auto_show = true,
         border = "rounded",
+        -- nvim-cmp style menu
+        draw = {
+          columns = {
+            { "label", "label_description", gap = 1 },
+            { "kind_icon", "kind", gap = 1 },
+          },
+        },
       },
       documentation = {
         auto_show = true,
-        window = {
-          border = "rounded",
-        },
+        window = { border = "rounded" },
       },
-      -- Displays a preview of the selected item on the current line
-      ghost_text = {
-        enabled = true,
-      },
-      keyword = {
-        range = "full",
-      },
+      ghost_text = { enabled = true },
+      keyword = { range = "full" },
       accept = {
-        auto_brackets = {
-          enabled = false,
-        },
+        auto_brackets = { enabled = false },
       },
       list = {
-        selection = {
-          preselect = false,
-          auto_insert = true,
-        },
+        selection = { preselect = false, auto_insert = true },
       },
     },
     signature = {
-      window = {
-        border = "rounded",
-      },
+      enabled = true,
+      window = { border = "rounded" },
     },
     appearance = {
-      -- Blink does not expose its default kind icons so you must copy them all (or set your custom ones) and add Copilot
+      -- Blink does not expose its default kind icons so you must copy them all (or set custom ones) and add Copilot
       kind_icons = {
         Copilot = "",
         Text = "󰉿",
@@ -55,7 +50,7 @@ return {
         Constructor = "󰒓",
 
         Field = "󰜢",
-        Variable = "󰆦",
+        Variable = "󰆦 ",
         Property = "󰖷",
 
         Class = "󱡠",
@@ -84,11 +79,31 @@ return {
     sources = {
       default = { "lsp", "path", "snippets", "buffer", "copilot", "dictionary" },
       per_filetype = {
-        org = { "orgmode" },
+        org = { "dictionary" },
+        markdown = { "dictionary" },
       },
       providers = {
+        lsp = {
+          name = "LSP",
+          module = "blink.cmp.sources.lsp",
+          opts = {}, -- Passed to the source directly, varies by source
+          --  NOTE: All of these options may be functions to get dynamic behavior
+          --  NOTE: See the type definitions for more information
+          enabled = true, -- Whether or not to enable the provider
+          async = false, -- Whether we should wait for the provider to return before showing the completions
+          timeout_ms = 2000, -- How long to wait for the provider to return before showing completions and treating it as asynchronous
+          transform_items = nil, -- Function to transform the items before they're returned
+          should_show_items = true, -- Whether or not to show the items
+          max_items = nil, -- Maximum number of items to display in the menu
+          min_keyword_length = 0, -- Minimum number of characters in the keyword to trigger the provider
+          -- If this provider returns 0 items, it will fallback to these providers.
+          -- If multiple providers fallback to the same provider, all of the providers must return 0 items for it to fallback
+          fallbacks = {},
+          score_offset = 0, -- Boost/penalize the score of the items
+          override = nil, -- Override the source's functions
+        },
         copilot = {
-          name = "copilot",
+          name = "Copilot",
           module = "blink-cmp-copilot",
           score_offset = 100,
           async = true,
@@ -102,11 +117,11 @@ return {
             return items
           end,
         },
-        orgmode = {
-          name = "Orgmode",
-          module = "orgmode.org.autocompletion.blink",
-          fallbacks = "buffer",
-        },
+        -- orgmode = {
+        --   name = "Orgmode",
+        --   module = "orgmode.org.autocompletion.blink",
+        --   fallbacks = "buffer",
+        -- },
         dictionary = {
           module = "blink-cmp-dictionary",
           name = "Dict",
