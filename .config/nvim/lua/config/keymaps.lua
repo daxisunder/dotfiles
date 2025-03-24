@@ -4,5 +4,8 @@
 
 local map = vim.keymap.set
 
--- Use the localleader key to toggle the undotree
-map("n", "<localleader>u", "<cmd>lua require('undotree').toggle()<cr>", { desc = "Toggle 'undotree'" })
+-- undotree
+map("n", "<localleader>u", "<cmd>lua require('undotree').toggle()<cr>", { desc = "Toggle 'Undotree'" })
+
+-- inc-rename
+map("n", "<localleader>R", ":IncRename", { desc = "Toggle 'IncRename'" })
