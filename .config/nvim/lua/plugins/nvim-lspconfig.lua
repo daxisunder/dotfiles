@@ -5,6 +5,14 @@ return {
   "neovim/nvim-lspconfig",
   opts = {
     servers = {
+      lspconfig.asm_lsp.setup({
+        cmd = { "asm-lsp" },
+        filetypes = { "asm", "vmasm" },
+        single_file_support = true,
+        root_dir = function(fname)
+          return vim.fs.dirname(vim.fs.find({ ".asm-lsp.toml", ".git" }, { path = fname, upward = true })[1])
+        end,
+      }),
       lspconfig.jsonls.setup({
         cmd = { "vscode-json-language-server", "--stdio" },
         filetypes = { "json", "jsonc" },
@@ -146,11 +154,11 @@ return {
             fileDictPath = "~/.config/harper-ls/harper-core/dictionary.dict",
             linters = {
               SpellCheck = true,
-              SpelledNumbers = false,
+              SpelledNumbers = true,
               AnA = true,
               SentenceCapitalization = true,
               UnclosedQuotes = true,
-              WrongQuotes = false,
+              WrongQuotes = true,
               LongSentences = true,
               RepeatedWords = true,
               Spaces = true,
@@ -166,6 +174,31 @@ return {
             diagnosticSeverity = "hint",
             isolateEnglish = false,
           },
+        },
+      }),
+      lspconfig.bashls.setup({
+        cmd = { "bash-language-server", "start" },
+        settings = {
+          bashIde = {
+            globPattern = vim.env.GLOB_PATTERN or "*@(.sh|.inc|.bash|.command)",
+          },
+        },
+        filetypes = { "bash", "sh" },
+        root_dir = function(fname)
+          return vim.fs.dirname(vim.fs.find(".git", { path = fname, upward = true })[1])
+        end,
+        single_file_support = true,
+      }),
+      lspconfig.cssls.setup({
+        cmd = { "vscode-css-language-server", "--stdio" },
+        filetypes = { "css", "scss", "less" },
+        init_options = { provideFormatter = true }, -- needed to enable formatting capabilities
+        root_dir = util.root_pattern("package.json", ".git"),
+        single_file_support = true,
+        settings = {
+          css = { validate = true },
+          scss = { validate = true },
+          less = { validate = true },
         },
       }),
     },
