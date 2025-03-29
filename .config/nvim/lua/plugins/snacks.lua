@@ -5,7 +5,7 @@ return {
   ---@type snacks.Config
   opts = {
     dashboard = {
-      width = 60,
+      width = 68,
       row = nil, -- dashboard position. nil for center
       col = nil, -- dashboard position. nil for center
       pane_gap = 4, -- empty columns between vertical panes
@@ -16,22 +16,22 @@ return {
         ---@type fun(cmd:string, opts:table)|nil
         pick = nil,
         keys = {
-          { icon = "󰻭 ", key = "n", desc = "New File", action = ":ene | startinsert" },
-          { icon = "󱀲 ", key = "r", desc = "Recent Files", action = ":lua Snacks.dashboard.pick('oldfiles')" },
-          { icon = "󱀵 ", key = "p", desc = "Project Files", action = ":lua Snacks.dashboard.pick('projects')" },
+          { icon = "󰻭", key = "n", desc = "New File", action = ":ene | startinsert" },
+          { icon = "󱀲", key = "r", desc = "Recent Files", action = ":lua Snacks.dashboard.pick('oldfiles')" },
+          { icon = "󱀵", key = "p", desc = "Project Files", action = ":lua Snacks.dashboard.pick('projects')" },
           {
-            icon = " ",
+            icon = "",
             key = "c",
             desc = "Config Files",
             action = ":lua Snacks.dashboard.pick('files', {cwd = vim.fn.stdpath('config')})",
           },
-          { icon = "󰱽 ", key = "f", desc = "Find File", action = ":lua Snacks.dashboard.pick('files')" },
-          { icon = "󱩾 ", key = "g", desc = "Find Text", action = ":lua Snacks.dashboard.pick('live_grep')" },
-          { icon = "󰒳 ", key = "l", desc = "Lazy", action = ":Lazy", enabled = package.loaded.lazy ~= nil },
-          { icon = "󰛉 ", key = "x", desc = "Lazy Extras", action = ":LazyExtras" },
-          { icon = " ", key = "m", desc = "Mason", action = ":Mason" },
-          { icon = "󰬳 ", key = "s", desc = "Restore Session", section = "session" },
-          { icon = " ", key = "q", desc = "Quit", action = ":qa" },
+          { icon = "󰱽", key = "f", desc = "Find File", action = ":lua Snacks.dashboard.pick('files')" },
+          { icon = "󱩾", key = "g", desc = "Find Text", action = ":lua Snacks.dashboard.pick('live_grep')" },
+          { icon = "󰒳", key = "l", desc = "Lazy", action = ":Lazy", enabled = package.loaded.lazy ~= nil },
+          { icon = "󰛉", key = "x", desc = "Lazy Extras", action = ":LazyExtras" },
+          { icon = "", key = "m", desc = "Mason", action = ":Mason" },
+          { icon = "󰬳", key = "s", desc = "Restore Session", section = "session" },
+          { icon = "", key = "q", desc = "Quit", action = ":qa" },
         },
         -- Used by the `header` section
         header = [[
@@ -81,6 +81,16 @@ return {
     explorer = { enabled = true },
     gitbrowse = { enabled = true },
     image = {
+      enabled = true,
+      force = true,
+      wo = {
+        winhighlight = "FloatBorder:WhichKeyBorder",
+      },
+      doc = {
+        inline = true,
+        max_width = 45,
+        max_height = 20,
+      },
       -- define these here, so that we don't need to load the image module
       formats = {
         "png",
@@ -116,7 +126,20 @@ return {
     scope = { enabled = true },
     scratch = { enabled = true },
     scroll = { enabled = true },
-    statuscolumn = { enabled = true },
+    statuscolumn = {
+      enabled = true,
+      left = { "mark", "sign" }, -- priority of signs on the left (high to low)
+      right = { "fold", "git" }, -- priority of signs on the right (high to low)
+      folds = {
+        open = true, -- show open fold icons
+        git_hl = false, -- use Git Signs hl for fold icons
+      },
+      git = {
+        -- patterns to match Git signs
+        patterns = { "GitSign", "MiniDiffSign" },
+      },
+      refresh = 50, -- refresh at most every 50ms
+    },
     styles = {
       notification = {
         relative = "editor",
@@ -131,6 +154,53 @@ return {
         title_pos = "center",
         ft = "git",
       },
+      help = {
+        relative = "editor",
+        position = "float",
+        backdrop = false,
+        border = "top",
+        row = -1,
+        width = 0,
+        height = 0.3,
+      },
+      snacks_image = {
+        relative = "cursor",
+        border = "rounded",
+        focusable = false,
+        backdrop = false,
+        row = 1,
+        col = 1,
+        -- width/height are automatically set by the image size unless specified below
+      },
+      zen = {
+        relative = "editor",
+        enter = true,
+        fixbuf = false,
+        minimal = false,
+        width = 120,
+        height = 0,
+        backdrop = { transparent = true, blend = 40 },
+        keys = { q = false },
+        zindex = 40,
+        wo = {
+          winhighlight = "NormalFloat:Normal",
+        },
+        w = {
+          snacks_main = true,
+        },
+      },
+      zoom_indicator = {
+        ennabled = true,
+        relative = "editor",
+        text = "▍ zoom  󰊓  ",
+        minimal = true,
+        enter = false,
+        focusable = false,
+        height = 1,
+        row = 0,
+        col = -1,
+        backdrop = false,
+      },
     },
     terminal = {
       win = {
@@ -140,7 +210,9 @@ return {
         border = "rounded",
       },
     },
-    toggle = { enabled = true },
+    toggle = {
+      enabled = true,
+    },
     win = { enabled = true },
     words = { enabled = true },
     zen = { enabled = true },

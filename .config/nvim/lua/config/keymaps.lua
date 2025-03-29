@@ -9,3 +9,6 @@ map("n", "<localleader>u", "<cmd>lua require('undotree').toggle()<cr>", { desc =
 
 -- inc-rename
 map("n", "<localleader>R", ":IncRename", { desc = "Toggle 'IncRename'" })
+
+-- yankbank
+map("n", "<localleader>y", "<cmd>YankBank<CR>", { desc = "Toggle 'Yankbank'" })

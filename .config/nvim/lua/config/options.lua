@@ -3,12 +3,16 @@
 -- Add any additional options here
 
 local g = vim.g
-local opt = vim.opt
+local o = vim.opt
 
+g.loaded_java_provider = 0
+g.loaded_javac_provider = 0
+g.loaded_julia_provider = 0
 g.loaded_perl_provider = 0
-opt.cursorcolumn = true
-opt.list = true
-opt.listchars = {
+g.loaded_ruby_provider = 0
+o.cursorcolumn = true
+o.list = true
+o.listchars = {
   conceal = "󰇙",
   extends = "󰇘",
   nbsp = "󱥸",
@@ -16,6 +20,6 @@ opt.listchars = {
   tab = "󱗽·",
   trail = "·",
 }
-opt.scrolloff = 8
-opt.sidescrolloff = 8
-opt.startofline = true
+o.scrolloff = 8
+o.sidescrolloff = 8
+o.startofline = true

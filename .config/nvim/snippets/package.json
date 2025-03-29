@@ -1,0 +1,307 @@
+{
+  "name": "snippet",
+  "displayName": "Snippet",
+  "description": "Insert a snippet from cht.sh for Python, JavaScript, Ruby, C#, Go, Rust (and any other language)",
+  "version": "1.2.0",
+  "publisher": "vscode-snippet",
+  "engines": {
+    "vscode": "^1.74.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mre/vscode-snippet.git"
+  },
+  "license": "MIT",
+  "icon": "contrib/icon.png",
+  "galleryBanner": {
+    "color": "#6cfff9",
+    "theme": "light"
+  },
+  "categories": [
+    "Programming Languages",
+    "Snippets",
+    "Other"
+  ],
+  "tags": [
+    "python",
+    "ruby",
+    "php",
+    "rust",
+    "C#",
+    "go",
+    "haskell",
+    "typescript",
+    "shell",
+    "javascript",
+    "node",
+    "snippet",
+    "examples",
+    "documentation",
+    "help",
+    "tldr",
+    "helper",
+    "cheatsheet"
+  ],
+  "main": "./out/extension",
+  "contributes": {
+    "commands": [
+      {
+        "title": "Find",
+        "command": "snippet.find",
+        "category": "Snippet"
+      },
+      {
+        "title": "Find for language",
+        "command": "snippet.findForLanguage",
+        "category": "Snippet"
+      },
+      {
+        "title": "Find Inplace",
+        "command": "snippet.findInplace",
+        "category": "Snippet"
+      },
+      {
+        "title": "Find in new editor window",
+        "command": "snippet.findInNewEditor",
+        "category": "Snippet"
+      },
+      {
+        "title": "Find snippet from selected text",
+        "command": "snippet.findSelectedText",
+        "category": "Snippet"
+      },
+      {
+        "title": "Show previous answer",
+        "command": "snippet.showPreviousAnswer",
+        "category": "Snippet"
+      },
+      {
+        "title": "Show next answer",
+        "command": "snippet.showNextAnswer",
+        "category": "Snippet"
+      },
+      {
+        "title": "Toggle comments",
+        "command": "snippet.toggleComments",
+        "category": "Snippet"
+      },
+      {
+        "title": "Save snippet",
+        "command": "snippet.saveSnippet",
+        "category": "Snippet"
+      },
+      {
+        "title": "Insert snippet",
+        "command": "snippet.insertSnippet",
+        "category": "Snippet"
+      },
+      {
+        "title": "Delete",
+        "command": "snippet.deleteSnippet",
+        "category": "Snippet"
+      },
+      {
+        "title": "Rename",
+        "command": "snippet.renameSnippet",
+        "category": "Snippet"
+      },
+      {
+        "title": "Copy",
+        "command": "snippet.copySnippet",
+        "category": "Snippet"
+      },
+      {
+        "title": "Find and copy",
+        "command": "snippet.findAndCopy",
+        "category": "Snippet"
+      },
+      {
+        "title": "New Folder",
+        "command": "snippet.createFolder",
+        "category": "Snippet",
+        "icon": {
+          "light": "assets/icons/add-light.svg",
+          "dark": "assets/icons/add-dark.svg"
+        }
+      },
+      {
+        "title": "Restore backups",
+        "command": "snippet.restoreBackups",
+        "category": "Snippet",
+        "icon": {
+          "light": "assets/icons/history-light.svg",
+          "dark": "assets/icons/history-dark.svg"
+        }
+      }
+    ],
+    "configuration": {
+      "title": "Snippet",
+      "properties": {
+        "snippet.baseUrl": {
+          "type": "string",
+          "default": "https://cht.sh",
+          "description": "Base URL of the cheat sheet server"
+        },
+        "snippet.openInNewEditor": {
+          "type": "boolean",
+          "default": true,
+          "description": "Open snippet result in new editor."
+        },
+        "snippet.verbose": {
+          "type": "boolean",
+          "default": false,
+          "description": "Also show explanations for code snippets."
+        },
+        "snippet.defaultLanguage": {
+          "type": "string",
+          "default": null,
+          "description": "Programming language name in lower case to use as default language when there is no open editor window."
+        },
+        "snippet.title": {
+          "type": "string",
+          "default": "[${language}] ${query} (${index})",
+          "markdownDescription": "Template string of a snippet title.  \nYou can use the following variables:\n- ${language} - the programming language\n- ${query} - the snippet query (search text)\n- ${index} - the index of the snippet (e.g. 2 for the third answer)"
+        },
+        "snippet.insertWithDoubleClick": {
+          "type": "boolean",
+          "default": false,
+          "description": "Insert snippet with double click."
+        },
+        "snippet.showCopySuccessNotification": {
+          "type": "boolean",
+          "default": true,
+          "description": "Whether to show a notification after the snippet is copied to the clipboard."
+        },
+        "snippet.saveBackups": {
+          "type": "boolean",
+          "default": true,
+          "description": "Whether to create backups of the snippets."
+        }
+      }
+    },
+    "menus": {
+      "view/title": [
+        {
+          "command": "snippet.createFolder",
+          "when": "view == snippetsView",
+          "group": "navigation"
+        },
+        {
+          "command": "snippet.restoreBackups",
+          "when": "view == snippetsView",
+          "group": "navigation"
+        }
+      ],
+      "view/item/context": [
+        {
+          "command": "snippet.createFolder",
+          "when": "view == snippetsView",
+          "group": "snippet.viewItemContext.baseGroup@1"
+        },
+        {
+          "command": "snippet.copySnippet",
+          "when": "view == snippetsView && viewItem == snippet",
+          "group": "snippet.viewItemContext.baseGroup@2"
+        },
+        {
+          "command": "snippet.renameSnippet",
+          "when": "view == snippetsView",
+          "group": "snippet.viewItemContext.baseGroup@3"
+        },
+        {
+          "command": "snippet.deleteSnippet",
+          "when": "view == snippetsView",
+          "group": "snippet.viewItemContext.baseGroup@4"
+        }
+      ],
+      "editor/context": [
+        {
+          "when": "editorHasSelection",
+          "command": "snippet.findSelectedText",
+          "group": "1_modification"
+        },
+        {
+          "when": "editorHasSelection",
+          "command": "snippet.saveSnippet",
+          "group": "1_modification"
+        }
+      ]
+    },
+    "views": {
+      "explorer": [
+        {
+          "id": "snippetsView",
+          "name": "Snippets"
+        }
+      ]
+    },
+    "keybindings": [
+      {
+        "command": "snippet.findSelectedText",
+        "key": "ctrl+shift+s",
+        "mac": "cmd+shift+s",
+        "when": "editorHasSelection"
+      },
+      {
+        "key": "c",
+        "command": "snippet.showNextAnswer",
+        "when": "resourceScheme == 'snippet' && editorReadonly"
+      },
+      {
+        "key": "v",
+        "command": "snippet.showPreviousAnswer",
+        "when": "resourceScheme == 'snippet' && editorReadonly"
+      }
+    ]
+  },
+  "activationEvents": [
+    "onCommand:snippet.find",
+    "onCommand:snippet.findForLanguage",
+    "onCommand:snippet.findSelectedText",
+    "onCommand:snippet.findInplace",
+    "onCommand:snippet.findInNewEditor",
+    "onCommand:snippet.showPreviousAnswer",
+    "onCommand:snippet.showNextAnswer",
+    "onCommand:snippet.toggleComments"
+  ],
+  "scripts": {
+    "vscode:prepublish": "NODE_ENV=production npm run compile",
+    "compile": "rollup -c",
+    "precompile": "rimraf out",
+    "watch": "rollup -c --watch",
+    "prewatch": "rimraf out",
+    "lint": "eslint src",
+    "test": "npm run test-compile && export NODE_ENV=test && node ./out/test/runTest.js",
+    "test-compile": "tsc -p ./ --allowSyntheticDefaultImports",
+    "pretest-compile": "rimraf out"
+  },
+  "dependencies": {
+    "@vscode/vsce": "^2.31.1",
+    "axios": "^1.7.3",
+    "event-stream": "4.0.1",
+    "http-proxy-agent": "^7.0.2"
+  },
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "^26.0.1",
+    "@rollup/plugin-json": "^6.1.0",
+    "@rollup/plugin-node-resolve": "^15.2.3",
+    "@rollup/plugin-terser": "^0.4.4",
+    "@rollup/plugin-typescript": "^11.1.6",
+    "@types/glob": "^8.1.0",
+    "@types/mocha": "^10.0.7",
+    "@types/node": "^14.17.0",
+    "@types/sinon": "^17.0.3",
+    "@types/vscode": "^1.74.0",
+    "@typescript-eslint/eslint-plugin": "^7.17.0",
+    "@typescript-eslint/parser": "^7.18.0",
+    "@vscode/test-electron": "^2.4.1",
+    "eslint": "^8.57.0",
+    "glob": "^11.0.0",
+    "mocha": "^10.7.0",
+    "rimraf": "^6.0.1",
+    "rollup-plugin-node-externals": "^7.1.2",
+    "sinon": "^18.0.0",
+    "rollup": "^4.20.0",
+    "typescript": "^5.4.5"
+  }
+}

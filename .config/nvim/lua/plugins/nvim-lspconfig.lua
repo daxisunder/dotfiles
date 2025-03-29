@@ -81,7 +81,21 @@ return {
         single_file_support = true,
       }),
       lspconfig.ltex.setup({
-        filetypes = { "latex", "tex", "bib" },
+        cmd = { "ltex-ls" },
+        filetypes = { "latex", "tex", "org", "bib" },
+        root_dir = function(fname)
+          return vim.fn.fnamemodify(fname, ":h")
+        end,
+        settings = {
+          ltex = {
+            enabled = true,
+            check_text = {
+              on_change = true,
+              on_open = false,
+              on_save = false,
+            },
+          },
+        },
       }),
       lspconfig.textlsp.setup({
         cmd = { "textlsp" },
@@ -94,30 +108,46 @@ return {
           textLSP = {
             analysers = {
               languagetool = {
-                check_text = {
-                  on_change = false,
-                  on_open = true,
-                  on_save = true,
-                },
                 enabled = true,
+                check_text = {
+                  on_change = true,
+                  on_open = false,
+                  on_save = false,
+                },
+              },
+              ollama = {
+                enabled = true,
+                check_text = {
+                  on_open = false,
+                  on_save = false,
+                  on_change = true,
+                },
+                model = "phi3:3.8b-instruct", -- smaller but faster model
+                -- model = "phi3:14b-instruct",  -- more accurate
+                max_token = 50,
               },
             },
             documents = {
+              language = "auto:en",
+              min_length_language_detect = 20,
               org = {
                 org_todo_keywords = { "TODO", "IN_PROGRESS", "DONE" },
+              },
+              txt = {
+                parse = true,
               },
             },
           },
         },
       }),
       lspconfig.lua_ls.setup({
+        cmd = { "lua-language-server" },
+        filetypes = { "lua" },
+        log_level = 2,
         on_init = function(client)
           if client.workspace_folders then
             local path = client.workspace_folders[1].name
-            if
-              path ~= vim.fn.stdpath("config")
-              and (vim.loop.fs_stat(path .. "/.luarc.json") or vim.loop.fs_stat(path .. "/.luarc.jsonc"))
-            then
+            if path ~= vim.fn.stdpath("config") then
               return
             end
           end
@@ -149,16 +179,16 @@ return {
         enabled = true,
         filetypes = { "markdown", "org" },
         settings = {
-          ["harper_ls"] = {
+          ["harper-ls"] = {
             -- userDictPath = "$XDG_CONFIG_HOME/harper-ls/harper-core/dictionary.dict",
             fileDictPath = "~/.config/harper-ls/harper-core/dictionary.dict",
             linters = {
-              SpellCheck = true,
+              SpellCheck = false,
               SpelledNumbers = true,
               AnA = true,
-              SentenceCapitalization = true,
+              SentenceCapitalization = false,
               UnclosedQuotes = true,
-              WrongQuotes = true,
+              WrongQuotes = false,
               LongSentences = true,
               RepeatedWords = true,
               Spaces = true,

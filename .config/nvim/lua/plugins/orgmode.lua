@@ -8,6 +8,7 @@ return {
   event = "VeryLazy",
   ft = { "org" },
   config = function()
+    require("orgmode").setup_ts_grammar()
     -- Setup orgmode
     require("orgmode").setup({
       org_agenda_files = "~/Dropbox/orgfiles/**/*",
