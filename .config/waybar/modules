@@ -745,48 +745,57 @@
 },
 
 "custom/hyprWindowMode": {
-	"exec": "~/.config/hypr/UserScripts/hyprWindowMode.sh",
-	"return-type": "json",
-	"format": "{}",
-	"on-click": "~/.config/hypr/UserScripts/hyprWindowMode.sh toggle",
-	"tooltip": true
+  "exec": "~/.config/hypr/UserScripts/hyprWindowMode.sh",
+  "return-type": "json",
+  "format": "{}",
+  "on-click": "~/.config/hypr/UserScripts/hyprWindowMode.sh toggle",
+  "tooltip": true
+},
+
+"custom/niflveil": {
+  "format": "{}",
+  "exec": "niflveil show",
+  "on-click": "niflveil restore",
+  "return-type": "json",
+  "interval": "once",
+  "signal": 8
 },
 
 // Separators
 "custom/separator#dot": {
-	"format": "",
-	"interval": "once",
-	"tooltip": false
+  "format": "",
+  "interval": "once",
+  "tooltip": false
 },
 
 "custom/separator#dot-line": {
-	"format": "",
-	"interval": "once",
-	"tooltip": false
+  "format": "",
+  "interval": "once",
+  "tooltip": false
 },
 
 "custom/separator#line": {
-	"format": "|",
-	"interval": "once",
-	"tooltip": false
+  "format": "|",
+  "interval": "once",
+  "tooltip": false
 },
 
 "custom/separator#blank": {
-	"format": "",
-	"interval": "once",
-	"tooltip": false
+  "format": "",
+  "interval": "once",
+  "tooltip": false
 },
 
 "custom/separator#blank_2": {
-	"format": "  ",
-	"interval": "once",
-	"tooltip": false
+  "format": "  ",
+  "interval": "once",
+  "tooltip": false
 },
 
 "custom/separator#blank_3": {
-	"format": "   ",
-	"interval": "once",
-	"tooltip": false
+  "format": "   ",
+  "interval": "once",
+  "tooltip": false
 },
 
 "custom/separator#home": {
