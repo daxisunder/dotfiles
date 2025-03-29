@@ -3,12 +3,16 @@
 
 # If you come from bash you might have to change your $PATH.
 export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH="/usr/bin:$PATH"
 
 # Created by `pipx` on 2025-02-10 20:34:32
-export PATH="$PATH:/home/daxis/.local/bin"
+export PATH="$PATH:~/.local/bin"
 
 # Ruby path
-export PATH="$PATH:/home/daxis/.local/share/gem/ruby/3.3.0/bin"
+export PATH="$PATH:~/.local/share/gem/ruby/3.3.0/bin"
+
+# Node path
+export NODE_EXTRA_CA_CERTS="/etc/ssl/certs/ACCVRAIZ1.pem"
 
 # OMZ path
 export ZSH="$HOME/.oh-my-zsh"
@@ -18,7 +22,7 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 
 # Set editor
 export EDITOR="nvim"
-export SUDO_EDITOR="nvim"
+export SUDO_EDITOR="${EDITOR}"
 export VISUAL="${EDITOR}"
 
 # Set bat as manpager
@@ -29,16 +33,18 @@ export BAT_STYLE="full"
 # Set neovim as manpager
 export MANPAGER="nvim +Man!"
 
-# Set some cool ZSH options
-setopt nocaseglob          # Case insensitive autocompletions
-setopt nocasematch         # Case insensitive autocompletions
-setopt MENU_COMPLETE       # Automatically highlight first element of completion menu
-setopt LIST_PACKED         # The completion menu takes less space
-setopt AUTO_LIST           # Automatically list choices on ambiguous completion
-setopt COMPLETE_IN_WORD    # Complete from both ends of a word
-setopt correct             # Auto-corrections
-setopt AUTOCD              # Change directory just by typing its name
-setopt PROMPT_SUBST        # Enable command substitution in prompt
+# Set some cool ZSH options (set -o for all options)
+setopt no_case_glob            # Case insensitive autocompletions
+setopt no_case_match           # Case insensitive autocompletions
+setopt globdots                # Include dotfiles in globbing
+setopt auto_menu menu_complete # Automatically highlight first element of completion menu
+setopt list_packed             # The completion menu takes less space
+setopt auto_list               # Automatically list choices on ambiguous completion
+setopt complete_in_word        # Complete from both ends of a word
+setopt correct                 # Auto-corrections
+setopt autocd                  # Change directory just by typing its name
+setopt prompt_subst            # Enable command substitution in prompt
+setopt interactive_comments    # Allow comments in interactive shell
 
 # Load engine (completions)
 autoload -Uz compinit
@@ -56,7 +62,7 @@ _comp_options+=(globdots)
 
 zstyle ':completion:*' verbose true
 zstyle ':completion:*:*:*:*:*' menu select
-zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS} 'ma=48;5;197;1'
+zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS} 'ma=0\;33'
 zstyle ':completion:*' matcher-list \
 		'm:{a-zA-Z}={A-Za-z}' \
 		'+r:|[._-]=* r:|=*' \
@@ -129,8 +135,8 @@ ex() {
 
 # History
 HISTFILE=~/.zsh_history
-HISTSIZE=10000
-SAVEHIST=10000
+HISTSIZE=1000000
+SAVEHIST=1000000
 setopt appendhistory
 setopt sharehistory
 setopt hist_ignore_space
@@ -207,7 +213,7 @@ alias psyyu='sudo pacman -Syyu' # Update only standard packages
 alias prsn='sudo pacman -Rsn'
 alias prsu='sudo pacman -Rsu'
 alias prsnu='sudo pacman -Rsnu'
-alias ps='sudo pacman -S'
+alias pacs='sudo pacman -S'
 alias pss='pacman -Ss'
 alias pqdtq='pacman -Qdtq'
 alias pqet='pacman -Qet'
@@ -276,16 +282,6 @@ eval "$(zoxide init zsh)"
 # Zellij integration
 eval "$(zellij setup --generate-auto-start zsh)"
 
-# Display Pokemon-colorscripts
-# Project page: https://gitlab.com/phoneybadger/pokemon-colorscripts#on-other-distros-and-macos
-#pokemon-colorscripts --no-title -s -r
-
-# Display colorscripts
-#colorscript -r
-
-# Auto-start "zombie-zfetch"
-source $HOME/.config/zfetch/zfetchrc
-
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
@@ -295,6 +291,10 @@ eval "$(atuin init zsh)"
 
 # Wikiman integration
 source /usr/share/wikiman/widgets/widget.zsh
+
+# Batman integration
+export BAT_THEME="Dracula"
+eval "$(batman --export-env)"
 
 # Pay-respects (better command-not-found) integration
 eval "$(pay-respects zsh --alias)"
@@ -316,3 +316,13 @@ source <(carapace _carapace)
 
 # broot integration
 source /home/daxis/.config/broot/launcher/bash/br
+
+# Display Pokemon-colorscripts
+# Project page: https://gitlab.com/phoneybadger/pokemon-colorscripts#on-other-distros-and-macos
+#pokemon-colorscripts --no-title -s -r
+
+# Display colorscripts
+#colorscript -r
+
+# Auto-start "zombie-zfetch"
+source $HOME/.config/zfetch/zfetchrc
