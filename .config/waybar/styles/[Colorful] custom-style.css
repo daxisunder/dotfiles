@@ -167,20 +167,33 @@ window#waybar.empty #window {
 #custom-hint {
   color: #c0caf5;
   padding-left: 0px;
-  padding-right: 4px;
+  padding-right: 2px;
   font-size: 125%;
 }
 
 #custom-github {
   color: #c0caf5;
   padding-left: 0px;
-  padding-right: 10px;
+  padding-right: 4px;
   font-size: 125%;
 }
 
 #custom-hyprWindowMode {
   color: #c0caf5;
   padding-left: 6px;
+  font-size: 125%;
+}
+
+#custom-niflveil {
+  padding: 0 10px;
+  color: #7dcfff;
+  padding-left: 0px;
+  padding-right: 10px;
+  font-size: 125%;
+}
+
+#custom-niflveil.empty {
+  color: #c0caf5;
   font-size: 125%;
 }
 
