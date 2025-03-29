@@ -29,7 +29,7 @@ location_id = "8195d9f49020e0cb2480e12d131a6c422a93061ceb45713c9218c7882addbb87"
 # NOTE to change to deg F, change the URL to your preffered location after weather.com
 # Default is English-Philippines with Busan, South Korea as location_id
 # get html page
-url = "https://weather.com/en-PH/weather/today/l/" + location_id
+url = "https://weather.com/en-US/weather/today/l/" + location_id
 html_data = PyQuery(url=url)
 
 # current temperature
@@ -86,7 +86,7 @@ humidity_text = f"  {humidity}"
 
 # visibility
 visbility = html_data("span[data-testid='VisibilityValue']").text()
-visbility_text = f"  {visbility}"
+visbility_text = f"󰮕  {visbility}"
 # print(visbility_text)
 
 # air quality index
@@ -123,11 +123,13 @@ out_data = {
 }
 print(json.dumps(out_data))
 
-simple_weather =f"{icon}  {status}\n" + \
-                f"  {temp} ({temp_feel_text})\n" + \
-                f"{wind_text} \n" + \
-                f"{humidity_text} \n" + \
-                f"{visbility_text} AQI{air_quality_index}\n"
+simple_weather = (
+    f"{icon}  {status}\n"
+    + f"  {temp} ({temp_feel_text})\n"
+    + f"{wind_text} \n"
+    + f"{humidity_text} \n"
+    + f"{visbility_text} AQI{air_quality_index}\n"
+)
 
 try:
     with open(os.path.expanduser("~/.cache/.weather_cache"), "w") as file:
