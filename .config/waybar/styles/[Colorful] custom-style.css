@@ -167,7 +167,7 @@ window#waybar.empty #window {
 #custom-hint {
   color: #c0caf5;
   padding-left: 0px;
-  padding-right: 2px;
+  padding-right: 4px;
   font-size: 125%;
 }
 
@@ -185,7 +185,6 @@ window#waybar.empty #window {
 }
 
 #custom-niflveil {
-  padding: 0 10px;
   color: #7dcfff;
   padding-left: 0px;
   padding-right: 10px;
