@@ -1,11 +1,16 @@
 local util = require("lspconfig.util")
 local lspconfig = require("lspconfig")
+local capabilities = require("blink.cmp").get_lsp_capabilities(vim.lsp.protocol.make_client_capabilities())
+capabilities.textDocument.completion.completionItem.snippetSupport = true
 
 return {
   "neovim/nvim-lspconfig",
+  dependencies = { "saghen/blink.cmp" },
+  event = "VeryLazy",
   opts = {
     servers = {
       lspconfig.asm_lsp.setup({
+        capabilities = capabilities,
         cmd = { "asm-lsp" },
         filetypes = { "asm", "vmasm" },
         single_file_support = true,
@@ -14,6 +19,7 @@ return {
         end,
       }),
       lspconfig.jsonls.setup({
+        capabilities = capabilities,
         cmd = { "vscode-json-language-server", "--stdio" },
         filetypes = { "json", "jsonc" },
         root_dir = function(fname)
@@ -25,6 +31,7 @@ return {
         single_file_support = true,
       }),
       lspconfig.ruby_lsp.setup({
+        capabilities = capabilities,
         cmd = { "ruby-lsp" },
         filetypes = { "ruby", "eruby" },
         root_dir = util.root_pattern("Gemfile", ".git"),
@@ -34,11 +41,13 @@ return {
         single_file_support = true,
       }),
       lspconfig.rubocop.setup({
+        capabilities = capabilities,
         cmd = { "rubocop", "--lsp" },
         filetypes = { "ruby" },
         root_dir = util.root_pattern("Gemfile", ".git"),
       }),
       lspconfig.phpactor.setup({
+        capabilities = capabilities,
         cmd = { "phpactor", "language-server" },
         filetypes = { "php" },
         root_dir = function(pattern)
@@ -49,6 +58,7 @@ return {
         end,
       }),
       lspconfig.perlls.setup({
+        capabilities = capabilities,
         cmd = {
           "perl",
           "-MPerl::LanguageServer",
@@ -73,6 +83,7 @@ return {
         single_file_support = true,
       }),
       lspconfig.hyprls.setup({
+        capabilities = capabilities,
         cmd = { "hyprls", "--stdio" },
         filetypes = { "hyprlang" },
         root_dir = function(fname)
@@ -81,14 +92,16 @@ return {
         single_file_support = true,
       }),
       lspconfig.ltex.setup({
+        capabilities = capabilities,
         cmd = { "ltex-ls" },
-        filetypes = { "latex", "tex", "org", "bib" },
+        filetypes = { "latex", "tex", "org", "bib", "plaintext", "markdown", "mail", "text" },
         root_dir = function(fname)
           return vim.fn.fnamemodify(fname, ":h")
         end,
         settings = {
           ltex = {
-            enabled = true,
+            enabled = { "org", "markdown", "text", "plaintext" },
+            language = "en-US",
             check_text = {
               on_change = true,
               on_open = false,
@@ -98,6 +111,7 @@ return {
         },
       }),
       lspconfig.textlsp.setup({
+        capabilities = capabilities,
         cmd = { "textlsp" },
         filetypes = { "text", "tex", "org" },
         root_dir = function(fname)
@@ -141,6 +155,7 @@ return {
         },
       }),
       lspconfig.lua_ls.setup({
+        capabilities = capabilities,
         cmd = { "lua-language-server" },
         filetypes = { "lua" },
         log_level = 2,
@@ -176,6 +191,7 @@ return {
         },
       }),
       lspconfig.harper_ls.setup({
+        capabilities = capabilities,
         enabled = true,
         filetypes = { "markdown", "org" },
         settings = {
@@ -207,6 +223,7 @@ return {
         },
       }),
       lspconfig.bashls.setup({
+        capabilities = capabilities,
         cmd = { "bash-language-server", "start" },
         settings = {
           bashIde = {
@@ -220,6 +237,7 @@ return {
         single_file_support = true,
       }),
       lspconfig.cssls.setup({
+        capabilities = capabilities,
         cmd = { "vscode-css-language-server", "--stdio" },
         filetypes = { "css", "scss", "less" },
         init_options = { provideFormatter = true }, -- needed to enable formatting capabilities
@@ -229,6 +247,33 @@ return {
           css = { validate = true },
           scss = { validate = true },
           less = { validate = true },
+        },
+      }),
+      lspconfig.css_variables.setup({
+        capabilities = capabilities,
+        cmd = { "css-variables-language-server", "--stdio" },
+        filetypes = { "css", "scss", "less" },
+        root_dir = util.root_pattern("package.json", ".git"),
+        -- Same as inlined defaults that don't seem to work without hardcoding them in the lua config
+        -- https://github.com/vunguyentuan/vscode-css-variables/blob/763a564df763f17aceb5f3d6070e0b444a2f47ff/packages/css-variables-language-server/src/CSSVariableManager.ts#L31-L50
+        settings = {
+          cssVariables = {
+            lookupFiles = { "**/*.less", "**/*.scss", "**/*.sass", "**/*.css" },
+            blacklistFolders = {
+              "**/.cache",
+              "**/.DS_Store",
+              "**/.git",
+              "**/.hg",
+              "**/.next",
+              "**/.svn",
+              "**/bower_components",
+              "**/CVS",
+              "**/dist",
+              "**/node_modules",
+              "**/tests",
+              "**/tmp",
+            },
+          },
         },
       }),
     },

@@ -4,6 +4,7 @@ return {
     { "zbirenbaum/copilot.lua" }, -- or "github/copilot.vim"
     { "nvim-lua/plenary.nvim", branch = "master" }, -- for curl, log and async functions
   },
+  event = "VeryLazy",
   build = "make tiktoken", -- Only on MacOS or Linux
   opts = {
     config = function()

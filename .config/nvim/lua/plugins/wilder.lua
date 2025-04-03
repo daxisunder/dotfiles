@@ -1,10 +1,10 @@
 return {
-  -- a more adventurous wildmenu
   "gelguy/wilder.nvim",
   dependencies = {
     { "romgrk/fzy-lua-native" },
     { "kyazdani42/nvim-web-devicons" },
   },
+  event = "VeryLazy",
   config = function()
     local wilder = require("wilder")
     wilder.setup({ modes = { ":", "/", "?" } })

@@ -12,7 +12,7 @@ return {
         colors.bg_dark1 = "#1a1b26"
         colors.bg_float = "#000000"
         colors.bg_sidebar = "#000000"
-        colors.bg_statusline = "#1a1b26"
+        colors.bg_statusline = "#000000"
         colors.bg_popup = "#000000"
         colors.black = "#000000"
         colors.terminal_black = "#000000"

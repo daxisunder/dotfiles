@@ -1,5 +1,6 @@
 return {
   "echasnovski/mini.indentscope",
+  lazy = true,
   version = false,
   enabled = false,
   config = function()

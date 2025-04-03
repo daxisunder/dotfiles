@@ -1,5 +1,6 @@
 return {
   "echasnovski/mini.pick",
+  event = "VeryLazy",
   version = "*",
   config = function()
     require("mini.pick").setup({

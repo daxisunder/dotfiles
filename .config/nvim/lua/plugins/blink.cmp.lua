@@ -1,15 +1,35 @@
 return {
   "saghen/blink.cmp",
+  opts_extend = {
+    "sources.completion.enabled_providers",
+    "sources.compat",
+    "sources.default",
+  },
   dependencies = {
     { "Kaiser-Yang/blink-cmp-dictionary" },
     { "nvim-lua/plenary.nvim" },
     { "echasnovski/mini.snippets" },
     { "rafamadriz/friendly-snippets" },
+    { "L3MON4D3/LuaSnip", version = "v2.*" },
     { "giuxtaposition/blink-cmp-copilot" },
+    {
+      "saghen/blink.compat",
+      optional = true, -- make optional so it's only enabled if any extras need it
+      opts = {},
+      version = not vim.g.lazyvim_blink_main and "*",
+    },
   },
+  lazy = true,
+  event = "InsertEnter",
   opts = {
-    snippets = { preset = "luasnip" }, -- or default (friendly-snipets), luasnip
+    snippets = { preset = "luasnip" }, -- or default (friendly-snipets), mini.snippets
     cmdline = { enabled = false },
+    signature = {
+      enabled = true,
+      window = {
+        show_documentation = true,
+      },
+    },
     fuzzy = { implementation = "prefer_rust_with_warning" },
     completion = {
       menu = {
@@ -35,10 +55,6 @@ return {
       list = {
         selection = { preselect = false, auto_insert = true },
       },
-    },
-    signature = {
-      enabled = true,
-      window = { border = "rounded" },
     },
     appearance = {
       -- Blink does not expose its default kind icons so you must copy them all (or set custom ones) and add Copilot
@@ -77,7 +93,7 @@ return {
       },
     },
     sources = {
-      default = { "lsp", "path", "snippets", "buffer", "copilot", "dictionary" },
+      default = { "lsp", "path", "snippets", "buffer", "copilot", "dictionary", "lazydev" },
       providers = {
         lsp = {
           name = "LSP",
@@ -97,6 +113,11 @@ return {
           fallbacks = {},
           score_offset = 0, -- Boost/penalize the score of the items
           override = nil, -- Override the source's functions
+        },
+        lazydev = {
+          name = "LazyDev",
+          module = "lazydev.integrations.blink",
+          score_offset = 100, -- show at a higher priority than lsp
         },
         copilot = {
           name = "Copilot",

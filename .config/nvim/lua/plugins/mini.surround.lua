@@ -1,5 +1,6 @@
 return {
   "echasnovski/mini.surround",
+  event = "VeryLazy",
   recommended = true,
   keys = function(_, keys)
     -- Populate the keys based on the user's options
@@ -28,9 +29,9 @@ return {
       replace = "gsr", -- Replace surrounding
       update_n_lines = "gsn", -- Update `n_lines`
     },
-  -- Duration (in ms) of highlight when calling `MiniSurround.highlight()`
-  highlight_duration = 2000,
-  -- Whether to disable showing non-error feedback
-  silent = false,
+    -- Duration (in ms) of highlight when calling `MiniSurround.highlight()`
+    highlight_duration = 2000,
+    -- Whether to disable showing non-error feedback
+    silent = false,
   },
 }

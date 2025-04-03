@@ -18,6 +18,7 @@ return {
       "rasi",
       "regex",
       "ruby",
+      "rust",
       "scss",
       "toml",
       "tsx",
@@ -30,4 +31,11 @@ return {
   vim.filetype.add({
     pattern = { [".*/hypr/.*%.conf"] = "hyprlang" },
   }),
+  highlight = {
+    enable = true,
+  },
+  additional_vim_regex_highlighting = { enable = true },
+  indent = {
+    enable = true,
+  },
 }

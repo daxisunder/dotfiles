@@ -1,5 +1,6 @@
 return {
   "chipsenkbeil/org-roam.nvim",
+  event = "VeryLazy",
   tag = "0.1.1",
   dependencies = {
     "nvim-orgmode/orgmode",
