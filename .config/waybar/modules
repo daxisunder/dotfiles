@@ -732,7 +732,7 @@
   "format": "{}°C",
   "tooltip": true,
   "interval": 3600,
-  "exec": "wttrbar --location BanjaLuka",
+  "exec": "wttrbar --location Luxembourg",
   "return-type": "json"
 },
 
