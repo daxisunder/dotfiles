@@ -3,6 +3,7 @@
 -- Add any additional keymaps here
 
 local map = vim.keymap.set
+local harpoon = require("harpoon")
 
 -- jj = ESC
 map({ "i", "v", "t", "c", "s" }, "jj", "<ESC>", { silent = false })
@@ -67,3 +68,13 @@ map({ "n", "x" }, "<leader>gY", function()
     notify = false,
   })
 end, { desc = "Git Browse (copy)" })
+
+-- harpoon
+map("n", "<leader>h", function()
+  require("harpoon").ui:toggle_quick_menu(harpoon:list(), {
+    ui_max_width = 80, -- Maximum menu width
+    ui_min_width = 40, -- Minimum menu width
+    border = "rounded", -- Window border style
+    title = " Harpoon ", -- Custom window title
+  })
+end, { desc = "Harpoon Menu" })

@@ -48,7 +48,7 @@ return {
       mode = { "v", "n" },
       "<localleader>m",
       "<cmd>MCstart<cr>",
-      desc = "Toggle 'Multicursor'",
+      desc = "Toggle 'multicursor'",
     },
   },
 }

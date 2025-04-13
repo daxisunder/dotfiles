@@ -42,14 +42,29 @@ autocmd("User", {
 autocmd("FileType", {
   pattern = "*",
   callback = function()
-    vim.opt_local.formatoptions:remove({ "c", "r", "o" })
+    vim.opt.formatoptions:remove({ "c", "r", "o" })
   end,
+  desc = "Disable New Line Comment",
 })
 
 -- Set ltex LSP to attach to org files
 autocmd({ "BufRead", "BufNewFile" }, {
   pattern = "*org",
   callback = function()
-    vim.bomfiletype = "org"
+    vim.bo.filetype = "org"
   end,
+})
+
+-- cmdline messages
+autocmd({ "CmdlineEnter" }, {
+  callback = function()
+    vim.opt.messagesopt = "hit-enter,history:1000"
+    vim.api.nvim_create_autocmd({ "CursorHold", "CursorMoved" }, {
+      callback = function()
+        vim.opt.messagesopt = "wait:500,history:1000"
+      end,
+      once = true,
+    })
+  end,
+  desc = "Only show Cmdline message when triggered",
 })

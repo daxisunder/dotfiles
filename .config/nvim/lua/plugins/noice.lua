@@ -3,8 +3,6 @@ return {
   event = "VeryLazy",
   opts = {
     -- add any options here
-  },
-  require("noice").setup({
     lsp = {
       signature = {
         auto_open = {
@@ -25,5 +23,5 @@ return {
       inc_rename = true, -- enables an input dialog for inc-rename.nvim
       lsp_doc_border = "rounded",
     },
-  }),
+  },
 }

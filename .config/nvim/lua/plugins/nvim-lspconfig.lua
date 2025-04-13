@@ -134,7 +134,7 @@ return {
                 check_text = {
                   on_open = false,
                   on_save = false,
-                  on_change = true,
+                  on_change = false,
                 },
                 model = "phi3:3.8b-instruct", -- smaller but faster model
                 -- model = "phi3:14b-instruct",  -- more accurate
@@ -178,7 +178,7 @@ return {
               library = {
                 vim.env.VIMRUNTIME,
                 -- Depending on the usage, you might want to add additional paths here.
-                -- "${3rd}/luv/library"
+                "${3rd}/luv/library",
                 -- "${3rd}/busted/library",
               },
               -- or pull in all of 'runtimepath'.  NOTE: this is a lot slower and will cause issues when working on your own configuration (see https://github.com/neovim/nvim-lspconfig/issues/3189)
@@ -196,16 +196,16 @@ return {
         filetypes = { "markdown", "org" },
         settings = {
           ["harper-ls"] = {
-            -- userDictPath = "$XDG_CONFIG_HOME/harper-ls/harper-core/dictionary.dict",
+            -- userDictPath = "$XDG_CONFIG_HOME/user/dict/path/dict.txt",
             fileDictPath = "~/.config/harper-ls/harper-core/dictionary.dict",
             linters = {
-              SpellCheck = false,
+              SpellCheck = true,
               SpelledNumbers = true,
-              AnA = true,
+              AnA = false,
               SentenceCapitalization = false,
               UnclosedQuotes = true,
               WrongQuotes = false,
-              LongSentences = true,
+              LongSentences = false,
               RepeatedWords = true,
               Spaces = true,
               Matcher = true,
@@ -275,6 +275,14 @@ return {
             },
           },
         },
+      }),
+      require("lspconfig").wasm_language_tools.setup({
+        capabilities = capabilities,
+        cmd = { "wat_server" },
+        filetypes = { "wat" },
+        single_file_support = true,
+        -- `settings` section is optional
+        settings = { format = {}, lint = {} },
       }),
     },
   },

@@ -1,17 +1,12 @@
 return {
   "saghen/blink.cmp",
-  opts_extend = {
-    "sources.completion.enabled_providers",
-    "sources.compat",
-    "sources.default",
-  },
   dependencies = {
     { "Kaiser-Yang/blink-cmp-dictionary" },
     { "nvim-lua/plenary.nvim" },
     { "echasnovski/mini.snippets" },
     { "rafamadriz/friendly-snippets" },
     { "L3MON4D3/LuaSnip", version = "v2.*" },
-    { "giuxtaposition/blink-cmp-copilot" },
+    { "fang2hou/blink-copilot" },
     {
       "saghen/blink.compat",
       optional = true, -- make optional so it's only enabled if any extras need it
@@ -22,78 +17,74 @@ return {
   lazy = true,
   event = "InsertEnter",
   opts = {
-    snippets = { preset = "luasnip" }, -- or default (friendly-snipets), mini.snippets
-    cmdline = { enabled = false },
-    signature = {
-      enabled = true,
-      window = {
-        show_documentation = true,
-      },
-    },
-    fuzzy = { implementation = "prefer_rust_with_warning" },
     completion = {
       menu = {
         auto_show = true,
         border = "rounded",
-        -- nvim-cmp style menu
         draw = {
           columns = {
-            { "label", "label_description", gap = 1 },
-            { "kind_icon", "kind", gap = 1 },
+            { "kind_icon" },
+            { "label", "label_description", "kind", gap = 1 },
           },
         },
       },
       documentation = {
         auto_show = true,
+        auto_show_delay_ms = 200,
         window = { border = "rounded" },
       },
-      ghost_text = { enabled = true },
+      ghost_text = {
+        enabled = true,
+        show_with_menu = true,
+        show_without_selection = true,
+      },
       keyword = { range = "full" },
       accept = {
-        auto_brackets = { enabled = false },
+        auto_brackets = { enabled = true },
       },
       list = {
-        selection = { preselect = false, auto_insert = true },
+        selection = { preselect = false, auto_insert = false },
       },
     },
-    appearance = {
-      -- Blink does not expose its default kind icons so you must copy them all (or set custom ones) and add Copilot
-      kind_icons = {
-        Copilot = "",
-        Text = "󰉿",
-        Method = "󰊕",
-        Function = "󰊕",
-        Constructor = "󰒓",
-
-        Field = "󰜢",
-        Variable = "󰆦 ",
-        Property = "󰖷",
-
-        Class = "󱡠",
-        Interface = "󱡠",
-        Struct = "󱡠",
-        Module = "󰅩",
-
-        Unit = "󰪚",
-        Value = "󰦨",
-        Enum = "󰦨",
-        EnumMember = "󰦨",
-
-        Keyword = "󰻾",
-        Constant = "󰏿",
-
-        Snippet = "󱄽",
-        Color = "󰏘",
-        File = "󰈔",
-        Reference = "󰬲",
-        Folder = "󰉋",
-        Event = "󱐋",
-        Operator = "󰪚",
-        TypeParameter = "󰬛",
+    signature = {
+      enabled = true,
+      trigger = {
+        enabled = true,
+        show_on_keyword = true,
+        show_on_trigger_character = true,
+        show_on_insert = true,
+        show_on_insert_on_trigger_character = true,
+      },
+      window = {
+        treesitter_highlighting = true,
+        show_documentation = true,
       },
     },
+    cmdline = {
+      enabled = true,
+      sources = function()
+        local type = vim.fn.getcmdtype()
+        -- Search forward and backward
+        if type == "/" or type == "?" then
+          return { "buffer" }
+        end
+        -- Commands
+        if type == ":" or type == "@" then
+          return { "cmdline" }
+        end
+        return {}
+      end,
+      completion = {
+        menu = {
+          auto_show = true,
+        },
+      },
+    },
+    fuzzy = { implementation = "prefer_rust_with_warning" },
+    snippets = { preset = "luasnip" }, -- or default (friendly-snipets), mini.snippets
     sources = {
-      default = { "lsp", "path", "snippets", "buffer", "copilot", "dictionary", "lazydev" },
+      compat = {},
+      default = { "lsp", "path", "snippets", "buffer", "copilot", "dictionary", "lazydev", "omni", "cmdline" },
       providers = {
         lsp = {
           name = "LSP",
@@ -114,25 +105,65 @@ return {
           score_offset = 0, -- Boost/penalize the score of the items
           override = nil, -- Override the source's functions
         },
-        lazydev = {
-          name = "LazyDev",
-          module = "lazydev.integrations.blink",
-          score_offset = 100, -- show at a higher priority than lsp
+        path = {
+          module = "blink.cmp.sources.path",
+          score_offset = 3,
+          fallbacks = { "buffer" },
+          opts = {
+            trailing_slash = true,
+            label_trailing_slash = true,
+            get_cwd = function(context)
+              return vim.fn.expand(("#%d:p:h"):format(context.bufnr))
+            end,
+            show_hidden_files_by_default = false,
+          },
+        },
+        snippets = {
+          module = "blink.cmp.sources.snippets",
+          score_offset = -1,
+          -- For `snippets.preset == 'luasnip'`
+          opts = {
+            -- Whether to use show_condition for filtering snippets
+            use_show_condition = true,
+            -- Whether to show autosnippets in the completion list
+            show_autosnippets = true,
+          },
+        },
+        buffer = {
+          module = "blink.cmp.sources.buffer",
+          score_offset = -3,
+          opts = {
+            -- default to all visible buffers
+            get_bufnrs = function()
+              return vim
+                .iter(vim.api.nvim_list_wins())
+                :map(function(win)
+                  return vim.api.nvim_win_get_buf(win)
+                end)
+                :filter(function(buf)
+                  return vim.bo[buf].buftype ~= "nofile"
+                end)
+                :totable()
+            end,
+          },
         },
         copilot = {
-          name = "Copilot",
-          module = "blink-cmp-copilot",
+          name = "copilot",
+          module = "blink-copilot",
           score_offset = 100,
           async = true,
-          transform_items = function(_, items)
-            local CompletionItemKind = require("blink.cmp.types").CompletionItemKind
-            local kind_idx = #CompletionItemKind + 1
-            CompletionItemKind[kind_idx] = "Copilot"
-            for _, item in ipairs(items) do
-              item.kind = kind_idx
-            end
-            return items
-          end,
+          opts = {
+            max_completions = 2,
+            max_attempts = 2,
+            kind_name = "Copilot", ---@type string | false
+            kind_icon = " ", ---@type string | false
+            kind_hl = false, ---@type string | false
+            debounce = 200, ---@type integer | false
+            auto_refresh = {
+              backward = true,
+              forward = true,
+            },
+          },
         },
         dictionary = {
           module = "blink-cmp-dictionary",
@@ -150,7 +181,27 @@ return {
             },
           },
         },
+        lazydev = {
+          name = "LazyDev",
+          module = "lazydev.integrations.blink",
+          score_offset = 100, -- show at a higher priority than lsp
+        },
+        omni = {
+          module = "blink.cmp.sources.complete_func",
+          enabled = function()
+            return vim.bo.omnifunc ~= "v:lua.vim.lsp.omnifunc"
+          end,
+          opts = {
+            complete_func = function()
+              return vim.bo.omnifunc
+            end,
+          },
+        },
+        cmdline = {
+          module = "blink.cmp.sources.cmdline",
+        },
       },
     },
   },
+  opts_extend = { "sources.completion.enabled_providers", "sources.compat", "sources.default" },
 }
