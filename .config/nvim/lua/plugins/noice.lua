@@ -3,7 +3,13 @@ return {
   event = "VeryLazy",
   opts = {
     -- add any options here
+    notify = {
+      enabled = true,
+    },
     lsp = {
+      hover = {
+        enabled = true,
+      },
       signature = {
         auto_open = {
           enabled = true,
