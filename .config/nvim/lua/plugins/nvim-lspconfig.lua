@@ -130,7 +130,7 @@ return {
                 },
               },
               ollama = {
-                enabled = true,
+                enabled = false,
                 check_text = {
                   on_open = false,
                   on_save = false,
