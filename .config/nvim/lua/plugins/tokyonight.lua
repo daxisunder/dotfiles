@@ -6,17 +6,17 @@ return {
   config = function()
     ---@diagnostic disable-next-line: missing-fields
     require("tokyonight").setup({
-      on_colors = function(colors)
-        colors.bg = "#000000"
-        colors.bg_dark = "#000000"
-        colors.bg_dark1 = "#1a1b26"
-        colors.bg_float = "#000000"
-        colors.bg_sidebar = "#000000"
-        colors.bg_statusline = "#000000"
-        colors.bg_popup = "#000000"
-        colors.black = "#000000"
-        colors.terminal_black = "#000000"
-        colors.terminal = {
+      on_colors = function(c)
+        c.bg = "#000000"
+        c.bg_dark = "#000000"
+        c.bg_dark1 = "#1a1b26"
+        c.bg_float = "#000000"
+        c.bg_sidebar = "#000000"
+        c.bg_statusline = "#000000"
+        c.bg_popup = "#000000"
+        c.black = "#000000"
+        c.terminal_black = "#000000"
+        c.terminal = {
           black = "#000000",
           black_bright = "#1a1b26",
           blue = "#7aa2f7",
@@ -33,6 +33,66 @@ return {
           white_bright = "#c0caf5",
           yellow = "#e0af68",
           yellow_bright = "#faba4a",
+        }
+      end,
+      on_highlights = function(hl, c)
+        c.bg = "#000000"
+        c.bg_dark1 = "#414868"
+        hl.FloatBorder = {
+          bg = c.bg,
+          fg = c.bg_dark1,
+        }
+        hl.BlinkCmpDocBorder = {
+          bg = c.bg,
+          fg = c.bg_dark1,
+        }
+        hl.BlinkCmpMenuBorder = {
+          bg = c.bg,
+          fg = c.bg_dark1,
+        }
+        hl.SignatureHelpBorder = {
+          bg = c.bg,
+          fg = c.bg_dark1,
+        }
+        hl.FzfLuaBorder = {
+          bg = c.bg,
+          fg = c.bg_dark1,
+        }
+        hl.LspFloatWinBorder = {
+          bg = c.bg,
+          fg = c.bg_dark1,
+        }
+        hl.LspInfoBorder = {
+          bg = c.bg,
+          fg = c.bg_dark1,
+        }
+        hl.LspSagaCodeActionBorder = {
+          bg = c.bg,
+          fg = c.bg_dark1,
+        }
+        hl.LspSagaDefPreviewBorder = {
+          bg = c.bg,
+          fg = c.bg_dark1,
+        }
+        hl.LspSagaHoverBorder = {
+          bg = c.bg,
+          fg = c.bg_dark1,
+        }
+        hl.LspSagaRenameBorder = {
+          bg = c.bg,
+          fg = c.bg_dark1,
+        }
+        hl.LspSagaSignatureHelpBorder = {
+          bg = c.bg,
+          fg = c.bg_dark1,
+        }
+        hl.NeoTestBorder = {
+          bg = c.bg,
+          fg = c.bg_dark1,
+        }
+        hl.WinSeparator = {
+          bold = true,
+          fg = c.bg_dark1,
         }
       end,
     })
