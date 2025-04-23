@@ -47,13 +47,14 @@ return {
     signature = {
       enabled = true,
       trigger = {
-        enabled = true,
+        enabled = false,
         show_on_keyword = true,
         show_on_trigger_character = true,
         show_on_insert = true,
         show_on_insert_on_trigger_character = true,
       },
       window = {
+        border = "single",
         treesitter_highlighting = true,
         show_documentation = true,
       },
