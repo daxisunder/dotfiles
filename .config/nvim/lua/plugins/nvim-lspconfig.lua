@@ -91,29 +91,29 @@ return {
         end,
         single_file_support = true,
       }),
-      lspconfig.ltex.setup({
-        capabilities = capabilities,
-        cmd = { "ltex-ls" },
-        filetypes = { "latex", "tex", "org", "bib", "plaintext", "markdown", "mail", "text" },
-        root_dir = function(fname)
-          return vim.fn.fnamemodify(fname, ":h")
-        end,
-        settings = {
-          ltex = {
-            enabled = { "org", "markdown", "text", "plaintext" },
-            language = "en-US",
-            check_text = {
-              on_change = true,
-              on_open = false,
-              on_save = false,
-            },
-          },
-        },
-      }),
+      -- lspconfig.ltex.setup({
+      --   capabilities = capabilities,
+      --   cmd = { "ltex-ls" },
+      --   filetypes = { "latex", "tex", "org", "bib", "plaintex", "markdown", "mail", "text" },
+      --   root_dir = function(fname)
+      --     return vim.fn.fnamemodify(fname, ":h")
+      --   end,
+      --   settings = {
+      --     ltex = {
+      --       enabled = { "org", "markdown", "text", "plaintext", "tex" },
+      --       language = "en-US",
+      --       check_text = {
+      --         on_change = true,
+      --         on_open = false,
+      --         on_save = false,
+      --       },
+      --     },
+      --   },
+      -- }),
       lspconfig.textlsp.setup({
         capabilities = capabilities,
         cmd = { "textlsp" },
-        filetypes = { "text", "tex", "org" },
+        filetypes = { "text", "tex", "org", "markdown" },
         root_dir = function(fname)
           return vim.fs.dirname(vim.fs.find(".git", { path = fname, upward = true })[1])
         end,
@@ -130,7 +130,7 @@ return {
                 },
               },
               ollama = {
-                enabled = true,
+                enabled = false,
                 check_text = {
                   on_open = false,
                   on_save = false,
@@ -193,7 +193,32 @@ return {
       lspconfig.harper_ls.setup({
         capabilities = capabilities,
         enabled = true,
-        filetypes = { "markdown", "org" },
+        filetypes = {
+          "c",
+          "cpp",
+          "cs",
+          "gitcommit",
+          "go",
+          "html",
+          "java",
+          "javascript",
+          "lua",
+          "markdown",
+          "nix",
+          "org",
+          "python",
+          "ruby",
+          "rust",
+          "swift",
+          "toml",
+          "typescript",
+          "typescriptreact",
+          "haskell",
+          "cmake",
+          "typst",
+          "php",
+          "dart",
+        },
         settings = {
           ["harper-ls"] = {
             -- userDictPath = "$XDG_CONFIG_HOME/user/dict/path/dict.txt",
@@ -204,12 +229,13 @@ return {
               AnA = false,
               SentenceCapitalization = false,
               UnclosedQuotes = true,
-              WrongQuotes = false,
+              WrongQuotes = true,
               LongSentences = false,
               RepeatedWords = true,
               Spaces = true,
               Matcher = true,
               CorrectNumberSuffix = true,
+              ExplanationMarks = true,
             },
             codeActions = {
               ForceStable = false,
@@ -219,6 +245,7 @@ return {
             },
             diagnosticSeverity = "hint",
             isolateEnglish = false,
+            dialect = "American",
           },
         },
       }),

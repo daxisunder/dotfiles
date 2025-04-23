@@ -3,8 +3,6 @@ return {
   dependencies = {
     { "Kaiser-Yang/blink-cmp-dictionary" },
     { "nvim-lua/plenary.nvim" },
-    { "echasnovski/mini.snippets" },
-    { "rafamadriz/friendly-snippets" },
     { "L3MON4D3/LuaSnip", version = "v2.*" },
     { "fang2hou/blink-copilot" },
     {
@@ -43,7 +41,7 @@ return {
         auto_brackets = { enabled = true },
       },
       list = {
-        selection = { preselect = false, auto_insert = false },
+        selection = { preselect = false, auto_insert = true },
       },
     },
     signature = {

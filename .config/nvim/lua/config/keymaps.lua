@@ -5,9 +5,6 @@
 local map = vim.keymap.set
 local harpoon = require("harpoon")
 
--- jj = ESC
-map({ "i", "v", "t", "c", "s" }, "jj", "<ESC>", { silent = false })
-
 -- mini.pick
 map("n", "<leader>fP", ":Pick", { desc = "Open mini.pick" })
 
@@ -75,6 +72,6 @@ map("n", "<leader>h", function()
     ui_max_width = 80, -- Maximum menu width
     ui_min_width = 40, -- Minimum menu width
     border = "rounded", -- Window border style
-    title = " Harpoon ", -- Custom window title
+    title = " Harpoon Menu ", -- Custom window title
   })
 end, { desc = "Harpoon Menu" })

@@ -1,27 +1,56 @@
 return {
   "folke/noice.nvim",
+  dependencies = { "MunifTanjim/nui.nvim" },
   event = "VeryLazy",
   opts = {
-    -- add any options here
+    cmdline = {
+      enabled = true,
+      view = "cmdline",
+    },
+    messages = {
+      enabled = true,
+      view = "notify",
+    },
+    popupmenu = {
+      enabled = true,
+    },
+    commands = {
+      enabled = true,
+      view = "cmdline",
+      history = {
+        view = "cmdline",
+      },
+      last = {
+        view = "cmdline",
+        format = "%s",
+      },
+    },
+    notify = {
+      enabled = true,
+      view = "notify",
+    },
     lsp = {
-      signature = {
-        auto_open = {
-          enabled = true,
-        },
+      progress = {
+        enabled = true,
+        view = "mini",
+      },
+      message = {
+        view = "mini",
       },
       -- override markdown rendering so that **cmp** and other plugins use **Treesitter**
       override = {
         ["vim.lsp.util.convert_input_to_markdown_lines"] = true,
         ["vim.lsp.util.stylize_markdown"] = true,
-        ["cmp.entry.get_documentation"] = false, -- requires hrsh7th/nvim-cmp
+        ["cmp.entry.get_documentation"] = true,
       },
+      view = "mini",
     },
     presets = {
       bottom_search = true, -- use a classic bottom cmdline for search
-      command_palette = true, -- position the cmdline and popupmenu together
+      command_palette = true, -- use a floating command palette
       long_message_to_split = true, -- long messages will be sent to a split
-      inc_rename = true, -- enables an input dialog for inc-rename.nvim
-      lsp_doc_border = "rounded",
+      lsp_doc_border = true, -- add a border to hover docs and signature help
+      inc_rename = false, -- use a popup for renaming
     },
   },
 }
