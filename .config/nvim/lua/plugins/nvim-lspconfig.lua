@@ -187,7 +187,12 @@ return {
           })
         end,
         settings = {
-          Lua = {},
+          Lua = {
+            completion = {
+              callSnippet = "Both",
+              keywordSnippet = "Both",
+            },
+          },
         },
       }),
       lspconfig.harper_ls.setup({
