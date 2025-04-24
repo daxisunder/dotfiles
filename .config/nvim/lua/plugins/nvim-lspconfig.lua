@@ -226,7 +226,7 @@ return {
         },
         settings = {
           ["harper-ls"] = {
-            -- userDictPath = "$XDG_CONFIG_HOME/user/dict/path/dict.txt",
+            userDictPath = "~/.config/harper-ls/dictionary.txt",
             fileDictPath = "~/.config/harper-ls/harper-core/dictionary.dict",
             linters = {
               SpellCheck = true,
