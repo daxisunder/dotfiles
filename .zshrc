@@ -12,10 +12,28 @@ export PATH="$PATH:~/.local/bin"
 export PATH="$PATH:~/.local/share/gem/ruby/3.3.0/bin"
 
 # Node path
+export PATH="$PATH:/usr/bin/node"
+export PATH="$PATH:~/node_modules/.bin"
 export NODE_EXTRA_CA_CERTS="/etc/ssl/certs/ACCVRAIZ1.pem"
+
+# Emacs path
+export PATH="$HOME/.config/emacs/bin:$PATH"
 
 # OMZ path
 export ZSH="$HOME/.oh-my-zsh"
+
+# XDG runtime dir (onedrive)
+export XDG_RUNTIME_DIR="/run/user/$UID"
+export DBUS_SESSION_BUS_ADDRESS="unix:path=${XDG_RUNTIME_DIR}/bus"
+
+# Add scripts to PATH
+export SCRIPTS_DIR="~/projects/dotfiles/scripts"
+export PATH="$PATH:$SCRIPTS_DIR"
+
+# Make all scripts executable
+if [ -d "$SCRIPTS_DIR" ]; then
+  find "$SCRIPTS_DIR" -type f -name '.*' -exec chmod +x {} \;
+fi
 
 # Set prompt
 ZSH_THEME="powerlevel10k/powerlevel10k"
@@ -33,7 +51,7 @@ export BAT_STYLE="full"
 # Set neovim as manpager
 export MANPAGER="nvim +Man!"
 
-# Set some cool ZSH options (set -o for all options)
+# Set some cool ZSH options ('set -o' to see all options)
 setopt no_case_glob            # Case insensitive autocompletions
 setopt no_case_match           # Case insensitive autocompletions
 setopt globdots                # Include dotfiles in globbing
@@ -64,9 +82,9 @@ zstyle ':completion:*' verbose true
 zstyle ':completion:*:*:*:*:*' menu select
 zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS} 'ma=0\;33'
 zstyle ':completion:*' matcher-list \
-		'm:{a-zA-Z}={A-Za-z}' \
-		'+r:|[._-]=* r:|=*' \
-		'+l:|=*'
+    'm:{a-zA-Z}={A-Za-z}' \
+    '+r:|[._-]=* r:|=*' \
+    '+l:|=*'
 zstyle ':completion:*:warnings' format "%B%F{red}No matches for:%f %F{magenta}%d%b"
 zstyle ':completion:*:descriptions' format '%F{yellow}[-- %d --]%f'
 zstyle ':vcs_info:*' formats ' %B%s-[%F{magenta}%f %F{yellow}%b%f]-'
@@ -163,11 +181,6 @@ plugins=(
     zsh-syntax-highlighting
     zsh-vi-mode
 )
-
-# Bind ESC to jk in zsh-vi-mode
-function zvm_config() {
-  ZVM_VI_INSERT_ESCAPE_BINDKEY=jk
-}
 
 # Replace zsh's default readkey engine (ZLE to NEX)
 ZVM_READKEY_ENGINE=$ZVM_READKEY_ENGINE_NEX
@@ -297,16 +310,16 @@ export BAT_THEME="Dracula"
 eval "$(batman --export-env)"
 
 # Pay-respects (better command-not-found) integration
-eval "$(pay-respects zsh --alias)"
+eval "$(pay-respects zsh)"
 
 # Yazi integration
 function y() {
-	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
-	yazi "$@" --cwd-file="$tmp"
-	if cwd="$(command cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
-		builtin cd -- "$cwd"
-	fi
-	rm -f -- "$tmp"
+  local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+  yazi "$@" --cwd-file="$tmp"
+  if cwd="$(command cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+    builtin cd -- "$cwd"
+  fi
+  rm -f -- "$tmp"
 }
 
 # Carapace integration (argument completion)
@@ -316,6 +329,9 @@ source <(carapace _carapace)
 
 # broot integration
 source /home/daxis/.config/broot/launcher/bash/br
+
+# nvm integration
+source /usr/share/nvm/init-nvm.sh
 
 # Display Pokemon-colorscripts
 # Project page: https://gitlab.com/phoneybadger/pokemon-colorscripts#on-other-distros-and-macos
