@@ -6,7 +6,8 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    '(@ all-the-icons all-the-icons-completion all-the-icons-dired
-     all-the-icons-nerd-fonts treemacs-all-the-icons)))
+     all-the-icons-nerd-fonts direnv docker editorconfig-generate mbsync shfmt
+     treemacs-all-the-icons)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

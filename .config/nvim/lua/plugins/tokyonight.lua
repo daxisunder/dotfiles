@@ -37,7 +37,7 @@ return {
       end,
       on_highlights = function(hl, c)
         c.bg = "#000000"
-        c.bg_dark1 = "#414868"
+        c.bg_dark1 = "#1a1b26"
         hl.FloatBorder = {
           bg = c.bg,
           fg = c.bg_dark1,
