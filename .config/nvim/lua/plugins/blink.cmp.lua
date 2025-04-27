@@ -40,12 +40,8 @@ return {
         show_without_selection = true,
       },
       keyword = { range = "full" },
-      accept = {
-        auto_brackets = { enabled = true },
-      },
-      list = {
-        selection = { preselect = false, auto_insert = true },
-      },
+      accept = { auto_brackets = { enabled = true } },
+      list = { selection = { preselect = false, auto_insert = true } },
     },
     signature = {
       enabled = true,
@@ -63,9 +59,7 @@ return {
       },
     },
     cmdline = {
-      keymap = {
-        preset = "inherit",
-      },
+      keymap = { preset = "inherit" },
       enabled = true,
       sources = function()
         local type = vim.fn.getcmdtype()
@@ -88,12 +82,8 @@ return {
             auto_insert = true,
           },
         },
-        menu = {
-          auto_show = true,
-        },
-        ghost_text = {
-          enabled = true,
-        },
+        menu = { auto_show = true },
+        ghost_text = { enabled = true },
       },
     },
     fuzzy = { implementation = "prefer_rust_with_warning" },
