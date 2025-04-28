@@ -3,7 +3,7 @@ return {
   event = { "LspAttach" },
   config = function()
     require("actions-preview").setup({
-      backend = { "snacks", "minipick", "telescope", "nui" },
+      backend = { "snacks", "minipick", "nui", "telescope" },
       snacks = {
         layout = { preset = "ivy" },
       },
