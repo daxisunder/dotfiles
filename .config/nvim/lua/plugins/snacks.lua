@@ -82,16 +82,6 @@ return {
     gitbrowse = { enabled = true },
     image = {
       enabled = true,
-      force = true,
-      wo = {
-        winhighlight = "FloatBorder:WhichKeyBorder",
-      },
-      doc = {
-        inline = true,
-        max_width = 45,
-        max_height = 20,
-      },
-      -- define these here, so that we don't need to load the image module
       formats = {
         "png",
         "jpg",
@@ -108,6 +98,88 @@ return {
         "mkv",
         "webm",
         "pdf",
+      },
+      force = true, -- try displaying the image, even if the terminal does not support it
+      doc = {
+        enabled = true,
+        inline = true,
+        float = true,
+        max_width = 80,
+        max_height = 40,
+        -- Set to `true`, to conceal the image text when rendering inline.
+        -- (experimental)
+        ---@param lang string tree-sitter language
+        ---@param type snacks.image.Type image type
+        conceal = function(lang, type)
+          -- only conceal math expressions
+          return type == "math"
+        end,
+      },
+      img_dirs = { "pictures", "img", "images", "assets", "static", "public", "media", "attachments" },
+      wo = {
+        wrap = false,
+        number = false,
+        relativenumber = false,
+        cursorcolumn = false,
+        signcolumn = "no",
+        foldcolumn = "0",
+        list = false,
+        spell = false,
+        statuscolumn = "",
+      },
+      cache = vim.fn.stdpath("cache") .. "/snacks/image",
+      debug = {
+        request = false,
+        convert = false,
+        placement = false,
+      },
+      env = {},
+      icons = {
+        math = "󰪚 ",
+        chart = "󰄧 ",
+        image = " ",
+      },
+      ---@class snacks.image.convert.Config
+      convert = {
+        notify = true, -- show a notification on error
+        ---@type snacks.image.args
+        mermaid = function()
+          local theme = vim.o.background == "light" and "neutral" or "dark"
+          return { "-i", "{src}", "-o", "{file}", "-b", "transparent", "-t", theme, "-s", "{scale}" }
+        end,
+        ---@type table<string,snacks.image.args>
+        magick = {
+          default = { "{src}[0]", "-scale", "1920x1080>" }, -- default for raster images
+          vector = { "-density", 192, "{src}[0]" }, -- used by vector images like svg
+          math = { "-density", 192, "{src}[0]", "-trim" },
+          pdf = { "-density", 192, "{src}[0]", "-background", "white", "-alpha", "remove", "-trim" },
+        },
+      },
+      math = {
+        enabled = true, -- enable math expression rendering
+        typst = {
+          tpl = [[
+        #set page(width: auto, height: auto, margin: (x: 2pt, y: 2pt))
+        #show math.equation.where(block: false): set text(top-edge: "bounds", bottom-edge: "bounds")
+        #set text(size: 12pt, fill: rgb("${color}"))
+        ${header}
+        ${content}]],
+        },
+        latex = {
+          font_size = "Large", -- see https://www.sascha-frank.com/latex-font-size.html
+          -- for latex documents, the doc packages are included automatically,
+          -- but you can add more packages here. Useful for markdown documents.
+          packages = { "amsmath", "amssymb", "amsfonts", "amscd", "mathtools" },
+          tpl = [[
+        \documentclass[preview,border=0pt,varwidth,12pt]{standalone}
+        \usepackage{${packages}}
+        \begin{document}
+        ${header}
+        { \${font_size} \selectfont
+          \color[HTML]{${color}}
+        ${content}}
+        \end{document}]],
+        },
       },
     },
     indent = { enabled = false },
@@ -176,7 +248,7 @@ return {
         relative = "editor",
         enter = true,
         fixbuf = false,
-        minimal = false,
+        minimal = true,
         width = 120,
         height = 0,
         backdrop = { transparent = true, blend = 40 },
