@@ -14,7 +14,7 @@ return {
     ui = {
       open_win_override = {
         title = " Snipe Buffer Menu ",
-        border = "rounded", -- use "rounded" for rounded border
+        border = "rounded",
       },
       buffer_format = {
         "icon",
@@ -32,7 +32,6 @@ return {
       },
     },
     hints = {
-      -- Charaters to use for hints (NOTE: make sure they don't collide with the navigation keymaps)
       ---@type string
       dictionary = "123456789",
     },
