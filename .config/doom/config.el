@@ -92,3 +92,13 @@
   (doom-themes-treemacs-config)
   ;; Corrects (and improves) org-mode's native fontification.
   (doom-themes-org-config))
+;; Waakatime integraation
+(use-package wakatime-mode
+  :ensure t
+  :config
+  (global-wakatime-mode 1))
+;; Editorconfig
+(use-package editorconfig
+  :ensure t
+  :config
+  (editorconfig-mode 1))
