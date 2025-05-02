@@ -11,9 +11,9 @@ return {
         c.bg_dark = "#000000"
         c.bg_dark1 = "#1a1b26"
         c.bg_float = "#000000"
+        c.bg_popup = "#000000"
         c.bg_sidebar = "#000000"
         c.bg_statusline = "#1a1b26"
-        c.bg_popup = "#000000"
         c.black = "#000000"
         c.terminal_black = "#000000"
         c.terminal = {
@@ -38,6 +38,15 @@ return {
       on_highlights = function(hl, c)
         c.bg = "#000000"
         c.bg_dark1 = "#1a1b26"
+        hl.PmenuSel = {
+          bg = "#1a1b26",
+        }
+        hl.CursorColumn = {
+          bg = c.bg_dark1,
+        }
+        hl.CursorLine = {
+          bg = c.bg_dark1,
+        }
         hl.FloatBorder = {
           bg = c.bg,
           fg = c.bg_dark1,
