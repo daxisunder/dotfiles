@@ -45,10 +45,15 @@ return {
         range = "full",
       },
       accept = {
-        auto_brackets = { enabled = true },
+        auto_brackets = {
+          enabled = true,
+        },
       },
       list = {
-        selection = { preselect = false, auto_insert = true },
+        selection = {
+          preselect = true,
+          auto_insert = true,
+        },
       },
     },
     signature = {
