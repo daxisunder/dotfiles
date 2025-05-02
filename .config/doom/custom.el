@@ -7,8 +7,8 @@
  '(package-selected-packages
    '(@ all-the-icons-completion all-the-icons-dired all-the-icons-nerd-fonts
      dashboard dashboard-project-status direnv docker editorconfig-generate
-     mbsync org-ac org-ai org-roam org-roam-ui org-upcoming-modeline shfmt
-     treemacs-all-the-icons wakatime-mode)))
+     mbsync org-ac org-ai org-roam org-roam-ui org-upcoming-modeline
+     selected-window-accent-mode shfmt treemacs-all-the-icons wakatime-mode)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

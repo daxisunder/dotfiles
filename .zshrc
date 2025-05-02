@@ -241,6 +241,7 @@ alias src='source ~/.zshrc'
 alias ttc='tty-clock -C6 -c'
 alias expacs="expac -S '%r/%n: %D'" # List dependencies w/o additional info
 alias n='nvim'
+alias e='emacs -nw'
 alias dv='dirs -v'
 alias grep='grep --color=auto'
 alias egrep='egrep --color=auto'

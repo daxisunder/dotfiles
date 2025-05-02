@@ -32,16 +32,24 @@ return {
       documentation = {
         auto_show = true,
         auto_show_delay_ms = 200,
-        window = { border = "rounded" },
+        window = {
+          border = "rounded",
+        },
       },
       ghost_text = {
         enabled = true,
         show_with_menu = true,
         show_without_selection = true,
       },
-      keyword = { range = "full" },
-      accept = { auto_brackets = { enabled = true } },
-      list = { selection = { preselect = false, auto_insert = true } },
+      keyword = {
+        range = "full",
+      },
+      accept = {
+        auto_brackets = { enabled = true },
+      },
+      list = {
+        selection = { preselect = false, auto_insert = true },
+      },
     },
     signature = {
       enabled = true,
@@ -49,17 +57,19 @@ return {
         enabled = true,
         show_on_keyword = true,
         show_on_trigger_character = true,
-        show_on_insert = true,
+        show_on_insert = false,
         show_on_insert_on_trigger_character = true,
       },
       window = {
-        border = "single",
+        border = "rounded",
         treesitter_highlighting = true,
         show_documentation = true,
       },
     },
     cmdline = {
-      keymap = { preset = "inherit" },
+      keymap = {
+        preset = "inherit",
+      },
       enabled = true,
       sources = function()
         local type = vim.fn.getcmdtype()
@@ -82,15 +92,31 @@ return {
             auto_insert = true,
           },
         },
-        menu = { auto_show = true },
-        ghost_text = { enabled = true },
+        menu = {
+          auto_show = true,
+        },
+        ghost_text = {
+          enabled = true,
+        },
       },
     },
     fuzzy = { implementation = "prefer_rust_with_warning" },
-    snippets = { preset = "luasnip" }, -- or default (friendly-snipets), mini.snippets
+    snippets = {
+      preset = "luasnip",
+    }, -- or default (friendly-snipets), mini.snippets
     sources = {
       compat = {},
-      default = { "lsp", "path", "snippets", "buffer", "copilot", "dictionary", "lazydev", "omni", "cmdline" },
+      default = {
+        "lsp",
+        "path",
+        "snippets",
+        "buffer",
+        "copilot",
+        "dictionary",
+        "lazydev",
+        "omni",
+        "cmdline",
+      },
       providers = {
         lsp = {
           name = "LSP",

@@ -92,7 +92,7 @@
   (doom-themes-treemacs-config)
   ;; Corrects (and improves) org-mode's native fontification.
   (doom-themes-org-config))
-;; Waakatime integraation
+;; Wakatime integraation
 (use-package wakatime-mode
   :ensure t
   :config
