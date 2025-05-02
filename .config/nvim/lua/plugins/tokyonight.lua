@@ -38,19 +38,6 @@ return {
       on_highlights = function(hl, c)
         c.bg = "#000000"
         c.bg_dark1 = "#1a1b26"
-        hl.PmenuSel = {
-          bg = "#1a1b26",
-        }
-        hl.CursorColumn = {
-          bg = c.bg_dark1,
-        }
-        hl.CursorLine = {
-          bg = c.bg_dark1,
-        }
-        hl.FloatBorder = {
-          bg = c.bg,
-          fg = c.bg_dark1,
-        }
         hl.BlinkCmpDocBorder = {
           bg = c.bg,
           fg = c.bg_dark1,
@@ -59,7 +46,17 @@ return {
           bg = c.bg,
           fg = c.bg_dark1,
         }
-        hl.SignatureHelpBorder = {
+        hl.BlinkCmpSignatureHelpBorder = {
+          bg = c.bg,
+          fg = c.bg_dark1,
+        }
+        hl.CursorColumn = {
+          bg = c.bg_dark1,
+        }
+        hl.CursorLine = {
+          bg = c.bg_dark1,
+        }
+        hl.FloatBorder = {
           bg = c.bg,
           fg = c.bg_dark1,
         }
@@ -98,6 +95,21 @@ return {
         hl.NeoTestBorder = {
           bg = c.bg,
           fg = c.bg_dark1,
+        }
+        hl.PmenuSel = {
+          bg = "#1a1b26",
+        }
+        hl.PmenuThumb = {
+          bg = "#1a1b26",
+        }
+        hl.TabLine = {
+          bg = c.bg_dark1,
+        }
+        hl.TreesitterContext = {
+          bg = c.bg_dark1,
+        }
+        hl.Visual = {
+          bg = c.bg_dark1,
         }
         hl.WinSeparator = {
           bold = true,
