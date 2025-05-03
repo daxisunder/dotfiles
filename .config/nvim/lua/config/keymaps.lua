@@ -72,6 +72,6 @@ map("n", "<leader>h", function()
     ui_max_width = 80, -- Maximum menu width
     ui_min_width = 40, -- Minimum menu width
     border = "rounded", -- Window border style
-    title = " Harpoon Menu ", -- Custom window title
+    title = " Harpoon Quick Menu ", -- Custom window title
   })
-end, { desc = "Harpoon Menu" })
+end, { desc = "Harpoon Quick Menu" })

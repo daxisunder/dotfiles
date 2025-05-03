@@ -107,8 +107,11 @@ return {
     },
     fuzzy = { implementation = "prefer_rust_with_warning" },
     snippets = {
-      preset = "luasnip",
-    }, -- or default (friendly-snipets), mini.snippets
+      preset = "luasnip", -- or default (friendly-snipets), mini.snippets
+      expand = function(snippet, _)
+        return LazyVim.cmp.expand(snippet)
+      end,
+    },
     sources = {
       compat = {},
       default = {
