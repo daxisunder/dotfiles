@@ -21,7 +21,13 @@ return {
       ["<C-e>"] = { "hide", "fallback" },
       ["<CR>"] = { "accept", "fallback" },
 
-      ["<Tab>"] = { "snippet_forward", "fallback" },
+      ["<Tab>"] = {
+        function(cmp)
+          cmp.show({ providers = { "snippets" } })
+        end,
+        "snippet_forward",
+        "fallback",
+      },
       ["<S-Tab>"] = { "snippet_backward", "fallback" },
 
       ["<Up>"] = { "select_prev", "fallback" },
@@ -68,7 +74,7 @@ return {
       list = {
         selection = {
           preselect = true,
-          auto_insert = true,
+          auto_insert = false,
         },
       },
     },
@@ -108,7 +114,7 @@ return {
         list = {
           selection = {
             preselect = true,
-            auto_insert = true,
+            auto_insert = false,
           },
         },
         menu = {
