@@ -8,10 +8,10 @@
    '(@ all-ext all-the-icons-completion all-the-icons-dired all-the-icons-gnus
      all-the-icons-ibuffer all-the-icons-ivy all-the-icons-ivy-rich
      all-the-icons-nerd-fonts compile-multi-all-the-icons dashboard
-     dashboard-project-status direnv docker editorconfig-generate mbsync org-ac
-     org-ai org-roam org-roam-ui org-upcoming-modeline
-     selected-window-accent-mode shfmt spaceline-all-the-icons
-     treemacs-all-the-icons wakatime-mode)))
+     dashboard-project-status direnv docker editorconfig-generate evil-org
+     lsp-mode lsp-ui mbsync org-ac org-ai org-beautify-theme org-roam
+     org-roam-ui org-upcoming-modeline selected-window-accent-mode shfmt
+     spaceline-all-the-icons treemacs-all-the-icons wakatime-mode)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
