@@ -100,7 +100,7 @@ return {
               text = function(ctx)
                 return ctx.idx == 10 and "0" or ctx.idx >= 10 and " " or tostring(ctx.idx)
               end,
-              highlight = "BlinkCmpItemIdx", -- optional, only if you want to change its color
+              highlight = "Boolean", -- optional, only if you want to change its color
             },
             label = {
               text = function(ctx)
