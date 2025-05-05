@@ -91,7 +91,10 @@ return {
         auto_show = true,
         border = "rounded",
         draw = {
-          columns = { { "kind_icon" }, { "label" }, { "kind", "item_idx", gap = 1 } },
+          columns = {
+            { "kind_icon", "label", gap = 1 },
+            { "kind", "item_idx", gap = 1 },
+          },
           components = {
             item_idx = {
               text = function(ctx)
