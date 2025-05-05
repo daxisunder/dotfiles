@@ -90,7 +90,6 @@ return {
       menu = {
         auto_show = true,
         border = "rounded",
-        prefetch_on_insert = true,
         draw = {
           columns = { { "kind_icon" }, { "label" }, { "kind", "item_idx", gap = 1 } },
           components = {
