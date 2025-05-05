@@ -1,5 +1,6 @@
 return {
   "echasnovski/mini.surround",
+  version = false,
   event = "VeryLazy",
   recommended = true,
   keys = function(_, keys)

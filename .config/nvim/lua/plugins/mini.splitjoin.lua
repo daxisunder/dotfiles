@@ -1,6 +1,6 @@
 return {
   "echasnovski/mini.splitjoin",
-  version = "*",
+  version = false,
   event = "VeryLazy",
   config = function()
     require("mini.splitjoin").setup({

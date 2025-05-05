@@ -1,5 +1,6 @@
 return {
   "echasnovski/mini.hipatterns",
+  version = false,
   recommended = true,
   desc = "Highlight colors in your code. Also includes Tailwind CSS support.",
   event = "LazyFile",

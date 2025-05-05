@@ -1,6 +1,6 @@
 return {
   "echasnovski/mini.basics",
-  version = "*",
+  version = false,
   event = "VeryLazy",
   config = function()
     require("mini.basics").setup({

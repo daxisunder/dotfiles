@@ -38,6 +38,15 @@ autocmd("User", {
   end,
 })
 
+-- Line numbers mini.files
+autocmd("User", {
+  pattern = "MiniFilesWindowUpdate",
+  callback = function(args)
+    vim.wo[args.data.win_id].number = false
+    vim.wo[args.data.win_id].relativenumber = true
+  end,
+})
+
 -- Disable auto-commenting new lines
 autocmd("FileType", {
   pattern = "*",

@@ -68,7 +68,7 @@ end, { desc = "Git Browse (copy)" })
 
 -- harpoon
 map("n", "<leader>h", function()
-  require("harpoon").ui:toggle_quick_menu(harpoon:list(), {
+  harpoon.ui:toggle_quick_menu(harpoon:list(), {
     ui_max_width = 80, -- Maximum menu width
     ui_min_width = 40, -- Minimum menu width
     border = "rounded", -- Window border style
