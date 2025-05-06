@@ -75,3 +75,12 @@ map("n", "<leader>h", function()
     title = " Harpoon Quick Menu ", -- Custom window title
   })
 end, { desc = "Harpoon Quick Menu" })
+
+-- scissors (add/edit snippets)
+map("n", "<leader>se", function()
+  require("scissors").editSnippet()
+end, { desc = "Snippet: Edit" })
+-- when used in visual mode, prefills the selection as snippet body
+map({ "n", "x" }, "<leader>sa", function()
+  require("scissors").addNewSnippet()
+end, { desc = "Snippet: Add" })

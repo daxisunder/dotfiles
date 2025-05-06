@@ -1,307 +1,602 @@
 {
-  "name": "snippet",
-  "displayName": "Snippet",
-  "description": "Insert a snippet from cht.sh for Python, JavaScript, Ruby, C#, Go, Rust (and any other language)",
-  "version": "1.2.0",
-  "publisher": "vscode-snippet",
-  "engines": {
-    "vscode": "^1.74.0"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/mre/vscode-snippet.git"
-  },
-  "license": "MIT",
-  "icon": "contrib/icon.png",
-  "galleryBanner": {
-    "color": "#6cfff9",
-    "theme": "light"
-  },
-  "categories": [
-    "Programming Languages",
-    "Snippets",
-    "Other"
-  ],
-  "tags": [
-    "python",
-    "ruby",
-    "php",
-    "rust",
-    "C#",
-    "go",
-    "haskell",
-    "typescript",
-    "shell",
-    "javascript",
-    "node",
-    "snippet",
-    "examples",
-    "documentation",
-    "help",
-    "tldr",
-    "helper",
-    "cheatsheet"
-  ],
-  "main": "./out/extension",
-  "contributes": {
-    "commands": [
-      {
-        "title": "Find",
-        "command": "snippet.find",
-        "category": "Snippet"
-      },
-      {
-        "title": "Find for language",
-        "command": "snippet.findForLanguage",
-        "category": "Snippet"
-      },
-      {
-        "title": "Find Inplace",
-        "command": "snippet.findInplace",
-        "category": "Snippet"
-      },
-      {
-        "title": "Find in new editor window",
-        "command": "snippet.findInNewEditor",
-        "category": "Snippet"
-      },
-      {
-        "title": "Find snippet from selected text",
-        "command": "snippet.findSelectedText",
-        "category": "Snippet"
-      },
-      {
-        "title": "Show previous answer",
-        "command": "snippet.showPreviousAnswer",
-        "category": "Snippet"
-      },
-      {
-        "title": "Show next answer",
-        "command": "snippet.showNextAnswer",
-        "category": "Snippet"
-      },
-      {
-        "title": "Toggle comments",
-        "command": "snippet.toggleComments",
-        "category": "Snippet"
-      },
-      {
-        "title": "Save snippet",
-        "command": "snippet.saveSnippet",
-        "category": "Snippet"
-      },
-      {
-        "title": "Insert snippet",
-        "command": "snippet.insertSnippet",
-        "category": "Snippet"
-      },
-      {
-        "title": "Delete",
-        "command": "snippet.deleteSnippet",
-        "category": "Snippet"
-      },
-      {
-        "title": "Rename",
-        "command": "snippet.renameSnippet",
-        "category": "Snippet"
-      },
-      {
-        "title": "Copy",
-        "command": "snippet.copySnippet",
-        "category": "Snippet"
-      },
-      {
-        "title": "Find and copy",
-        "command": "snippet.findAndCopy",
-        "category": "Snippet"
-      },
-      {
-        "title": "New Folder",
-        "command": "snippet.createFolder",
-        "category": "Snippet",
-        "icon": {
-          "light": "assets/icons/add-light.svg",
-          "dark": "assets/icons/add-dark.svg"
-        }
-      },
-      {
-        "title": "Restore backups",
-        "command": "snippet.restoreBackups",
-        "category": "Snippet",
-        "icon": {
-          "light": "assets/icons/history-light.svg",
-          "dark": "assets/icons/history-dark.svg"
-        }
-      }
-    ],
-    "configuration": {
-      "title": "Snippet",
-      "properties": {
-        "snippet.baseUrl": {
-          "type": "string",
-          "default": "https://cht.sh",
-          "description": "Base URL of the cheat sheet server"
-        },
-        "snippet.openInNewEditor": {
-          "type": "boolean",
-          "default": true,
-          "description": "Open snippet result in new editor."
-        },
-        "snippet.verbose": {
-          "type": "boolean",
-          "default": false,
-          "description": "Also show explanations for code snippets."
-        },
-        "snippet.defaultLanguage": {
-          "type": "string",
-          "default": null,
-          "description": "Programming language name in lower case to use as default language when there is no open editor window."
-        },
-        "snippet.title": {
-          "type": "string",
-          "default": "[${language}] ${query} (${index})",
-          "markdownDescription": "Template string of a snippet title.  \nYou can use the following variables:\n- ${language} - the programming language\n- ${query} - the snippet query (search text)\n- ${index} - the index of the snippet (e.g. 2 for the third answer)"
-        },
-        "snippet.insertWithDoubleClick": {
-          "type": "boolean",
-          "default": false,
-          "description": "Insert snippet with double click."
-        },
-        "snippet.showCopySuccessNotification": {
-          "type": "boolean",
-          "default": true,
-          "description": "Whether to show a notification after the snippet is copied to the clipboard."
-        },
-        "snippet.saveBackups": {
-          "type": "boolean",
-          "default": true,
-          "description": "Whether to create backups of the snippets."
-        }
-      }
+    "name": "friendly-snippets",
+    "engines": {
+        "vscode": "^1.11.0"
     },
-    "menus": {
-      "view/title": [
-        {
-          "command": "snippet.createFolder",
-          "when": "view == snippetsView",
-          "group": "navigation"
-        },
-        {
-          "command": "snippet.restoreBackups",
-          "when": "view == snippetsView",
-          "group": "navigation"
-        }
-      ],
-      "view/item/context": [
-        {
-          "command": "snippet.createFolder",
-          "when": "view == snippetsView",
-          "group": "snippet.viewItemContext.baseGroup@1"
-        },
-        {
-          "command": "snippet.copySnippet",
-          "when": "view == snippetsView && viewItem == snippet",
-          "group": "snippet.viewItemContext.baseGroup@2"
-        },
-        {
-          "command": "snippet.renameSnippet",
-          "when": "view == snippetsView",
-          "group": "snippet.viewItemContext.baseGroup@3"
-        },
-        {
-          "command": "snippet.deleteSnippet",
-          "when": "view == snippetsView",
-          "group": "snippet.viewItemContext.baseGroup@4"
-        }
-      ],
-      "editor/context": [
-        {
-          "when": "editorHasSelection",
-          "command": "snippet.findSelectedText",
-          "group": "1_modification"
-        },
-        {
-          "when": "editorHasSelection",
-          "command": "snippet.saveSnippet",
-          "group": "1_modification"
-        }
-      ]
-    },
-    "views": {
-      "explorer": [
-        {
-          "id": "snippetsView",
-          "name": "Snippets"
-        }
-      ]
-    },
-    "keybindings": [
-      {
-        "command": "snippet.findSelectedText",
-        "key": "ctrl+shift+s",
-        "mac": "cmd+shift+s",
-        "when": "editorHasSelection"
-      },
-      {
-        "key": "c",
-        "command": "snippet.showNextAnswer",
-        "when": "resourceScheme == 'snippet' && editorReadonly"
-      },
-      {
-        "key": "v",
-        "command": "snippet.showPreviousAnswer",
-        "when": "resourceScheme == 'snippet' && editorReadonly"
-      }
-    ]
-  },
-  "activationEvents": [
-    "onCommand:snippet.find",
-    "onCommand:snippet.findForLanguage",
-    "onCommand:snippet.findSelectedText",
-    "onCommand:snippet.findInplace",
-    "onCommand:snippet.findInNewEditor",
-    "onCommand:snippet.showPreviousAnswer",
-    "onCommand:snippet.showNextAnswer",
-    "onCommand:snippet.toggleComments"
-  ],
-  "scripts": {
-    "vscode:prepublish": "NODE_ENV=production npm run compile",
-    "compile": "rollup -c",
-    "precompile": "rimraf out",
-    "watch": "rollup -c --watch",
-    "prewatch": "rimraf out",
-    "lint": "eslint src",
-    "test": "npm run test-compile && export NODE_ENV=test && node ./out/test/runTest.js",
-    "test-compile": "tsc -p ./ --allowSyntheticDefaultImports",
-    "pretest-compile": "rimraf out"
-  },
-  "dependencies": {
-    "@vscode/vsce": "^2.31.1",
-    "axios": "^1.7.3",
-    "event-stream": "4.0.1",
-    "http-proxy-agent": "^7.0.2"
-  },
-  "devDependencies": {
-    "@rollup/plugin-commonjs": "^26.0.1",
-    "@rollup/plugin-json": "^6.1.0",
-    "@rollup/plugin-node-resolve": "^15.2.3",
-    "@rollup/plugin-terser": "^0.4.4",
-    "@rollup/plugin-typescript": "^11.1.6",
-    "@types/glob": "^8.1.0",
-    "@types/mocha": "^10.0.7",
-    "@types/node": "^14.17.0",
-    "@types/sinon": "^17.0.3",
-    "@types/vscode": "^1.74.0",
-    "@typescript-eslint/eslint-plugin": "^7.17.0",
-    "@typescript-eslint/parser": "^7.18.0",
-    "@vscode/test-electron": "^2.4.1",
-    "eslint": "^8.57.0",
-    "glob": "^11.0.0",
-    "mocha": "^10.7.0",
-    "rimraf": "^6.0.1",
-    "rollup-plugin-node-externals": "^7.1.2",
-    "sinon": "^18.0.0",
-    "rollup": "^4.20.0",
-    "typescript": "^5.4.5"
-  }
+    "contributes": {
+        "snippets": [
+            {
+                "language": [
+                    "plaintext",
+                    "markdown",
+                    "tex",
+                    "html",
+                    "global",
+                    "all"
+                ],
+                "path": "./snippets/global.json"
+            },
+            {
+                "language": ["license"],
+                "path": "./snippets/license.json"
+            },
+            {
+                "language": "c",
+                "path": "./snippets/c/c.json"
+            },
+            {
+                "language": "cdoc",
+                "path": "./snippets/c/cdoc.json"
+            },
+            {
+                "language": "cpp",
+                "path": "./snippets/cpp/cpp.json"
+            },
+            {
+                "language": "cppdoc",
+                "path": "./snippets/cpp/cppdoc.json"
+            },
+            {
+                "language": ["csharp", "cs"],
+                "path": "./snippets/csharp/csharp.json"
+            },
+            {
+                "language": "csharpdoc",
+                "path": "./snippets/csharp/csharpdoc.json"
+            },
+            {
+                "language": "editorconfig",
+                "path": "./snippets/editorconfig.json"
+            },
+            {
+                "language": ["gitcommit", "NeogitCommitMessage"],
+                "path": "./snippets/gitcommit.json"
+            },
+            {
+                "language": "ejs",
+                "path": "./snippets/frameworks/ejs.json"
+            },
+            {
+                "language": "eruby",
+                "path": "./snippets/erb.json"
+            },
+            {
+                "language": "erlang",
+                "path": "./snippets/erlang.json"
+            },
+            {
+                "language": "elixir",
+                "path": "./snippets/elixir.json"
+            },
+            {
+                "language": ["eelixir", "heex"],
+                "path": "./snippets/eelixir.json"
+            },
+            {
+                "language": "fortran",
+                "path": "./snippets/fortran.json"
+            },
+            {
+                "language": "glsl",
+                "path": "./snippets/glsl.json"
+            },
+            {
+                "language": "nix",
+                "path": "./snippets/nix.json"
+            },
+            {
+                "language": "kivy",
+                "path": "./snippets/kivy.json"
+            },
+            {
+                "language": "liquid",
+                "path": "./snippets/liquid.json"
+            },
+            {
+                "language": "lua",
+                "path": "./snippets/lua/lua.json"
+            },
+            {
+                "language": "luadoc",
+                "path": "./snippets/lua/luadoc.json"
+            },
+            {
+                "language": "go",
+                "path": "./snippets/go.json"
+            },
+            {
+                "language": "fennel",
+                "path": "./snippets/fennel.json"
+            },
+            {
+                "language": "fsh",
+                "path": "./snippets/fsh.json"
+            },
+            {
+                "language": "php",
+                "path": "./snippets/php/php.json"
+            },
+            {
+                "language": "phpdoc",
+                "path": "./snippets/php/phpdoc.json"
+            },
+            {
+                "language": "quarto",
+                "path": "./snippets/quarto.json"
+            },
+            {
+                "language": "rescript",
+                "path": "./snippets/rescript.json"
+            },
+            {
+                "language": "ruby",
+                "path": "./snippets/ruby/ruby.json"
+            },
+            {
+                "language": "rdoc",
+                "path": "./snippets/ruby/rdoc.json"
+            },
+            {
+                "language": "rails",
+                "path": "./snippets/frameworks/rails.json"
+            },
+            {
+                "language": "rspec",
+                "path": "./snippets/ruby/rspec.json"
+            },
+            {
+                "language": "rust",
+                "path": "./snippets/rust/rust.json"
+            },
+            {
+                "language": "rustdoc",
+                "path": "./snippets/rust/rustdoc.json"
+            },
+            {
+                "language": "rust",
+                "path": "./snippets/frameworks/relm4/workers.json"
+            },
+            {
+                "language": "rust",
+                "path": "./snippets/frameworks/relm4/factories.json"
+            },
+            {
+                "language": "rust",
+                "path": "./snippets/frameworks/relm4/templates.json"
+            },
+            {
+                "language": "rust",
+                "path": "./snippets/frameworks/relm4/components.json"
+            },
+            {
+                "language": "haskell",
+                "path": "./snippets/haskell.json"
+            },
+            {
+                "language": "scala",
+                "path": "./snippets/scala.json"
+            },
+            {
+                "language": "solidity",
+                "path": "./snippets/solidity.json"
+            },
+            {
+                "language": "swift",
+                "path": "./snippets/swift.json"
+            },
+            {
+                "language": "sql",
+                "path": "./snippets/sql.json"
+            },
+            {
+                "language": "systemverilog",
+                "path": "./snippets/systemverilog.json"
+            },
+            {
+                "language": ["shellscript", "shell", "sh", "zsh"],
+                "path": "./snippets/shell/shell.json"
+            },
+            {
+                "language": "shelldoc",
+                "path": "./snippets/shell/shelldoc.json"
+            },
+            {
+                "language": ["markdown", "rmd"],
+                "path": "./snippets/markdown.json"
+            },
+            {
+                "language": ["plaintex", "tex"],
+                "path": "./snippets/latex.json"
+            },
+            {
+                "language": "plantuml",
+                "path": "./snippets/plantuml.json"
+            },
+            {
+                "language": "java",
+                "path": "./snippets/java/java.json"
+            },
+            {
+                "language": "java-testing",
+                "path": "./snippets/java/java-tests.json"
+            },
+            {
+                "language": "javadoc",
+                "path": "./snippets/java/javadoc.json"
+            },
+            {
+                "language": "julia",
+                "path": "./snippets/julia.json"
+            },
+            {
+                "language": [
+                    "html",
+                    "jade",
+                    "pug",
+                    "eruby",
+                    "javascriptreact",
+                    "htmldjango",
+                    "astro",
+                    "blade"
+                ],
+                "path": "./snippets/html.json"
+            },
+            {
+                "language": ["css", "scss", "sass", "less", "stylus"],
+                "path": "./snippets/css.json"
+            },
+            {
+                "language": ["javascript", "javascriptreact", "vue", "svelte"],
+                "path": "./snippets/javascript/javascript.json"
+            },
+            {
+                "language": "jsdoc",
+                "path": "./snippets/javascript/jsdoc.json"
+            },
+            {
+                "language": "tsdoc",
+                "path": "./snippets/javascript/tsdoc.json"
+            },
+            {
+                "language": ["typescript", "typescriptreact"],
+                "path": "./snippets/javascript/typescript.json"
+            },
+            {
+                "language": "javascriptreact",
+                "path": "./snippets/javascript/next.json"
+            },
+            {
+                "language": "typescriptreact",
+                "path": "./snippets/javascript/react-ts.json"
+            },
+            {
+                "language": "typescriptreact",
+                "path": "./snippets/javascript/next-ts.json"
+            },
+            {
+                "language": "javascriptreact",
+                "path": "./snippets/javascript/react.json"
+            },
+            {
+                "language": "javascriptreact",
+                "path": "./snippets/javascript/react-native.json"
+            },
+            {
+                "language": "typescriptreact",
+                "path": "./snippets/javascript/react-native-ts.json"
+            },
+            {
+                "language": ["javascriptreact", "typescriptreact"],
+                "path": "./snippets/javascript/react-es7.json"
+            },
+            {
+                "language": "remix",
+                "path": "./snippets/frameworks/remix-ts.json"
+            },
+            {
+                "language": "terraform",
+                "path": "./snippets/terraform.json"
+            },
+            {
+                "language": "svelte",
+                "path": "./snippets/svelte.json"
+            },
+            {
+                "language": "vue",
+                "path": "./snippets/frameworks/vue/html.json"
+            },
+            {
+                "language": "vue",
+                "path": "./snippets/frameworks/vue/nuxt-html.json"
+            },
+            {
+                "language": "vue",
+                "path": "./snippets/frameworks/vue/nuxt-script.json"
+            },
+            {
+                "language": "vue",
+                "path": "./snippets/frameworks/vue/script.json"
+            },
+            {
+                "language": "vue",
+                "path": "./snippets/frameworks/vue/vue.json"
+            },
+            {
+                "language": "vue",
+                "path": "./snippets/frameworks/vue/style.json"
+            },
+            {
+                "language": "angular",
+                "path": "./snippets/frameworks/angular/html.json"
+            },
+            {
+                "language": "angular",
+                "path": "./snippets/frameworks/angular/typescript.json"
+            },
+            {
+                "language": "angular",
+                "path": "./snippets/frameworks/angular/jsonc.json"
+            },
+            {
+                "language": "python",
+                "path": "./snippets/python/python.json"
+            },
+            {
+                "language": "python",
+                "path": "./snippets/python/comprehension.json"
+            },
+            {
+                "language": "python",
+                "path": "./snippets/python/unittest.json"
+            },
+            {
+                "language": "python",
+                "path": "./snippets/python/debug.json"
+            },
+            {
+                "language": "pydoc",
+                "path": "./snippets/python/pydoc.json"
+            },
+            {
+                "language": "django",
+                "path": "./snippets/frameworks/django/admin.json"
+            },
+            {
+                "language": "django",
+                "path": "./snippets/frameworks/django/forms.json"
+            },
+            {
+                "language": "django",
+                "path": "./snippets/frameworks/django/models.json"
+            },
+            {
+                "language": "django",
+                "path": "./snippets/frameworks/django/tags.json"
+            },
+            {
+                "language": "django",
+                "path": "./snippets/frameworks/django/urls.json"
+            },
+            {
+                "language": "django",
+                "path": "./snippets/frameworks/django/views.json"
+            },
+            {
+                "language": ["djangohtml", "htmldjango"],
+                "path": "./snippets/frameworks/djangohtml.json"
+            },
+            {
+                "language": "django-rest",
+                "path": "./snippets/frameworks/django/django_rest/serializers.json"
+            },
+            {
+                "language": "django-rest",
+                "path": "./snippets/frameworks/django/django_rest/views.json"
+            },
+            {
+                "language": "flutter",
+                "path": "./snippets/frameworks/flutter.json"
+            },
+            {
+                "language": "jekyll",
+                "path": "./snippets/frameworks/jekyll.json"
+            },
+            {
+                "language": "cobol",
+                "path": "./snippets/cobol/vscode_cobol.json"
+            },
+            {
+                "language": "cobol",
+                "path": "./snippets/cobol/vscode_cobol-compound.json"
+            },
+            {
+                "language": "cobol",
+                "path": "./snippets/cobol/vscode_cobol_dir.json"
+            },
+            {
+                "language": "cobol",
+                "path": "./snippets/cobol/vscode_cobol_jcl.json"
+            },
+            {
+                "language": "kotlin",
+                "path": "./snippets/kotlin/kotlin.json"
+            },
+            {
+                "language": "kdoc",
+                "path": "./snippets/kotlin/kdoc.json"
+            },
+            {
+                "language": ["plaintex", "tex"],
+                "path": "./snippets/latex/latex-snippets.json"
+            },
+            {
+                "language": ["plaintex", "tex"],
+                "path": "./snippets/latex/vscode-latex-snippets.json"
+            },
+            {
+                "language": ["bibtex", "bib"],
+                "path": "./snippets/latex/bibtex.json"
+            },
+            {
+                "language": "twig",
+                "path": "./snippets/frameworks/twig.json"
+            },
+            {
+                "language": "blade",
+                "path": "./snippets/frameworks/blade/blade.json"
+            },
+            {
+                "language": "blade",
+                "path": "./snippets/frameworks/blade/helpers.json"
+            },
+            {
+                "language": "blade",
+                "path": "./snippets/frameworks/blade/livewire.json"
+            },
+            {
+                "language": "blade",
+                "path": "./snippets/frameworks/blade/snippets.json"
+            },
+            {
+                "language": ["r", "rmd"],
+                "path": "./snippets/r.json"
+            },
+            {
+                "language": "rmd",
+                "path": "./snippets/rmarkdown.json"
+            },
+            {
+                "language": "org",
+                "path": "./snippets/org.json"
+            },
+            {
+                "language": "norg",
+                "path": "./snippets/norg.json"
+            },
+            {
+                "language": "mint",
+                "path": "./snippets/mint.json"
+            },
+            {
+                "language": "gdscript",
+                "path": "./snippets/gdscript.json"
+            },
+            {
+                "language": "yaml",
+                "path": "./snippets/kubernetes.json"
+            },
+            {
+                "language": "yaml",
+                "path": "./snippets/docker/docker-compose.json"
+            },
+            {
+                "language": "make",
+                "path": "./snippets/make.json"
+            },
+            {
+                "language": "dart",
+                "path": "./snippets/dart.json"
+            },
+            {
+                "language": "objc",
+                "path": "./snippets/objc.json"
+            },
+            {
+                "language": "unreal",
+                "path": "./snippets/frameworks/unreal.json"
+            },
+            {
+                "language": "unity",
+                "path": "./snippets/frameworks/unity.json"
+            },
+            {
+                "language": "tcl",
+                "path": "./snippets/tcl.json"
+            },
+            {
+                "language": "perl",
+                "path": "./snippets/perl.json"
+            },
+            {
+                "language": "verilog",
+                "path": "./snippets/verilog.json"
+            },
+            {
+                "language": "vhdl",
+                "path": "./snippets/vhdl.json"
+            },
+            {
+                "language": "dockerfile",
+                "path": "./snippets/docker/docker_file.json"
+            },
+            {
+                "language": "edge",
+                "path": "./snippets/frameworks/edge.json"
+            },
+            {
+                "language": ["powershell", "ps1"],
+                "path": "./snippets/PowerShell.json"
+            },
+            {
+                "language": "nu",
+                "path": "./snippets/nushell.json"
+            },
+            {
+                "language": "reason",
+                "path": "./snippets/reason.json"
+            },
+            {
+                "language": [
+                    "ocaml",
+                    "ocamlinterface"
+                ],
+                "path": "./snippets/ocaml/ocaml.json"
+            },
+            {
+                "language": "ocaml.ocamllex",
+                "path": "./snippets/ocaml/ocamllex.json"
+            },
+            {
+                "language": "dune-project",
+                "path": "./snippets/ocaml/dune-project.json"
+            },
+            {
+                "language": "dune",
+                "path": "./snippets/ocaml/dune.json"
+            },
+            {
+                "language": "purescript",
+                "path": "./snippets/purescript.json"
+            },
+            {
+                "language": "gleam",
+                "path": "./snippets/gleam.json"
+            },
+            {
+                "language": "asciidoc",
+                "path": "./snippets/asciidoc.json"
+            },
+            {
+                "language": "beancount",
+                "path": "./snippets/beancount.json"
+            },
+            {
+                 "language": "rst",
+                 "path": "./snippets/rst.json"
+            },
+            {
+                 "language": "loremipsum",
+                 "path": "./snippets/loremipsum.json"
+            },
+	    {
+		"language": "cmake",
+		"path": "./snippets/cmake.json"
+	    },
+            {
+                 "language": "zig",
+                 "path": "./snippets/zig.json"
+            }
+        ]
+    }
 }
+

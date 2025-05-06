@@ -5,8 +5,12 @@ capabilities.textDocument.completion.completionItem.snippetSupport = true
 
 return {
   "neovim/nvim-lspconfig",
-  dependencies = { "saghen/blink.cmp" },
-  event = "VeryLazy",
+  dependencies = {
+    "saghen/blink.cmp",
+    "mason.nvim",
+    { "williamboman/mason-lspconfig.nvim", config = function() end },
+  },
+  event = "LazyFile",
   opts = {
     servers = {
       lspconfig.asm_lsp.setup({
