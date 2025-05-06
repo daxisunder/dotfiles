@@ -3,7 +3,7 @@ return {
   dependencies = {
     { "Kaiser-Yang/blink-cmp-dictionary" },
     { "nvim-lua/plenary.nvim" },
-    { "L3MON4D3/LuaSnip", version = "v2.*" },
+    { "rafamadriz/friendly-snippets" },
     { "fang2hou/blink-copilot" },
     {
       "saghen/blink.compat",
@@ -229,7 +229,7 @@ return {
       implementation = "prefer_rust_with_warning",
     },
     snippets = {
-      preset = "luasnip", -- or default (friendly-snipets), mini.snippets
+      preset = "default", -- or luasnip, mini.snippets
       -- Function to use when expanding LSP provided snippets
       expand = function(snippet)
         vim.snippet.expand(snippet)

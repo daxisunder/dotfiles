@@ -213,10 +213,6 @@ return {
       refresh = 50, -- refresh at most every 50ms
     },
     styles = {
-      notification = {
-        relative = "editor",
-        wo = { wrap = true }, -- Wrap notifications
-      },
       blame_line = {
         relative = "editor",
         width = 0.6,
@@ -230,10 +226,14 @@ return {
         relative = "editor",
         position = "float",
         backdrop = false,
-        border = "top",
+        border = "rounded",
         row = -1,
         width = 0,
         height = 0.3,
+      },
+      notification = {
+        relative = "editor",
+        wo = { wrap = true }, -- Wrap notifications
       },
       snacks_image = {
         relative = "cursor",
