@@ -58,7 +58,7 @@ autocmd("FileType", {
 
 -- Set ltex LSP to attach to org files
 autocmd({ "BufRead", "BufNewFile" }, {
-  pattern = "*org",
+  pattern = "*.org",
   callback = function()
     vim.bo.filetype = "org"
   end,

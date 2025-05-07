@@ -5,7 +5,7 @@ return {
   ---@type snacks.Config
   opts = {
     dashboard = {
-      width = 80,
+      width = 90,
       row = nil, -- dashboard position. nil for center
       col = nil, -- dashboard position. nil for center
       pane_gap = 4, -- empty columns between vertical panes

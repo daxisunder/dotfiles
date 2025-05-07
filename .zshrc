@@ -173,6 +173,7 @@ plugins=(
     colorize
     fancy-ctrl-z
     git
+    safe-paste
     sudo
     web-search
     you-should-use
