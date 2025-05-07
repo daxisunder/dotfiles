@@ -75,3 +75,6 @@ map("n", "<leader>h", function()
     title = " Harpoon Quick Menu ", -- Custom window title
   })
 end, { desc = "Harpoon Quick Menu" })
+
+-- smart-translate
+map({ "n", "v" }, "<leader>t", ":Translate<CR>", { desc = "Translate word under cursor" })
