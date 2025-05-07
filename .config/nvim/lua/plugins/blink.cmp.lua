@@ -294,7 +294,6 @@ return {
           score_offset = -1,
           -- For `snippets.preset == 'luasnip'`
           opts = {
-            search_paths = { vim.fn.stdpath("config") .. "/snippets" },
             -- Whether to use show_condition for filtering snippets
             use_show_condition = true,
             -- Whether to show autosnippets in the completion list
