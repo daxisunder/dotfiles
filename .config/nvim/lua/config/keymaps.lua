@@ -77,4 +77,4 @@ map("n", "<leader>h", function()
 end, { desc = "Harpoon Quick Menu" })
 
 -- smart-translate
-map({ "n", "v" }, "<leader>t", ":Translate<CR>", { desc = "Translate word under cursor" })
+map({ "n", "v" }, "<leader>t", ":Translate<CR>", { desc = "Translate Text Under Cursor" })

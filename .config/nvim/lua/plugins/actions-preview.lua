@@ -8,6 +8,11 @@ return {
         layout = { preset = "ivy" },
       },
     })
-    vim.keymap.set({ "v", "n" }, "ga", require("actions-preview").code_actions, { desc = "Code Actions" })
+    vim.keymap.set(
+      { "v", "n" },
+      "<leader>cp",
+      require("actions-preview").code_actions,
+      { desc = "Code Actions Preview" }
+    )
   end,
 }
