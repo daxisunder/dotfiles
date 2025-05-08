@@ -12,6 +12,7 @@ return {
       version = not vim.g.lazyvim_blink_main and "*",
     },
   },
+  version = "1.*",
   lazy = true,
   event = "InsertEnter",
   opts = {

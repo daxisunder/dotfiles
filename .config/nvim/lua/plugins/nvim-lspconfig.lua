@@ -2,6 +2,7 @@ local util = require("lspconfig.util")
 local lspconfig = require("lspconfig")
 local capabilities = require("blink.cmp").get_lsp_capabilities(vim.lsp.protocol.make_client_capabilities())
 capabilities.textDocument.completion.completionItem.snippetSupport = true
+local on_attach = ...
 
 return {
   "neovim/nvim-lspconfig",
@@ -15,6 +16,7 @@ return {
     servers = {
       lspconfig.asm_lsp.setup({
         capabilities = capabilities,
+        on_attach = on_attach,
         cmd = { "asm-lsp" },
         filetypes = { "asm", "vmasm" },
         single_file_support = true,
@@ -24,6 +26,7 @@ return {
       }),
       lspconfig.jsonls.setup({
         capabilities = capabilities,
+        on_attach = on_attach,
         cmd = { "vscode-json-language-server", "--stdio" },
         filetypes = { "json", "jsonc" },
         root_dir = function(fname)
@@ -36,6 +39,7 @@ return {
       }),
       lspconfig.ruby_lsp.setup({
         capabilities = capabilities,
+        on_attach = on_attach,
         cmd = { "ruby-lsp" },
         filetypes = { "ruby", "eruby" },
         root_dir = util.root_pattern("Gemfile", ".git"),
@@ -46,12 +50,14 @@ return {
       }),
       lspconfig.rubocop.setup({
         capabilities = capabilities,
+        on_attach = on_attach,
         cmd = { "rubocop", "--lsp" },
         filetypes = { "ruby" },
         root_dir = util.root_pattern("Gemfile", ".git"),
       }),
       lspconfig.phpactor.setup({
         capabilities = capabilities,
+        on_attach = on_attach,
         cmd = { "phpactor", "language-server" },
         filetypes = { "php" },
         root_dir = function(pattern)
@@ -63,6 +69,7 @@ return {
       }),
       lspconfig.perlls.setup({
         capabilities = capabilities,
+        on_attach = on_attach,
         cmd = {
           "perl",
           "-MPerl::LanguageServer",
@@ -88,6 +95,7 @@ return {
       }),
       lspconfig.hyprls.setup({
         capabilities = capabilities,
+        on_attach = on_attach,
         cmd = { "hyprls", "--stdio" },
         filetypes = { "hyprlang" },
         root_dir = function(fname)
@@ -116,6 +124,7 @@ return {
       -- }),
       lspconfig.textlsp.setup({
         capabilities = capabilities,
+        on_attach = on_attach,
         cmd = { "textlsp" },
         filetypes = { "text", "tex", "org", "markdown" },
         root_dir = function(fname)
@@ -160,6 +169,7 @@ return {
       }),
       lspconfig.lua_ls.setup({
         capabilities = capabilities,
+        on_attach = on_attach,
         cmd = { "lua-language-server" },
         filetypes = { "lua" },
         log_level = 2,
@@ -201,6 +211,7 @@ return {
       }),
       lspconfig.harper_ls.setup({
         capabilities = capabilities,
+        on_attach = on_attach,
         enabled = true,
         filetypes = {
           "c",
@@ -260,6 +271,7 @@ return {
       }),
       lspconfig.bashls.setup({
         capabilities = capabilities,
+        on_attach = on_attach,
         cmd = { "bash-language-server", "start" },
         settings = {
           bashIde = {
@@ -274,6 +286,7 @@ return {
       }),
       lspconfig.cssls.setup({
         capabilities = capabilities,
+        on_attach = on_attach,
         cmd = { "vscode-css-language-server", "--stdio" },
         filetypes = { "css", "scss", "less" },
         init_options = { provideFormatter = true }, -- needed to enable formatting capabilities
@@ -287,6 +300,7 @@ return {
       }),
       lspconfig.css_variables.setup({
         capabilities = capabilities,
+        on_attach = on_attach,
         cmd = { "css-variables-language-server", "--stdio" },
         filetypes = { "css", "scss", "less" },
         root_dir = util.root_pattern("package.json", ".git"),
@@ -314,6 +328,7 @@ return {
       }),
       require("lspconfig").wasm_language_tools.setup({
         capabilities = capabilities,
+        on_attach = on_attach,
         cmd = { "wat_server" },
         filetypes = { "wat" },
         single_file_support = true,
