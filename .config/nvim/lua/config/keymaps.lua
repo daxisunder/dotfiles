@@ -78,3 +78,15 @@ end, { desc = "Harpoon Quick Menu" })
 
 -- smart-translate
 map({ "n", "v" }, "<leader>t", ":Translate<CR>", { desc = "Translate Text Under Cursor" })
+
+-- "<leader>'{char}" opens file containing mark upper{char}
+map("n", "<leader>'", function()
+  local char = vim.fn.getcharstr(-1)
+  if char == "\27" then
+    return -- got <esc>
+  end
+  local m = vim.api.nvim_get_mark(char:upper(), {})
+  if m[4] ~= "" then
+    vim.cmd.edit(m[4])
+  end
+end, { desc = "Open file containing mark" })
