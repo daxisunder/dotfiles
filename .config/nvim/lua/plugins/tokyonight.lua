@@ -14,7 +14,7 @@ return {
         c.bg_popup = "#000000"
         c.bg_sidebar = "#000000"
         c.bg_statusline = "#1a1b26"
-        c.bg_visual = "#1a1b26"
+        c.bg_visual = "#455a64"
         c.black = "#000000"
         c.terminal_black = "#000000"
         c.terminal = {

@@ -17,11 +17,9 @@ return {
         border = "rounded",
       },
       buffer_format = {
-        "icon",
-        " ",
         "filename",
         " ",
-        "",
+        "icon",
         " ",
         "directory",
         function(buf)
