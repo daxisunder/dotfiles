@@ -28,6 +28,11 @@ return {
       },
       spacing = 3, -- spacing between columns
     },
+    spec = {
+      mode = { "n", "v" },
+      { "<leader>n", group = "org-roam", icon = { icon = " ", color = "green" } },
+      { "<leader>o", group = "org", icon = { icon = " ", color = "green" } },
+    },
   },
   keys = {
     {

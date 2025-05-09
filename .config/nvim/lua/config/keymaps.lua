@@ -66,16 +66,6 @@ map({ "n", "x" }, "<leader>gY", function()
   })
 end, { desc = "Git Browse (copy)" })
 
--- harpoon
-map("n", "<leader>h", function()
-  harpoon.ui:toggle_quick_menu(harpoon:list(), {
-    ui_max_width = 80, -- Maximum menu width
-    ui_min_width = 40, -- Minimum menu width
-    border = "rounded", -- Window border style
-    title = " Harpoon Quick Menu ", -- Custom window title
-  })
-end, { desc = "Harpoon Quick Menu" })
-
 -- smart-translate
 map({ "n", "v" }, "<leader>t", ":Translate<CR>", { desc = "Translate Text Under Cursor" })
 
