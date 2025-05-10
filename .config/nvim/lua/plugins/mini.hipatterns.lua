@@ -37,7 +37,6 @@ return {
             local match = data.full_match
             local r, g, b = match:sub(2, 2), match:sub(3, 3), match:sub(4, 4)
             local hex_color = "#" .. r .. r .. g .. g .. b .. b
-
             return MiniHipatterns.compute_hex_color_group(hex_color, "bg")
           end,
           extmark_opts = { priority = 2000 },
@@ -46,6 +45,13 @@ return {
     }
   end,
   config = function(_, opts)
+    local M = {} -- Define M as a table here
+    M.hl = {}
+    M.colors = {
+      -- Define your color mappings here
+      -- Example:
+      -- gray = { [50] = "f9fafb", [100] = "f3f4f6", ... },
+    }
     if type(opts.tailwind) == "table" and opts.tailwind.enabled then
       -- reset hl groups when colorscheme changes
       vim.api.nvim_create_autocmd("ColorScheme", {
