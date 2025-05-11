@@ -3,7 +3,7 @@
 -- Add any additional keymaps here
 
 local map = vim.keymap.set
-local harpoon = require("harpoon")
+local Snacks = require("snacks")
 
 -- mini.pick
 map("n", "<leader>fP", ":Pick", { desc = "Open mini.pick" })

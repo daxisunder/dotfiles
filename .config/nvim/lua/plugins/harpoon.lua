@@ -26,7 +26,7 @@ return {
         "<leader>h",
         function()
           harpoon.ui:toggle_quick_menu(harpoon:list(), {
-            ui_max_width = 80, -- Maximum menu width
+            ui_max_width = 60, -- Maximum menu width
             ui_min_width = 40, -- Minimum menu width
             border = "rounded", -- Window border style
             title = " Harpoon Quick Menu ", -- Custom window title
