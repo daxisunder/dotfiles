@@ -3,6 +3,7 @@
 -- Add any additional autocmds here
 
 local autocmd = vim.api.nvim_create_autocmd
+local Snacks = require("snacks")
 
 -- Hyprlang LSP
 autocmd({ "BufEnter", "BufWinEnter" }, {
