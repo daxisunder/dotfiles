@@ -1,4 +1,5 @@
 local Snacks = require("snacks")
+local LazyVim = require("lazyvim.util")
 
 return {
   "folke/snacks.nvim",

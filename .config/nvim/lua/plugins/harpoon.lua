@@ -48,6 +48,7 @@ return {
             row = 0,
             relative = "editor",
             title = " Harpoon Quick Menu ",
+            border = "rounded",
           })
         end,
         desc = "Harpoon Quick Menu",
