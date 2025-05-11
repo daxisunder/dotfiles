@@ -58,8 +58,8 @@ modelbutton.flat:selected,
 .nautilus-window notebook .view:not(treeview):selected,
 .nautilus-window flowboxchild:selected .icon-item-background,
 flowbox flowboxchild:selected {
-  color: #0db9d7;
-  background-color: rgba(41, 46, 66, 0.2);
+  color: #27a1b9;
+  background-color: rgba(39, 161, 185, 0.2);
 }
 
 .nemo-window .nemo-window-pane widget.entry:selected,
@@ -74,13 +74,13 @@ textview text selection:focus,
 textview text selection,
 widget.view:selected {
   color: #e9e9ed;
-  background-color: #292e42;
+  background-color: #1a1b26;
 }
 
 treeview.view:selected,
 .view:selected {
-  color: rgba(159, 224, 68, 1);
-  background-color: #292e42;
+  color: rgba(226, 227, 238, 1);
+  background-color: #1a1b26;
 }
 
 .linked:not(.vertical) > button,
