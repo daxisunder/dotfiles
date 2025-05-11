@@ -1,3 +1,5 @@
+local Snacks = require("snacks")
+
 return {
   "folke/snacks.nvim",
   priority = 1000,
@@ -289,14 +291,20 @@ return {
       },
     },
     toggle = {
+      map = LazyVim.safe_keymap_set,
+    },
+    words = {
       enabled = true,
     },
-    win = { enabled = true },
-    words = { enabled = true },
-    zen = { enabled = true },
+    zen = {
+      enabled = true,
+    },
   },
   keys = {
-    { "<leader>n", false },
+    {
+      "<leader>n",
+      false,
+    },
     {
       "<leader>sN",
       function()

@@ -70,7 +70,7 @@
   "one-small-step-for-vimkind": { "branch": "main", "commit": "113d1c3c55418d7210193cccd7b844eb39f2fc44" },
   "org-bullets.nvim": { "branch": "main", "commit": "21437cfa99c70f2c18977bffd423f912a7b832ea" },
   "org-checkbox.nvim": { "branch": "trunk", "commit": "d33464548b7c743c6ca12c3ac0712573e3964daa" },
-  "org-list.nvim": { "branch": "master", "commit": "cece5421ed930c61478a5cef0ea9a2a90221c812" },
+  "org-list.nvim": { "branch": "master", "commit": "493fca1853237396fb7f5c4988f8d426e5672918" },
   "org-roam.nvim": { "branch": "main", "commit": "cf00a0b3797ee3370c2ca2bdedbc04b2f5309a1e" },
   "orgmode": { "branch": "master", "commit": "ac6e02ab638ee324b3e3894e2a05488aad0b467c" },
   "output-panel.nvim": { "branch": "main", "commit": "9979f9988acb35fd8e699d8b1fbc7aa17c9d8148" },
