@@ -31,7 +31,7 @@ return {
     -- Smear cursor in replace mode.
     smear_replace_mode = true,
     horizontal_bar_cursor_replace_mode = true,
-    delay_event_to_smear = 5,
+    delay_event_to_smear = 50,
   },
   specs = {
     -- disable mini.animate cursor
