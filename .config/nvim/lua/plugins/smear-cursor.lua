@@ -6,7 +6,7 @@ return {
   opts = {
     never_draw_over_target = true,
     hide_target_hack = true,
-    stiffness = 0.5,
+    stiffness = 1,
     trailing_stiffness = 0.2,
     trailing_exponent = 5,
     gamma = 1,
@@ -31,6 +31,7 @@ return {
     -- Smear cursor in replace mode.
     smear_replace_mode = true,
     horizontal_bar_cursor_replace_mode = true,
+    delay_event_to_smear = 5,
   },
   specs = {
     -- disable mini.animate cursor
