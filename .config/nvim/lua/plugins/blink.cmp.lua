@@ -122,7 +122,7 @@ return {
         },
       },
       ghost_text = {
-        enabled = true,
+        enabled = false,
         show_with_menu = true,
         show_without_menu = false,
         show_with_selection = true,
