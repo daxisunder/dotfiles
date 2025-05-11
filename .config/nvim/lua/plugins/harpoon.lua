@@ -7,10 +7,15 @@ return {
   dependencies = { "nvim-lua/plenary.nvim" },
   opts = {
     menu = {
-      width = vim.api.nvim_win_get_width(0) - 4,
+      width = vim.api.nvim_win_get_width(0) - 3,
     },
     settings = {
       save_on_toggle = true,
+      sync_on_ui_close = true,
+      mark_branch = false,
+      tabline = true,
+      tabline_prefix = "   ",
+      tabline_suffix = "   ",
     },
   },
   keys = function()
@@ -26,10 +31,23 @@ return {
         "<leader>h",
         function()
           harpoon.ui:toggle_quick_menu(harpoon:list(), {
-            ui_max_width = 60, -- Maximum menu width
-            ui_min_width = 40, -- Minimum menu width
-            border = "rounded", -- Window border style
-            title = " Harpoon Quick Menu ", -- Custom window title
+            ui_max_width = 70,
+            ui_min_width = 40,
+          })
+          local winids = vim.api.nvim_list_wins()
+          local harpoon_win = vim.iter(winids):find(function(winid)
+            local buf = vim.api.nvim_win_get_buf(winid)
+            return vim.bo[buf].filetype == "harpoon"
+          end)
+          if not harpoon_win then
+            return
+          end
+          vim.api.nvim_win_set_config(harpoon_win, {
+            anchor = "NW",
+            col = 0,
+            row = 0,
+            relative = "editor",
+            title = " Harpoon Quick Menu ",
           })
         end,
         desc = "Harpoon Quick Menu",
