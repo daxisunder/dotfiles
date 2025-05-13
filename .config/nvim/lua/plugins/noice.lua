@@ -40,7 +40,7 @@ return {
     lsp = {
       progress = {
         enabled = true,
-        view = "mini",
+        view = "notify",
       },
       message = {
         view = "notify",
@@ -51,7 +51,6 @@ return {
         ["vim.lsp.util.stylize_markdown"] = true,
         ["cmp.entry.get_documentation"] = true,
       },
-      view = "mini",
     },
     presets = {
       bottom_search = true, -- use a classic bottom cmdline for search

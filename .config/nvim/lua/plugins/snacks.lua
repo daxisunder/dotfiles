@@ -198,7 +198,7 @@ return {
     notifier = {
       enabled = true,
       timeout = 6000,
-      style = "fancy",
+      style = "minimal", -- default, fancy, minimal
     },
     picker = {
       sources = {
@@ -274,12 +274,12 @@ return {
         },
         notifications = {
           layout = {
-            preset = "ivy",
+            preset = "vscode",
           },
         },
         projects = {
           layout = {
-            preset = "ivy",
+            preset = "vscode",
           },
         },
         registers = {

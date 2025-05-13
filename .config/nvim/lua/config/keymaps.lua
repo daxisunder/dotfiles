@@ -80,3 +80,39 @@ map("n", "<leader>'", function()
     vim.cmd.edit(m[4])
   end
 end, { desc = "Open file containing mark" })
+
+-- quickfix list
+map("n", "<leader>xd", function()
+  local diagnostics = vim.diagnostic.get(0)
+  local qflist = {}
+  for _, diagnostic in ipairs(diagnostics) do
+    table.insert(qflist, {
+      bufnr = diagnostic.bufnr,
+      lnum = diagnostic.lnum + 1,
+      col = diagnostic.col + 1,
+      text = diagnostic.message,
+      type = diagnostic.severity == vim.diagnostic.severity.ERROR and "E" or "W",
+    })
+  end
+  vim.fn.setqflist(qflist)
+end, { desc = "Send Diaagnostics To QF List" })
+
+-- location list
+map("v", "<leader>xl", function()
+  local start_line = vim.fn.line("'<")
+  local end_line = vim.fn.line("'>")
+  local lines = vim.fn.getline(start_line, end_line)
+  if type(lines) == "string" then
+    lines = { lines }
+  end
+  local loclist = {}
+  for i, line in ipairs(lines) do
+    table.insert(loclist, {
+      filename = vim.fn.bufname("%"),
+      lnum = start_line + i - 1,
+      text = line,
+    })
+  end
+  vim.fn.setloclist(0, loclist)
+  vim.cmd("lopen")
+end, { desc = "Send Lines To Location List" })
