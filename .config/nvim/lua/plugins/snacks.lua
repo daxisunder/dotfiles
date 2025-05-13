@@ -200,7 +200,132 @@ return {
       timeout = 6000,
       style = "fancy",
     },
-    picker = { enabled = true },
+    picker = {
+      sources = {
+        autocommands = {
+          layout = {
+            preset = "ivy",
+          },
+        },
+        commands = {
+          layout = {
+            preset = "vscode",
+          },
+        },
+        command_history = {
+          layout = {
+            preset = "vscode",
+          },
+        },
+        diagnostics = {
+          layout = {
+            preset = "ivy",
+          },
+        },
+        diagnostics_buffer = {
+          layout = {
+            preset = "ivy",
+          },
+        },
+        help = {
+          layout = {
+            preset = "ivy",
+          },
+        },
+        highlights = {
+          layout = {
+            preset = "ivy",
+          },
+        },
+        jumps = {
+          layout = {
+            preset = "ivy",
+          },
+        },
+        keymaps = {
+          layout = {
+            preset = "ivy",
+          },
+        },
+        loclist = {
+          layout = {
+            preset = "ivy",
+          },
+        },
+        lsp_symbols = {
+          layout = {
+            preset = "ivy",
+          },
+        },
+        lsp_workspace_symbols = {
+          layout = {
+            preset = "ivy",
+          },
+        },
+        man = {
+          layout = {
+            preset = "ivy",
+          },
+        },
+        marks = {
+          layout = {
+            preset = "ivy",
+          },
+        },
+        notifications = {
+          layout = {
+            preset = "ivy",
+          },
+        },
+        projects = {
+          layout = {
+            preset = "ivy",
+          },
+        },
+        registers = {
+          layout = {
+            preset = "vscode",
+          },
+        },
+        rename = {
+          layout = {
+            preset = "ivy",
+          },
+        },
+        search_history = {
+          layout = {
+            preset = "vscode",
+          },
+        },
+        undo = {
+          layout = {
+            preset = "ivy",
+          },
+        },
+        todo_comments = {
+          layout = {
+            preset = "ivy",
+          },
+        },
+        qflist = {
+          layout = {
+            preset = "ivy",
+          },
+        },
+      },
+      layouts = {
+        vscode = {
+          layout = {
+            border = "rounded",
+          },
+        },
+        ivy = {
+          layout = {
+            border = "rounded",
+          },
+        },
+      },
+    },
     project = { enabled = true },
     profiler = { enabled = true },
     quickfile = { enabled = true },

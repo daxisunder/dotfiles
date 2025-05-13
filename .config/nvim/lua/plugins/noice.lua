@@ -14,6 +14,10 @@ return {
     popupmenu = {
       enabled = true,
     },
+    redirect = {
+      view = "notify",
+      filter = { event = "msg_show" },
+    },
     commands = {
       enabled = true,
       view = "cmdline",
@@ -25,6 +29,10 @@ return {
         format = "%s",
       },
     },
+    confirm = {
+      enabled = true,
+      view = "notify",
+    },
     notify = {
       enabled = true,
       view = "notify",
@@ -35,7 +43,7 @@ return {
         view = "mini",
       },
       message = {
-        view = "mini",
+        view = "notify",
       },
       -- override markdown rendering so that **cmp** and other plugins use **Treesitter**
       override = {

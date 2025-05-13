@@ -22,7 +22,7 @@ return {
       },
     },
   },
-  event = "LazyFile",
+  event = { "BufReadPre", "BufNewFile", "BufWritePre" },
   opts = {
     servers = {
       lspconfig.asm_lsp.setup({

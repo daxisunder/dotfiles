@@ -103,6 +103,10 @@ return {
         hl.PmenuThumb = {
           bg = "#1a1b26",
         }
+        hl.SnacksPickerInputBorder = {
+          bg = c.bg,
+          fg = c.bg_dark1,
+        }
         hl.TabLine = {
           bg = c.bg_dark1,
         }
