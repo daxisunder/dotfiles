@@ -64,17 +64,3 @@ autocmd({ "BufRead", "BufNewFile" }, {
     vim.bo.filetype = "org"
   end,
 })
-
--- cmdline messages
-autocmd({ "CmdlineEnter" }, {
-  callback = function()
-    vim.opt.messagesopt = "hit-enter,history:1000"
-    vim.api.nvim_create_autocmd({ "CursorHold", "CursorMoved" }, {
-      callback = function()
-        vim.opt.messagesopt = "wait:500,history:1000"
-      end,
-      once = true,
-    })
-  end,
-  desc = "Only show Cmdline message when triggered",
-})

@@ -116,3 +116,6 @@ map("v", "<leader>xl", function()
   vim.fn.setloclist(0, loclist)
   vim.cmd("lopen")
 end, { desc = "Send Lines To Location List" })
+
+-- carbon-now
+map("v", "<leader>cn", ":CarbonNow<CR>", { desc = "Snapshot From Visual Selection" })
