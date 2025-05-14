@@ -1,8 +1,9 @@
 return {
   "saghen/blink.cmp",
   dependencies = {
-    { "Kaiser-Yang/blink-cmp-dictionary" },
     { "nvim-lua/plenary.nvim" },
+    { "Kaiser-Yang/blink-cmp-dictionary" },
+    { "ribru17/blink-cmp-spell" },
     { "rafamadriz/friendly-snippets" },
     { "fang2hou/blink-copilot" },
     {
@@ -256,6 +257,7 @@ return {
         "lazydev",
         "omni",
         "cmdline",
+        "spell",
       },
       providers = {
         lsp = {
@@ -371,6 +373,16 @@ return {
         },
         cmdline = {
           module = "blink.cmp.sources.cmdline",
+        },
+        spell = {
+          module = "blink-cmp-spell",
+          min_keyword_length = 2,
+          max_items = 1,
+          score_offset = -10,
+          opts = {
+            preselect_current_word = true,
+            use_cmp_spell_sorting = true,
+          },
         },
       },
     },

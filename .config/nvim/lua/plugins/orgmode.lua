@@ -6,6 +6,8 @@ return {
     "saghen/blink.cmp",
   },
   event = "VeryLazy",
+  ft = { "org", "orgagenda" },
+  cmd = "Org",
   config = function()
     -- Setup orgmode
     require("orgmode").setup({
