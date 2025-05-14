@@ -37,7 +37,6 @@ return {
     show_count = true,
     position = "bottom-right",
     winopts = {
-      relative = "win",
       border = "rounded",
     },
   },
