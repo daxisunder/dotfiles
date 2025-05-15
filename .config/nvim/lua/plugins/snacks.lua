@@ -198,7 +198,7 @@ return {
     notifier = {
       enabled = true,
       timeout = 6000,
-      style = "minimal", -- default, fancy, minimal
+      style = "fancy", -- default, fancy, minimal
     },
     picker = {
       sources = {
@@ -329,7 +329,19 @@ return {
     project = { enabled = true },
     profiler = { enabled = true },
     quickfile = { enabled = true },
-    scope = { enabled = true },
+    scope = {
+      enabled = true,
+      keys = {
+        jump = {
+          ["[i"] = {
+            min_size = 2,
+          },
+          ["]i"] = {
+            min_size = 2,
+          },
+        },
+      },
+    },
     scratch = { enabled = true },
     scroll = { enabled = true },
     statuscolumn = {
