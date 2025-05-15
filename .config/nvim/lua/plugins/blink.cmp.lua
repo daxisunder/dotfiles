@@ -130,7 +130,7 @@ return {
         show_without_selection = true,
       },
       keyword = {
-        range = "full",
+        range = "prefix",
       },
       accept = {
         dot_repeat = true,
