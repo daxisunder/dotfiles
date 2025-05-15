@@ -337,7 +337,17 @@ return {
           },
         },
       }),
-      require("lspconfig").wasm_language_tools.setup({
+      lspconfig.cssmodules_ls.setup({
+        capabilities = capabilities,
+        on_attach = on_attach,
+        cmd = { "cssmodules-language-server" },
+        filetypes = { "javascript", "javascriptreact", "typescript", "typescriptreact" },
+        root_markers = { "package.json" },
+        init_options = {
+          camelCase = "dashes",
+        },
+      }),
+      lspconfig.wasm_language_tools.setup({
         capabilities = capabilities,
         on_attach = on_attach,
         cmd = { "wat_server" },
