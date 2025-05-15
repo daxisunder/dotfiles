@@ -346,68 +346,6 @@ return {
       },
       refresh = 50, -- refresh at most every 50ms
     },
-    styles = {
-      blame_line = {
-        relative = "editor",
-        width = 0.6,
-        height = 0.6,
-        border = "rounded",
-        title = " Git Blame ",
-        title_pos = "center",
-        ft = "git",
-      },
-      help = {
-        relative = "editor",
-        position = "float",
-        backdrop = false,
-        border = "rounded",
-        row = -1,
-        width = 0,
-        height = 0.3,
-      },
-      notification = {
-        relative = "editor",
-        wo = { wrap = true }, -- Wrap notifications
-      },
-      snacks_image = {
-        relative = "cursor",
-        border = "rounded",
-        focusable = false,
-        backdrop = false,
-        row = 1,
-        col = 1,
-        -- width/height are automatically set by the image size unless specified below
-      },
-      zen = {
-        relative = "editor",
-        enter = true,
-        fixbuf = false,
-        minimal = true,
-        width = 120,
-        height = 0,
-        backdrop = { transparent = true, blend = 40 },
-        keys = { q = false },
-        zindex = 40,
-        wo = {
-          winhighlight = "NormalFloat:Normal",
-        },
-        w = {
-          snacks_main = true,
-        },
-      },
-      zoom_indicator = {
-        ennabled = true,
-        relative = "editor",
-        text = "▍ zoom  󰊓  ",
-        minimal = true,
-        enter = false,
-        focusable = false,
-        height = 1,
-        row = 0,
-        col = -1,
-        backdrop = false,
-      },
-    },
     terminal = {
       win = {
         relative = "editor",
