@@ -198,7 +198,7 @@ return {
     notifier = {
       enabled = true,
       timeout = 6000,
-      style = "fancy", -- default, fancy, minimal
+      style = "minimal", -- default, fancy, minimal
     },
     picker = {
       sources = {
