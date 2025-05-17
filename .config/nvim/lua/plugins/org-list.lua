@@ -9,7 +9,7 @@ return {
       },
       checkbox_toggle = {
         enabled = true,
-        key = "<C-Space>", -- Change the checkbox toggle key
+        key = "<C-,>", -- Change the checkbox toggle key
         desc = "Toggle checkbox state",
         filetypes = { "org", "markdown" }, -- Add more filetypes as needed
       },
