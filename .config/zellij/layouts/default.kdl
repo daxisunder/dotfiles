@@ -8,29 +8,29 @@ layout {
             plugin location="file:~/.config/zellij/plugins/zjstatus.wasm" {
                 format_left                "{mode} #[fg=bright_black]󰇘 {tabs} #[fg=bright_black]󰇘 #[fg=green]{swap_layout}"
                 format_center              "#[fg=bright_black]󰇘 #[fg=cyan]{session} #[fg=bright_black]󰇘"
-                format_right               "#[fg=green]{command_git_branch} #[fg=bright_black]󰇘 #[fg=blue]{datetime}"
+                format_right               "#[fg=bright_black]󰇘 {command_git_branch} #[fg=bright_black]󰇘 #[fg=blue]{datetime}"
                 format_space               "#[fg=yellow] "
                 hide_frame_for_single_pane "false"
                 border_enabled             "false"
-                mode_normal                "#[fg=yellow]NORMAL  "
-                mode_locked                "#[fg=red]LOCKED  "
-                mode_tmux                  "#[fg=cyan]TMUX  "
-                mode_resize                "#[fg=red]RESIZE 󰩨 "
-                mode_pane                  "#[fg=cyan]PANE  "
-                mode_tab                   "#[fg=cyan]TAB 󰓩 "
-                mode_scroll                "#[fg=green]SCROLL 󰡏 "
-                mode_enter_search          "#[fg=blue]{name}  "
-                mode_search                "#[fg=blue]SEARCH  "
-                mode_rename_tab            "#[fg=red]{name} 󰑕 "
-                mode_rename_pane           "#[fg=red]{name} 󰑕 "
-                mode_session               "#[fg=green]SESSION  "
-                mode_move                  "#[fg=red]MOVE  "
-                mode_prompt                "#[fg=green]PROMPT  "
+                mode_normal                "#[fg=yellow]NORMAL"
+                mode_locked                "#[fg=red]LOCKED"
+                mode_tmux                  "#[fg=cyan]TMUX"
+                mode_resize                "#[fg=red]RESIZE"
+                mode_pane                  "#[fg=cyan]PANE"
+                mode_tab                   "#[fg=cyan]TAB"
+                mode_scroll                "#[fg=green]SCROLL"
+                mode_enter_search          "#[fg=blue]{name}"
+                mode_search                "#[fg=blue]SEARCH"
+                mode_rename_tab            "#[fg=red]{name}"
+                mode_rename_pane           "#[fg=red]{name}"
+                mode_session               "#[fg=green]SESSION"
+                mode_move                  "#[fg=red]MOVE"
+                mode_prompt                "#[fg=green]PROMPT"
 
                 // formatting for inactive tabs
-                tab_normal                 "#[fg=bright_black]{name}"
-                tab_normal_fullscreen      "#[fg=bright_black]{name}"
-                tab_normal_sync            "#[fg=bright_black]{name}"
+                tab_normal                 "#[fg=#636c85]{name}"
+                tab_normal_fullscreen      "#[fg=#636c85]{name}"
+                tab_normal_sync            "#[fg=#636c85]{name}"
 
                 // formatting for the current active tab
                 tab_active                 "#[fg=cyan]{name}#[fg=yellow]{floating_indicator}"
@@ -38,7 +38,7 @@ layout {
                 tab_active_sync            "#[fg=green]{name}#[fg=yellow]{sync_indicator}"
 
                 // separator between the tabs
-                tab_separator              " "
+                tab_separator              "#[fg=bright_black]:"
 
                 // format when renaming a tab
                 tab_rename                 "#[fg=red] {index} {name} {floating_indicator} "
@@ -48,10 +48,11 @@ layout {
                 tab_fullscreen_indicator   "  "
                 tab_floating_indicator     " 󰉧 "
 
+                // git branch indicator
                 command_git_branch_command     "git branch --show-current"
-                command_git_branch_format      "{stdout} #[fg=cyan] "
+                command_git_branch_format      "#[fg=green]{stdout}#[fg=white]local#[fg=bright_black]:#[fg=red]dev #[fg=green]"
                 command_git_branch_interval    "1"
-                command_git_branch_rendermode  "static"
+                command_git_branch_rendermode  "dyamic"
 
                 // limit tab display count
                 tab_display_count          "3"  // limit to showing 3 tabs
