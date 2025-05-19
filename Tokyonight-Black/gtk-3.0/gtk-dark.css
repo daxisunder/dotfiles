@@ -9758,7 +9758,7 @@ tooltip.background.chromium {
 }
 
 #MozillaGtkWidget menu > separator {
-  color: #000000;
+  color: #4b4c5f;
 }
 
 window.background:not(.csd) > window > menu menuitem {

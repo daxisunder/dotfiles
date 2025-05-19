@@ -5681,7 +5681,7 @@ tooltip {
 }
 
 tooltip.background {
-  background-color: rgba(20, 21, 29, 0.9);
+  background-color: rgba(0, 0, 0, 0.8);
   color: #e9e9ed;
   border-radius: 12px;
 }
@@ -9620,7 +9620,7 @@ window.background.chromium menu menuitem {
 }
 
 tooltip.background.chromium {
-  background-color: #14151d;
+  background-color: #000000;
 }
 
 /***********
@@ -9648,7 +9648,7 @@ tooltip.background.chromium {
 }
 
 #MozillaGtkWidget > widget > frame > border {
-  border-color: #4b4c5f;
+  border-color: #000000;
 }
 
 #MozillaGtkWidget > widget > entry,
@@ -9754,7 +9754,7 @@ tooltip.background.chromium {
 }
 
 #MozillaGtkWidget > widget > frame {
-  color: #4b4c5f;
+  color: #000000;
 }
 
 #MozillaGtkWidget menu > separator {
