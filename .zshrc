@@ -5,6 +5,9 @@
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 export PATH="/usr/bin:$PATH"
 
+# Cargo path
+export PATH="$PATH:$HOME/.cargo/bin"
+
 # Created by `pipx` on 2025-02-10 20:34:32
 export PATH="$PATH:~/.local/bin"
 
