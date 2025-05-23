@@ -11,7 +11,7 @@
 window#waybar {
   transition-property: background-color;
   transition-duration: 0.5s;
-  background: #000000;
+  background: rgba(0, 0, 0, 0.8);
   border-radius: 6px;
 }
 
@@ -21,7 +21,7 @@ window#waybar.hidden {
 
 window#waybar.empty,
 window#waybar.empty #window {
-  background-color: #000000;
+  background-color: rgba(0, 0, 0, 0.8);
   padding: 0px;
   border: 0px;
 }
@@ -82,40 +82,40 @@ window#waybar.empty #window {
 
 #workspaces {
   font-size: 100%;
-  border-radius: 20px;
+  /* border: 2px solid #455a64; */
+  /* border-radius: 20px; */
 }
 
 #workspaces button {
-  padding-left: 8px;
-  padding-right: 8px;
-  animation: gradient_f 20s ease-in infinite;
-  transition: all 0.1s linear;
-}
-
-#workspaces button:hover {
-  color: #faba4a;
-  padding-left: 8px;
-  padding-right: 8px;
+  padding-left: 10px;
+  padding-right: 10px;
   animation: gradient_f 20s ease-in infinite;
   transition: all 0.1s linear;
 }
 
 #workspaces button.persistent {
+  color: #faba4a;
+}
+
+#workspaces button.empty {
   color: #ffffed;
-  padding-left: 8px;
-  padding-right: 8px;
 }
 
 #workspaces button.active {
   color: #00ffff;
-  padding-left: 8px;
-  padding-right: 8px;
-  animation: gradient_f 20s ease-in infinite;
-  transition: all 0.1s linear;
+  border: 2px solid #455a64;
+  border-radius: 16px;
 }
 
 #workspaces button.urgent {
   color: #f7768e;
+  border: 2px solid #f7768e;
+  border-radius: 16px;
+}
+
+#workspaces button:hover {
+  border: 2px solid #455a64;
+  border-radius: 16px;
 }
 
 #idle_inhibitor {
@@ -138,7 +138,7 @@ window#waybar.empty #window {
 
 #custom-swaync {
   color: #9fe044;
-  border: 2px solid #7dcfff;
+  border: 2px solid #455a64;
   font-size: 125%;
   border-radius: 20px;
   padding-left: 13px;
@@ -147,7 +147,7 @@ window#waybar.empty #window {
 
 #custom-keyboard {
   color: #e0af68;
-  border: 2px solid #7dcfff;
+  border: 2px solid #455a64;
   border-radius: 20px;
   padding-left: 14px;
   padding-right: 14px;
@@ -198,9 +198,9 @@ window#waybar.empty #window {
   padding-left: 10px;
   padding-right: 3px;
   color: #ffffed;
-  border-top: 2px solid #7dcfff;
-  border-bottom: 2px solid #7dcfff;
-  border-left: 2px solid #7dcfff;
+  border-top: 2px solid #455a64;
+  border-bottom: 2px solid #455a64;
+  border-left: 2px solid #455a64;
   border-radius: 20px 0px 0px 20px;
 }
 
@@ -208,16 +208,16 @@ window#waybar.empty #window {
   font-size: 125%;
   color: #ffffed;
   padding-right: 8px;
-  border-bottom: 2px solid #7dcfff;
-  border-top: 2px solid #7dcfff;
+  border-bottom: 2px solid #455a64;
+  border-top: 2px solid #455a64;
   border-radius: 0px;
 }
 
 #temperature {
   font-size: 125%;
   color: #ffffed;
-  border-bottom: 2px solid #7dcfff;
-  border-top: 2px solid #7dcfff;
+  border-bottom: 2px solid #455a64;
+  border-top: 2px solid #455a64;
   border-radius: 0px;
 }
 
@@ -225,9 +225,9 @@ window#waybar.empty #window {
   font-size: 125%;
   padding-right: 16px;
   color: #ffffed;
-  border-top: 2px solid #7dcfff;
-  border-bottom: 2px solid #7dcfff;
-  border-right: 2px solid #7dcfff;
+  border-top: 2px solid #455a64;
+  border-bottom: 2px solid #455a64;
+  border-right: 2px solid #455a64;
   border-radius: 0px 20px 20px 0px;
 }
 
@@ -267,7 +267,7 @@ window#waybar.empty #window {
 
 #custom-updater {
   color: #f7768e;
-  border: 2px solid #7dcfff;
+  border: 2px solid #455a64;
   border-radius: 20px;
   padding-left: 10pt;
   padding-right: 12px;
@@ -361,5 +361,6 @@ window#waybar.empty #window {
 
 #custom-separator {
   font-size: 125%;
+  padding-left: 6px;
   color: #f7768e;
 }
