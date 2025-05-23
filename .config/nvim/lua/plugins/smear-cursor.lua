@@ -7,7 +7,7 @@ return {
     never_draw_over_target = true,
     hide_target_hack = true,
     stiffness = 1,
-    trailing_stiffness = 0.2,
+    trailing_stiffness = 0.1,
     trailing_exponent = 5,
     gamma = 1,
     -- Smear cursor color. Defaults to Cursor GUI color if not set.
