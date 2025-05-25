@@ -130,6 +130,7 @@ spotters = [
   { name = "*", run = "file-extra-metadata" },
   { mime = "image/*", run = "image" },
   { mime = "image/{avif,hei?,jxl,svg+xml}", run = "magick" },
+
   # Video
   { name = "*", run = "file-extra-metadata" },
   { mime = "video/*", run = "video" },
@@ -182,7 +183,7 @@ previewers = [
 ]
 
 [input]
-cursor_blink = false
+cursor_blink = true
 
 # cd
 cd_title = "Change directory:"

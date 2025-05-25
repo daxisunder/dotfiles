@@ -44,10 +44,6 @@ local File_Type = {
 
 ---@alias TRASHED_ITEM {trash_index: number, trashed_date_time: string, trashed_path: string, type: File_Type} Item in trash list
 
-function get_basename(filepath)
-	return filepath:match("^.+/(.+)$") or filepath
-end
-
 local get_cwd = ya.sync(function()
 	return tostring(cx.active.current.cwd)
 end)
@@ -193,21 +189,18 @@ end
 ---@param trash_list TRASHED_ITEM[]
 local function get_components(trash_list)
 	local theme = get_state(STATE.THEME) or {}
-	theme.list_item = theme.list_item or {
-		odd = "blue",
-		even = "blue",
-	}
+	local item_odd_style = theme.list_item and theme.list_item.odd and ui.Style():fg(theme.list_item.odd)
+		or (th and th.confirm and th.confirm.list or ui.Style():fg("blue"))
+	local item_even_style = theme.list_item and theme.list_item.even and ui.Style():fg(theme.list_item.even)
+		or (th and th.confirm and th.confirm.list or ui.Style():fg("blue"))
+
 	local trashed_items_components = {}
 	for idx, item in pairs(trash_list) do
-		local fg_color = theme.list_item.odd or "blue"
-		if idx % 2 == 0 then
-			fg_color = theme.list_item.even or "blue"
-		end
 		table.insert(
 			trashed_items_components,
 			ui.Line({
 				ui.Span(" "),
-				ui.Span(item.trashed_path):fg(fg_color),
+				ui.Span(item.trashed_path):style(idx % 2 == 0 and item_even_style or item_odd_style),
 			}):align(ui.Line.LEFT)
 		)
 	end
@@ -230,25 +223,21 @@ function M:entry()
 	pos = pos or { "center", w = 70, h = 40 }
 
 	local theme = get_state(STATE.THEME) or {}
-	theme.title = theme.title or "blue"
-	theme.header = theme.header or "green"
-	theme.header_warning = theme.header_warning or "yellow"
+	theme.title = theme.title and ui.Style():fg(theme.title):bold() or (th and th.confirm and th.confirm.title)
+	theme.header = theme.header and ui.Style():fg(theme.header) or (th and th.confirm and th.confirm.content)
+	theme.header_warning = ui.Style():fg(theme.header_warning or "yellow")
 	if ya.confirm and show_confirm then
 		local continue_restore = ya.confirm({
-			title = ui.Line("Restore files/folders"):fg(theme.title):bold(),
+			-- title = ui.Line("Restore files/folders"):fg(theme.title):bold(),
+			title = ui.Line("Restore files/folders"):style(theme.title),
 			content = ui.Text({
 				ui.Line(""),
-				ui.Line("The following files and folders are going to be restored:"):fg(theme.header),
+				ui.Line("The following files and folders are going to be restored:"):style(theme.header),
 				ui.Line(""),
 				table.unpack(get_components(trashed_items)),
 			})
 				:align(ui.Text.LEFT)
 				:wrap(ui.Text.WRAP),
-			--TODO: still wating for API :/
-			-- list = ui.List({
-			-- 	table.unpack(get_components(trashed_items)),
-			-- }),
-
 			pos = pos,
 		})
 		-- stopping
@@ -259,28 +248,18 @@ function M:entry()
 
 	-- show Confirm dialog with list of collided items
 	if #collided_items > 0 then
-		if ya.confirm then
-			overwrite_confirmed = ya.confirm({
-				title = ui.Line("Restore files/folders"):fg(theme.title):bold(),
-				content = ui.Text({
-					ui.Line(""),
-					ui.Line("The following files and folders are existed, overwrite?"):fg(theme.header_warning),
-					ui.Line(""),
-					table.unpack(get_components(collided_items)),
-				})
-					:align(ui.Text.LEFT)
-					:wrap(ui.Text.WRAP),
-				pos = pos,
+		overwrite_confirmed = ya.confirm({
+			title = ui.Line("Restore files/folders"):style(theme.title),
+			content = ui.Text({
+				ui.Line(""),
+				ui.Line("The following files and folders are existed, overwrite?"):style(theme.header_warning),
+				ui.Line(""),
+				table.unpack(get_components(collided_items)),
 			})
-		else
-			-- TODO: Remove after v0.4.4 released
-			local _, input_event = ya.input({
-				title = "Overwrite the destination items?",
-				value = #collided_items .. " files and folders existed.",
-				position = pos,
-			})
-			overwrite_confirmed = input_event == 1
-		end
+				:align(ui.Text.LEFT)
+				:wrap(ui.Text.WRAP),
+			pos = pos,
+		})
 	end
 	if overwrite_confirmed then
 		restore_files(curr_working_volume, trashed_items[1].trash_index, trashed_items[#trashed_items].trash_index)

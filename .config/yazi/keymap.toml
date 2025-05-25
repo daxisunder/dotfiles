@@ -488,11 +488,6 @@ run = "close"
 desc = "Cancel input"
 
 [[manager.prepend_keymap]]
-on = "p"
-run = "plugin smart-paste"
-desc = "Paste into the hovered directory or CWD"
-
-[[manager.prepend_keymap]]
 on = "M"
 run = "plugin mount"
 
@@ -510,3 +505,8 @@ desc = "Maximize or restore preview"
 on = "F"
 run = "plugin smart-filter"
 desc = "Smart filter"
+
+[[manager.prepend_keymap]]
+on = "p"
+run = "plugin smart-paste"
+desc = "Paste into the hovered directory or CWD"

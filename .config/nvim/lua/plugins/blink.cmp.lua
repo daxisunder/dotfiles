@@ -3,7 +3,6 @@ return {
   dependencies = {
     { "nvim-lua/plenary.nvim" },
     { "Kaiser-Yang/blink-cmp-dictionary" },
-    { "ribru17/blink-cmp-spell" },
     { "rafamadriz/friendly-snippets" },
     { "fang2hou/blink-copilot" },
     {
@@ -18,7 +17,7 @@ return {
   event = "InsertEnter",
   opts = {
     keymap = {
-      preset = "enter", -- default, enter, super-tab or none
+      preset = "none", -- default, enter, super-tab or none
       ["<C-space>"] = { "show", "show_documentation", "hide_documentation" },
       ["<C-e>"] = { "hide", "fallback" },
       ["<CR>"] = { "accept", "fallback" },
@@ -75,16 +74,6 @@ return {
       ["<A-8>"] = {
         function(cmp)
           cmp.accept({ index = 8 })
-        end,
-      },
-      ["<A-9>"] = {
-        function(cmp)
-          cmp.accept({ index = 9 })
-        end,
-      },
-      ["<A-0>"] = {
-        function(cmp)
-          cmp.accept({ index = 10 })
         end,
       },
     },
@@ -246,7 +235,6 @@ return {
       end,
     },
     sources = {
-      compat = {},
       default = {
         "lsp",
         "path",
@@ -257,7 +245,6 @@ return {
         "lazydev",
         "omni",
         "cmdline",
-        "spell",
       },
       providers = {
         lsp = {
@@ -374,17 +361,8 @@ return {
         cmdline = {
           module = "blink.cmp.sources.cmdline",
         },
-        spell = {
-          module = "blink-cmp-spell",
-          min_keyword_length = 2,
-          max_items = 1,
-          score_offset = -10,
-          opts = {
-            preselect_current_word = true,
-            use_cmp_spell_sorting = true,
-          },
-        },
       },
+      compat = {},
     },
   },
   opts_extend = { "sources.completion.enabled_providers", "sources.compat", "sources.default" },
