@@ -31,7 +31,7 @@ return {
     spec = {
       mode = { "n", "v" },
       { "<leader>n", group = "org-roam", icon = { icon = " ", color = "green" } },
-      { "<leader>o", group = "org", icon = { icon = " ", color = "green" } },
+      { "<leader>o", group = "orgmode", icon = { icon = " ", color = "green" } },
     },
   },
   keys = {
