@@ -119,3 +119,8 @@ end, { desc = "Send Lines To Location List" })
 
 -- carbon-now
 map("v", "<leader>cn", ":CarbonNow<CR>", { desc = "Snapshot From Visual Selection" })
+
+-- delete all comments in the current buffer
+map("n", "<leader>cd", function()
+  vim.cmd(("g/^%s/d"):format(vim.fn.escape(vim.fn.substitute(vim.o.commentstring, "%s", "", "g"), "/.*[]~")))
+end, { desc = "Delete Comments in Current Buffer" })
