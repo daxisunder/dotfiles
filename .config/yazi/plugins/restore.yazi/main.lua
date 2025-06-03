@@ -1,4 +1,4 @@
---- @since 25.2.7
+--- @since 25.5.28
 
 local M = {}
 local shell = os.getenv("SHELL") or ""
@@ -65,8 +65,9 @@ end
 local function get_trash_volume()
 	local cwd = get_cwd()
 	local trash_volumes_stream, cmr_err =
-		Command("trash-list"):args({ "--volumes" }):stdout(Command.PIPED):stderr(Command.PIPED):output()
+		Command("trash-list"):arg({ "--volumes" }):stdout(Command.PIPED):stderr(Command.PIPED):output()
 
+	---@type string|nil
 	local matched_vol_path = nil
 	if trash_volumes_stream then
 		local matched_vol_length = 0
@@ -87,48 +88,56 @@ local function get_trash_volume()
 end
 
 ---get list of latest files/folders trashed
----@param curr_working_volume currently working volume
----@return TRASHED_ITEM[]|nil
+---@param curr_working_volume string currently working volume
+---@return TRASHED_ITEM[]|nil, TRASHED_ITEM[]|nil
 local function get_latest_trashed_items(curr_working_volume)
-	---@type TRASHED_ITEM[]
-	local restorable_items = {}
+	---@type TRASHED_ITEM[], TRASHED_ITEM[]
+	local restorable_items, existed_items = {}, {}
+
 	local fake_enter = Command("printf"):stderr(Command.PIPED):stdout(Command.PIPED):spawn():take_stdout()
 	local trash_list_stream, err_cmd = Command(shell)
-		:args({ "-c", "trash-restore " .. path_quote(curr_working_volume) })
+		:arg({ "-c", "trash-restore " .. path_quote(curr_working_volume) })
 		:stdin(fake_enter)
 		:stdout(Command.PIPED)
-		:stderr(Command.PIPED)
-		:output()
+		:stderr(Command.NULL)
+		:spawn()
 
 	if trash_list_stream then
-		---@type TRASHED_ITEM[]
-		local trash_list = {}
-		for line in trash_list_stream.stdout:gmatch("[^\r\n]+") do
+		local last_item_datetime = nil
+
+		while true do
+			local line, event = trash_list_stream:read_line()
+			if event ~= 0 then
+				break
+			end
 			-- remove leading spaces
 			line = line:match("^%s*(.+)$")
 			local trash_index, item_date, item_path = line:match("^(%d+) (%S+ %S+) (.+)$")
 			if item_date and item_path and trash_index ~= nil then
-				table.insert(trash_list, {
+				if last_item_datetime and last_item_datetime ~= item_date then
+					restorable_items = {}
+				end
+				table.insert(restorable_items, {
 					trash_index = tonumber(trash_index),
 					trashed_date_time = item_date,
 					trashed_path = item_path,
 					type = File_Type.None_Exist,
 				})
+				last_item_datetime = item_date
 			end
 		end
+		trash_list_stream:start_kill()
 
-		if #trash_list == 0 then
+		if #restorable_items == 0 then
 			success("Nothing left to restore")
 			return
 		end
 
-		local last_item_datetime = trash_list[#trash_list].trashed_date_time
-
-		for _, trash_item in ipairs(trash_list) do
+		for _, trash_item in ipairs(restorable_items) do
 			if trash_item then
-				if trash_item.trashed_date_time == last_item_datetime then
-					trash_item.type = get_file_type(trash_item.trashed_path)
-					table.insert(restorable_items, trash_item)
+				trash_item.type = get_file_type(trash_item.trashed_path)
+				if trash_item.type ~= File_Type.None_Exist then
+					table.insert(existed_items, trash_item)
 				end
 			end
 		end
@@ -136,20 +145,7 @@ local function get_latest_trashed_items(curr_working_volume)
 		fail("Failed to start `trash-restore` with error: `%s`. Do you have `trash-cli` installed?", err_cmd)
 		return
 	end
-	return restorable_items
-	-- return newest_trashed_items
-end
-
----@param trash_list TRASHED_ITEM[]
-local function filter_none_exised_paths(trash_list)
-	---@type TRASHED_ITEM[]
-	local existed_trash_items = {}
-	for _, v in ipairs(trash_list) do
-		if v.type ~= File_Type.None_Exist then
-			table.insert(existed_trash_items, v)
-		end
-	end
-	return existed_trash_items
+	return restorable_items, existed_items
 end
 
 local function restore_files(curr_working_volume, start_index, end_index)
@@ -158,14 +154,28 @@ local function restore_files(curr_working_volume, start_index, end_index)
 		return
 	end
 
-	ya.manager_emit("shell", {
-		"echo " .. ya.quote(start_index .. "-" .. end_index) .. " | trash-restore --overwrite " .. path_quote(
-			curr_working_volume
-		),
-		confirm = true,
-	})
+	local restored_status, _ = Command(shell)
+		:arg({
+			"-c",
+			"echo " .. ya.quote(start_index .. "-" .. end_index) .. " | trash-restore --overwrite " .. path_quote(
+				curr_working_volume
+			),
+		})
+		:stdout(Command.PIPED)
+		:stderr(Command.PIPED)
+		:output()
+
 	local file_to_restore_count = end_index - start_index + 1
-	success("Restored " .. tostring(file_to_restore_count) .. " file" .. (file_to_restore_count > 1 and "s" or ""))
+	if restored_status then
+		success("Restored " .. tostring(file_to_restore_count) .. " file" .. (file_to_restore_count > 1 and "s" or ""))
+	else
+		fail(
+			"Failed to restore "
+				.. tostring(file_to_restore_count)
+				.. " file"
+				.. (file_to_restore_count > 1 and "s" or "")
+		)
+	end
 end
 
 function M:setup(opts)
@@ -174,10 +184,10 @@ function M:setup(opts)
 	else
 		set_state(STATE.POSITION, { "center", w = 70, h = 40 })
 	end
-	if opts and opts.show_confirm then
+	if opts and opts.show_confirm ~= nil then
 		set_state(STATE.SHOW_CONFIRM, opts.show_confirm)
 	else
-		set_state(STATE.SHOW_CONFIRM, false)
+		set_state(STATE.SHOW_CONFIRM, true)
 	end
 	if opts and opts.theme and type(opts.theme) == "table" then
 		set_state(STATE.THEME, opts.theme)
@@ -190,9 +200,9 @@ end
 local function get_components(trash_list)
 	local theme = get_state(STATE.THEME) or {}
 	local item_odd_style = theme.list_item and theme.list_item.odd and ui.Style():fg(theme.list_item.odd)
-		or (th and th.confirm and th.confirm.list or ui.Style():fg("blue"))
+		or (th.confirm.list or ui.Style():fg("blue"))
 	local item_even_style = theme.list_item and theme.list_item.even and ui.Style():fg(theme.list_item.even)
-		or (th and th.confirm and th.confirm.list or ui.Style():fg("blue"))
+		or (th.confirm.list or ui.Style():fg("blue"))
 
 	local trashed_items_components = {}
 	for idx, item in pairs(trash_list) do
@@ -201,7 +211,7 @@ local function get_components(trash_list)
 			ui.Line({
 				ui.Span(" "),
 				ui.Span(item.trashed_path):style(idx % 2 == 0 and item_even_style or item_odd_style),
-			}):align(ui.Line.LEFT)
+			}):align(ui.Align.LEFT)
 		)
 	end
 	return trashed_items_components
@@ -212,19 +222,19 @@ function M:entry()
 	if not curr_working_volume then
 		return
 	end
-	local trashed_items = get_latest_trashed_items(curr_working_volume)
+	local trashed_items, collided_items = get_latest_trashed_items(curr_working_volume)
 	if trashed_items == nil then
 		return
 	end
-	local collided_items = filter_none_exised_paths(trashed_items)
 	local overwrite_confirmed = true
 	local show_confirm = get_state(STATE.SHOW_CONFIRM)
+	show_confirm = show_confirm == nil and true or show_confirm
 	local pos = get_state(STATE.POSITION)
 	pos = pos or { "center", w = 70, h = 40 }
 
 	local theme = get_state(STATE.THEME) or {}
-	theme.title = theme.title and ui.Style():fg(theme.title):bold() or (th and th.confirm and th.confirm.title)
-	theme.header = theme.header and ui.Style():fg(theme.header) or (th and th.confirm and th.confirm.content)
+	theme.title = theme.title and ui.Style():fg(theme.title):bold() or th.confirm.title
+	theme.header = theme.header and ui.Style():fg(theme.header) or th.confirm.content
 	theme.header_warning = ui.Style():fg(theme.header_warning or "yellow")
 	if ya.confirm and show_confirm then
 		local continue_restore = ya.confirm({
@@ -236,7 +246,7 @@ function M:entry()
 				ui.Line(""),
 				table.unpack(get_components(trashed_items)),
 			})
-				:align(ui.Text.LEFT)
+				:align(ui.Align.LEFT)
 				:wrap(ui.Text.WRAP),
 			pos = pos,
 		})
@@ -247,7 +257,7 @@ function M:entry()
 	end
 
 	-- show Confirm dialog with list of collided items
-	if #collided_items > 0 then
+	if collided_items and #collided_items > 0 then
 		overwrite_confirmed = ya.confirm({
 			title = ui.Line("Restore files/folders"):style(theme.title),
 			content = ui.Text({
@@ -256,7 +266,7 @@ function M:entry()
 				ui.Line(""),
 				table.unpack(get_components(collided_items)),
 			})
-				:align(ui.Text.LEFT)
+				:align(ui.Align.LEFT)
 				:wrap(ui.Text.WRAP),
 			pos = pos,
 		})
