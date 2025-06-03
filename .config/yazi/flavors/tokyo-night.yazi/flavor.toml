@@ -1,12 +1,12 @@
-[manager]
+[mgr]
 # NOTE: can combined with tmTheme (sublime colorshceme file) for preview code highlight
 highlight = "~/.config/yazi/flavors/tokyo-night.yazi/tmtheme.xml"
 
-cwd = { fg = "#a9b1d6", italic = true }
+cwd = { fg = "#a9b1d6", bg = "#292e42" }
 
 # Hovered
-hovered = { fg = "#9fe044", bg = "#292e42", italic = true }
-preview_hovered = { fg = "#0db9d7", bg = "#292e42", italic = true }
+hovered = { fg = "#9fe044", bg = "#292e42" }
+preview_hovered = { fg = "#0db9d7", bg = "#292e42" }
 
 # Find
 find_keyword = { fg = "#16161e", bg = "#ff9e64", bold = true }
@@ -30,11 +30,11 @@ count_selected = { fg = "#c0caf5", bg = "#3d59a1" }
 
 # Border
 border_symbol = "│"
-border_style = { fg = "#27a1b9" }
+border_style = { fg = "#292e42" }
 
 [status]
-separator_open = ""
-separator_close = ""
+separator_open = ""
+separator_close = ""
 separator_style = { fg = "#3b4261", bg = "#3b4261" }
 
 # Mode

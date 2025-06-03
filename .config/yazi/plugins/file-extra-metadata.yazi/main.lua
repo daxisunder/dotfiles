@@ -94,8 +94,8 @@ local function get_filesystem_extra(file)
 	end
 
 	local output, _ = Command("tail")
-		:args({ "-n", "-1" })
-		:stdin(Command("df"):args({ "-P", "-T", "-h", file_url }):stdout(Command.PIPED):spawn():take_stdout())
+		:arg({ "-n", "-1" })
+		:stdin(Command("df"):arg({ "-P", "-T", "-h", file_url }):stdout(Command.PIPED):spawn():take_stdout())
 		:stdout(Command.PIPED)
 		:output()
 
@@ -135,7 +135,7 @@ local function attributes(file)
 		return ""
 	end
 
-	local output, _ = Command("lsattr"):args({ "-d", file_url }):stdout(Command.PIPED):output()
+	local output, _ = Command("lsattr"):arg({ "-d", file_url }):stdout(Command.PIPED):output()
 
 	if output then
 		-- Splitting the data

@@ -12,7 +12,9 @@ end)
 
 local subscribe = ya.sync(function(self)
 	ps.unsub("mount")
-	ps.sub("mount", function() ya.mgr_emit("plugin", { self._id, "refresh" }) end)
+	ps.sub("mount", function()
+		ya.mgr_emit("plugin", { self._id, "refresh" })
+	end)
 end)
 
 local update_partitions = ya.sync(function(self, partitions)
@@ -21,7 +23,9 @@ local update_partitions = ya.sync(function(self, partitions)
 	ya.render()
 end)
 
-local active_partition = ya.sync(function(self) return self.partitions[self.cursor + 1] end)
+local active_partition = ya.sync(function(self)
+	return self.partitions[self.cursor + 1]
+end)
 
 local update_cursor = ya.sync(function(self, cursor)
 	if #self.partitions == 0 then
@@ -77,7 +81,7 @@ function M:layout(area)
 end
 
 function M:entry(job)
-	if job.args[1] == "refresh" then
+	if job.arg[1] == "refresh" then
 		return update_partitions(self.obtain())
 	end
 
@@ -89,7 +93,7 @@ function M:entry(job)
 	local tx2, rx2 = ya.chan("mpsc")
 	function producer()
 		while true do
-			local cand = self.keys[ya.which { cands = self.keys, silent = true }] or { run = {} }
+			local cand = self.keys[ya.which({ cands = self.keys, silent = true })] or { run = {} }
 			for _, r in ipairs(type(cand.run) == "table" and cand.run or { cand.run }) do
 				tx1:send(r)
 				if r == "quit" then
@@ -139,17 +143,19 @@ function M:entry(job)
 	ya.join(producer, consumer1, consumer2)
 end
 
-function M:reflow() return { self } end
+function M:reflow()
+	return { self }
+end
 
 function M:redraw()
 	local rows = {}
 	for _, p in ipairs(self.partitions or {}) do
 		if not p.sub then
-			rows[#rows + 1] = ui.Row { p.main }
+			rows[#rows + 1] = ui.Row({ p.main })
 		elseif p.sub == "" then
-			rows[#rows + 1] = ui.Row { p.main, p.label or "", p.dist or "", p.fstype or "" }
+			rows[#rows + 1] = ui.Row({ p.main, p.label or "", p.dist or "", p.fstype or "" })
 		else
-			rows[#rows + 1] = ui.Row { "  " .. p.sub, p.label or "", p.dist or "", p.fstype or "" }
+			rows[#rows + 1] = ui.Row({ "  " .. p.sub, p.label or "", p.dist or "", p.fstype or "" })
 		end
 	end
 
@@ -165,12 +171,12 @@ function M:redraw()
 			:header(ui.Row({ "Src", "Label", "Dist", "FSType" }):style(ui.Style():bold()))
 			:row(self.cursor)
 			:row_style(ui.Style():fg("blue"):underline())
-			:widths {
+			:widths({
 				ui.Constraint.Length(20),
 				ui.Constraint.Length(20),
 				ui.Constraint.Percentage(70),
 				ui.Constraint.Length(10),
-			},
+			}),
 	}
 end
 
@@ -233,7 +239,7 @@ function M.fillin(tbl)
 		return tbl
 	end
 
-	local output, err = Command("lsblk"):args({ "-p", "-o", "name,fstype", "-J" }):args(sources):output()
+	local output, err = Command("lsblk"):arg({ "-p", "-o", "name,fstype", "-J" }):args(sources):output()
 	if err then
 		ya.dbg("Failed to fetch filesystem types for unmounted partitions: " .. err)
 		return tbl
@@ -256,14 +262,14 @@ function M.operate(type)
 
 	local output, err
 	if ya.target_os() == "macos" then
-		output, err = Command("diskutil"):args({ type, active.src }):output()
+		output, err = Command("diskutil"):arg({ type, active.src }):output()
 	end
 	if ya.target_os() == "linux" then
 		if type == "eject" then
-			Command("udisksctl"):args({ "unmount", "-b", active.src }):status()
-			output, err = Command("udisksctl"):args({ "power-off", "-b", active.src }):output()
+			Command("udisksctl"):arg({ "unmount", "-b", active.src }):status()
+			output, err = Command("udisksctl"):arg({ "power-off", "-b", active.src }):output()
 		else
-			output, err = Command("udisksctl"):args({ type, "-b", active.src }):output()
+			output, err = Command("udisksctl"):arg({ type, "-b", active.src }):output()
 		end
 	end
 
@@ -274,7 +280,9 @@ function M.operate(type)
 	end
 end
 
-function M.fail(s, ...) ya.notify { title = "Mount", content = string.format(s, ...), timeout = 10, level = "error" } end
+function M.fail(s, ...)
+	ya.notify({ title = "Mount", content = string.format(s, ...), timeout = 10, level = "error" })
+end
 
 function M:click() end
 

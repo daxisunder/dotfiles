@@ -321,12 +321,11 @@ eval "$(pay-respects zsh)"
 
 # Yazi integration
 function y() {
-  local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
-  yazi "$@" --cwd-file="$tmp"
-  if cwd="$(command cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
-    builtin cd -- "$cwd"
-  fi
-  rm -f -- "$tmp"
+	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+	yazi "$@" --cwd-file="$tmp"
+	IFS= read -r -d '' cwd < "$tmp"
+	[ -n "$cwd" ] && [ "$cwd" != "$PWD" ] && builtin cd -- "$cwd"
+	rm -f -- "$tmp"
 }
 
 # Carapace integration (argument completion)
@@ -349,3 +348,4 @@ source /usr/share/nvm/init-nvm.sh
 
 # Auto-start "zombie-zfetch"
 source $HOME/.config/zfetch/zfetchrc
+eval "$(gh copilot alias -- zsh)"

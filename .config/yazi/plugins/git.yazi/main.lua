@@ -167,9 +167,9 @@ local function setup(st, opts)
 		if not code or signs[code] == "" then
 			return ""
 		elseif self._file.is_hovered then
-			return ui.Line { " ", signs[code] }
+			return ui.Line({ " ", signs[code] })
 		else
-			return ui.Line { " ", ui.Span(signs[code]):style(styles[code]) }
+			return ui.Line({ " ", ui.Span(signs[code]):style(styles[code]) })
 		end
 	end, opts.order)
 end
@@ -190,8 +190,8 @@ local function fetch(_, job)
 	-- stylua: ignore
 	local output, err = Command("git")
 		:cwd(tostring(cwd))
-		:args({ "--no-optional-locks", "-c", "core.quotePath=", "status", "--porcelain", "-unormal", "--no-renames", "--ignored=matching" })
-		:args(paths)
+		:arg({ "--no-optional-locks", "-c", "core.quotePath=", "status", "--porcelain", "-unormal", "--no-renames", "--ignored=matching" })
+		:arg(paths)
 		:stdout(Command.PIPED)
 		:output()
 	if not output then

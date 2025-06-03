@@ -48,5 +48,4 @@ use = "yazi-rs/plugins:smart-filter"
 rev = "8945e54"
 hash = "b482f4f2d3c4e0aa3f8db89a95699439"
 
-[flavor]
-deps = []
+[[flavor.deps]]
