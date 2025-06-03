@@ -30,12 +30,12 @@ count_selected = { fg = "#c0caf5", bg = "#3d59a1" }
 
 # Border
 border_symbol = "│"
-border_style = { fg = "#292e42" }
+border_style = { fg = "#0db9d7" }
 
 [status]
-separator_open = ""
-separator_close = ""
-separator_style = { fg = "#3b4261", bg = "#3b4261" }
+separator_open = "│"
+separator_close = "│"
+separator_style = { fg = "#0db9d7", bg = "#0db9d7" }
 
 # Mode
 mode_normal = { fg = "#16161e", bg = "#7aa2f7", bold = true }
