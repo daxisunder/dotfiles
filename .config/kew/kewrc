@@ -5,7 +5,7 @@
 [miscellaneous]
 
 path=/home/daxis/Music
-version=3.3.2
+version=3.3.3
 allowNotifications=1
 hideLogo=0
 hideHelp=0
@@ -40,7 +40,7 @@ visualizerEnabled=1
 visualizerHeight=5
 visualizerBrailleMode=0
 
-# How colors are laid out in the spectrum visualizer. 0=default, 1=brightness depending on bar height, 2=reversed, 3=reversed darken.
+# How colors are laid out in the spectrum visualizer. 0=lighten, 1=brightness depending on bar height, 2=reversed, 3=reversed darken.
 visualizerColorType=1
 
 # 0=Thin bars, 1=Bars twice the width, 2=Auto (depends on window size).
@@ -55,12 +55,12 @@ visualizerBarWidth=2
 # Be sure to have the actual uncommented values last.
 # For instance use the below values for a pill muncher mode:
 
-progressBarElapsedEvenChar= 
-progressBarElapsedOddChar= 
-progressBarApproachingEvenChar=•
-progressBarApproachingOddChar=·
-progressBarCurrentEvenChar=ᗧ
-progressBarCurrentOddChar=ᗧ
+#progressBarElapsedEvenChar= 
+#progressBarElapsedOddChar= 
+#progressBarApproachingEvenChar=•
+#progressBarApproachingOddChar=·
+#progressBarCurrentEvenChar=ᗧ
+#progressBarCurrentOddChar=ᗧ
 
 # To have a thick line: 
 
@@ -82,12 +82,12 @@ progressBarCurrentOddChar=ᗧ
 
 # Current values: 
 
-# progressBarElapsedEvenChar=━
-# progressBarElapsedOddChar=━
-# progressBarApproachingEvenChar=━
-# progressBarApproachingOddChar=━
-# progressBarCurrentEvenChar=━
-# progressBarCurrentOddChar=━
+progressBarElapsedEvenChar= 
+progressBarElapsedOddChar= 
+progressBarApproachingEvenChar=•
+progressBarApproachingOddChar=·
+progressBarCurrentEvenChar=ᗧ
+progressBarCurrentOddChar=ᗧ
 
 [colors]
 
@@ -158,6 +158,7 @@ moveSongDown=g
 enqueueAndPlay=^M
 sortLibrary=o
 quit=q
+altQuit=
 
 # Alt keys for the different main views, normally F2-F7:
 showPlaylistAlt=
@@ -165,6 +166,10 @@ showLibraryAlt=
 showTrackAlt=
 showSearchAlt=
 showKeysAlt=
+
+# Keys for scrolling page up and page down:
+prevPage=[5~
+nextPage=[6~
 
 # For special keys use terminal codes: OS, for F4 for instance. This can depend on the terminal.
 # You can find out the codes for the keys by using tools like showkey.
