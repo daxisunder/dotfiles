@@ -25,6 +25,7 @@ return {
       width = {
         -- min and max width of the columns
         min = 25,
+        max = 45,
       },
       spacing = 3, -- spacing between columns
     },
