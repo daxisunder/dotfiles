@@ -80,6 +80,7 @@ return {
     completion = {
       menu = {
         auto_show = true,
+        scrollbar = false,
         border = "rounded",
         draw = {
           columns = {
