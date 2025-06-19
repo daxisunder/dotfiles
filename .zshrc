@@ -339,6 +339,9 @@ source /home/daxis/.config/broot/launcher/bash/br
 # nvm integration
 source /usr/share/nvm/init-nvm.sh
 
+# copilot CLI aliases
+eval "$(gh copilot alias -- zsh)"
+
 # Display Pokemon-colorscripts
 # Project page: https://gitlab.com/phoneybadger/pokemon-colorscripts#on-other-distros-and-macos
 #pokemon-colorscripts --no-title -s -r
@@ -348,4 +351,3 @@ source /usr/share/nvm/init-nvm.sh
 
 # Auto-start "zombie-zfetch"
 source $HOME/.config/zfetch/zfetchrc
-eval "$(gh copilot alias -- zsh)"
