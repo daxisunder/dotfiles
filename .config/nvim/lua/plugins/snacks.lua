@@ -198,7 +198,7 @@ return {
     notifier = {
       enabled = true,
       timeout = 6000,
-      style = "fancy", -- compact, fancy, minimal
+      style = "minimal", -- compact, fancy, minimal
       wo = {
         wrap = true,
       },
