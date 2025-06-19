@@ -43,5 +43,10 @@ use = "yazi-rs/plugins:smart-filter"
 rev = "8945e54"
 hash = "b482f4f2d3c4e0aa3f8db89a95699439"
 
+[[plugin.deps]]
+use = "atareao/convert"
+rev = "7c18342"
+hash = "cc6f6db11762ed3ee8c14c276e7cfb4b"
+
 [flavor]
 deps = []
