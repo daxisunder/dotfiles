@@ -67,7 +67,7 @@ setopt autocd                  # Change directory just by typing its name
 setopt prompt_subst            # Enable command substitution in prompt
 setopt interactive_comments    # Allow comments in interactive shell
 
-# Load engine (completions)
+# Load completion engine
 autoload -Uz compinit
 
 for dump in ~/.config/zsh/zcompdump(N.mh+24); do
@@ -166,8 +166,7 @@ setopt hist_save_no_dups
 setopt hist_ignore_dups
 setopt hist_find_no_dups
 
-# Check archlinux plugin commands here
-#https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/archlinux
+# Check archlinux plugin commands here: https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/archlinux
 
 plugins=(
     archlinux
@@ -334,13 +333,13 @@ export CARAPACE_BRIDGES='zsh,fish,bash,inshellisense' # optional
 zstyle ':completion:*' format $'\e[2;37mCompleting %d\e[m'
 source <(carapace _carapace)
 
-# broot integration
+# Broot integration
 source /home/daxis/.config/broot/launcher/bash/br
 
-# nvm integration
+# NVM integration
 source /usr/share/nvm/init-nvm.sh
 
-# copilot CLI aliases
+# Copilot CLI aliases
 eval "$(gh copilot alias -- zsh)"
 
 # Display Pokemon-colorscripts
