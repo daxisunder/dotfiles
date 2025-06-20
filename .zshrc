@@ -189,6 +189,7 @@ plugins=(
 # Replace zsh's default readkey engine (ZLE to NEX)
 ZVM_READKEY_ENGINE=$ZVM_READKEY_ENGINE_NEX
 
+# Source Oh My Zsh
 source $ZSH/oh-my-zsh.sh
 
 # Some useful aliases
