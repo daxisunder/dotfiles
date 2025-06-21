@@ -6,9 +6,6 @@ return {
   opts = {
     never_draw_over_target = true,
     hide_target_hack = true,
-    stiffness = 0.3,
-    trailing_stiffness = 0.1,
-    trailing_exponent = 5,
     gamma = 1,
     -- Smear cursor color. Defaults to Cursor GUI color if not set.
     -- Set to "none" to match the text color at the target cursor position.
