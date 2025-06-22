@@ -1,6 +1,6 @@
 return {
   "sphamba/smear-cursor.nvim",
-  enabled = true,
+  enabled = false,
   event = "CursorMoved",
   cond = vim.g.neovide == nil,
   opts = {
