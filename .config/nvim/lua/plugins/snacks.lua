@@ -212,7 +212,7 @@ return {
         },
         commands = {
           layout = {
-            preset = "vscode",
+            preset = "ivy",
           },
         },
         command_history = {
