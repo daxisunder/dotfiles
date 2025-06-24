@@ -275,6 +275,11 @@ return {
             preset = "ivy",
           },
         },
+        noice = {
+          layout = {
+            preset = "ivy",
+          },
+        },
         notifications = {
           layout = {
             preset = "vscode",
