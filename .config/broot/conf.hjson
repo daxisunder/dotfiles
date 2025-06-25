@@ -32,7 +32,7 @@ default_flags: "-ihpg"
 # directory, set a terminal_title pattern by uncommenting one of
 # the examples below and tuning it to your taste.
 #
-# terminal_title: "[broot] {git-name}"
+terminal_title: "[broot] {git-name}"
 # terminal_title: "{file} 🐄"
 # terminal_title: "-= {file-name} =-"
 reset_terminal_title_on_exit: false
@@ -205,7 +205,7 @@ content_search_max_file_size: 10MB
 # This makes it possible to use shortcuts like 'space-n', 
 # 'ctrl-alt-a-b', 'shift-space', etc.
 #
-enable_kitty_keyboard: false
+enable_kitty_keyboard: true
 
 ###############################################################
 # lines around matching line in filtered preview
@@ -282,12 +282,13 @@ imports: [
             unknown
         ]
         # (un)comment to choose your preferred skin
-        file: skins/dark-blue.hjson
+        //file: skins/dark-blue.hjson
         //file: skins/catppuccin-macchiato.hjson
-        //file: skins/catppuccin-mocha.hjson
+        file: skins/catppuccin-mocha.hjson
         //file: skins/dark-gruvbox.hjson
         //file: skins/dark-orange.hjson
         //file: skins/solarized-dark.hjson
+        //file: skins/native-16.hjson
     }
 
     # This skin is imported when your terminal is light
