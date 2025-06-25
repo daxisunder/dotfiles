@@ -32,7 +32,7 @@ return {
       "yaml",
     })
   end,
-  sync_install = false,
+  sync_install = true,
   auto_install = false,
   vim.filetype.add({
     pattern = { [".*/hypr/.*%.conf"] = "hyprlang" },
