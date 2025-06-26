@@ -67,7 +67,7 @@ gui:
       - "bold"
     # Border color of non-focused windows
     inactiveBorderColor:
-      - "#27a1b9"
+      - "#1a1b26"
     # Border color of focused window when searching in that window
     searchingActiveBorderColor:
       - "#ff9e64"
@@ -79,7 +79,7 @@ gui:
 
     # See https://github.com/jesseduffield/lazygit/blob/master/docs/Config.md#highlighting-the-selected-line
     selectedLineBgColor:
-      - "#283457"
+      - "#1a1b26"
     # Background color of selected line when view doesn't have focus.
     inactiveViewSelectedLineBgColor:
       - bold
@@ -126,7 +126,7 @@ gui:
   # One of: '2' | '3' | empty string (default)
 
   # If empty, do not show icons.
-  nerdFontsVersion: ""
+  nerdFontsVersion: "3"
   # If true (default), file icons are shown in the file views. Only relevant if NerdFontsVersion is not empty.
   showFileIcons: true
   # Length of author name in (non-expanded) commits view. 2 means show initials only.
@@ -140,7 +140,7 @@ gui:
   # Whether to show the divergence from the base branch in the branches view.
 
   # One of: 'none' | 'onlyArrow'  | 'arrowAndNumber'
-  showDivergenceFromBaseBranch: none
+  showDivergenceFromBaseBranch: arrowAndNumber
   # Height of the command log view
   commandLogSize: 8
   # Whether to split the main window when viewing file changes.
@@ -200,7 +200,7 @@ git:
     # delta --dark --paging=never
 
     # ydiff -p cat -s --wrap --width={{columnWidth}}
-    pager: ""
+    pager: "delta --dark --paging=never"
     # If true, Lazygit will use whatever pager is specified in `$GIT_PAGER`, `$PAGER`, or your *git config*. If the pager ends with something like ` | less` we will strip that part out, because less doesn't play nice with our rendering approach. If the custom pager uses less under the hood, that will also break rendering (hence the `--paging=never` flag for the `delta` pager).
     useConfig: false
     # e.g. 'difft --color=always'
@@ -247,18 +247,16 @@ git:
   branchLogCmd: git log --graph --color=always --abbrev-commit --decorate --date=relative --pretty=medium {{branchName}} --
   # Command used to display git log of all branches in the main window.
 
-  # Deprecated: User `allBranchesLogCmds` instead.
-  allBranchesLogCmd: git log --graph --all --color=always --abbrev-commit --decorate --date=relative  --pretty=medium
   # If true, do not spawn a separate process when using GPG
   overrideGpg: false
   # If true, do not allow force pushes
   disableForcePushing: false
   # See https://github.com/jesseduffield/lazygit/blob/master/docs/Config.md#predefined-commit-message-prefix
   commitPrefix:
-    # pattern to match on. E.g. for 'feature/AB-123' to match on the AB-123 use "^\\w+\\/(\\w+-\\w+).*"
-    pattern: ""
-    # Replace directive. E.g. for 'feature/AB-123' to start the commit message with 'AB-123 ' use "[$1] "
-    replace: ""
+    - # pattern to match on. E.g. for 'feature/AB-123' to match on the AB-123 use "^\\w+\\/(\\w+-\\w+).*"
+      pattern: ""
+      # Replace directive. E.g. for 'feature/AB-123' to start the commit message with 'AB-123 ' use "[$1] "
+      replace: ""
   # See https://github.com/jesseduffield/lazygit/blob/master/docs/Config.md#predefined-branch-name-prefix
   branchPrefix: ""
   # If true, parse emoji strings in commit messages e.g. render :rocket: as 🚀
@@ -291,6 +289,8 @@ git:
 
   # length. Set to 40 to disable truncation.
   truncateCopiedCommitHashesTo: 12
+  allBranchesLogCmds:
+    - git log --graph --all --color=always --abbrev-commit --decorate --date=relative  --pretty=medium
 # Periodic update checks
 update:
   # One of: 'prompt' (default) | 'background' | 'never'
