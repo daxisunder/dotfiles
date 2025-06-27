@@ -230,6 +230,9 @@ return {
             preset = "ivy",
           },
         },
+        explorer = {
+          hidden = true,
+        },
         help = {
           layout = {
             preset = "ivy",
