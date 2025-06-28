@@ -38,6 +38,12 @@ if [ -d "$SCRIPTS_DIR" ]; then
   find "$SCRIPTS_DIR" -type f -name '.*' -exec chmod +x {} \;
 fi
 
+# Gemini API key
+export GEMINI_API_KEY=AIzaSyAtJSykIBKTTRcktYdrDun9RR7CwmyV9Is
+
+# Google Cloud Project ID
+export GOOGLE_CLOUD_PROJECT=flash-time-444617-a2
+
 # Set prompt
 ZSH_THEME="powerlevel10k/powerlevel10k"
 
