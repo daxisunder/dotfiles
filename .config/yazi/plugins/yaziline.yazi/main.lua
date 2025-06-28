@@ -4,7 +4,7 @@ local function setup(_, options)
 	local default_separators = {
 		angly = { "", "", "", "" },
 		curvy = { "", "", "", "" },
-		liney = { "", "", "|", "|" },
+		liney = { "", "", "", "" },
 		empty = { "", "", "", "" },
 	}
 	local separators = default_separators[options.separator_style or "liney"]
