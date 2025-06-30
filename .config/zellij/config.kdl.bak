@@ -158,73 +158,6 @@ keybinds {
         bind "Alt -" { Resize "Decrease"; }
         bind "Alt [" { PreviousSwapLayout; }
         bind "Alt ]" { NextSwapLayout; }
-        bind "Ctrl y" {
-          LaunchOrFocusPlugin "file:~/.config/zellij/plugins/zellij_forgot.wasm" {
-              "lock"                  "ctrl + g"
-              "unlock"                "ctrl + g"
-              "new pane"              "ctrl + p + n"
-              "change focus of pane"  "ctrl + p + arrow key"
-              "close pane"            "ctrl + p + x"
-              "rename pane"           "ctrl + p + c"
-              "toggle fullscreen"     "ctrl + p + f"
-              "toggle floating pane"  "ctrl + p + w"
-              "toggle embed pane"     "ctrl + p + e"
-              "choose right pane"     "ctrl + p + l"
-              "choose left pane"      "ctrl + p + h"
-              "choose upper pane"     "ctrl + p + k"
-              "choose lower pane"     "ctrl + p + j"
-              "new tab"               "ctrl + t + n"
-              "close tab"             "ctrl + t + x"
-              "change focus of tab"   "ctrl + t + arrow key"
-              "rename tab"            "ctrl + t + r"
-              "sync tab"              "ctrl + t + s"
-              "brake pane to new tab" "ctrl + t + b"
-              "brake pane left"       "ctrl + t + ["
-              "brake pane right"      "ctrl + t + ]"
-              "toggle tab"            "ctrl + t + tab"
-              "increase pane size"    "ctrl + n + +"
-              "decrease pane size"    "ctrl + n + -"
-              "increase pane top"     "ctrl + n + k"
-              "increase pane right"   "ctrl + n + l"
-              "increase pane bottom"  "ctrl + n + j"
-              "increase pane left"    "ctrl + n + h"
-              "decrease pane top"     "ctrl + n + K"
-              "decrease pane right"   "ctrl + n + L"
-              "decrease pane bottom"  "ctrl + n + J"
-              "decrease pane left"    "ctrl + n + H"
-              "move pane to top"      "ctrl + h + k"
-              "move pane to right"    "ctrl + h + l"
-              "move pane to bottom"   "ctrl + h + j"
-              "move pane to left"     "ctrl + h + h"
-              "search"                "ctrl + s + s"
-              "go into edit mode"     "ctrl + s + e"
-              "detach session"        "ctrl + o + w"
-              "open session manager"  "ctrl + o + w"
-              "quit zellij"           "ctrl + q"
-              floating true
-          }
-        }
-        // bind F1 to open monocle in a new floating pane and open any results in a new tiled/floating pane
-        bind "F1" {
-            LaunchOrFocusPlugin "file:~/.config/zellij/plugins/monocle.wasm" {
-                floating true
-            };
-            SwitchToMode "Normal"
-        }
-        // bind "Alt m" to open monocle on top of the current pane and open any results on top of itself
-        bind "Alt m" {
-            LaunchPlugin "file:~/.config/zellij/plugins/monocle.wasm" {
-                in_place true
-                kiosk true
-            };
-            SwitchToMode "Normal"
-        }
-        // bind "ctrl-j" to open jump list in a new floating pane
-        bind "Ctrl j" {
-        LaunchOrFocusPlugin "file:~/.config/zellij/plugins/zellij-jump-list.wasm" {
-            floating true; move_to_focused_tab true;
-        }
-    }
     }
     shared_except "normal" "locked" {
         bind "Enter" "Esc" { SwitchToMode "Normal"; }
@@ -315,7 +248,7 @@ on_force_close "quit"
 // Options:
 //   - true
 //   - false (default)
-serialize_pane_viewport true
+// serialize_pane_viewport true
 
 // Scrollback lines to serialize along with the pane viewport when serializing sessions, 0
 // defaults to the scrollback size. If this number is higher than the scrollback size, it will
@@ -327,26 +260,26 @@ serialize_pane_viewport true
 // For more examples, see: https://github.com/zellij-org/zellij/tree/main/example/themes
 // Once these themes are defined, one of them should to be selected in the "theme" section of this file
 //
-themes {
-  tokyo-night {
-      fg 255 255 237
-      bg 0 0 0
-      black 0 0 0
-      red 249 51 87
-      green 158 206 106
-      yellow 224 175 104
-      blue 122 162 247
-      magenta 187 154 247
-      cyan 42 195 222
-      white 255 255 255
-      orange 255 158 100
-  }
-}
+// themes {
+//     dracula {
+//         fg 248 248 242
+//         bg 40 42 54
+//         red 255 85 85
+//         green 80 250 123
+//         yellow 241 250 140
+//         blue 98 114 164
+//         magenta 255 121 198
+//         orange 255 184 108
+//         cyan 139 233 253
+//         black 0 0 0
+//         white 255 255 255
+//     }
+// }
 
 // Choose the theme that is specified in the themes section.
 // Default: default
 //
-theme "tokyo-night"
+// theme "default"
 
 // The name of the default layout to load on startup
 // Default: "default"
@@ -356,7 +289,7 @@ default_layout "default"
 // Choose the mode that zellij uses when starting up.
 // Default: normal
 //
-default_mode "locked"
+// default_mode "locked"
 
 // Toggle enabling the mouse mode.
 // On certain configurations, or terminals this could
@@ -430,11 +363,3 @@ default_mode "locked"
 // Default: false
 //
 // disable_session_metadata true
-
-// Set whether the pane frames (if visible) should have rounded corners.
-ui {
-    pane_frames {
-        rounded_corners true
-    }
-}
-
