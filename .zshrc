@@ -183,6 +183,7 @@ plugins=(
     sudo
     web-search
     you-should-use
+    zsh-ai
     zsh-autopair
     zsh-autosuggestions
     zsh-syntax-highlighting
