@@ -58,6 +58,18 @@ export BAT_STYLE="full"
 # Set neovim as manpager
 export MANPAGER="nvim +Man!"
 
+# History
+HISTFILE=~/.zsh_history
+HISTSIZE=1000000
+SAVEHIST=1000000
+setopt appendhistory
+setopt sharehistory
+setopt hist_ignore_space
+setopt hist_ignore_all_dups
+setopt hist_save_no_dups
+setopt hist_ignore_dups
+setopt hist_find_no_dups
+
 # Set some cool ZSH options ('set -o' to see all options)
 setopt no_case_glob            # Case insensitive autocompletions
 setopt no_case_match           # Case insensitive autocompletions
@@ -70,6 +82,10 @@ setopt correct                 # Auto-corrections
 setopt autocd                  # Change directory just by typing its name
 setopt prompt_subst            # Enable command substitution in prompt
 setopt interactive_comments    # Allow comments in interactive shell
+
+# Set comment color (zsh-syntax-highlighting)
+typeset -A ZSH_HIGHLIGHT_STYLES
+ZSH_HIGHLIGHT_STYLES[comment]="fg=#393868"
 
 # Load completion engine
 autoload -Uz compinit
@@ -158,25 +174,7 @@ ex() {
   fi
 }
 
-# History
-HISTFILE=~/.zsh_history
-HISTSIZE=1000000
-SAVEHIST=1000000
-setopt appendhistory
-setopt sharehistory
-setopt hist_ignore_space
-setopt hist_ignore_all_dups
-setopt hist_save_no_dups
-setopt hist_ignore_dups
-setopt hist_find_no_dups
-setopt interactive_comments
-
-# Set comment color (zsh-syntax-highlighting)
-typeset -A ZSH_HIGHLIGHT_STYLES
-ZSH_HIGHLIGHT_STYLES[comment]="fg=#393868"
-
 # Check archlinux plugin commands here: https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/archlinux
-
 plugins=(
     archlinux
     auto-notify
