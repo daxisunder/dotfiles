@@ -26,8 +26,9 @@ export PATH="$HOME/.config/emacs/bin:$PATH"
 export ZSH="$HOME/.oh-my-zsh"
 
 # ZSH AI integration with local AI models
-export ZSH_AI_PROVIDER="ollama"
-export ZSH_AI_OLLAMA_ModEl="llama3.2"
+export ZSH_AI_PROVIDER="ollama" # (gemini, ollama, openai) (gemini doesn't work for now)
+export ZSH_AI_OLLAMA_ModEl="phi3" # (phi3, llama3.2)
+export ZSH_AI_GEMINI_MODEL="gemini-2.5-flash"
 
 # XDG runtime dir (onedrive)
 export XDG_RUNTIME_DIR="/run/user/$UID"
