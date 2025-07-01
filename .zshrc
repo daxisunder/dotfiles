@@ -25,6 +25,10 @@ export PATH="$HOME/.config/emacs/bin:$PATH"
 # OMZ path
 export ZSH="$HOME/.oh-my-zsh"
 
+# ZSH AI integration with local AI models
+export ZSH_AI_PROVIDER="ollama"
+export ZSH_AI_OLLAMA_ModEl="llama3.2"
+
 # XDG runtime dir (onedrive)
 export XDG_RUNTIME_DIR="/run/user/$UID"
 export DBUS_SESSION_BUS_ADDRESS="unix:path=${XDG_RUNTIME_DIR}/bus"
