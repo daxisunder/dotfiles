@@ -25,8 +25,11 @@ export PATH="$HOME/.config/emacs/bin:$PATH"
 # OMZ path
 export ZSH="$HOME/.oh-my-zsh"
 
+# Source api keys (has to be sourced before zsh-ai gemini provider)
+source $HOME/projects/dotfiles/api.env
+
 # ZSH AI integration with local AI models
-export ZSH_AI_PROVIDER="ollama" # (anthropic, ollama, openai)
+export ZSH_AI_PROVIDER="ollama" # (anthropic, ollama, gemini)
 export ZSH_AI_OLLAMA_MODEL="llama3.2" # (phi3, llama3.2)
 export ZSH_AI_GEMINI_MODEL="gemini-2.5-flash"
 export ZSH_AI_ANTHROPIC_MODEL="claude-3-5-sonnet-20241022"
@@ -363,5 +366,3 @@ eval "$(gh copilot alias -- zsh)"
 # Auto-start "zombie-zfetch"
 source $HOME/.config/zfetch/zfetchrc
 
-# Source api keys
-source $HOME/projects/dotfiles/api.env
