@@ -27,8 +27,9 @@ export ZSH="$HOME/.oh-my-zsh"
 
 # ZSH AI integration with local AI models
 export ZSH_AI_PROVIDER="ollama" # (anthropic, ollama, openai)
-export ZSH_AI_OLLAMA_ModEl="llama3.2" # (phi3, llama3.2)
+export ZSH_AI_OLLAMA_MODEL="llama3.2" # (phi3, llama3.2)
 export ZSH_AI_GEMINI_MODEL="gemini-2.5-flash"
+export ZSH_AI_ANTHROPIC_MODEL="claude-3-5-sonnet-20241022"
 export ZSH_AI_AUTO_FIX="false"  # Set to enable automatic fixes for typos
 
 # XDG runtime dir (onedrive)
