@@ -86,7 +86,7 @@ setopt interactive_comments    # Allow comments in interactive shell
 
 # Set comment color (zsh-syntax-highlighting)
 typeset -A ZSH_HIGHLIGHT_STYLES
-ZSH_HIGHLIGHT_STYLES[comment]="fg=#393868"
+ZSH_HIGHLIGHT_STYLES[comment]="fg=#494868"
 
 # Load completion engine
 autoload -Uz compinit
