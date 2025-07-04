@@ -40,7 +40,7 @@ autocmd("User", {
   end,
 })
 
--- Line numbers mini.files
+-- Configure mini.files (line numbers)
 autocmd("User", {
   pattern = "MiniFilesWindowUpdate",
   callback = function(args)
@@ -58,11 +58,19 @@ autocmd("FileType", {
   desc = "Disable New Line Comment",
 })
 
--- Set ltex LSP to attach to org files
+-- Set LSP to recognize org files
 autocmd({ "BufRead", "BufNewFile" }, {
   pattern = "*.org",
   callback = function()
     vim.bo.filetype = "org"
+  end,
+})
+
+-- Set LSP to recognize tex files
+autocmd({ "BufRead", "BufNewFile" }, {
+  pattern = "*.tex",
+  callback = function()
+    vim.bo.filetype = "tex"
   end,
 })
 
