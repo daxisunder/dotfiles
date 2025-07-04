@@ -82,8 +82,19 @@ autocmd({ "BufRead", "BufNewFile" }, {
   end,
 })
 
--- lsp progress
-vim.api.nvim_create_autocmd("LspProgress", {
+-- Remove trailing whitespace on save
+autocmd("BufWritePre", {
+  pattern = "*",
+  callback = function()
+    local save_cursor = vim.api.nvim_win_get_cursor(0)
+    vim.cmd([[%s/\s\+$//e]])
+    vim.api.nvim_win_set_cursor(0, save_cursor)
+  end,
+  desc = "Remove trailing whitespace on save",
+})
+
+-- LSP progress
+autocmd("LspProgress", {
   ---@param ev {data: {client_id: integer, params: lsp.ProgressParams}}
   callback = function(ev)
     local client = vim.lsp.get_client_by_id(ev.data.client_id)
