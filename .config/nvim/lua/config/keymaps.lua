@@ -124,3 +124,6 @@ map("v", "<leader>cn", ":CarbonNow<CR>", { desc = "Snapshot From Visual Selectio
 map("n", "<leader>cd", function()
   vim.cmd(("g/^%s/d"):format(vim.fn.escape(vim.fn.substitute(vim.o.commentstring, "%s", "", "g"), "/.*[]~")))
 end, { desc = "Delete Comments in Current Buffer" })
+
+-- alias "find & replace all" to leader + r
+map("n", "<leader>r", ":%s///c<Left><Left><Left>", { desc = "Find & Replace All" })
