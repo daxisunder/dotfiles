@@ -126,4 +126,4 @@ map("n", "<leader>cd", function()
 end, { desc = "Delete Comments in Current Buffer" })
 
 -- alias "find & replace all" to leader + r
-map("n", "<leader>r", ":%s///c<Left><Left><Left>", { desc = "Find & Replace All" })
+map("n", "<leader>r", ":%s///I<Left><Left><Left>", { desc = "Find & Replace All" })
