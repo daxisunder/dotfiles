@@ -217,6 +217,12 @@ return {
               callSnippet = "Both",
               keywordSnippet = "Both",
             },
+            diagnostics = {
+              disable = {
+                "missing-fields",
+                "missing-parameters",
+              },
+            },
           },
         },
       }),
