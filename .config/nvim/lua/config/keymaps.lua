@@ -95,7 +95,7 @@ map("n", "<leader>xd", function()
     })
   end
   vim.fn.setqflist(qflist)
-end, { desc = "Send Diaagnostics To QF List" })
+end, { desc = "Send Diagnostics To QF List" })
 
 -- location list
 map("v", "<leader>xl", function()
