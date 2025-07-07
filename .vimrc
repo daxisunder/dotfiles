@@ -3,6 +3,8 @@ set nocompatible
 set mouse=a
 set path+=**
 set wildmenu
+set wildmode=longest:full,full
+set wildignorecase
 set number
 set relativenumber
 set tabstop=2
@@ -17,9 +19,11 @@ set hidden
 set clipboard=unnamedplus
 set completeopt=menuone,noinsert,noselect
 set showcmd
+set splitbelow
+set splitright
 syntax on
 filetype plugin indent on
-inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<C-x>\<C-n>"
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<C-x>\<C-n>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<C-x>\<C-n>"
 command! MakeTags !ctags -R .
 let g:netrw_banner=0
