@@ -98,10 +98,13 @@ return {
           fg = c.bg_dark1,
         }
         hl.PmenuSel = {
-          bg = "#1a1b26",
+          bg = c.bg_dark1,
         }
         hl.PmenuThumb = {
-          bg = "#1a1b26",
+          bg = c.bg_dark1,
+        }
+        hl.SnacksInputBorder = {
+          fg = c.bg_dark1,
         }
         hl.SnacksPickerInputBorder = {
           bg = c.bg,
