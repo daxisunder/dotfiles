@@ -1,6 +1,7 @@
 let mapleader="\<Space>"
 set nocompatible
 set mouse=a
+set spell
 set path+=**
 set wildmenu
 set wildmode=longest:full,full
