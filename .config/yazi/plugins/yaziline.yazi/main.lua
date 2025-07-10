@@ -1,3 +1,5 @@
+---@diagnostic disable: undefined-global
+
 local function setup(_, options)
 	options = options or {}
 
@@ -18,14 +20,15 @@ local function setup(_, options)
 			separator_head = options.separator_head or "",
 			separator_tail = options.separator_tail or "",
 		},
-		select_symbol = "", -- "S" by default
-		yank_symbol = "", -- "Y" by default
+		select_symbol = "", -- "S" by default
+		yank_symbol = "", -- "Y" by default
 
 		filename_max_length = options.filename_max_length or 24,
 		filename_truncate_length = options.filename_truncate_length or 6,
 		filename_truncate_separator = options.filename_truncate_separator or "...",
 
 		color = options.color or nil,
+		secondary_color = options.secondary_color or nil,
 		default_files_color = options.default_files_color or th.which.separator_style.fg or "darkgray",
 		selected_files_color = options.selected_files_color or th.mgr.count_selected.bg or "yellow",
 		yanked_files_color = options.selected_files_color or th.mgr.count_copied.bg or "green",
@@ -85,13 +88,17 @@ local function setup(_, options)
 
 	function Status:name()
 		local h = self._current.hovered
+		local style = self:style()
 		if not h then
-			return ""
+			return ui.Line({
+				ui.Span(current_separator_style.separator_close .. " ")
+					:fg(config.secondary_color or th.which.separator_style:fg()),
+				ui.Span("Empty dir"):fg(config.color or style.main:bg()),
+			})
 		end
 
 		local truncated_name = self:truncate_name(h.name, config.filename_max_length)
 
-		local style = self:style()
 		return ui.Line({
 			ui.Span(current_separator_style.separator_close .. " "):fg(th.which.separator_style.fg),
 			ui.Span(truncated_name):fg(config.color or style.main.bg),
