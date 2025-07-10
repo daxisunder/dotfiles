@@ -356,6 +356,9 @@ source /usr/share/nvm/init-nvm.sh
 # Copilot CLI aliases
 eval "$(gh copilot alias -- zsh)"
 
+# Cheatsheet integration
+export CHEAT_USE_FZF=true
+
 # Display Pokemon-colorscripts
 # Project page: https://gitlab.com/phoneybadger/pokemon-colorscripts#on-other-distros-and-macos
 #pokemon-colorscripts --no-title -s -r
