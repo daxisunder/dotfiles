@@ -44,9 +44,9 @@ rev = "8945e54"
 hash = "b482f4f2d3c4e0aa3f8db89a95699439"
 
 [[plugin.deps]]
-use = "atareao/convert"
-rev = "7c18342"
-hash = "cc6f6db11762ed3ee8c14c276e7cfb4b"
+use = "daxisunder/convert"
+rev = "2333bdb"
+hash = "6f61a6c119bd550c3c56f292b5e20ec7"
 
 [flavor]
 deps = []
