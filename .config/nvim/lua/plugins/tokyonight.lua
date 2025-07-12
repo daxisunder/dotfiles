@@ -16,6 +16,7 @@ return {
         c.bg_statusline = "#1a1b26"
         c.bg_visual = "#1a1b26"
         c.black = "#000000"
+        c.border = "#1a1b26"
         c.terminal_black = "#000000"
         c.terminal = {
           black = "#000000",
