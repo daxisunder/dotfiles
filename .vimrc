@@ -1,7 +1,10 @@
-let mapleader="\<Space>"
+" let mapleader='\<Space>'
 set nocompatible
 set mouse=a
 set spell
+set cursorline
+set cursorcolumn
+set hlsearch
 set path+=**
 set wildmenu
 set wildmode=longest:full,full
@@ -20,10 +23,14 @@ set hidden
 set clipboard=unnamedplus
 set completeopt=menuone,noinsert,noselect
 set showcmd
+set showmatch
 set splitbelow
 set splitright
 syntax on
 filetype plugin indent on
+nnoremap <leader>e :Sex<CR>
+nnoremap <leader>q :q!<Cr>
+nnoremap <leader>wq :wq<CR>
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<C-x>\<C-n>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<C-x>\<C-n>"
 command! MakeTags !ctags -R .
