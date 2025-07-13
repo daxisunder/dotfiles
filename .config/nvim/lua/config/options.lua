@@ -30,7 +30,7 @@ o.listchars = {
   trail = "·",
 }
 o.messagesopt = "wait:500,history:1000"
-o.scrolloff = 999
+o.scrolloff = 8
 o.sidescrolloff = 8
 o.signcolumn = "yes"
 o.startofline = true
