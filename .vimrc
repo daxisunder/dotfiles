@@ -12,6 +12,7 @@ set wildignorecase
 set number
 set relativenumber
 set tabstop=2
+set softtabstop=2
 set shiftwidth=2
 set expandtab
 set autoindent
@@ -21,7 +22,7 @@ set smartcase
 set incsearch
 set hidden
 set clipboard=unnamedplus
-set completeopt=menuone,noinsert,noselect
+set completeopt=menuone,noinsert
 set showcmd
 set showmatch
 set splitbelow
@@ -30,7 +31,7 @@ syntax on
 filetype plugin indent on
 nnoremap <leader>e :Sex<CR>
 nnoremap <leader>q :q!<Cr>
-nnoremap <leader>wq :wq<CR>
+nnoremap <leader>w :wq<CR>
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<C-x>\<C-n>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<C-x>\<C-n>"
 command! MakeTags !ctags -R .
