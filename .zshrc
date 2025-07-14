@@ -40,12 +40,12 @@ export XDG_RUNTIME_DIR="/run/user/$UID"
 export DBUS_SESSION_BUS_ADDRESS="unix:path=${XDG_RUNTIME_DIR}/bus"
 
 # Add scripts to PATH
-export SCRIPTS_DIR="~/projects/dotfiles/scripts"
+export SCRIPTS_DIR="$HOME/projects/dotfiles/scripts"
 export PATH="$PATH:$SCRIPTS_DIR"
 
 # Make all scripts executable
 if [ -d "$SCRIPTS_DIR" ]; then
-  find "$SCRIPTS_DIR" -type f -name '.*' -exec chmod +x {} \;
+  find "$SCRIPTS_DIR" -type f -exec chmod +x {} \;
 fi
 
 # Set prompt
@@ -80,7 +80,8 @@ setopt hist_find_no_dups
 setopt no_case_glob            # Case insensitive autocompletions
 setopt no_case_match           # Case insensitive autocompletions
 setopt globdots                # Include dotfiles in globbing
-setopt auto_menu menu_complete # Automatically highlight first element of completion menu
+setopt auto_menu               # Automatically highlight first element of completion menu
+setopt menu_complete           # Use menu completion
 setopt list_packed             # The completion menu takes less space
 setopt auto_list               # Automatically list choices on ambiguous completion
 setopt complete_in_word        # Complete from both ends of a word
