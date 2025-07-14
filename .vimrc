@@ -4,7 +4,6 @@ set mouse=a
 set spell
 set cursorline
 set cursorcolumn
-set hlsearch
 set path+=**
 set wildmenu
 set wildmode=longest:full,full
@@ -20,8 +19,9 @@ set smartindent
 set ignorecase
 set smartcase
 set incsearch
+set hlsearch
 set hidden
-set clipboard=unnamedplus
+set clipboard+=unnamedplus
 set completeopt=menuone,noinsert
 set showcmd
 set showmatch
