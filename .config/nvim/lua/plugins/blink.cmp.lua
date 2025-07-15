@@ -143,8 +143,8 @@ return {
       list = {
         max_items = 20,
         selection = {
-          preselect = true,
-          auto_insert = false,
+          preselect = false,
+          auto_insert = true,
         },
         cycle = {
           from_top = true,
@@ -191,8 +191,8 @@ return {
         },
         list = {
           selection = {
-            preselect = true,
-            auto_insert = false,
+            preselect = false,
+            auto_insert = true,
           },
         },
         menu = {
@@ -348,8 +348,8 @@ return {
             dictionary_directories = { vim.fn.expand("/usr/share/wordnet") },
             -- Specify files here (.txt, .dict, .add)
             dictionary_files = {
-              vim.fn.expand("~/.config/harper-ls/harper-core/words.txt"),
-              vim.fn.expand("~/.config/harper-ls/harper-core/dictionary.dict"),
+              vim.fn.expand("$HOME/.config/harper-ls/harper-core/words.txt"),
+              vim.fn.expand("$HOME/.config/harper-ls/harper-core/dictionary.dict"),
             },
           },
         },
