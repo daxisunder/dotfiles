@@ -1,5 +1,6 @@
 " let mapleader='\<Space>'
 set nocompatible
+
 set mouse=a
 set spell
 set cursorline
@@ -22,7 +23,7 @@ set incsearch
 set hlsearch
 set hidden
 set clipboard+=unnamedplus
-set completeopt=menuone,noinsert
+set completeopt=menuone,noinsert,noselect
 set showcmd
 set showmatch
 set splitbelow
@@ -30,10 +31,8 @@ set splitright
 syntax on
 filetype plugin indent on
 nnoremap <leader>e :Sex<CR>
-nnoremap <leader>q :q!<Cr>
+nnoremap <leader>q :q!<CR>
 nnoremap <leader>w :wq<CR>
-inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<C-x>\<C-n>"
-inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<C-x>\<C-n>"
 command! MakeTags !ctags -R .
 let g:netrw_banner=0
 let g:netrw_browse_split=4
