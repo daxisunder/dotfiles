@@ -29,15 +29,19 @@ set splitbelow
 set splitright
 syntax on
 filetype plugin indent on
-nnoremap <leader>e :Vex<CR>
+nnoremap <leader>e :Lex<CR>
 nnoremap <leader>q :q!<CR>
 nnoremap <leader>w :wq<CR>
 command! MakeTags !ctags -R .
 let g:netrw_banner=0
-let g:netrw_winsize=20
-let g:netrw_browse_split=4
-let g:netrw_altv=1
+let g:netrw_browse_split=0
 let g:netrw_liststyle=3
+let g:netrw_sizestyle="H"
+let g:netrw_preview=0
+let g:netrw_alto=1
+let g:netrw_altv=1
+" Start netrw if no filename on cmdline
+    au VimEnter * if expand("%") == "" | e . | endif
 " Enable true color support
 if has('termguicolors')
   set termguicolors
