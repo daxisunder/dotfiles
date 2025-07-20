@@ -14,7 +14,7 @@ return {
   },
   version = "1.*",
   lazy = true,
-  event = "InsertEnter",
+  event = "VimEnter",
   opts = {
     keymap = {
       preset = "none", -- default, enter, super-tab or none
