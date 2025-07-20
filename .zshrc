@@ -35,6 +35,14 @@ export ZSH_AI_GEMINI_MODEL="gemini-2.5-flash"
 export ZSH_AI_ANTHROPIC_MODEL="claude-3-5-sonnet-20241022"
 export ZSH_AI_OPENAI_MODEL="gpt-4o-mini"
 
+# Set pop to use gmail
+# export POP_SMTP_HOST=smtp-mail.outlook.com
+# export POP_SMTP_PORT=587
+# export POP_SMTP_USERNAME=daxisunder@hotmail.com
+# export POP_SMTP_PASSWORD=pjrhwoufwvczawgu
+export POP_FROM=onboarding@resend.dev
+export POP_SIGNATURE="Sent with [Pop](https://github.com/charmbracelet/pop)!"
+
 # XDG runtime dir (onedrive)
 export XDG_RUNTIME_DIR="/run/user/$UID"
 export DBUS_SESSION_BUS_ADDRESS="unix:path=${XDG_RUNTIME_DIR}/bus"
@@ -260,6 +268,7 @@ alias src='source ~/.zshrc'
 alias ttc='tty-clock -C6 -c'
 alias expacs="expac -S '%r/%n: %D'" # List dependencies w/o additional info
 alias n='nvim'
+alias v='vim'
 alias e='emacs -nw'
 alias dv='dirs -v'
 alias grep='grep --color=auto'
