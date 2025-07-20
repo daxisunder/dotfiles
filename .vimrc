@@ -1,6 +1,5 @@
 " let mapleader='\<Space>'
 set nocompatible
-
 set mouse=a
 set spell
 set cursorline
@@ -30,11 +29,12 @@ set splitbelow
 set splitright
 syntax on
 filetype plugin indent on
-nnoremap <leader>e :Sex<CR>
+nnoremap <leader>e :Vex<CR>
 nnoremap <leader>q :q!<CR>
 nnoremap <leader>w :wq<CR>
 command! MakeTags !ctags -R .
 let g:netrw_banner=0
+let g:netrw_winsize=20
 let g:netrw_browse_split=4
 let g:netrw_altv=1
 let g:netrw_liststyle=3
