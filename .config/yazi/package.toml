@@ -48,5 +48,10 @@ use = "daxisunder/convert"
 rev = "2333bdb"
 hash = "6f61a6c119bd550c3c56f292b5e20ec7"
 
+[[plugin.deps]]
+use = "boydaihungst/gvfs"
+rev = "e1e0df3"
+hash = "7e4fdb9b48b5e792af034142b5381714"
+
 [flavor]
 deps = []

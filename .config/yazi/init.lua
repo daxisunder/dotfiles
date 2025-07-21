@@ -6,6 +6,26 @@ return {
 		type = ui.Border.ROUNDED,
 	}),
 	require("yaziline"):setup(),
+	Status:children_add(function(self)
+		local h = self._current.hovered
+		if h and h.link_to then
+			return " -> " .. tostring(h.link_to)
+		else
+			return ""
+		end
+	end, 3300, Status.LEFT),
+	Status:children_add(function()
+		local h = cx.active.current.hovered
+		if h == nil or ya.target_family() ~= "unix" then
+			return ""
+		end
+		return ui.Line({
+			ui.Span(ya.user_name(h.cha.uid) or tostring(h.cha.uid)):fg("magenta"),
+			":",
+			ui.Span(ya.group_name(h.cha.gid) or tostring(h.cha.gid)):fg("cyan"),
+			" ",
+		})
+	end, 500, Status.RIGHT),
 	-- require("githead"):setup({
 	-- 	order = {
 	-- 		"__spacer__",
@@ -54,24 +74,21 @@ return {
 		},
 	}),
 	require("no-header"):setup(),
-	Status:children_add(function(self)
-		local h = self._current.hovered
-		if h and h.link_to then
-			return " -> " .. tostring(h.link_to)
-		else
-			return ""
-		end
-	end, 3300, Status.LEFT),
-	Status:children_add(function()
-		local h = cx.active.current.hovered
-		if h == nil or ya.target_family() ~= "unix" then
-			return ""
-		end
-		return ui.Line({
-			ui.Span(ya.user_name(h.cha.uid) or tostring(h.cha.uid)):fg("magenta"),
-			":",
-			ui.Span(ya.group_name(h.cha.gid) or tostring(h.cha.gid)):fg("cyan"),
-			" ",
-		})
-	end, 500, Status.RIGHT),
+	require("gvfs"):setup({
+		-- (Optional) Allowed keys to select device.
+		which_keys = "1234567890qwertyuiopasdfghjklzxcvbnm-=[]\\;',./!@#$%^&*()_+{}|:\"<>?",
+		-- (Optional) Save file.
+		-- Default: ~/.config/yazi/gvfs.private
+		save_path = os.getenv("HOME") .. "/.config/yazi/gvfs.private",
+		input_position = { "center", y = 0, w = 60 },
+		-- (Optional) Select where to save passwords. Default: nil
+		-- Available options: "keyring", "pass", or nil
+		password_vault = "keyring",
+		-- (Optional) Only need if you set password_vault = "pass"
+		-- Read the guide at SECURE_SAVED_PASSWORD.md to get your key_grip
+		key_grip = "BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB",
+
+		-- (Optional) save password automatically after mounting. Default: false
+		save_password_autoconfirm = true,
+	}),
 }

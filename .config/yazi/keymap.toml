@@ -482,30 +482,36 @@ keymap = [
   { on = "f", run = "filter", desc = "Apply a filter for the help items" },
 ]
 
+# Input
 [[input.prepend_keymap]]
 on = "<Esc>"
 run = "close"
 desc = "Cancel input"
 
+# Mount
 [[mgr.prepend_keymap]]
 on = "M"
 run = "plugin mount"
 
+# Chmod
 [[mgr.prepend_keymap]]
 on = ["c", "m"]
 run = "plugin chmod"
 desc = "Chmod on selected files"
 
+# Smart filter
 [[mgr.prepend_keymap]]
 on = "F"
 run = "plugin smart-filter"
 desc = "Smart filter"
 
+# Smart paste
 [[mgr.prepend_keymap]]
 on = "p"
 run = "plugin smart-paste"
 desc = "Paste into the hovered directory or CWD"
 
+# Convert
 [[mgr.prepend_keymap]]
 on = ["c", "p"]
 run = "plugin convert -- --extension='png'"
@@ -520,3 +526,49 @@ desc = "Convert selected files to JPG"
 on = ["c", "w"]
 run = "plugin convert -- --extension='webp'"
 desc = "Convert selected files to WebP"
+
+# GVFS
+[[mgr.prepend_keymap]]
+on = ["A", "m"]
+run = "plugin gvfs -- select-then-mount --jump"
+desc = "Select device to mount and jump to its mount"
+
+[[mgr.prepend_keymap]]
+on = ["A", "r"]
+run = "plugin gvfs -- remount-current-cwd-device"
+desc = "Remount device under cwd"
+
+[[mgr.prepend_keymap]]
+on = ["A", "u"]
+run = "plugin gvfs -- select-then-unmount"
+desc = "Select device then unmount"
+
+[[mgr.prepend_keymap]]
+on = ["A", "U"]
+run = "plugin gvfs -- select-then-unmount --eject --force"
+desc = "Select device then force to eject/unmount"
+
+[[mgr.prepend_keymap]]
+on = ["A", "a"]
+run = "plugin gvfs -- add-mount"
+desc = "Add a GVFS mount URI"
+
+[[mgr.prepend_keymap]]
+on = ["A", "e"]
+run = "plugin gvfs -- edit-mount"
+desc = "Edit a GVFS mount URI"
+
+[[mgr.prepend_keymap]]
+on = ["A", 'r']
+run = "plugin gvfs -- remove-mount"
+desc = "Remove a GVFS mount URI"
+
+[[mgr.prepend_keymap]]
+on = ["g", "m"]
+run = "plugin gvfs -- jump-to-device"
+desc = "Select device then jump to its mount point"
+
+[[mgr.prepend_keymap]]
+on = ["`", "`"]
+run = "plugin gvfs -- jump-back-prev-cwd"
+desc = "Jump back to the position before jumped to device"
