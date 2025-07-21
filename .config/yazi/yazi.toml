@@ -264,3 +264,25 @@ run = "git"
 id = "git"
 name = "*/"
 run = "git"
+
+# GVFS
+[[plugin.prepend_preloaders]]
+name = "/run/user/1000/gvfs/**/*"
+run = "noop"
+
+[[plugin.prepend_preloaders]]
+name = "/run/media/daxis/**/*"
+run = "noop"
+
+[[plugin.prepend_previewers]]
+name = "*/"
+run = "folder"
+sync = true
+
+[[plugin.prepend_previewers]]
+name = "/run/user/1000/gvfs/**/*"
+run = "noop"
+
+[[plugin.prepend_previewers]]
+name = "/run/media/daxis/**/*"
+run = "noop"
