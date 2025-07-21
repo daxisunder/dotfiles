@@ -1,4 +1,4 @@
---- @since 25.5.28
+--- @since 25.5.31
 
 local M = {}
 local shell = os.getenv("SHELL") or ""
@@ -238,8 +238,16 @@ function M:entry()
 	theme.header_warning = ui.Style():fg(theme.header_warning or "yellow")
 	if ya.confirm and show_confirm then
 		local continue_restore = ya.confirm({
-			-- title = ui.Line("Restore files/folders"):fg(theme.title):bold(),
 			title = ui.Line("Restore files/folders"):style(theme.title),
+			body = ui.Text({
+				ui.Line(""),
+				ui.Line("The following files and folders are going to be restored:"):style(theme.header),
+				ui.Line(""),
+				table.unpack(get_components(trashed_items)),
+			})
+				:align(ui.Align.LEFT)
+				:wrap(ui.Wrap.YES),
+			-- TODO: remove this after next yazi released
 			content = ui.Text({
 				ui.Line(""),
 				ui.Line("The following files and folders are going to be restored:"):style(theme.header),
@@ -247,7 +255,7 @@ function M:entry()
 				table.unpack(get_components(trashed_items)),
 			})
 				:align(ui.Align.LEFT)
-				:wrap(ui.Text.WRAP),
+				:wrap(ui.Wrap.YES),
 			pos = pos,
 		})
 		-- stopping
@@ -260,6 +268,15 @@ function M:entry()
 	if collided_items and #collided_items > 0 then
 		overwrite_confirmed = ya.confirm({
 			title = ui.Line("Restore files/folders"):style(theme.title),
+			body = ui.Text({
+				ui.Line(""),
+				ui.Line("The following files and folders are existed, overwrite?"):style(theme.header_warning),
+				ui.Line(""),
+				table.unpack(get_components(collided_items)),
+			})
+				:align(ui.Align.LEFT)
+				:wrap(ui.Wrap.YES),
+			-- TODO: remove this after next yazi released
 			content = ui.Text({
 				ui.Line(""),
 				ui.Line("The following files and folders are existed, overwrite?"):style(theme.header_warning),
@@ -267,7 +284,7 @@ function M:entry()
 				table.unpack(get_components(collided_items)),
 			})
 				:align(ui.Align.LEFT)
-				:wrap(ui.Text.WRAP),
+				:wrap(ui.Wrap.YES),
 			pos = pos,
 		})
 	end

@@ -5,7 +5,7 @@
 - [restore.yazi](#restoreyazi)
   - [Requirements](#requirements)
   - [Installation](#installation)
-    - [Linux/MacOS](#linuxmacos)
+    - [Linux](#linux)
   - [Usage](#usage)
   <!--toc:end-->
 
@@ -13,7 +13,7 @@
 
 ## Requirements
 
-- [yazi >= v25.2.7](https://github.com/sxyazi/yazi)
+- [yazi >= v25.5.31](https://github.com/sxyazi/yazi)
 - [trash-cli](https://github.com/andreafrancia/trash-cli)
   - If you have `Can't Get Trash Directory` error and running `trash-cli --volumes`
     in terminal throw `AttributeError: 'PrintVolumesList' object has no attribute 'run_action'`.
@@ -30,21 +30,36 @@ git clone https://github.com/boydaihungst/restore.yazi ~/.config/yazi/plugins/re
 or
 
 ```sh
-ya pack -a boydaihungst/restore
+ya pkg add boydaihungst/restore
 ```
 
 ## Usage
 
+> [!IMPORTANT]
+> This plugin restores files and folders based on their deletion date and time.
+> However, since Yazi deletes files in batches of approximately 1000\~2000, not all files in a large selection will have the same deletion timestamp.
+> For example, if you select and delete 10,000 files, each batch of 1000\~2000 may have a different deletion time. This can result in only a partial restoration of your files (in the worst case, only the last 1000\~2000 files deleted).
+> To resolve this, you may need to run the "restore" command multiple times until all desired files are recovered. For instance, to restore 10,000 files, you might have to execute the command up to 10 times.
+
 1. Key binding
 
-   - Add this to your `keymap.toml`:
+   - Add this to your `keymap.toml` (replace `keymap` with `prepend_keymap` if you don't want to replace all other keys. [Read more about keymap](https://yazi-rs.github.io/docs/configuration/keymap)):
 
      ```toml
-     [manager]
+     [mgr]
        keymap = [
          { on = "u", run = "plugin restore", desc = "Restore last deleted files/folders" },
          # or use "d + u" like me
          { on = ["d", "u"], run = "plugin restore", desc = "Restore last deleted files/folders" },
+
+         # Select files/folders to restore. Input item index or range separated by comma:
+         # - Restore a trashed file:
+         #      What file to restore [0..4]: 4
+         # - Restore multiple trashed files separated by comma, also support range:
+         #      What file to restore [0..3]: 0-2, 3
+
+         # Remove --overwrite if you don't want to overwrite existed files and this will abort restoring when there is existed file.
+         { on = [ "d", "U" ], run = "shell --block -- clear && trash-restore --overwrite", desc = "Restore deleted file (Interactive)" },
          # ... Other keymaps
        ]
      ```

@@ -1,47 +1,47 @@
 [[plugin.deps]]
 use = "yazi-rs/plugins:full-border"
-rev = "7afba3a"
-hash = ""
+rev = "1ab21d4"
+hash = "3996fc74044bc44144b323686f887e1"
 
 [[plugin.deps]]
 use = "llanosrocas/yaziline"
-rev = "864572c"
-hash = ""
+rev = "34afcba"
+hash = "1cd2446f8976eb11e549612fd80e3645"
 
 [[plugin.deps]]
 use = "llanosrocas/githead"
-rev = "45bd61e"
-hash = ""
+rev = "230dc7f"
+hash = "d8c2bf67a4da2a2af89f981ce2f7ba22"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:git"
-rev = "02d18be"
-hash = ""
+rev = "1ab21d4"
+hash = "63b6c222bf2103b3023389dde5e2ecfe"
 
 [[plugin.deps]]
 use = "boydaihungst/file-extra-metadata"
-rev = "fdea1c6"
-hash = ""
+rev = "ec035d6"
+hash = "b23b7db6beb2854a689c648a38843f8c"
 
 [[plugin.deps]]
 use = "boydaihungst/restore"
-rev = "ffc209e"
-hash = ""
+rev = "84f1921"
+hash = "355f163cb374b5c9514aee2b64121678"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:mount"
-rev = "8945e54"
-hash = "f3ade4dba8fb56b85e8363b66f677f9"
+rev = "1ab21d4"
+hash = "f10a14e823382d90fab5b3ee54cb38fe"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:chmod"
-rev = "8945e54"
-hash = "f28138c2e11e87962b66d583fef724c3"
+rev = "1ab21d4"
+hash = "1adc12c2b2b025411ab61eb8f0879574"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:smart-filter"
-rev = "8945e54"
-hash = "b482f4f2d3c4e0aa3f8db89a95699439"
+rev = "1ab21d4"
+hash = "a9d553bd19a3cd7f4eab3abaac5d67ff"
 
 [[plugin.deps]]
 use = "daxisunder/convert"

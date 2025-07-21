@@ -1,4 +1,4 @@
---- @since 25.2.26
+--- @since 25.5.31
 
 local toggle_ui = ya.sync(function(self)
 	if self.children then
@@ -7,25 +7,31 @@ local toggle_ui = ya.sync(function(self)
 	else
 		self.children = Modal:children_add(self, 10)
 	end
-	ya.render()
+	-- TODO: remove this
+	if ui.render then
+		ui.render()
+	else
+		ya.render()
+	end
 end)
 
 local subscribe = ya.sync(function(self)
 	ps.unsub("mount")
-	ps.sub("mount", function()
-		ya.mgr_emit("plugin", { self._id, "refresh" })
-	end)
+	ps.sub("mount", function() ya.emit("plugin", { self._id, "refresh" }) end)
 end)
 
 local update_partitions = ya.sync(function(self, partitions)
 	self.partitions = partitions
 	self.cursor = math.max(0, math.min(self.cursor or 0, #self.partitions - 1))
-	ya.render()
+	-- TODO: remove this
+	if ui.render then
+		ui.render()
+	else
+		ya.render()
+	end
 end)
 
-local active_partition = ya.sync(function(self)
-	return self.partitions[self.cursor + 1]
-end)
+local active_partition = ya.sync(function(self) return self.partitions[self.cursor + 1] end)
 
 local update_cursor = ya.sync(function(self, cursor)
 	if #self.partitions == 0 then
@@ -33,7 +39,12 @@ local update_cursor = ya.sync(function(self, cursor)
 	else
 		self.cursor = ya.clamp(0, self.cursor + cursor, #self.partitions - 1)
 	end
-	ya.render()
+	-- TODO: remove this
+	if ui.render then
+		ui.render()
+	else
+		ya.render()
+	end
 end)
 
 local M = {
@@ -81,7 +92,7 @@ function M:layout(area)
 end
 
 function M:entry(job)
-	if job.arg[1] == "refresh" then
+	if job.args[1] == "refresh" then
 		return update_partitions(self.obtain())
 	end
 
@@ -93,7 +104,7 @@ function M:entry(job)
 	local tx2, rx2 = ya.chan("mpsc")
 	function producer()
 		while true do
-			local cand = self.keys[ya.which({ cands = self.keys, silent = true })] or { run = {} }
+			local cand = self.keys[ya.which { cands = self.keys, silent = true }] or { run = {} }
 			for _, r in ipairs(type(cand.run) == "table" and cand.run or { cand.run }) do
 				tx1:send(r)
 				if r == "quit" then
@@ -117,7 +128,7 @@ function M:entry(job)
 			elseif run == "enter" then
 				local active = active_partition()
 				if active and active.dist then
-					ya.mgr_emit("cd", { active.dist })
+					ya.emit("cd", { active.dist })
 				end
 			else
 				tx2:send(run)
@@ -143,40 +154,38 @@ function M:entry(job)
 	ya.join(producer, consumer1, consumer2)
 end
 
-function M:reflow()
-	return { self }
-end
+function M:reflow() return { self } end
 
 function M:redraw()
 	local rows = {}
 	for _, p in ipairs(self.partitions or {}) do
 		if not p.sub then
-			rows[#rows + 1] = ui.Row({ p.main })
+			rows[#rows + 1] = ui.Row { p.main }
 		elseif p.sub == "" then
-			rows[#rows + 1] = ui.Row({ p.main, p.label or "", p.dist or "", p.fstype or "" })
+			rows[#rows + 1] = ui.Row { p.main, p.label or "", p.dist or "", p.fstype or "" }
 		else
-			rows[#rows + 1] = ui.Row({ "  " .. p.sub, p.label or "", p.dist or "", p.fstype or "" })
+			rows[#rows + 1] = ui.Row { "  " .. p.sub, p.label or "", p.dist or "", p.fstype or "" }
 		end
 	end
 
 	return {
 		ui.Clear(self._area),
-		ui.Border(ui.Border.ALL)
+		ui.Border(ui.Edge.ALL)
 			:area(self._area)
 			:type(ui.Border.ROUNDED)
 			:style(ui.Style():fg("blue"))
-			:title(ui.Line("Mount"):align(ui.Line.CENTER)),
+			:title(ui.Line("Mount"):align(ui.Align.CENTER)),
 		ui.Table(rows)
 			:area(self._area:pad(ui.Pad(1, 2, 1, 2)))
 			:header(ui.Row({ "Src", "Label", "Dist", "FSType" }):style(ui.Style():bold()))
 			:row(self.cursor)
 			:row_style(ui.Style():fg("blue"):underline())
-			:widths({
+			:widths {
 				ui.Constraint.Length(20),
 				ui.Constraint.Length(20),
 				ui.Constraint.Percentage(70),
 				ui.Constraint.Length(10),
-			}),
+			},
 	}
 end
 
@@ -239,7 +248,7 @@ function M.fillin(tbl)
 		return tbl
 	end
 
-	local output, err = Command("lsblk"):arg({ "-p", "-o", "name,fstype", "-J" }):args(sources):output()
+	local output, err = Command("lsblk"):arg({ "-p", "-o", "name,fstype", "-J" }):arg(sources):output()
 	if err then
 		ya.dbg("Failed to fetch filesystem types for unmounted partitions: " .. err)
 		return tbl
@@ -280,9 +289,7 @@ function M.operate(type)
 	end
 end
 
-function M.fail(s, ...)
-	ya.notify({ title = "Mount", content = string.format(s, ...), timeout = 10, level = "error" })
-end
+function M.fail(...) ya.notify { title = "Mount", content = string.format(...), timeout = 10, level = "error" } end
 
 function M:click() end
 
