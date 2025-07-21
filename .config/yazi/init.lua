@@ -5,7 +5,27 @@ return {
 	require("full-border"):setup({
 		type = ui.Border.ROUNDED,
 	}),
-	require("yaziline"):setup(),
+	require("yaziline"):setup({
+		color = "#8db0ff",
+		secondary_color = "#3b4261",
+		default_files_color = "darkgray", -- color of the file counter when it's inactive
+		selected_files_color = "magenta",
+		yanked_files_color = "green",
+		cut_files_color = "red",
+		separator_style = "liney", -- "angly" | "curvy" | "liney" | "empty"
+		separator_open = "",
+		separator_close = "",
+		separator_open_thin = "",
+		separator_close_thin = "",
+		separator_head = "",
+		separator_tail = "",
+		select_symbol = "",
+		yank_symbol = "",
+		filename_max_length = 24, -- truncate when filename > 24
+		filename_truncate_length = 6, -- leave 6 chars on both sides
+		filename_truncate_separator = "...",
+	}),
+	-- user:group addon to show user and group names in the status line
 	Status:children_add(function(self)
 		local h = self._current.hovered
 		if h and h.link_to then
@@ -83,12 +103,11 @@ return {
 		input_position = { "center", y = 0, w = 60 },
 		-- (Optional) Select where to save passwords. Default: nil
 		-- Available options: "keyring", "pass", or nil
-		password_vault = "keyring",
+		password_vault = nil,
 		-- (Optional) Only need if you set password_vault = "pass"
 		-- Read the guide at SECURE_SAVED_PASSWORD.md to get your key_grip
 		key_grip = "BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB",
-
 		-- (Optional) save password automatically after mounting. Default: false
-		save_password_autoconfirm = true,
+		save_password_autoconfirm = false,
 	}),
 }
