@@ -25,7 +25,7 @@ return {
 		filename_truncate_length = 6, -- leave 6 chars on both sides
 		filename_truncate_separator = "...",
 	}),
-	-- user:group addon to show user and group names in the status line
+	-- user:group add-on to show user and group names in the status line
 	Status:children_add(function(self)
 		local h = self._current.hovered
 		if h and h.link_to then
