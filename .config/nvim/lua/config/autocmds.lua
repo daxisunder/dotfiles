@@ -44,7 +44,7 @@ autocmd("User", {
 autocmd("User", {
   pattern = "MiniFilesWindowUpdate",
   callback = function(args)
-    vim.wo[args.data.win_id].number = false
+    vim.wo[args.data.win_id].number = true
     vim.wo[args.data.win_id].relativenumber = true
   end,
 })
@@ -78,7 +78,7 @@ autocmd({ "BufRead", "BufNewFile" }, {
 autocmd({ "BufRead", "BufNewFile" }, {
   pattern = "*.tex",
   callback = function()
-    vim.bo.filetype = "tex"
+    vim.bo.filetype = "latex"
   end,
 })
 
