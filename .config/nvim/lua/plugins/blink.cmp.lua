@@ -350,6 +350,8 @@ return {
             dictionary_files = {
               vim.fn.expand("$HOME/.config/harper-ls/harper-core/words.txt"),
               vim.fn.expand("$HOME/.config/harper-ls/harper-core/dictionary.dict"),
+              -- user dictionary
+              vim.fn.expand("$HOME/.config/harper-ls/dictionary.txt"),
             },
           },
         },
