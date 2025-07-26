@@ -3,7 +3,7 @@
 /* ---- Configuration ---- */
 
 configuration {
-	font:						"zai Courier Polski 1941 10";
+	font:					            	"Veteran Typewriter 10";
 	modi:                       "drun,run,filebrowser";
     show-icons:                 true;
     display-drun:               "Apps";
@@ -13,7 +13,7 @@ configuration {
 	drun-display-format:        "{name}";
 	hover-select:               true;
 	me-select-entry:            "MouseSecondary";
-    me-accept-entry:            "MousePrimary";
+  me-accept-entry:            "MousePrimary";
 	window-format:              "{w} · {c} · {t}";
 	dpi:						1;
 }
@@ -110,7 +110,7 @@ listview {
     layout:                      vertical;
     reverse:                     false;
     fixed-height:                false;
-    fixed-columns:               true;    
+    fixed-columns:               true;
     spacing:                     10px;
     background-color:            transparent;
 
