@@ -2,7 +2,8 @@ return {
   "saghen/blink.cmp",
   dependencies = {
     { "nvim-lua/plenary.nvim" },
-    { "Kaiser-Yang/blink-cmp-dictionary" },
+    -- { "Kaiser-Yang/blink-cmp-dictionary" },
+    { "archie-judd/blink-cmp-words" },
     { "rafamadriz/friendly-snippets" },
     { "fang2hou/blink-copilot" },
     {
@@ -252,10 +253,14 @@ return {
         "snippets",
         "buffer",
         "copilot",
-        "dictionary",
+        "thesaurus",
         "lazydev",
         "omni",
         "cmdline",
+      },
+      per_filetype = {
+        text = { "dictionary" },
+        markdown = { "thesaurus" },
       },
       providers = {
         lsp = {
@@ -338,23 +343,49 @@ return {
           },
         },
         dictionary = {
-          module = "blink-cmp-dictionary",
-          name = "Dict",
-          -- Make sure this is at least 2.
-          -- 3 is recommended
-          min_keyword_length = 3,
+          name = "blink-cmp-words",
+          module = "blink-cmp-words.dictionary",
+          -- All available options
           opts = {
-            -- Don't specify files here, only  directories (with files inside)
-            dictionary_directories = { vim.fn.expand("/usr/share/wordnet") },
-            -- Specify files here (.txt, .dict, .add)
-            dictionary_files = {
-              vim.fn.expand("$HOME/.config/harper-ls/harper-core/words.txt"),
-              vim.fn.expand("$HOME/.config/harper-ls/harper-core/dictionary.dict"),
-              -- user dictionary
-              vim.fn.expand("$HOME/.config/harper-ls/dictionary.txt"),
-            },
+            -- The number of characters required to trigger completion.
+            -- Set this higher if completion is slow, 3 is default.
+            dictionary_search_threshold = 3,
+            -- See above
+            pointer_symbols = { "!", "&", "^" },
           },
         },
+        thesaurus = {
+          name = "blink-cmp-words",
+          module = "blink-cmp-words.thesaurus",
+          -- All available options
+          opts = {
+            -- A score offset applied to returned items.
+            -- By default the highest score is 0 (item 1 has a score of -1, item 2 of -2 etc..).
+            score_offset = 0,
+            -- Default pointers define the lexical relations listed under each definition,
+            -- see Pointer Symbols below.
+            -- Default is as below ("antonyms", "similar to" and "also see").
+            pointer_symbols = { "!", "&", "^" },
+          },
+        },
+        -- dictionary = {
+        --   module = "blink-cmp-dictionary",
+        --   name = "Dict",
+        --   -- Make sure this is at least 2.
+        --   -- 3 is recommended
+        --   min_keyword_length = 3,
+        --   opts = {
+        --     -- Don't specify files here, only  directories (with files inside)
+        --     dictionary_directories = { vim.fn.expand("/usr/share/wordnet") },
+        --     -- Specify files here (.txt, .dict, .add)
+        --     dictionary_files = {
+        --       vim.fn.expand("$HOME/.config/harper-ls/harper-core/words.txt"),
+        --       vim.fn.expand("$HOME/.config/harper-ls/harper-core/dictionary.dict"),
+        --       -- user dictionary
+        --       vim.fn.expand("$HOME/.config/harper-ls/dictionary.txt"),
+        --     },
+        --   },
+        -- },
         lazydev = {
           name = "LazyDev",
           module = "lazydev.integrations.blink",
