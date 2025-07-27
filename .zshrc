@@ -30,7 +30,7 @@ source $HOME/projects/dotfiles/api.env
 
 # ZSH AI integration with local AI models
 export ZSH_AI_PROVIDER="ollama" # (anthropic (default), ollama (local), gemini, opennai)
-export ZSH_AI_OLLAMA_MODEL="llama3.2" # (phi3, llama3.2)
+export ZSH_AI_OLLAMA_MODEL="llama3.2"
 export ZSH_AI_GEMINI_MODEL="gemini-2.5-flash"
 export ZSH_AI_ANTHROPIC_MODEL="claude-3-5-sonnet-20241022"
 export ZSH_AI_OPENAI_MODEL="gpt-4o-mini"
