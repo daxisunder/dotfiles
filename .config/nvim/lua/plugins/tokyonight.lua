@@ -105,6 +105,7 @@ return {
           bg = c.bg_dark1,
         }
         hl.SnacksInputBorder = {
+          bg = c.bg,
           fg = c.bg_dark1,
         }
         hl.SnacksPickerInputBorder = {
