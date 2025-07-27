@@ -1,10 +1,11 @@
 #!/bin/sh
 
 export FZF_DEFAULT_OPTS='
+--style=full
 --height=50%
 --layout=reverse
 --prompt="Manual: "
---preview="echo {1} | sed -E \"s/^\((.+)\)/\1/\" | xargs -I{S} man -Pcat {S} {2} 2>/dev/null"'
+--preview="echo {1} | bat --color=always | sed -E \"s/^\((.+)\)/\1/\" | xargs -I{S} man -Pcat {S} {2} 2>/dev/null"'
 
 while getopts ":s:" opt; do
   case $opt in
