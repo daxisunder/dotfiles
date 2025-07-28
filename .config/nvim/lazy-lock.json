@@ -1,5 +1,5 @@
 {
-  "CopilotChat.nvim": { "branch": "main", "commit": "d0537a749e11a68ebaea3967b9c698f998a700fe" },
+  "CopilotChat.nvim": { "branch": "main", "commit": "e0df6d1242af29b6262b0eb3e4248568c57c4b3e" },
   "LazyVim": { "branch": "main", "commit": "25abbf546d564dc484cf903804661ba12de45507" },
   "SchemaStore.nvim": { "branch": "main", "commit": "67d6c391e9a372d2d8701b5b8c9ae89455561fbf" },
   "actions-preview.nvim": { "branch": "master", "commit": "36513ad213855d497b7dd3391a24d1d75d58e36f" },
@@ -11,7 +11,7 @@
   "bloat.nvim": { "branch": "master", "commit": "f90bef655ac40fecbaae53e10db1cf7894d090b1" },
   "bufferline.nvim": { "branch": "main", "commit": "655133c3b4c3e5e05ec549b9f8cc2894ac6f51b3" },
   "carbon-now.nvim": { "branch": "main", "commit": "f13c3c611a6aa22cca028bfe2cec63c7f67f2c87" },
-  "catppuccin": { "branch": "main", "commit": "84336e08415858f6d835835e81a4f79e585463c6" },
+  "catppuccin": { "branch": "main", "commit": "702d15f269777b8261f3b8904fb0db35f37a1cd9" },
   "clangd_extensions.nvim": { "branch": "main", "commit": "db28f29be928d18cbfb86fbfb9f83f584f658feb" },
   "colorful-menu.nvim": { "branch": "master", "commit": "bc3e82609f2fcf7dad7ca87c20e65e51d5d9d87c" },
   "conform.nvim": { "branch": "master", "commit": "973f3cb73887d510321653044791d7937c7ec0fa" },
