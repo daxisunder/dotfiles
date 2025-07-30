@@ -1,5 +1,4 @@
 #!/bin/bash
-
 # Searchable enabled keybinds using rofi
 
 # Kill yad to not interfere with this binds
