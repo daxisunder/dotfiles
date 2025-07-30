@@ -15,7 +15,7 @@ BEZIER=".43,1.19,1,.4"
 SWWW_PARAMS="--transition-fps $FPS --transition-type $TYPE --transition-duration $DURATION"
 
 # Check if swaybg is running
-if pidof swaybg > /dev/null; then
+if pidof swaybg >/dev/null; then
   pkill swaybg
 fi
 
@@ -32,13 +32,13 @@ rofi_command="rofi -i -show -dmenu -config ~/.config/rofi/config-wallpaper.rasi"
 menu() {
   # Sort the PICS array
   IFS=$'\n' sorted_options=($(sort <<<"${PICS[*]}"))
-  
+
   # Place ". random" at the beginning with the random picture as an icon
   printf "%s\x00icon\x1f%s\n" "$RANDOM_PIC_NAME" "$RANDOM_PIC"
-  
+
   for pic_path in "${sorted_options[@]}"; do
     pic_name=$(basename "$pic_path")
-    
+
     # Displaying .gif to indicate animated images
     if [[ ! "$pic_name" =~ \.gif$ ]]; then
       printf "%s\x00icon\x1f%s\n" "$(echo "$pic_name" | cut -d. -f1)" "$pic_path"
@@ -54,7 +54,7 @@ swww query || swww-daemon --format xrgb
 # Choice of wallpapers
 main() {
   choice=$(menu | $rofi_command)
-  
+
   # Trim any potential whitespace or hidden characters
   choice=$(echo "$choice" | xargs)
   RANDOM_PIC_NAME=$(echo "$RANDOM_PIC_NAME" | xargs)
@@ -67,7 +67,7 @@ main() {
 
   # Random choice case
   if [[ "$choice" == "$RANDOM_PIC_NAME" ]]; then
-	swww img -o "$focused_monitor" "$RANDOM_PIC" $SWWW_PARAMS;
+    swww img -o "$focused_monitor" "$RANDOM_PIC" $SWWW_PARAMS
     sleep 0.5
     "$SCRIPTSDIR/WallustSwww.sh"
     sleep 0.2
@@ -94,9 +94,9 @@ main() {
 }
 
 # Check if rofi is already running
-if pidof rofi > /dev/null; then
+if pidof rofi >/dev/null; then
   pkill rofi
-  sleep 1  # Allow some time for rofi to close
+  sleep 1 # Allow some time for rofi to close
 fi
 
 main
@@ -106,4 +106,3 @@ sleep 0.5
 
 sleep 0.2
 "$SCRIPTSDIR/Refresh.sh"
-
