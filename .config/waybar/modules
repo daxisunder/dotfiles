@@ -1,5 +1,6 @@
 /* Waybar Modules */
 
+
 {
 // HYPRLAND WORKSPACES. CHOOSE as desired and place on waybar configs
 // CIRCLES Style
@@ -21,12 +22,12 @@
 		"7": [],
 		"8": [],
 		"9": [],
-		"10": [],
+		"10": []
 	},
 	"format-icons": {
 		"active": "󰪥",
-		"default": "󰄰",
-	},
+		"default": "󰄰"
+	}
 },
 // Numbers style
 "hyprland/workspaces#num": {
@@ -38,7 +39,6 @@
 	"on-scroll-up": "hyprctl dispatch workspace e+1",
 	"on-scroll-down": "hyprctl dispatch workspace e-1",
 	"persistent-workspaces": {
-    
 		"1": [],
 		"2": [],
 		"3": [],
@@ -49,7 +49,7 @@
 		"7": [],
 		"8": [],
     "9": [],
-    "10": [],
+    "10": []
 	},
 	"format-icons": {
 		"1": "01",
@@ -61,8 +61,8 @@
 		"7": "07",
 		"8": "08",
     "9": "09",
-    "10": "10",
-	},
+    "10": "10"
+	}
 },
 // PACMAN Style
 "hyprland/workspaces#pacman": {
@@ -81,14 +81,14 @@
 		"5": [],
 		"6": [],
 		"7": [],
-		"8": [],
+		"8": []
 	},
 	"format": "{icon}",
 	"format-icons": {
             "active": "<span font='12'>󰮯</span>",
             "empty": "<span font='8'></span>",
-            "default": "󰊠",
-	},
+            "default": "󰊠"
+	}
 },
 // Kanji / Japanese style
 "hyprland/workspaces#kanji": {
@@ -101,7 +101,7 @@
 		"2": [],
 		"3": [],
 		"4": [],
-		"5": [],
+		"5": []
 	},
 	"format-icons": {
 		"1": "一",
@@ -113,7 +113,7 @@
 		"7": "七",
 		"8": "八",
 		"9": "九",
-		"10": "十",
+		"10": "十"
 	}
 },
 //  NUMBERS and ICONS style
@@ -139,8 +139,8 @@
 		"9": "",
 		"10": "10",
 		"focused": "",
-		"default": "",
-	},
+		"default": ""
+	}
 },
 // NUMBERS and ICONS style with window rewrite
 "hyprland/workspaces#rw": {
@@ -176,7 +176,7 @@
 		"class<libreoffice-writer>": " ",
 		"class<libreoffice-startcenter>": "󰏆 ",
 		"class<com.obsproject.Studio>": " "
-		}   
+		}
 },
 // for Camilla or Spanish
 "hyprland/workspaces#cam": {
@@ -200,12 +200,12 @@
 		"3": "Tre",
 		"4": "Quattro",
 		"5": "Cinque",
-		"6":"Sei",
-		"7":"Sette",
-		"8":"Otto",
-		"9":"Nove",
-		"10":"Dieci"
-	}	
+		"6": "Sei",
+		"7": "Sette",
+		"8": "Otto",
+		"9": "Nove",
+		"10": "Dieci"
+	}
 },
 // GROUP
 "group/motherboard": {
@@ -214,7 +214,7 @@
 		"cpu",
 		"memory",
 		"temperature",
-		"disk",
+		"disk"
 	]
 },
 "group/mobo_drawer": {
@@ -224,25 +224,25 @@
 		"children-class": "cpu",
 		"transition-left-to-right": true
         },
-	"modules": [		
-		"cpu",	
+	"modules": [
+		"cpu",
 		"memory",
 		"temperature",
-		"disk",
+		"disk"
 	]
 },
 "group/laptop": {
 	"orientation": "inherit",
 	"modules": [
 		"backlight",
-		"battery",
+		"battery"
 	]
 },
 "group/audio": {
 	"orientation": "inherit",
 	"modules": [
 		"pulseaudio",
-		"pulseaudio#microphone",
+		"pulseaudio#microphone"
 	]
 },
 "group/connections": {
@@ -254,7 +254,7 @@
         },
 	"modules": [
 		"network",
-		"bluetooth",
+		"bluetooth"
 	]
 },
 "backlight": {
@@ -281,7 +281,7 @@
 	"on-update": "",
 	"on-scroll-up": "~/.config/hypr/scripts/Brightness.sh --inc",
 	"on-scroll-down": "~/.config/hypr/scripts/Brightness.sh --dec",
-	"smooth-scrolling-threshold": 1,
+	"smooth-scrolling-threshold": 1
 },
 "backlight#2": {
   "device": "intel_backlight",
@@ -314,7 +314,7 @@
 	"tooltip": true,
 	"tooltip-format": "{timeTo} {power}w",
 	"on-click-middle": "~/.config/hypr/scripts/ChangeBlur.sh",
-	"on-click-right": "~/.config/hypr/scripts/Wlogout.sh",
+	"on-click-right": "~/.config/hypr/scripts/Wlogout.sh"
 },
 "bluetooth": {
 	"format": "",
@@ -324,7 +324,7 @@
 	"tooltip-format-connected": "{device_enumerate}",
 	"tooltip-format-enumerate-connected": " {device_alias} 󰂄{device_battery_percentage}%",
 	"tooltip": true,
-	"on-click": "blueman-manager",
+	"on-click": "blueman-manager"
 },
 "clock": {
 	"interval": 1,
@@ -371,7 +371,7 @@
     //"format": "{:%B | %a %d, %Y | %I:%M %p}", // AM PM format
     "format": "{:%B | %a %d, %Y | %H:%M}", // 24H
 	"format-alt": "{:%a %b %d, %G}",
-	"tooltip-format": "<big>{:%B %Y}</big>\n<tt><small>{calendar}</small></tt>",
+	"tooltip-format": "<big>{:%B %Y}</big>\n<tt><small>{calendar}</small></tt>"
 },
 "clock#5": {
     //"format": "{:%A, %I:%M %P}", // AM PM format
@@ -387,7 +387,7 @@
 	"format-icons": [
 		"▁", "▂", "▃", "▄", "▅", "▆", "▇", "█"
 	],
-	"on-click-right": "gnome-system-monitor",
+	"on-click-right": "gnome-system-monitor"
 },
 "disk": {
 	"interval": 30,
@@ -396,7 +396,7 @@
 	//"format-alt-click": "click",
 	"format": "{percentage_used}% 󰋊",
 	//"tooltip": true,
-	"tooltip-format": "{used} used out of {total} on {path} ({percentage_used}%)",
+	"tooltip-format": "{used} used out of {total} on {path} ({percentage_used}%)"
 },
 "hyprland/language": {
 	"format": "Lang: {}",
@@ -407,7 +407,7 @@
 },
 "hyprland/submap": {
 	"format": "<span style=\"italic\">  {}</span>", // Icon: expand-arrows-alt
-	"tooltip": false,
+	"tooltip": false
 },
 "hyprland/window": {
 	"format": "{}",
@@ -419,14 +419,14 @@
 		"(.*) — Mozilla Firefox": "$1",
 		"(.*) - fish": "> [$1]",
 		"(.*) - zsh": "> [$1]",
-		"(.*) - $term": "> [$1]",
-	},
+		"(.*) - $term": "> [$1]"
+	}
 },
 "idle_inhibitor": {
 	"format": "{icon}",
 	"format-icons": {
 		"activated": " ",
-		"deactivated": " ",
+		"deactivated": " "
 	}
 },
 "keyboard-state": {
@@ -434,12 +434,12 @@
 	"capslock": true,
 	"format": {
 		"numlock": "N {icon}",
-		"capslock": "󰪛 {icon}",
+		"capslock": "󰪛 {icon}"
 	},
 	"format-icons": {
 		"locked": "",
 		"unlocked": ""
-	},
+	}
 },
 "memory": {
 	"interval": 10,
@@ -469,15 +469,15 @@
 		"mopidy": "",
 		"mpv": "󰐹",
 		"spotify": "",
-		"vlc": "󰕼",
+		"vlc": "󰕼"
 	},
 	"status-icons": {
 		"paused": "󰐎",
 		"playing": "",
-		"stopped": "",
+		"stopped": ""
 	},
 	// "ignored-players": ["firefox"]
-	"max-length": 30,
+	"max-length": 30
 },
 "network": {
 	"format": "{ifname}",
@@ -539,7 +539,7 @@
 		],
 		"ignored-sinks": [
 			"Easy Effects Sink"
-		],
+		]
 	},
 	"scroll-step": 5.0,
 	"on-click": "~/.config/hypr/scripts/Volume.sh --toggle",
@@ -547,7 +547,7 @@
 	"on-scroll-up": "~/.config/hypr/scripts/Volume.sh --inc",
 	"on-scroll-down": "~/.config/hypr/scripts/Volume.sh --dec",
 	"tooltip-format": "{icon} {desc} | {volume}%",
-	"smooth-scrolling-threshold": 1,
+	"smooth-scrolling-threshold": 1
 },
 "pulseaudio#1": {
   "format": "{icon} {volume}%",
@@ -566,7 +566,7 @@
   "on-click": "pamixer --toggle-mute",
   "on-click-right": "pavucontrol -t 3",
   "tooltip": true,
-  "tooltip-format": "{icon} {desc} | {volume}%",
+  "tooltip-format": "{icon} {desc} | {volume}%"
 },
 "pulseaudio#microphone": {
 	"format": "{format_source}",
@@ -577,7 +577,7 @@
 	"on-scroll-up": "~/.config/hypr/scripts/Volume.sh --mic-inc",
 	"on-scroll-down": "~/.config/hypr/scripts/Volume.sh --mic-dec",
 	"tooltip-format": "{source_desc} | {source_volume}%",
-	"scroll-step": 5,
+	"scroll-step": 5
 },
 "temperature": {
 	"interval": 10,
@@ -597,7 +597,7 @@
 },
 "tray": {
 	"icon-size": 18,
-	"spacing": 4,
+	"spacing": 4
 },
 "wireplumber": {
 	"format": "{icon} {volume} %",
@@ -608,7 +608,7 @@
 	"on-scroll-down": "~/.config/hypr/scripts/Volume.sh --dec",
 	"format-icons": [
 		"", "", "󰕾", ""
-	],
+	]
 },
 "wlr/taskbar": {
 	"format": "{icon} {name}",
@@ -621,7 +621,7 @@
 		"wofi",
 		"rofi",
 		"kitty"
-		],
+		]
 },
 "custom/cycle_wall": {
 	"format": "󰸉",
@@ -629,20 +629,19 @@
 	"on-click-right": "~/.config/hypr/UserScripts/WallpaperRandom.sh",
 	"on-click-middle": "~/.config/hypr/scripts/WaybarStyles.sh",
 	"tooltip": true,
-	"tooltip-format": "Left Click: Wallpaper Menu\nMiddle Click: Random wallpaper\nRight Click: Waybar Styles Menu",
+	"tooltip-format": "Left Click: Wallpaper Menu\nMiddle Click: Random wallpaper\nRight Click: Waybar Styles Menu"
 },
 "custom/hint": {
 	"format": "󱜦",
 	"on-click": "$HOME/.config/hypr/scripts/KeyHints.sh",
 	"on-click-right": "$HOME/.config/hypr/scripts/KeyBinds.sh",
 	"tooltip": true,
-	"tooltip-format": "Left Click: Quick Tips\nRight Click: Keybinds",
+	"tooltip-format": "Left Click: Quick Tips\nRight Click: Keybinds"
 },
 "custom/keyboard": {
 	"exec": "cat ~/.cache/kb_layout",
 	"interval": 1,
-	"format": " {}",
-	"on-click": "~/.config/hypr/scripts/SwitchKeyboardLayout.sh",
+	"format": " {}"
 },
 "custom/light_dark": {
 	"format": "󰔎",
@@ -656,8 +655,7 @@
 	"format": "󰌾",
 	"on-click": "~/.config/hypr/scripts/LockScreen.sh",
 	"tooltip": true,
-	"tooltip-format": "󰷛 Screen Lock",
-
+	"tooltip-format": "󰷛 Screen Lock"
 },
 "custom/menu": {
 	//"format": "",
@@ -669,7 +667,6 @@
 	"tooltip": true,
 	"tooltip-format": "Left Click: Rofi Menu\nMiddle Click: Wallpaper Menu\nRight Click: Waybar Layout Menu",
 },
-
 // This is a custom cava visualizer
 "custom/cava_mviz": {
 	"exec": "~/.config/hypr/scripts/WaybarCava.sh",
@@ -686,14 +683,14 @@
 	"scroll-step": 5.0,
 	"on-scroll-up": "~/.config/hypr/scripts/Volume.sh --inc",
 	"on-scroll-down": "~/.config/hypr/scripts/Volume.sh --dec",
-	"smooth-scrolling-threshold": 1,
+	"smooth-scrolling-threshold": 1
 },
 "custom/power": {
 	"format": "󱄇",
 	"on-click": "~/.config/hypr/scripts/Wlogout.sh",
 	"on-click-right": "~/.config/hypr/scripts/ChangeBlur.sh",
 	"tooltip": true,
-	"tooltip-format": "Left Click: Logout Menu\nRight Click: Change Blur",
+	"tooltip-format": "Left Click: Logout Menu\nRight Click: Change Blur"
 },
 "custom/swaync": {
 	"tooltip": true,
@@ -716,7 +713,6 @@
 	"on-click-right": "swaync-client -d -sw",
 	"escape": true
 },
-
 // NOTE:! This is only for Arch and Arch Based Distros  depend: pacman-contrib
 "custom/updater": {
 	"format": " {}",
@@ -727,15 +723,13 @@
 	"tooltip": true,
 	"tooltip-format": "Left Click: Update System\nArch Linux Only"
 },
-
 "custom/weather": {
   "format": "{}°C",
   "tooltip": true,
   "interval": 3600,
-  "exec": "wttrbar --location Luxembourg",
+  "exec": "wttrbar --location Banjaluka",
   "return-type": "json"
 },
-
 "custom/github": {
     "format": "",
     "tooltip": true,
@@ -743,7 +737,6 @@
     "exec": "$HOME/.config/hypr/UserScripts/github.sh",
     "on-click": "xdg-open https://github.com/notifications"
 },
-
 "custom/hyprWindowMode": {
   "exec": "~/.config/hypr/UserScripts/hyprWindowMode.sh",
   "return-type": "json",
@@ -751,7 +744,6 @@
   "on-click": "~/.config/hypr/UserScripts/hyprWindowMode.sh toggle",
   "tooltip": true
 },
-
 "custom/niflveil": {
   "format": "{}",
   "exec": "niflveil show",
@@ -760,47 +752,40 @@
   "interval": "once",
   "signal": 8
 },
-
 // Separators
 "custom/separator#dot": {
   "format": "",
   "interval": "once",
   "tooltip": false
 },
-
 "custom/separator#dot-line": {
   "format": "",
   "interval": "once",
   "tooltip": false
 },
-
 "custom/separator#line": {
   "format": "|",
   "interval": "once",
   "tooltip": false
 },
-
 "custom/separator#blank": {
   "format": "",
   "interval": "once",
   "tooltip": false
 },
-
 "custom/separator#blank_2": {
   "format": "  ",
   "interval": "once",
   "tooltip": false
 },
-
 "custom/separator#blank_3": {
   "format": "   ",
   "interval": "once",
   "tooltip": false
 },
-
 "custom/separator#home": {
   "format": "~/",
   "interval": "once",
   "tooltip": false
-},
+}
 }

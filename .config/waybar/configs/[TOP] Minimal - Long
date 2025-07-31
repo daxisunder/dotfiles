@@ -10,23 +10,22 @@
 "spacing": 6,
 "fixed-center": true,
 "ipc": true,
-"margin-top": 2,
+"margin-top": 3,
 "margin-left": 6,
 "margin-right": 6,
 
 "modules-left": [
 	"custom/menu",
+	"hyprland/workspaces#pacman",
 	"custom/separator#blank_2",
-	"hyprland/workspaces",
-	"custom/separator#blank_2",
-	"hyprland/window",
+	"mpris",
+	"custom/swaync",
+
 	],
 "modules-center": [
 	"clock",
-	"custom/separator#blank_2",
 	"custom/updater",
-	"custom/separator#blank_2",
-	"custom/weather",	
+	"custom/weather",
 	],
 "modules-right": [
 	"tray",
@@ -34,8 +33,6 @@
 	"group/motherboard",
 	"custom/separator#blank_2",
 	"group/audio",
-	"custom/separator#blank_2",
-	"custom/swaync",
 	"custom/separator#blank_2",
 	"custom/power",
 	],
