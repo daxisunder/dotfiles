@@ -21,6 +21,7 @@ set smartcase
 set incsearch
 set hlsearch
 set hidden
+set clipboard=unnamed
 set clipboard+=unnamedplus
 set completeopt=menuone,noinsert,noselect
 set showcmd
