@@ -129,3 +129,7 @@ end, { desc = "Delete Comments in Current Buffer" })
 
 -- alias "find & replace all" to leader + r
 map("n", "<leader>r", ":%s///gI<Left><Left><Left><Left>", { desc = "Find & Replace All" })
+
+-- set <c-d> and <c-u> to center cursor after scrolling
+map("n", "<c-d>", "<c-d>zz", { desc = "Scroll Down and Center Cursor" })
+map("n", "<c-u>", "<c-u>zz", { desc = "Scroll Up and Center Cursor" })
