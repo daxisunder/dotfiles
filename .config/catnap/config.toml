@@ -1,0 +1,47 @@
+# This is the configuration file for catnap.
+# Here you can configure the stat colors,
+# stat names, stat icons and more!
+#
+# https://github.com/iinsertNameHere/catnap
+
+##############################################
+##          FetchInfo stats Config          ##
+##############################################
+[stats]
+# username  = {icon = " ", name = "user", color = "(MA)"}
+# hostname  = {icon = " ", name = "hostname", color = "(MA)"}
+distro = { icon = " ", name = "distro", color = "(MA)" }
+uptime = { icon = " ", name = "uptime", color = "(RD)" }
+kernel = { icon = " ", name = "kernel", color = "(YW)" }
+desktop = { icon = " ", name = "wm", color = "(BE)" }
+terminal = { icon = " ", name = "term", color = "(GN)" }
+shell = { icon = " ", name = "shell", color = "(YW)" }
+packages = { icon = " ", name = "packages", color = "(CN)" }
+gpu = { icon = "󱔐 ", name = "gpu", color = "(MA)" }
+cpu = { icon = " ", name = "cpu", color = "(RD)" }
+# memory    = {icon = " ", name = "memory", color = "(MA)"}
+# disk_0    = {icon = " ", name = "ssd1", color = "(MA)"}
+# disk_1    = {icon = " ", name = "ssd2", color = "(MA)"}
+sep_color = "SEPARATOR"
+colors = { icon = " ", name = "colors", color = "!DT!", symbol = "" }
+
+##############################################
+##               Misc Config                ##
+##############################################
+[misc]
+borderstyle = "noborder"
+layout = "Inline"        # [Inline, ArtOnTop, StatsOnTop]
+stats_margin_top = 0
+location = ""            # Used for fetching weather; leave empty to use the location of your IP; check https://wttr.in/:help for supported location types
+
+# [misc.figletLogos] # Requires Figlet.
+# enable = false
+# color = "(YW)"
+# font = "slant"
+# margin = [0, 0, 0]
+
+# [misc.imageMode] # Requires Viu.
+# enable = false
+# path = "/path/to/some/image.png" # Please only use absolute paths.
+# scale = 18
+# margin = [2, 2, 3]
