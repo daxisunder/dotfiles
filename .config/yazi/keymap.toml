@@ -256,10 +256,6 @@ keymap = [
   ], run = "cd ~/projects/neovim", desc = "Goto ~/projects/neovim" },
   { on = [
     "g",
-    "e",
-  ], run = "cd /etc", desc = "Goto /etc" },
-  { on = [
-    "g",
     "<Space>",
   ], run = "cd --interactive", desc = "Jump interactively" },
 
@@ -557,7 +553,7 @@ desc = "Convert selected files to WebP"
 
 # GVFS
 [[mgr.prepend_keymap]]
-on = ["A", "m"]
+on = ["A", "M"]
 run = "plugin gvfs -- select-then-mount --jump"
 desc = "Select device to mount and jump to its mount"
 
@@ -587,12 +583,12 @@ run = "plugin gvfs -- edit-mount"
 desc = "Edit a GVFS mount URI"
 
 [[mgr.prepend_keymap]]
-on = ["A", 'r']
+on = ["A", "R"]
 run = "plugin gvfs -- remove-mount"
 desc = "Remove a GVFS mount URI"
 
 [[mgr.prepend_keymap]]
-on = ["g", "m"]
+on = ["A", "m"]
 run = "plugin gvfs -- jump-to-device"
 desc = "Select device then jump to its mount point"
 
