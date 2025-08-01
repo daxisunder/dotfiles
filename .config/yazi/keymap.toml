@@ -228,8 +228,36 @@ keymap = [
   ], run = "cd ~/.config", desc = "Goto ~/.config" },
   { on = [
     "g",
-    "d",
+    "D",
   ], run = "cd ~/Downloads", desc = "Goto ~/Downloads" },
+  { on = [
+    "g",
+    "f",
+  ], run = "cd ~/Documents", desc = "Goto ~/Documents" },
+  { on = [
+    "g",
+    "P",
+  ], run = "cd ~/Pictures", desc = "Goto ~/Pictures" },
+  { on = [
+    "g",
+    "p",
+  ], run = "cd ~/projects", desc = "Goto ~/projects" },
+  { on = [
+    "g",
+    "d",
+  ], run = "cd ~/projects/dotfiles", desc = "Goto ~/projects/dotfiles" },
+  { on = [
+    "g",
+    "w",
+  ], run = "cd ~/projects/website", desc = "Goto ~/projects/website" },
+  { on = [
+    "g",
+    "n",
+  ], run = "cd ~/projects/neovim", desc = "Goto ~/projects/neovim" },
+  { on = [
+    "g",
+    "e",
+  ], run = "cd /etc", desc = "Goto /etc" },
   { on = [
     "g",
     "<Space>",
