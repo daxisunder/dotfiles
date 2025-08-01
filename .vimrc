@@ -6,7 +6,7 @@ set cursorline
 set cursorcolumn
 set path+=**
 set wildmenu
-set wildmode=longest:full,full
+set wildmode=longest:list,full
 set wildignorecase
 set number
 set relativenumber
