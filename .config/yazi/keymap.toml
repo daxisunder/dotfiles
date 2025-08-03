@@ -221,7 +221,11 @@ keymap = [
   { on = [
     "g",
     "h",
-  ], run = "cd ~", desc = "Go home" },
+  ], run = "cd ~", desc = "Goto $HOME" },
+  { on = [
+    "g",
+    "e",
+  ], run = 'cd /etc', desc = "Goto /etc" },
   { on = [
     "g",
     "c",
@@ -593,6 +597,6 @@ run = "plugin gvfs -- jump-to-device"
 desc = "Select device then jump to its mount point"
 
 [[mgr.prepend_keymap]]
-on = ["`", "`"]
+on = ["A", "`"]
 run = "plugin gvfs -- jump-back-prev-cwd"
 desc = "Jump back to the position before jumped to device"
