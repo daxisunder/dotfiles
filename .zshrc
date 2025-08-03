@@ -47,6 +47,9 @@ export POP_SIGNATURE="Sent with [Pop](https://github.com/charmbracelet/pop)!"
 export XDG_RUNTIME_DIR="/run/user/$UID"
 export DBUS_SESSION_BUS_ADDRESS="unix:path=${XDG_RUNTIME_DIR}/bus"
 
+# Set ydotool socket path
+export YDOTOOL_SOCKET="$HOME/.ydotool_socket"
+
 # Add scripts to PATH
 export SCRIPTS_DIR="$HOME/projects/dotfiles/scripts"
 export PATH="$PATH:$SCRIPTS_DIR"
