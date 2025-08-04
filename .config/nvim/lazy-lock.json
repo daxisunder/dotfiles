@@ -1,7 +1,7 @@
 {
-  "CopilotChat.nvim": { "branch": "main", "commit": "091bf5455bc5b371bd469e6be1dfcc656524321a" },
+  "CopilotChat.nvim": { "branch": "main", "commit": "06e54538c24cbeb341301418dabaf598ae8e7e60" },
   "LazyVim": { "branch": "main", "commit": "25abbf546d564dc484cf903804661ba12de45507" },
-  "SchemaStore.nvim": { "branch": "main", "commit": "34e3958a9afd7d1bd938b0cd9eecaa6f1925d4c4" },
+  "SchemaStore.nvim": { "branch": "main", "commit": "b7e9af87f062bcaee219f9d91bc157169bb20486" },
   "actions-preview.nvim": { "branch": "master", "commit": "36513ad213855d497b7dd3391a24d1d75d58e36f" },
   "aerial.nvim": { "branch": "master", "commit": "5c0df1679bf7c814c924dc6646cc5291daca8363" },
   "blink-cmp-copilot": { "branch": "main", "commit": "439cff78780c033aa23cf061d7315314b347e3c1" },
@@ -74,7 +74,7 @@
   "org-checkbox.nvim": { "branch": "trunk", "commit": "d33464548b7c743c6ca12c3ac0712573e3964daa" },
   "org-list.nvim": { "branch": "master", "commit": "2d6f2985e0312daabb6d06725746f5b8c2e5a002" },
   "org-roam.nvim": { "branch": "main", "commit": "f7421ca00c47c4a35bffd61a1e57f8b75659eb7d" },
-  "orgmode": { "branch": "master", "commit": "ffa4d804115881d2a44ae5063ecb28f9686b4797" },
+  "orgmode": { "branch": "master", "commit": "2b91d9ab8688b5df9436aa7340b7a477c4b336d4" },
   "output-panel.nvim": { "branch": "main", "commit": "9979f9988acb35fd8e699d8b1fbc7aa17c9d8148" },
   "persistence.nvim": { "branch": "main", "commit": "166a79a55bfa7a4db3e26fc031b4d92af71d0b51" },
   "plenary.nvim": { "branch": "master", "commit": "b9fd5226c2f76c951fc8ed5923d85e4de065e509" },
