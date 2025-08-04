@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 token=$(cat "${HOME}/.config/gh/notifications.token")
 count=$(curl -u daxisunder:${token} https://api.github.com/notifications | jq '. | length')

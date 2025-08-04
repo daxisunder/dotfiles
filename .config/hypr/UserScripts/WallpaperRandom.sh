@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # Script for Random Wallpaper ( CTRL ALT W)
 
 wallDIR="$HOME/Pictures/wallpapers"

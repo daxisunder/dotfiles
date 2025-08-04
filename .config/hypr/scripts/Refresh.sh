@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # Scripts for refreshing ags waybar, rofi, swaync, wallust
 
 SCRIPTSDIR=$HOME/.config/hypr/scripts
@@ -42,4 +42,3 @@ if file_exists "${UserScripts}/RainbowBorders.sh"; then
 fi
 
 exit 0
-

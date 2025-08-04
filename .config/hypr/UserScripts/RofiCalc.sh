@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # /* Calculator (using qalculate) and rofi */
 # /* Submitted by: https://github.com/JosephArmas */
 

@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # This script is for selecting wallpapers (SUPER W)
 
 # WALLPAPERS PATH

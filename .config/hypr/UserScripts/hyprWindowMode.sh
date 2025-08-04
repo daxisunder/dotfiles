@@ -1,4 +1,4 @@
-#!/bin/env bash
+#!/usr/bin/env bash
 
 # looks if the active window (in hyprland) is one of the following:
 # 	normal		: n	(also adds '[]' around the state letter)

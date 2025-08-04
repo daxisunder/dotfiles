@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # Modified Script for Google Search
 # Original Submitted by https://github.com/LeventKaanOguz
 
