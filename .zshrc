@@ -167,42 +167,63 @@ function command_not_found_handler {
     return 127
 }
 
-# Archive extraction (usage: ex <file>)
-ex() {
-  if [ -f "$1" ] ; then
-    case $1 in
-      *.tar.bz2)   tar xjf $1    ;;
-      *.tar.gz)    tar xzf $1    ;;
-      *.bz2)       bunzip2 $1    ;;
-      *.rar)       unrar x $1    ;;
-      *.gz)        gunzip $1     ;;
-      *.tar)       tar xf $1     ;;
-      *.tbz2)      tar xjf $1    ;;
-      *.tgz)       tar xzf $1    ;;
-      *.zip)       unzip $1      ;;
-      *.Z)         uncompress $1 ;;
-      *.7z)        7z x $1       ;;
-      *.deb)       ar x $1       ;;
-      *.tar.xz)    tar xf $1     ;;
-      *.tar.zst)   unzstd xf $1  ;;
-      *)           echo "'$1' cannot be extracted via ex()" ;;
-    esac
-  else
-    echo "'$1' is not a valid file"
-  fi
+# Archive extraction (usage: extract <file>)
+# Github: https://github.com/xvoland/Extract/blob/master/extract.sh
+function extract {
+    if [ $# -eq 0 ]; then
+        # display usage if no parameters given
+        echo "Usage: extract <path/file_name>.<zip|rar|bz2|gz|tar|tbz2|tgz|Z|7z|xz|ex|tar.bz2|tar.gz|tar.xz|.zlib|.cso|.zst>"
+        echo "       extract <path/file_name_1.ext> [path/file_name_2.ext] [path/file_name_3.ext]"
+    fi
+    for n in "$@"; do
+        if [ ! -f "$n" ]; then
+          echo "'$n' - file doesn't exist"
+          return 1
+        fi
+        case "${n%,}" in
+          *.cbt|*.tar.bz2|*.tar.gz|*.tar.xz|*.tbz2|*.tgz|*.txz|*.tar)
+              tar --auto-compress -xvf "$n" ;;
+          *.lzma)      unlzma "$n" ;;
+          *.lz4)       lz4 -d "$n" ;;
+          *.appimage)  ./"$n" --appimage-extract ;;
+          *.tar.lz4)   tar --use-compress-program=lz4 -xvf "$n" ;;
+          *.tar.br)    tar --use-compress-program=pbzip2 -xvf "$n" ;;
+          *.bz2)       bunzip2 "$n" ;;
+          *.cbr|*.rar) unrar x -ad "$n" ;;
+          *.gz)        gunzip "$n" ;;
+          *.cbz|*.epub|*.zip) unzip "$n" ;;
+          *.z)         uncompress "$n" ;;
+          *.7z|*.apk|*.arj|*.cab|*.cb7|*.chm|*.deb|*.iso|*.lzh|*.msi|*.pkg|*.rpm|*.udf|*.wim|*.xar|*.vhd)
+              7z x "$n" ;;
+          *.xz)        unxz "$n" ;;
+          *.exe)       cabextract "$n" ;;
+          *.cpio)      cpio -id < "$n" ;;
+          *.cba|*.ace) unace x "$n" ;;
+          *.zpaq)      zpaq x "$n" ;;
+          *.arc)       arc e "$n" ;;
+          *.cso)       ciso 0 "$n" "$n.iso" && extract "$n.iso" && rm -f "$n" ;;
+          *.zlib)      zlib-flate -uncompress < "$n" > "${n%.*zlib}" && rm -f "$n" ;;
+          *.dmg)
+              mnt_dir=$(mktemp -d)
+              hdiutil mount "$n" -mountpoint "$mnt_dir"
+              echo "Mounted at: $mnt_dir" ;;
+          *.tar.zst)   tar -I zstd -xvf "$n" ;;
+          *.zst)       zstd -d "$n" ;;
+          *)
+              echo "extract: '$n' - unknown archive method"
+              return 1
+              ;;
+        esac
+    done
 }
 
-# Check archlinux plugin commands here: https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/archlinux
+# Check plugin commands here: https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/<plugin-name>
 plugins=(
-    archlinux
     auto-notify
     colored-man-pages
-    colorize
     fancy-ctrl-z
-    git
     safe-paste
     sudo
-    web-search
     you-should-use
     zsh-ai
     zsh-autopair
