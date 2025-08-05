@@ -37,7 +37,6 @@
 }
 
 .notification-default-action {
-  background: @noti-bg;
   border-radius: 6px;
 }
 
@@ -67,7 +66,7 @@
 .notification-default-action:hover,
 .notification-action:hover {
   color: @text-color;
-  background: @color1;
+  background: @color0;
 }
 
 .notification-default-action:not(:only-child) {

@@ -28,6 +28,7 @@ set showcmd
 set showmatch
 set splitbelow
 set splitright
+set undofile
 syntax on
 filetype plugin indent on
 nnoremap <leader>e :Lex<CR>
