@@ -5,7 +5,7 @@
 @define-color noti-border-color @color6;
 @define-color noti-bg rgba(0, 0, 0, 0.8);
 @define-color noti-bg-alt rgba(0, 0, 0, 0.8);
-@define-color noti-bg-hover @color9;
+@define-color noti-bg-hover @color0;
 @define-color text-color @foreground;
 @define-color text-color-alt @foreground;
 @define-color text-color-disabled rgba(150, 150, 150, 0.8);
@@ -33,12 +33,12 @@
   padding: 3px 6px 3px 6px;
   border-radius: 6px;
   border: 2px solid @noti-border-color;
+  margin-top: 4px;
 }
 
 .notification-default-action {
   background: @noti-bg;
   border-radius: 6px;
-  margin: 2px;
 }
 
 .close-button {
@@ -47,8 +47,8 @@
   text-shadow: none;
   padding: 0;
   border-radius: 6px;
-  margin-top: 5px;
-  margin-right: 5px;
+  margin-top: 10px;
+  margin-right: 6px;
 }
 
 .close-button:hover {
@@ -203,13 +203,13 @@
 
 .widget-dnd > switch {
   border-radius: 6px;
-  /* border: 1px solid #7aa2f7; */
+  border: 1px solid #f7768a;
   background: @noti-border-color;
 }
 
 .widget-dnd > switch:checked {
   background: #f7768e;
-  border: 1px solid #f7768e;
+  border: 1px solid #7aa2f7;
 }
 
 .widget-dnd > switch slider {
@@ -317,4 +317,4 @@
   border-radius: 6px;
   font-size: x-large;
   color: @text-color;
-
+}
