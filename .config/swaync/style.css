@@ -46,6 +46,7 @@
   text-shadow: none;
   padding: 0;
   border-radius: 6px;
+  border: 1px solid @noti-border-color;
   margin-top: 10px;
   margin-right: 6px;
 }
@@ -54,7 +55,7 @@
   box-shadow: none;
   background: #f7768e;
   transition: all 0.15s ease-in-out;
-  border: none;
+  border: 1px solid @noti-border-color;
 }
 
 .notification-action {
@@ -66,7 +67,7 @@
 .notification-default-action:hover,
 .notification-action:hover {
   color: @text-color;
-  background: @color0;
+  background: @noti-bg-hover;
 }
 
 .notification-default-action:not(:only-child) {
