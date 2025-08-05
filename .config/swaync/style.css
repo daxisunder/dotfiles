@@ -13,6 +13,7 @@
 * {
   font-family: "Veteran Typewriter";
   font-weight: bold;
+  font-size: 1rem;
 }
 
 .control-center .notification-row:focus,
@@ -24,20 +25,14 @@
 
 .notification-row {
   outline: none;
-  margin: 0px;
 }
 
 .notification {
-  margin: 0px;
-  border-radius: 6px;
-}
-
-.notification-content {
   color: @text-color;
   background: @noti-bg;
-  padding: 6px 6px 6px 6px;
+  padding: 3px 6px 3px 6px;
   border-radius: 6px;
-  border: 1px solid @noti-border-color;
+  border: 2px solid @noti-border-color;
 }
 
 .notification-default-action {
@@ -202,7 +197,7 @@
   padding: 3px 6px;
   margin: 5px;
   border-radius: 6px;
-  font-size: 1rem;
+  font-size: 0.5rem;
   color: @noti-border-color;
 }
 
@@ -322,22 +317,4 @@
   border-radius: 6px;
   font-size: x-large;
   color: @text-color;
-}
 
-.low {
-  background: @text-color;
-  padding: 0px;
-  border-radius: 6px;
-}
-
-.normal {
-  background: @text-color;
-  padding: 0px;
-  border-radius: 6px;
-}
-
-.critical {
-  background: red;
-  padding: 0px;
-  border-radius: 6px;
-}
