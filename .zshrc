@@ -312,7 +312,7 @@ source <(fzf --zsh)
 
 # FZF theme
 export FZF_DEFAULT_OPTS="$FZF_DEFAULT_OPTS \
-  --style full
+  --style=full \
   --highlight-line \
   --info=inline-right \
   --ansi \
