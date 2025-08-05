@@ -59,7 +59,7 @@ return {
       function()
         require("overlook.api").open_in_tab()
       end,
-      desc = "Overlook: Open Popup In Tab",
+      desc = "Overlook: Open Popup In New Tab",
     },
     {
       "<localleader>po",
