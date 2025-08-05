@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # Keyhints. Idea got from Garuda Hyprland
 
 # GDK BACKEND. Change to either wayland or x11 if having issues

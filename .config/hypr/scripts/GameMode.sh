@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # Game Mode. Turning off all animations
 
 notif="$HOME/.config/swaync/images/bell.png"

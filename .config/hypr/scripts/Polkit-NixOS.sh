@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # For NixOS starting of polkit-gnome. Dec 2023, the settings stated in NixOS wiki does not work so have to manual start it
 
 # Find all polkit-gnome executables in the Nix store
@@ -18,4 +18,3 @@ done
 
 # If no valid executable is found, report an error
 echo "No valid Polkit-GNOME Authentication Agent executable found."
-

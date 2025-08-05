@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # Scripts for volume controls for audio and mic
 
 iDIR="$HOME/.config/swaync/icons"

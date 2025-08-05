@@ -37,4 +37,3 @@ if file_exists "${UserScripts}/RainbowBorders.sh"; then
 fi
 
 exit 0
-

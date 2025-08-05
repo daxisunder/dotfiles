@@ -1,8 +1,9 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # This is for polkits, it will start from top and will stop if the top is executed
 
 # Polkit possible paths files to check
 polkit=(
+  "/usr/lib/hyprpolkitagent/hyprpolkitagent"
   "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
   "/usr/lib/polkit-kde-authentication-agent-1"
   "/usr/lib/polkit-gnome-authentication-agent-1"
@@ -17,7 +18,7 @@ executed=false # Flag to track if a file has been executed
 for file in "${polkit[@]}"; do
   if [ -e "$file" ]; then
     echo "File $file found, executing command..."
-    exec "$file"
+    "$file"
     executed=true
     break
   fi

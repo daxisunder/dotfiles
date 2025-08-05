@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # for changing Hyprland Layouts (Master or Dwindle) on the fly
 
 notif="$HOME/.config/swaync/images/bell.png"

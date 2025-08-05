@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # Script for changing blurs on the fly
 
 notif="$HOME/.config/swaync/images/bell.png"

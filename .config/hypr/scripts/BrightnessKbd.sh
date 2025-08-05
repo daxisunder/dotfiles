@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # Script for keyboard backlights (if supported) using brightnessctl
 
 iDIR="$HOME/.config/swaync/icons"
