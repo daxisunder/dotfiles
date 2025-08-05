@@ -208,6 +208,9 @@ return {
         end,
         settings = {
           Lua = {
+            hint = {
+              enable = false,
+            },
             completion = {
               callSnippet = "Both",
               keywordSnippet = "Both",
