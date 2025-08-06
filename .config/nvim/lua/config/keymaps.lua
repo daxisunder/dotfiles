@@ -2,8 +2,6 @@
 -- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
 -- Add any additional keymaps here
 
----@diagnostic disable: undefined-global
-
 local map = vim.keymap.set
 local Snacks = require("snacks")
 
