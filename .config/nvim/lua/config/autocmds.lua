@@ -135,3 +135,14 @@ autocmd("LspProgress", {
     })
   end,
 })
+
+-- orgmode meta-return (insert mode)
+autocmd("FileType", {
+  pattern = "org",
+  callback = function()
+    vim.keymap.set("i", "<S-CR>", '<cmd>lua require("orgmode").action("org_mappings.meta_return")<CR>', {
+      silent = true,
+      buffer = true,
+    })
+  end,
+})
