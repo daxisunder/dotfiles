@@ -81,14 +81,15 @@
   ;; Global settings (defaults)
   (setq doom-themes-enable-bold t    ; if nil, bold is universally disabled
         doom-themes-enable-italic t) ; if nil, italics is universally disabled
-  (load-theme 'doom-rr-black t)
+  (load-theme 'doom-tokyo-night-black t)
 
   ;; Enable flashing mode-line on errors
   (doom-themes-visual-bell-config)
   ;; Enable custom neotree theme (all-the-icons must be installed!)
+  (setq doom-themes-neotree-theme "doom-tokyo-night-black")
   (doom-themes-neotree-config)
   ;; or for treemacs users
-  (setq doom-themes-treemacs-theme "doom-rr-black") ; use "doom-colors" for less minimal icon theme
+  (setq doom-themes-treemacs-theme "doom-tokyo-night-black") ; use "doom-colors" for less minimal icon theme
   (doom-themes-treemacs-config)
   ;; Corrects (and improves) org-mode's native fontification.
   (doom-themes-org-config))
@@ -126,3 +127,9 @@
               ("C-c M-y" . copilot-chat-yank-pop)
               ("C-c C-M-y" . (lambda () (interactive) (copilot-chat-yank-pop -1))))
   )
+;; Dashboard
+;; use-package with package.el:
+(use-package dashboard
+  :ensure t
+  :config
+  (dashboard-setup-startup-hook))
