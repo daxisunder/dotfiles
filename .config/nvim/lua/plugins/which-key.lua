@@ -33,6 +33,11 @@ return {
       mode = { "n", "v" },
       { "<leader>n", group = "org-roam", icon = { icon = " ", color = "green" } },
       { "<leader>o", group = "orgmode", icon = { icon = " ", color = "green" } },
+      { "<leader>O", group = "overlook", icon = { icon = " ", color = "yellow" } },
+      { "<leader>fP", group = "pick", icon = { icon = "󰢷 ", color = "green" } },
+      { "<leader>fPg", group = "git", icon = { icon = "󰊢 ", color = "yellow" } },
+      { "<leader>fPG", group = "grep", icon = { icon = " ", color = "green" } },
+      { "<leader>fPh", group = "hl/help/hist", icon = { icon = " ", color = "orange" } },
     },
   },
   keys = {

@@ -219,10 +219,10 @@ return {
               disable = {
                 "missing-fields",
                 "missing-parameters",
-                "undefined-global",
               },
               globals = {
                 "require",
+                "LazyVim",
               },
             },
           },
