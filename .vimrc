@@ -4,12 +4,15 @@ set mouse=a
 set spell
 set cursorline
 set cursorcolumn
+set signcolumn=auto
 set path+=**
 set wildmenu
 set wildmode=longest:list,full
 set wildignorecase
 set number
 set relativenumber
+set ruler
+set ttyfast
 set tabstop=2
 set softtabstop=2
 set shiftwidth=2
