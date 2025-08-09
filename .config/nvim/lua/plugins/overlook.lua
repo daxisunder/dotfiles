@@ -6,63 +6,63 @@ return {
   -- Optional: set up common keybindings
   keys = {
     {
-      "<localleader>pd",
+      "<leader>Od",
       function()
         require("overlook.api").peek_definition()
       end,
       desc = "Overlook: Peek Definition",
     },
     {
-      "<localleader>pc",
+      "<leader>Oc",
       function()
         require("overlook.api").peek_cursor()
       end,
       desc = "Overlook: Peek Cursor",
     },
     {
-      "<localleader>pQ",
+      "<leader>OQ",
       function()
         require("overlook.api").close_all()
       end,
       desc = "Overlook: Close All Popups",
     },
     {
-      "<localleader>pr",
+      "<leader>Or",
       function()
         require("overlook.api").restore_popup()
       end,
       desc = "Overlook: Restore Popup",
     },
     {
-      "<localleader>pR",
+      "<leader>OR",
       function()
         require("overlook.api").restore_all_popups()
       end,
       desc = "Overlook: Restore All Popups",
     },
     {
-      "<localleader>ps",
+      "<leader>Os",
       function()
         require("overlook.api").open_in_split()
       end,
       desc = "Overlook: Open Popup In Split",
     },
     {
-      "<localleader>pv",
+      "<leader>Ov",
       function()
         require("overlook.api").open_in_vsplit()
       end,
       desc = "Overlook: Open Popup In VSplit",
     },
     {
-      "<localleader>pt",
+      "<leader>Ot",
       function()
         require("overlook.api").open_in_tab()
       end,
       desc = "Overlook: Open Popup In New Tab",
     },
     {
-      "<localleader>po",
+      "<leader>Oo",
       function()
         require("overlook.api").open_in_original_window()
       end,
