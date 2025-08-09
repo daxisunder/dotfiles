@@ -12,10 +12,11 @@ return {
     require("orgmode").setup({
       org_agenda_files = "~/Dropbox/orgfiles/**/*",
       org_default_notes_file = "~/Dropbox/orgfiles/refile.org",
-      org_todo_keywords = { "TODO", "WAITING", "|", "DONE", "DELEGATED" },
+      org_todo_keywords = { "TODO", "ACTIVE", "WAITING", "|", "DONE", "DELEGATED" },
       org_todo_keyword_faces = {
+        ACTIVE = ":foreground green :weight bold",
         WAITING = ":foreground blue :weight bold",
-        DELEGATED = ":background #FFFFFF :slant italic :underline on",
+        DELEGATED = ":background #FFFFFF :foreground magenta :slant italic :underline on",
         TODO = ":background #000000 :foreground red", -- overrides builtin color for `TODO` keyword
       },
       org_babel_default_header_args = { [":tangle"] = "yes", [":noweb"] = "yes" },
