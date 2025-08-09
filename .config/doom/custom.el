@@ -9,7 +9,7 @@
    '("76297f1e4b69b72e8d96213d15232f63a71db96cf201fde93b8b51378ce82dfa" default))
  '(package-selected-packages
    '(all-ext all-the-icons-completion all-the-icons-dired all-the-icons-gnus
-     all-the-icons-ibuffer all-the-icons-nerd-fonts company-box
+     all-the-icons-ibuffer all-the-icons-nerd-fonts company-box company-dict
      compile-multi-all-the-icons copilot copilot-chat curl-to-elisp
      dashboard-hackernews dashboard-project-status doom-modeline
      editorconfig-generate evil-org ghub ghub+ lsp-mode lsp-ui nerd-icons-dired
