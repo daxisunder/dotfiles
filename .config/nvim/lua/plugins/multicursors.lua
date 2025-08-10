@@ -41,7 +41,7 @@ return {
   keys = {
     {
       mode = { "v", "n" },
-      "<leader>cm",
+      "<leader>cM",
       "<cmd>MCstart<cr>",
       desc = "Multicursors",
     },

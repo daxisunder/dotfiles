@@ -18,6 +18,7 @@ return {
         WAITING = ":foreground blue :weight bold",
         DELEGATED = ":background #FFFFFF :foreground magenta :slant italic :underline on",
         TODO = ":background #000000 :foreground red", -- overrides builtin color for `TODO` keyword
+        DONE = ":background red :foreground #000000", -- overrides builtin color for `DONE` keyword
       },
       org_babel_default_header_args = { [":tangle"] = "yes", [":noweb"] = "yes" },
       emacs_config = { executable_path = "emacs", config_path = "/home/daxis/.config/doom/init.el" },

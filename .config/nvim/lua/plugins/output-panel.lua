@@ -10,7 +10,7 @@ return {
   cmd = { "OutputPanel" },
   keys = {
     {
-      "<leader>cO",
+      "<leader>co",
       vim.cmd.OutputPanel,
       mode = { "n", "v" },
       desc = "Output Panel",

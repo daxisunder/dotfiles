@@ -29,7 +29,6 @@ map({ "n", "v" }, "<leader>fPl", ":Pick list", { desc = "Pick: List (scope)" })
 -- line diagnostics
 map("n", "<localleader>k", function()
   vim.diagnostic.config({ virtual_lines = { current_line = true }, virtual_text = false })
-
   vim.api.nvim_create_autocmd("CursorMoved", {
     group = vim.api.nvim_create_augroup("line-diagnostics", { clear = true }),
     callback = function()
@@ -136,7 +135,7 @@ map("v", "<leader>xl", function()
 end, { desc = "Send Lines To Location List" })
 
 -- carbon-now
-map("v", "<leader>cn", ":CarbonNow<CR>", { desc = "Snapshot From Visual Selection" })
+map("v", "<leader>cn", ":CarbonNow<CR>", { desc = "Code Snapshot From Selection" })
 
 -- delete all comments in the current buffer
 map("n", "<leader>cd", function()
