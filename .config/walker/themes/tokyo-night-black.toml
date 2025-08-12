@@ -1,9 +1,7 @@
-# AUTO GENERATED. DO NOT EDIT. CHANGES WILL BE OVERWRITTEN.
-
 [ui.anchors]
 bottom = true
-left = true
-right = true
+left = false
+right = false
 top = true
 
 [ui.window]
@@ -30,7 +28,7 @@ theme = ""
 
 [ui.window.box.margins]
 top = 48
-# left = 151
+# left = 8
 
 [ui.window.box.ai_scroll]
 name = "aiScroll"
@@ -97,6 +95,7 @@ v_align = "center"
 
 [ui.window.box.search.input]
 h_align = "fill"
+v_align = "center"
 h_expand = true
 icons = true
 
