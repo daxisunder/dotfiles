@@ -29,7 +29,8 @@ pixel_size = 24
 theme = ""
 
 [ui.window.box.margins]
-top = 200
+top = 48
+# left = 151
 
 [ui.window.box.ai_scroll]
 name = "aiScroll"
