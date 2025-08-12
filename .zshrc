@@ -393,6 +393,9 @@ eval "$(gh copilot alias -- zsh)"
 # Cheatsheet integration
 export CHEAT_USE_FZF=true
 
+# televisiion integration
+source $HOME/.config/television/shell/integration.zsh
+
 # Display Pokemon-colorscripts
 # Project page: https://gitlab.com/phoneybadger/pokemon-colorscripts#on-other-distros-and-macos
 #pokemon-colorscripts --no-title -s -r
@@ -402,4 +405,3 @@ export CHEAT_USE_FZF=true
 
 # Auto-start "zombie-zfetch"
 source $HOME/.config/zfetch/zfetchrc
-
