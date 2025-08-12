@@ -108,10 +108,10 @@ return {
           bg = c.bg,
           fg = c.bg_dark1,
         }
-        hl.SnacksPickerInputBorder = {
-          bg = c.bg,
-          fg = c.bg_dark1,
-        }
+        -- hl.SnacksPickerInputBorder = {
+        --   bg = c.bg,
+        --   fg = c.bg_dark1,
+        -- }
         hl.TabLine = {
           bg = c.bg_dark1,
         }

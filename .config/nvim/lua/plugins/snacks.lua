@@ -94,8 +94,8 @@ return {
       doc = {
         inline = false,
         float = true,
-        max_width = 45,
-        max_height = 20,
+        max_width = 40,
+        max_height = 23,
       },
     },
     indent = { enabled = false },
@@ -139,6 +139,22 @@ return {
         },
         explorer = {
           hidden = true,
+          ignored = true,
+        },
+        git_diff = {
+          layout = {
+            preset = "ivy",
+          },
+        },
+        git_log = {
+          layout = {
+            preset = "ivy",
+          },
+        },
+        git_log_line = {
+          layout = {
+            preset = "ivy",
+          },
         },
         help = {
           layout = {
@@ -305,6 +321,24 @@ return {
       snacks_image = {
         relative = "editor",
         col = -1,
+        width = 80,
+        height = 23,
+      },
+      zen = {
+        enter = true,
+        fixbuf = false,
+        minimal = false,
+        width = 120,
+        height = 0,
+        backdrop = { transparent = false, blend = 40 },
+        keys = { q = false },
+        zindex = 40,
+        wo = {
+          winhighlight = "NormalFloat:Normal",
+        },
+        w = {
+          snacks_main = true,
+        },
       },
     },
     terminal = {
