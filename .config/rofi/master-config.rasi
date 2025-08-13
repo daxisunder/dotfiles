@@ -45,7 +45,7 @@ window {
     border:                     2px;
     border-radius:              6px;
     location:                   northwest;
-    anchor:                     center;
+    // anchor:                     center;
     x-offset:                   12px;
     y-offset:                   10px;
 
@@ -56,7 +56,7 @@ window {
 
 /* ----- Main Box ----- */
 mainbox {
-	padding:					 15px;
+  	padding:	          				 15px;
     enabled:                     true;
     orientation:                 vertical;
     children:                    [ "inputbar", "listbox" ];
@@ -106,7 +106,7 @@ listview {
     lines:                       6;
     cycle:                       true;
     dynamic:                     true;
-    scrollbar:                   true;
+    scrollbar:                   false;
     layout:                      vertical;
     reverse:                     false;
     fixed-height:                false;
@@ -132,7 +132,7 @@ mode-switcher{
 }
 button {
     width:                       5%;
-    padding:                     12px;
+    padding:                     10px;
     border-radius:               6px;
     background-color:            @text-selected;
     text-color:                  @text-color;
@@ -224,7 +224,7 @@ message {
     border:                      0px;
 }
 textbox {
-    padding:                     12px;
+    padding:                     10px;
     border-radius:               6px;
     background-color:            @background-alt;
     text-color:                  @background;
@@ -232,7 +232,7 @@ textbox {
     horizontal-align:            0.0;
 }
 error-message {
-    padding:                     12px;
+    padding:                     10px;
     border-radius:               10px;
     background-color:            @background-alt;
     text-color:                  @background;
