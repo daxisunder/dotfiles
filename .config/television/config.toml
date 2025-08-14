@@ -210,7 +210,7 @@ fallback_channel = "files"
 # You would add the following to your configuration file:
 # ```
 # [shell_integration.channel_triggers]
-# "git-branches" = ["git checkout"]
+# "git-branch" = ["git checkout"]
 # "dirs" = ["ls"]
 # "files" = ["cat", "cp"]
 # ```
