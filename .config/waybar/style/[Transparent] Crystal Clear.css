@@ -19,7 +19,8 @@ window#waybar.hidden {
   opacity: 0.5;
 }
 
-window#waybar.empty window#waybar.empty #window {
+window#waybar.empty,
+window#waybar.empty #window {
   padding: 0px;
   border: 0px;
   background-color: transparent;
@@ -187,4 +188,3 @@ window#waybar.empty window#waybar.empty #window {
   border-radius: 5px;
   background-color: wheat;
 }
-

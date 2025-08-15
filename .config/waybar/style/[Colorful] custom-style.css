@@ -11,7 +11,7 @@
 window#waybar {
   transition-property: background-color;
   transition-duration: 0.5s;
-  background: rgba(0, 0, 0, 0.8);
+  background: rgba(0, 0, 0, 1);
   border-radius: 6px;
 }
 
@@ -21,7 +21,7 @@ window#waybar.hidden {
 
 window#waybar.empty,
 window#waybar.empty #window {
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: rgba(0, 0, 0, 1);
   padding: 0px;
   border: 0px;
 }
