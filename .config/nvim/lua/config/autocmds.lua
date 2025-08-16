@@ -58,14 +58,6 @@ autocmd("FileType", {
   desc = "Disable New Line Comment",
 })
 
--- Center scren on InsertEnter
-autocmd("InsertEnter", {
-  callback = function()
-    vim.cmd("normal! zz")
-  end,
-  desc = "Center screen on InsertEnter",
-})
-
 -- Set LSP to recognize org files
 autocmd({ "BufRead", "BufNewFile" }, {
   pattern = "*.org",
