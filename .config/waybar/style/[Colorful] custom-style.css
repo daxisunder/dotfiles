@@ -114,7 +114,7 @@ window#waybar.empty #window {
 }
 
 #workspaces button:hover {
-  border: 2px solid #455a64;
+  border: 2px solid #7dcfff;
   border-radius: 16px;
 }
 
@@ -145,6 +145,10 @@ window#waybar.empty #window {
   padding-right: 12px;
 }
 
+#custom-swaync:hover {
+  border: 2px solid #7dcfff;
+}
+
 #custom-keyboard {
   color: #e0af68;
   border: 2px solid #455a64;
@@ -152,6 +156,10 @@ window#waybar.empty #window {
   padding-left: 14px;
   padding-right: 14px;
   font-size: 125%;
+}
+
+#custom-keyboard:hover {
+  border: 2px solid #7dcfff;
 }
 
 #custom-cycle_wall {
@@ -241,6 +249,7 @@ window#waybar.empty #window {
 
 #tray > .needs-attention {
   -gtk-icon-effect: highlight;
+  background-color: #f7768e;
 }
 
 #keyboard-state {
@@ -272,6 +281,10 @@ window#waybar.empty #window {
   padding-left: 10pt;
   padding-right: 12px;
   font-size: 125%;
+}
+
+#custom-updater:hover {
+  border: 2px solid #7dcfff;
 }
 
 #custom-light_dark {
