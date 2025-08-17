@@ -1,6 +1,6 @@
 [[plugin.deps]]
 use = "yazi-rs/plugins:full-border"
-rev = "1ab21d4"
+rev = "e95c7b3"
 hash = "3996fc74044bc44144b323686f887e1"
 
 [[plugin.deps]]
@@ -10,38 +10,38 @@ hash = "1cd2446f8976eb11e549612fd80e3645"
 
 [[plugin.deps]]
 use = "llanosrocas/githead"
-rev = "230dc7f"
-hash = "d8c2bf67a4da2a2af89f981ce2f7ba22"
+rev = "76fe4b8"
+hash = "10c3bc6cd6f3223e18f2483320a9e24a"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:git"
-rev = "1ab21d4"
+rev = "e95c7b3"
 hash = "63b6c222bf2103b3023389dde5e2ecfe"
 
 [[plugin.deps]]
 use = "boydaihungst/file-extra-metadata"
-rev = "ec035d6"
-hash = "b23b7db6beb2854a689c648a38843f8c"
+rev = "116a460"
+hash = "e65cd1dea5feb9ca58c33b870ca3070"
 
 [[plugin.deps]]
 use = "boydaihungst/restore"
-rev = "84f1921"
-hash = "355f163cb374b5c9514aee2b64121678"
+rev = "2a2ba2f"
+hash = "12d8576d0cb8355a7e15d622913eb250"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:mount"
-rev = "1ab21d4"
-hash = "f10a14e823382d90fab5b3ee54cb38fe"
+rev = "e95c7b3"
+hash = "e1de3054c0d1a2d8dc6f007eadc0fa31"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:chmod"
-rev = "1ab21d4"
+rev = "e95c7b3"
 hash = "1adc12c2b2b025411ab61eb8f0879574"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:smart-filter"
-rev = "1ab21d4"
-hash = "a9d553bd19a3cd7f4eab3abaac5d67ff"
+rev = "e95c7b3"
+hash = "e56b7abf3c06e8ce496eadcca168c093"
 
 [[plugin.deps]]
 use = "daxisunder/convert"
@@ -50,8 +50,8 @@ hash = "6f61a6c119bd550c3c56f292b5e20ec7"
 
 [[plugin.deps]]
 use = "boydaihungst/gvfs"
-rev = "e1e0df3"
-hash = "7e4fdb9b48b5e792af034142b5381714"
+rev = "8e97b2a"
+hash = "c746e1d1e09349caf0fa1ca03fe62ee4"
 
 [flavor]
 deps = []
