@@ -222,7 +222,9 @@ return {
               },
               globals = {
                 "require",
-                "LazyVim",
+              },
+              telemetry = {
+                enable = false,
               },
             },
           },
