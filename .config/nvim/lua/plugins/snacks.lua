@@ -112,7 +112,7 @@ return {
     },
     picker = {
       sources = {
-        autocommands = {
+        autocmds = {
           layout = {
             preset = "ivy",
           },
