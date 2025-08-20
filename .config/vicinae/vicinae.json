@@ -1,0 +1,18 @@
+{
+    "faviconService": "google",
+    "font": {
+        "size": 14
+    },
+    "popToRootOnClose": false,
+    "rootSearch": {
+        "searchFiles": false
+    },
+    "theme": {
+        "name": "tokyonight-black.json"
+    },
+    "window": {
+        "csd": true,
+        "opacity": 0.85,
+        "rounding": 10
+    }
+}
