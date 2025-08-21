@@ -94,6 +94,18 @@ return {
           bg = c.bg,
           fg = c.bg_dark1,
         }
+        hl.MiniDiffSignAdd = {
+          bg = c.bg,
+          fg = c.blue,
+        }
+        hl.MiniDiffSignChange = {
+          bg = c.bg,
+          fg = c.yellow,
+        }
+        hl.MiniDiffSignDelete = {
+          bg = c.bg,
+          fg = c.red,
+        }
         hl.NeoTestBorder = {
           bg = c.bg,
           fg = c.bg_dark1,
