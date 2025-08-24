@@ -8,11 +8,12 @@
         "searchFiles": false
     },
     "theme": {
+        "iconTheme": "Tokyonight-Dark-Cyan",
         "name": "tokyonight-black.json"
     },
     "window": {
-        "csd": true,
-        "opacity": 0.85,
+        "csd": false,
+        "opacity": 0.5,
         "rounding": 10
     }
 }
