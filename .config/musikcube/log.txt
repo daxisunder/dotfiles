@@ -1,151 +1,49 @@
-06:15:34 [info] [LOG SESSION] ---------- START ----------
-06:15:34 [info] [PluginFactory] loading plugins
-06:15:34 [info] [PluginFactory] loaded: /usr/share/musikcube/plugins/libstockencoders.so
-06:15:34 [info] [PluginFactory] loaded: /usr/share/musikcube/plugins/libtaglibreader.so
-06:15:34 [info] [PluginFactory] loaded: /usr/share/musikcube/plugins/libnullout.so
-06:15:34 [info] [PluginFactory] loaded: /usr/share/musikcube/plugins/libalsaout.so
-06:15:34 [info] [PluginFactory] loaded: /usr/share/musikcube/plugins/libffmpegdecoder.so
-06:15:34 [info] [PluginFactory] loaded: /usr/share/musikcube/plugins/libserver.so
-06:15:34 [info] [PluginFactory] loaded: /usr/share/musikcube/plugins/libportaudioout.so
-06:15:34 [info] [PluginFactory] loaded: /usr/share/musikcube/plugins/libmpris.so
-06:15:34 [info] [PluginFactory] loaded: /usr/share/musikcube/plugins/libsupereqdsp.so
-06:15:34 [info] [PluginFactory] loaded: /usr/share/musikcube/plugins/libhttpdatastream.so
-06:15:34 [info] [PluginFactory] loaded: /usr/share/musikcube/plugins/libpulseout.so
-06:15:34 [info] [PluginFactory] loaded: /usr/share/musikcube/plugins/libpipewireout.so
-06:15:34 [info] [PluginFactory] loaded: /usr/share/musikcube/plugins/libopenmptdecoder.so
-06:15:34 [info] [PluginFactory] loaded: /usr/share/musikcube/plugins/libgmedecoder.so
-06:15:35 [info] [PortAudioOut] Pa_Initialize() return code: 0
-06:15:35 [info] [PipeWireOut] shutdown started
-06:15:35 [info] [PipeWireOut] shutdown complete
-06:15:35 [warning] [PortAudioOut] Pa_AbortStream() return code: -9988
-06:15:35 [warning] [PortAudioOut] Pa_CloseStream() return code: -9988
-06:15:35 [info] [PortAudioOut] Pa_Terminate() return code: 0
-06:15:35 [info] [Indexer] indexer source 155697690 running...
-06:15:35 [info] [Indexer] indexer source 155697690 finished
-06:15:35 [info] [Indexer] indexer source -1303229654 running...
-06:15:35 [info] [Indexer] indexer source -1303229654 finished
-06:15:35 [info] [Indexer] scanning /home/daxis/Music/
-06:15:35 [info] [Indexer] scan completed successfully
-06:15:35 [info] [Indexer] cleanup 1/2
-06:15:35 [info] [Indexer] cleanup 2/2
-06:15:35 [info] [Indexer] optimizing
-06:15:35 [info] [LocalLibrary] query 'SearchTrackListQuery' enqueued
-06:15:35 [info] [Indexer] done!
-06:15:35 [info] [LocalLibrary] query 'SearchTrackListQuery' running
-06:15:35 [info] [LocalLibrary] query 'SearchTrackListQuery' finished with status=4
-06:15:35 [info] [LocalLibrary] query 'PersistedPlayQueueQuery' enqueued
-06:15:35 [info] [LocalLibrary] query 'PersistedPlayQueueQuery' running
-06:15:35 [info] [LocalLibrary] query 'PersistedPlayQueueQuery' finished with status=4
-06:15:35 [info] [LocalLibrary] query 'CategoryListQuery' enqueued
-06:15:35 [info] [LocalLibrary] query 'CategoryListQuery' running
-06:15:35 [info] [LocalLibrary] query 'CategoryListQuery' enqueued
-06:15:35 [info] [LocalLibrary] query 'CategoryListQuery' finished with status=4
-06:15:35 [info] [LocalLibrary] query 'CategoryListQuery' running
-06:15:35 [info] [LocalLibrary] query 'CategoryListQuery' finished with status=4
-06:15:35 [info] [LocalLibrary] query 'CategoryTrackListQuery' enqueued
-06:15:35 [info] [LocalLibrary] query 'CategoryTrackListQuery' running
-06:15:35 [info] [LocalLibrary] query 'CategoryTrackListQuery' enqueued
-06:15:35 [info] [LocalLibrary] query 'CategoryTrackListQuery' finished with status=4
-06:15:35 [info] [LocalLibrary] query 'CategoryTrackListQuery' running
-06:15:35 [info] [LocalLibrary] query 'CategoryTrackListQuery' finished with status=4
-06:15:35 [info] [LocalLibrary] query 'TrackMetadataBatchQuery' enqueued
-06:15:35 [info] [LocalLibrary] query 'TrackMetadataBatchQuery' running
-06:15:35 [info] [LocalLibrary] query 'TrackMetadataBatchQuery' finished with status=4
-06:15:40 [info] [PortAudioOut] Pa_Initialize() return code: 0
-06:15:40 [info] [PipeWireOut] shutdown started
-06:15:40 [info] [PipeWireOut] shutdown complete
-06:15:40 [warning] [PortAudioOut] Pa_AbortStream() return code: -9988
-06:15:40 [warning] [PortAudioOut] Pa_CloseStream() return code: -9988
-06:15:40 [info] [PortAudioOut] Pa_Terminate() return code: 0
-06:15:41 [info] [PortAudioOut] Pa_Initialize() return code: 0
-06:15:41 [info] [PipeWireOut] shutdown started
-06:15:41 [info] [PipeWireOut] shutdown complete
-06:15:41 [warning] [PortAudioOut] Pa_AbortStream() return code: -9988
-06:15:41 [warning] [PortAudioOut] Pa_CloseStream() return code: -9988
-06:15:41 [info] [PortAudioOut] Pa_Terminate() return code: 0
-06:16:29 [info] [PortAudioOut] Pa_Initialize() return code: 0
-06:16:29 [info] [PipeWireOut] shutdown started
-06:16:29 [info] [PipeWireOut] shutdown complete
-06:16:29 [warning] [PortAudioOut] Pa_AbortStream() return code: -9988
-06:16:29 [warning] [PortAudioOut] Pa_CloseStream() return code: -9988
-06:16:29 [info] [PortAudioOut] Pa_Terminate() return code: 0
-06:16:29 [info] [PortAudioOut] Pa_Initialize() return code: 0
-06:16:29 [info] [PipeWireOut] shutdown started
-06:16:29 [info] [PipeWireOut] shutdown complete
-06:16:29 [warning] [PortAudioOut] Pa_AbortStream() return code: -9988
-06:16:29 [warning] [PortAudioOut] Pa_CloseStream() return code: -9988
-06:16:29 [info] [PortAudioOut] Pa_Terminate() return code: 0
-06:16:40 [info] [PortAudioOut] Pa_Initialize() return code: 0
-06:16:40 [info] [PipeWireOut] shutdown started
-06:16:40 [info] [PipeWireOut] shutdown complete
-06:16:40 [warning] [PortAudioOut] Pa_AbortStream() return code: -9988
-06:16:40 [warning] [PortAudioOut] Pa_CloseStream() return code: -9988
-06:16:40 [info] [PortAudioOut] Pa_Terminate() return code: 0
-06:16:40 [info] [PortAudioOut] Pa_Initialize() return code: 0
-06:16:40 [info] [PipeWireOut] shutdown started
-06:16:40 [info] [PipeWireOut] shutdown complete
-06:16:40 [warning] [PortAudioOut] Pa_AbortStream() return code: -9988
-06:16:40 [warning] [PortAudioOut] Pa_CloseStream() return code: -9988
-06:16:40 [info] [PortAudioOut] Pa_Terminate() return code: 0
-06:16:40 [info] [PortAudioOut] Pa_Initialize() return code: 0
-06:16:40 [info] [PipeWireOut] shutdown started
-06:16:40 [info] [PipeWireOut] shutdown complete
-06:16:40 [warning] [PortAudioOut] Pa_AbortStream() return code: -9988
-06:16:40 [warning] [PortAudioOut] Pa_CloseStream() return code: -9988
-06:16:40 [info] [PortAudioOut] Pa_Terminate() return code: 0
-06:17:25 [info] [LocalLibrary] query 'CategoryListQuery' enqueued
-06:17:25 [info] [LocalLibrary] query 'CategoryListQuery' running
-06:17:25 [info] [LocalLibrary] query 'CategoryListQuery' finished with status=4
-06:17:25 [info] [LocalLibrary] query 'CategoryTrackListQuery' enqueued
-06:17:25 [info] [LocalLibrary] query 'CategoryTrackListQuery' running
-06:17:25 [info] [LocalLibrary] query 'CategoryTrackListQuery' finished with status=4
-06:17:25 [info] [LocalLibrary] query 'TrackMetadataBatchQuery' enqueued
-06:17:25 [info] [LocalLibrary] query 'TrackMetadataBatchQuery' running
-06:17:25 [info] [LocalLibrary] query 'TrackMetadataBatchQuery' finished with status=4
-06:17:28 [info] [LocalLibrary] query 'CategoryTrackListQuery' enqueued
-06:17:28 [info] [LocalLibrary] query 'CategoryTrackListQuery' running
-06:17:28 [info] [LocalLibrary] query 'CategoryTrackListQuery' finished with status=4
-06:17:28 [info] [LocalLibrary] query 'TrackMetadataBatchQuery' enqueued
-06:17:28 [info] [LocalLibrary] query 'TrackMetadataBatchQuery' running
-06:17:28 [info] [LocalLibrary] query 'TrackMetadataBatchQuery' finished with status=4
-06:17:32 [info] [LocalLibrary] query 'CategoryTrackListQuery' enqueued
-06:17:32 [info] [LocalLibrary] query 'CategoryTrackListQuery' running
-06:17:32 [info] [LocalLibrary] query 'CategoryTrackListQuery' finished with status=4
-06:17:32 [info] [LocalLibrary] query 'TrackMetadataBatchQuery' enqueued
-06:17:32 [info] [LocalLibrary] query 'TrackMetadataBatchQuery' running
-06:17:32 [info] [LocalLibrary] query 'TrackMetadataBatchQuery' finished with status=4
-06:17:32 [info] [LocalLibrary] query 'CategoryTrackListQuery' enqueued
-06:17:32 [info] [LocalLibrary] query 'CategoryTrackListQuery' running
-06:17:32 [info] [LocalLibrary] query 'CategoryTrackListQuery' finished with status=4
-06:17:32 [info] [LocalLibrary] query 'TrackMetadataBatchQuery' enqueued
-06:17:32 [info] [LocalLibrary] query 'TrackMetadataBatchQuery' running
-06:17:32 [info] [LocalLibrary] query 'TrackMetadataBatchQuery' finished with status=4
-06:17:33 [info] [LocalLibrary] query 'CategoryTrackListQuery' enqueued
-06:17:33 [info] [LocalLibrary] query 'CategoryTrackListQuery' running
-06:17:33 [info] [LocalLibrary] query 'CategoryTrackListQuery' finished with status=4
-06:17:33 [info] [LocalLibrary] query 'TrackMetadataBatchQuery' enqueued
-06:17:33 [info] [LocalLibrary] query 'TrackMetadataBatchQuery' running
-06:17:33 [info] [LocalLibrary] query 'TrackMetadataBatchQuery' finished with status=4
-06:17:44 [info] [LocalLibrary] query 'TrackMetadataQuery' enqueued
-06:17:44 [info] [LocalLibrary] query 'TrackMetadataQuery' running
-06:17:44 [info] [LocalLibrary] query 'TrackMetadataQuery' finished with status=4
-06:17:44 [info] [CrossfadeTransport] trying to play /home/daxis/Music/Brkovi/Brkovi-Nevjernica ( 128kbps ).mp3
-06:17:44 [info] [PortAudioOut] Pa_Initialize() return code: 0
-06:17:44 [info] [PipeWireOut] shutdown started
-06:17:44 [info] [PipeWireOut] shutdown complete
-06:17:44 [warning] [PortAudioOut] Pa_AbortStream() return code: -9988
-06:17:44 [warning] [PortAudioOut] Pa_CloseStream() return code: -9988
-06:17:44 [info] [PortAudioOut] Pa_Terminate() return code: 0
-06:17:44 [info] [Player] new instance created
-06:17:44 [info] [Stream] opening /home/daxis/Music/Brkovi/Brkovi-Nevjernica ( 128kbps ).mp3
-06:17:44 [info] [LocalFileStream] opening file: /home/daxis/Music/Brkovi/Brkovi-Nevjernica ( 128kbps ).mp3
-06:17:44 [info] [ffmpegdecoder] parsing data stream...
-06:17:44 [info] [ffmpegdecoder] found audio stream!
-06:17:44 [info] [ffmpegdecoder] resolved codec: MP3 (MPEG audio layer 3)
-06:17:44 [info] [Streams] found a decoder for /home/daxis/Music/Brkovi/Brkovi-Nevjernica ( 128kbps ).mp3
-06:18:04 [info] [LocalLibrary] query 'MarkTrackPlayedQuery' enqueued
-06:18:04 [info] [LocalLibrary] query 'MarkTrackPlayedQuery' running
-06:18:04 [info] [LocalLibrary] query 'MarkTrackPlayedQuery' finished with status=4
-06:18:09 [info] [LocalLibrary] query 'PersistedPlayQueueQuery' enqueued
-06:18:09 [info] [LocalLibrary] query 'PersistedPlayQueueQuery' running
-06:18:09 [info] [LocalLibrary] query 'PersistedPlayQueueQuery' finished with status=4
+15:56:58 [info] [LOG SESSION] ---------- START ----------
+15:56:58 [info] [PluginFactory] loading plugins
+15:56:58 [info] [PluginFactory] loaded: /usr/share/musikcube/plugins/libstockencoders.so
+15:56:58 [info] [PluginFactory] loaded: /usr/share/musikcube/plugins/libtaglibreader.so
+15:56:58 [info] [PluginFactory] loaded: /usr/share/musikcube/plugins/libnullout.so
+15:56:58 [info] [PluginFactory] loaded: /usr/share/musikcube/plugins/libalsaout.so
+15:56:58 [info] [PluginFactory] loaded: /usr/share/musikcube/plugins/libffmpegdecoder.so
+15:56:58 [info] [PluginFactory] loaded: /usr/share/musikcube/plugins/libserver.so
+15:56:58 [info] [PluginFactory] loaded: /usr/share/musikcube/plugins/libportaudioout.so
+15:56:58 [info] [PluginFactory] loaded: /usr/share/musikcube/plugins/libmpris.so
+15:56:58 [info] [PluginFactory] loaded: /usr/share/musikcube/plugins/libsupereqdsp.so
+15:56:58 [info] [PluginFactory] loaded: /usr/share/musikcube/plugins/libhttpdatastream.so
+15:56:58 [info] [PluginFactory] loaded: /usr/share/musikcube/plugins/libpulseout.so
+15:56:58 [info] [PluginFactory] loaded: /usr/share/musikcube/plugins/libpipewireout.so
+15:56:58 [info] [PluginFactory] loaded: /usr/share/musikcube/plugins/libopenmptdecoder.so
+15:56:58 [info] [PluginFactory] loaded: /usr/share/musikcube/plugins/libgmedecoder.so
+15:56:58 [info] [LocalLibrary] query 'PersistedPlayQueueQuery' enqueued
+15:56:58 [info] [LocalLibrary] query 'PersistedPlayQueueQuery' running
+15:56:58 [info] [LocalLibrary] query 'PersistedPlayQueueQuery' finished with status=4
+15:56:58 [info] [LocalLibrary] query 'TrackMetadataQuery' enqueued
+15:56:58 [info] [LocalLibrary] query 'TrackMetadataQuery' running
+15:56:58 [info] [LocalLibrary] query 'TrackMetadataQuery' finished with status=4
+15:56:58 [info] [CrossfadeTransport] trying to play /home/daxis/Music/Brkovi/Brkovi-Nevjernica ( 128kbps ).mp3
+15:56:58 [info] [Indexer] indexer source 155697690 running...
+15:56:58 [info] [Indexer] indexer source 155697690 finished
+15:56:58 [info] [Indexer] indexer source -1303229654 running...
+15:56:58 [info] [Indexer] indexer source -1303229654 finished
+15:56:58 [info] [Indexer] scanning /home/daxis/Music/
+15:56:58 [info] [Indexer] scan completed successfully
+15:56:58 [info] [Indexer] cleanup 1/2
+15:56:58 [info] [Indexer] cleanup 2/2
+15:56:58 [info] [Indexer] optimizing
+15:56:58 [info] [PortAudioOut] Pa_Initialize() return code: 0
+15:56:58 [info] [PipeWireOut] shutdown started
+15:56:58 [info] [PipeWireOut] shutdown complete
+15:56:58 [warning] [PortAudioOut] Pa_AbortStream() return code: -9988
+15:56:58 [warning] [PortAudioOut] Pa_CloseStream() return code: -9988
+15:56:58 [info] [Indexer] done!
+15:56:58 [info] [PortAudioOut] Pa_Terminate() return code: 0
+15:56:58 [info] [Player] new instance created
+15:56:58 [info] [Stream] opening /home/daxis/Music/Brkovi/Brkovi-Nevjernica ( 128kbps ).mp3
+15:56:58 [info] [LocalFileStream] opening file: /home/daxis/Music/Brkovi/Brkovi-Nevjernica ( 128kbps ).mp3
+15:56:58 [info] [ffmpegdecoder] parsing data stream...
+15:56:58 [info] [LocalLibrary] query 'TrackMetadataQuery' enqueued
+15:56:58 [info] [LocalLibrary] query 'TrackMetadataQuery' running
+15:56:58 [info] [LocalLibrary] query 'TrackMetadataQuery' finished with status=4
+15:56:58 [info] [ffmpegdecoder] found audio stream!
+15:56:58 [info] [ffmpegdecoder] resolved codec: MP3 (MPEG audio layer 3)
+15:56:58 [info] [Streams] found a decoder for /home/daxis/Music/Brkovi/Brkovi-Nevjernica ( 128kbps ).mp3
