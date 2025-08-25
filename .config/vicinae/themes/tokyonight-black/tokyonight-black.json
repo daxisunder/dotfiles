@@ -2,7 +2,7 @@
   "version": "1.0.0",
   "appearance": "dark",
   "icon": "./tokyonight.png",
-  "name": "Tokonight Black",
+  "name": "Tokyonight Black",
   "description": "Dark theme that celebrates the lights of downtown Tokyo at midnight",
   "palette": {
     "background": "#000000",
