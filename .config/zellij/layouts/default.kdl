@@ -50,7 +50,7 @@ layout {
 
                 // git branch indicator
                 command_git_branch_command     "git branch --show-current"
-                command_git_branch_format      "#[fg=green]{stdout}#[fg=white]local#[fg=bright_black]:#[fg=red]main #[fg=green]"
+                command_git_branch_format      "#[fg=green]{stdout}#[fg=white]local#[fg=bright_black]:#[fg=red]main #[fg=green]"
                 command_git_branch_interval    "1"
                 command_git_branch_rendermode  "static"
 
