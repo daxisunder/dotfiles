@@ -1,4 +1,4 @@
-[2025-08-24 12:20:48] [info] asio listen error: asio.system:98 (Address already in use)
+[2025-08-27 01:28:13] [info] asio listen error: asio.system:98 (Address already in use)
 AlsaOut::AlsaOut() called
 ALSA lib pcm.c:2722:(snd_pcm_open_noupdate) Unknown PCM cards.pcm.rear
 ALSA lib pcm.c:2722:(snd_pcm_open_noupdate) Unknown PCM cards.pcm.center_lfe
@@ -13,6 +13,61 @@ AlsaOut: joining...
 AlsaOut: thread finished
 AlsaOut: closing device...
 AlsaOut: destroyed.
-[mp3float @ 0x7f0624006e00] Could not update timestamps for skipped samples.
+[mp3float @ 0x7f4f98006e00] Could not update timestamps for skipped samples.
+AlsaOut::AlsaOut() called
+ALSA lib pcm.c:2722:(snd_pcm_open_noupdate) Unknown PCM cards.pcm.rear
+ALSA lib pcm.c:2722:(snd_pcm_open_noupdate) Unknown PCM cards.pcm.center_lfe
+ALSA lib pcm.c:2722:(snd_pcm_open_noupdate) Unknown PCM cards.pcm.side
+ALSA lib pcm_route.c:878:(find_matching_chmap) Found no matching channel map
+ALSA lib pcm_route.c:878:(find_matching_chmap) Found no matching channel map
+ALSA lib pcm_route.c:878:(find_matching_chmap) Found no matching channel map
+ALSA lib pcm_route.c:878:(find_matching_chmap) Found no matching channel map
+PulseOut::PulseOut() called
+AlsaOut: destructor
+AlsaOut: joining...
+AlsaOut: thread finished
+AlsaOut: closing device...
+AlsaOut: destroyed.
 PulseOut: destroy
 PulseOut: destructor
+[mp3float @ 0x7f4f980071c0] Could not update timestamps for skipped samples.
+PulseOut: opening device 
+pulse_blocking_stream: CHECK_VALIDITY server
+pulse_blocking_stream: CHECK_VALIDITY dir
+pulse_blocking_stream: CHECK_VALIDITY device
+pulse_blocking_stream: CHECK_VALIDITY spec
+pulse_blocking_stream: CHECK_VALIDITY channel map
+pulse_blocking_stream: context is ready
+pulse_blocking_stream: stream is ready
+AlsaOut::AlsaOut() called
+ALSA lib pcm_dmix.c:1000:(snd_pcm_dmix_open) unable to open slave
+ALSA lib pcm.c:2722:(snd_pcm_open_noupdate) Unknown PCM cards.pcm.rear
+ALSA lib pcm.c:2722:(snd_pcm_open_noupdate) Unknown PCM cards.pcm.center_lfe
+ALSA lib pcm.c:2722:(snd_pcm_open_noupdate) Unknown PCM cards.pcm.side
+ALSA lib pcm_route.c:878:(find_matching_chmap) Found no matching channel map
+ALSA lib pcm_dmix.c:1000:(snd_pcm_dmix_open) unable to open slave
+PulseOut::PulseOut() called
+AlsaOut: destructor
+AlsaOut: joining...
+AlsaOut: thread finished
+AlsaOut: closing device...
+AlsaOut: destroyed.
+[mp3float @ 0x7f4f9c004440] Could not update timestamps for skipped samples.
+PulseOut: opening device 
+pulse_blocking_stream: CHECK_VALIDITY server
+pulse_blocking_stream: CHECK_VALIDITY dir
+pulse_blocking_stream: CHECK_VALIDITY device
+pulse_blocking_stream: CHECK_VALIDITY spec
+pulse_blocking_stream: CHECK_VALIDITY channel map
+pulse_blocking_stream: context is ready
+pulse_blocking_stream: stream is ready
+draining...
+drained...
+draining...
+drained...
+PulseOut: destroy
+PulseOut: destructor
+PulseOut: closing device
+draining...
+drained...
+draining...
