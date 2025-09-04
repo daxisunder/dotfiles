@@ -306,6 +306,7 @@ alias jctl='journalctl -p 3' # Show logs with priority 3 and above (errors)
 alias fz="fzf --preview 'bat --color=always -n {}'"
 alias wcp='wl-color-picker'
 alias wcpc='wl-color-picker clipboard'
+alias wkb='wvkbd-mobintl -L 240 -R 6'
 
 # FZF integration + key bindings (CTRL R for fuzzy history finder)
 source <(fzf --zsh)
@@ -399,7 +400,7 @@ eval "$(gh copilot alias -- zsh)"
 export CHEAT_USE_FZF=true
 
 # televisiion integration
-source $HOME/.config/television/shell/integration.zsh
+eval "$(tv init zsh)"
 
 # Display Pokemon-colorscripts
 # Project page: https://gitlab.com/phoneybadger/pokemon-colorscripts#on-other-distros-and-macos
