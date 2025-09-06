@@ -4,7 +4,7 @@
 
 /* ---- Configuration ---- */
 configuration {
-	font:	"zai Courier Polski 1941 14";
+	font:	"zai Courier Polski 1941 24";
 }
 /* ---- Window ---- */
 window {
@@ -27,6 +27,6 @@ button {
 }
 
 element-text {
-    font:	"Veteran Typewriter 14";
+    font:	"Veteran Typewriter 24";
 }
 

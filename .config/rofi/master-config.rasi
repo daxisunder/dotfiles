@@ -3,7 +3,7 @@
 /* ---- Configuration ---- */
 
 configuration {
-	font:					            	"Veteran Typewriter 10";
+	font:					            	"zai Courier Polski 1941 24";
 	modi:                       "drun,run,filebrowser";
     show-icons:                 true;
     display-drun:               "Apps";
@@ -145,11 +145,11 @@ button selected {
 
 /* ---- Scrollbar ---- */
 scrollbar {
-    width:        4px ;
-    border:       0;
-    handle-color: @border-color;
-    handle-width: 8px ;
-    padding:      0;
+    width:                       4px ;
+    border:                      0;
+    handle-color:                @border-color;
+    handle-width:                8px ;
+    padding:                     0;
 }
 
 /* ---- Elements ---- */
@@ -210,7 +210,7 @@ element-icon {
     cursor:                      inherit;
 }
 element-text {
-    font:						"zai Courier Polski 1941 10";
+    font:						"Veteran Typewriter 24";
     background-color:            transparent;
     text-color:                  inherit;
     cursor:                      inherit;
