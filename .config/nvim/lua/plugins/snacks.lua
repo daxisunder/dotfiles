@@ -90,7 +90,7 @@ return {
     explorer = { enabled = true },
     gitbrowse = { enabled = true },
     image = {
-      enabled = true,
+      enabled = false,
       doc = {
         inline = false,
         float = true,
