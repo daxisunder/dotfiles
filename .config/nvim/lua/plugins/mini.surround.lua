@@ -4,7 +4,7 @@ return {
   event = "VeryLazy",
   recommended = true,
   keys = function(_, keys)
-    -- Populate the keys based on the user's options
+    ---@diagnostic disable-next-line: undefined-global
     local opts = LazyVim.opts("mini.surround")
     local mappings = {
       { opts.mappings.add, desc = "Add Surrounding", mode = { "n", "v" } },
@@ -13,7 +13,6 @@ return {
       { opts.mappings.find_left, desc = "Find Left Surrounding" },
       { opts.mappings.highlight, desc = "Highlight Surrounding" },
       { opts.mappings.replace, desc = "Replace Surrounding" },
-      { opts.mappings.update_n_lines, desc = "Update `MiniSurround.config.n_lines`" },
     }
     mappings = vim.tbl_filter(function(m)
       return m[1] and #m[1] > 0
@@ -28,7 +27,6 @@ return {
       find_left = "gsF", -- Find surrounding (to the left)
       highlight = "gsh", -- Highlight surrounding
       replace = "gsr", -- Replace surrounding
-      update_n_lines = "gsn", -- Update `n_lines`
     },
     -- Duration (in ms) of highlight when calling `MiniSurround.highlight()`
     highlight_duration = 2000,
