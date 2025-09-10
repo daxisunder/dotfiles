@@ -12,14 +12,14 @@ return {
     require("orgmode").setup({
       org_agenda_files = "~/Dropbox/orgfiles/**/*",
       org_default_notes_file = "~/Dropbox/orgfiles/refile.org",
-      org_todo_keywords = { "TODO", "ACTIVE", "PARTIAL", "PENDING", "|", "DONE", "ABORTED" },
+      org_todo_keywords = { "TODO", "ACTIVE", "PARTIAL", "PENDING", "|", "ABORTED", "DONE" },
       org_todo_keyword_faces = {
-        ACTIVE = ":foreground green :weight bold",
-        PARTIAL = ":foreground blue :weight bold",
-        PENDING = ":foreground orange :weight bold",
-        ABORTED = ":background red :foreground magenta :slant italic :underline on",
-        TODO = ":background #000000 :foreground red", -- overrides builtin color for `TODO` keyword
-        DONE = ":background red :foreground #000000", -- overrides builtin color for `DONE` keyword
+        TODO = ":foreground #c0caf5 :weight bold",
+        ACTIVE = ":foreground #7dcfff :weight bold :slant italic",
+        PARTIAL = ":foreground #9ece6a :weight bold :slant italic",
+        PENDING = ":foreground #faba4a :weight bold :slant italic",
+        ABORTED = ":background #bb9af7 :foreground #000000 :weight bold",
+        DONE = ":background #ff899d :foreground #000000 :weight bold",
       },
       org_ellipsis = "",
       win_split_mode = "vertical",
@@ -35,8 +35,6 @@ return {
       org_priority_default = "B",
       org_priority_lowest = "F",
       org_deadline_warning_days = 0,
-      org_babel_default_header_args = { [":tangle"] = "yes", [":noweb"] = "yes" },
-      emacs_config = { executable_path = "emacs", config_path = "/home/daxis/.config/doom/init.el" },
       folds = {
         colored = true,
       },

@@ -9,25 +9,31 @@ return {
       integrations = {
         markdown = {
           enabled = true,
-          filetypes = { "markdown", "org" },
+          filetypes = { "markdown", "orgmode" },
           only_render_image_at_cursor = true,
           only_render_image_at_cursor_mode = "inline",
+          floating_windows = false,
         },
         typst = {
           enabled = true,
           filetypes = { "typst" },
           only_render_image_at_cursor = true,
           only_render_image_at_cursor_mode = "inline",
+          floating_windows = false,
         },
         html = {
           enabled = true,
+          filetypes = { "html", "xhtml", "htm" },
           only_render_image_at_cursor = true,
           only_render_image_at_cursor_mode = "popup",
+          floating_windows = false,
         },
         css = {
           enabled = true,
+          filetypes = { "css", "sass", "scss" },
           only_render_image_at_cursor = true,
           only_render_image_at_cursor_mode = "inline",
+          floating_windows = false,
         },
       },
       max_width = nil,
