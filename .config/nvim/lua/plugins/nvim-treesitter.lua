@@ -1,3 +1,5 @@
+local parser_configs = require("nvim-treesitter.parsers").get_parser_configs()
+
 return {
   "nvim-treesitter/nvim-treesitter",
   version = false, -- last release is way too old and doesn't work on Windows
@@ -7,6 +9,9 @@ return {
   init = function(plugin)
     require("lazy.core.loader").add_to_rtp(plugin)
     require("nvim-treesitter.query_predicates")
+    vim.filetype.add({
+      pattern = { [".*/hypr/.*%.conf"] = "hyprlang" },
+    })
   end,
   cmd = { "TSUpdateSync", "TSUpdate", "TSInstall" },
   opts = function(_, opts)
@@ -41,9 +46,6 @@ return {
       "yaml",
     })
   end,
-  vim.filetype.add({
-    pattern = { [".*/hypr/.*%.conf"] = "hyprlang" },
-  }),
   sync_install = false,
   auto_install = true,
   highlight = {
@@ -58,5 +60,14 @@ return {
       opts.ensure_installed = LazyVim.dedup(opts.ensure_installed)
     end
     require("nvim-treesitter.configs").setup(opts)
+    if type(parser_configs) == "table" then
+      parser_configs.kitty = {
+        install_info = {
+          url = "https://github.com/OXY2DEV/tree-sitter-kitty",
+          files = { "src/parser.c" },
+          branch = "main",
+        },
+      }
+    end
   end,
 }
