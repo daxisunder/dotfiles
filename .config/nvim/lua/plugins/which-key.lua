@@ -32,6 +32,9 @@ return {
     spec = {
       mode = { "n", "v" },
       { "<leader>n", group = "org-roam", icon = { icon = " ", color = "green" } },
+      { "<leader>na", group = "alias", icon = { icon = " ", color = "yellow" } },
+      { "<leader>nd", group = "dailies", icon = { icon = " ", color = "yellow" } },
+      { "<leader>no", group = "origin", icon = { icon = " ", color = "yellow" } },
       { "<leader>o", group = "orgmode", icon = { icon = " ", color = "green" } },
       { "<leader>O", group = "overlook", icon = { icon = " ", color = "yellow" } },
       { "<leader>fP", group = "pick", icon = { icon = "󰢷 ", color = "green" } },
