@@ -12,7 +12,15 @@ return {
     require("orgmode").setup({
       org_agenda_files = "~/Dropbox/orgfiles/**/*",
       org_default_notes_file = "~/Dropbox/orgfiles/refile.org",
-      org_todo_keywords = { "TODO", "ACTIVE", "PARTIAL", "PENDING", "|", "CANCELED", "DONE" },
+      org_todo_keywords = {
+        "TODO",
+        "ACTIVE",
+        "PARTIAL",
+        "PENDING",
+        "|",
+        "CANCELED",
+        "DONE",
+      },
       org_todo_keyword_faces = {
         TODO = ":foreground #c0caf5 :weight bold",
         ACTIVE = ":foreground #7dcfff :weight bold :slant italic",

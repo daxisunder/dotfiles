@@ -169,7 +169,15 @@ return {
               language = "auto:en",
               min_length_language_detect = 20,
               org = {
-                org_todo_keywords = { "TODO", "IN_PROGRESS", "DONE" },
+                org_todo_keywords = {
+                  "TODO",
+                  "ACTIVE",
+                  "PARTIAL",
+                  "PENDING",
+                  "|",
+                  "CANCELED",
+                  "DONE",
+                },
               },
               txt = {
                 parse = true,
@@ -222,6 +230,7 @@ return {
               },
               globals = {
                 "require",
+                "LazyVim",
               },
               telemetry = {
                 enable = false,
@@ -236,10 +245,13 @@ return {
         enabled = true,
         filetypes = {
           "c",
+          "cmake",
           "cpp",
           "cs",
+          "dart",
           "gitcommit",
           "go",
+          "haskell",
           "html",
           "java",
           "javascript",
@@ -247,6 +259,7 @@ return {
           "markdown",
           "nix",
           "org",
+          "php",
           "python",
           "ruby",
           "rust",
@@ -254,11 +267,7 @@ return {
           "toml",
           "typescript",
           "typescriptreact",
-          "haskell",
-          "cmake",
           "typst",
-          "php",
-          "dart",
         },
         settings = {
           ["harper-ls"] = {
