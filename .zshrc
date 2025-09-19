@@ -32,8 +32,7 @@ source $HOME/projects/dotfiles/api.env
 export ZSH_AI_PROVIDER="ollama" # (anthropic (default), ollama (local), gemini, opennai)
 export ZSH_AI_OLLAMA_MODEL="llama3.2"
 export ZSH_AI_GEMINI_MODEL="gemini-2.5-flash"
-export ZSH_AI_ANTHROPIC_MODEL="claude-3-5-sonnet-20241022"
-export ZSH_AI_OPENAI_MODEL="gpt-4o-mini"
+export ZSH_AI_PROMPT_EXTEND="Always prefer modern CLI tools like ripgrep, fd, and bat."
 
 # Set pop to use gmail
 # export POP_SMTP_HOST=smtp-mail.outlook.com
