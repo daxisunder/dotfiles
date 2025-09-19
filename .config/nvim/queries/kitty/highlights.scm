@@ -1,3 +1,7 @@
+; Extra Nodes ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(line_continuation) @comment
+
 ; Primitive data types ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 [
@@ -52,8 +56,8 @@
  ] @constant.builtin
 
 [
- (with)
- (together)
+ "+"
+ ">"
 ] @punctuation.delimiter
 
 (special) @variable.builtin
@@ -701,11 +705,14 @@
     "bold_italic_font"
   ] @keyword)
 
-(font_option
-  [
-    "auto"
-    "monospace"
-  ] @constant)
+(font_value
+  (string) @string.special)
+
+(font_value
+  .
+  (string) @constant
+  (#eq? @constant "auto")
+  .)
 
 (font_property
   name: (string) @variable.parameter
@@ -787,7 +794,7 @@
   "cursor_blink_interval" @keyword)
 
 ((ease) @type
-  (#match? @type "^\w+$"))
+  (#match? @type "^[a-z-]$"))
 
 (ease_step
   "steps" @function.call)
