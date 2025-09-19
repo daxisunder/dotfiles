@@ -1,5 +1,5 @@
 return {
-  "echasnovski/mini.hipatterns",
+  "nvim-mini/mini.hipatterns",
   version = false,
   recommended = true,
   desc = "Highlight colors in your code. Also includes Tailwind CSS support.",

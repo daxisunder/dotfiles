@@ -8,8 +8,8 @@ return {
   "neovim/nvim-lspconfig",
   dependencies = {
     "saghen/blink.cmp",
-    "mason.nvim",
-    { "williamboman/mason-lspconfig.nvim", config = function() end },
+    "mason-org/mason.nvim",
+    { "mason-org/mason-lspconfig.nvim", config = function() end },
     {
       "folke/lazydev.nvim",
       ft = "lua", -- only load on lua files

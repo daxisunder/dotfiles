@@ -1,5 +1,5 @@
 return {
-  "echasnovski/mini.pick",
+  "nvim-mini/mini.pick",
   version = false,
   event = "VeryLazy",
   config = function()

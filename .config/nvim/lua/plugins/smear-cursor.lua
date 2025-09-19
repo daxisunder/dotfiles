@@ -32,7 +32,7 @@ return {
   specs = {
     -- disable mini.animate cursor
     {
-      "echasnovski/mini.animate",
+      "nvim-mini/mini.animate",
       optional = true,
       opts = {
         cursor = { enable = false },

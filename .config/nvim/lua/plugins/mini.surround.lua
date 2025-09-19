@@ -1,5 +1,5 @@
 return {
-  "echasnovski/mini.surround",
+  "nvim-mini/mini.surround",
   version = false,
   event = "VeryLazy",
   recommended = true,
