@@ -36,7 +36,6 @@ ya pkg add boydaihungst/restore
 > To resolve this, you may need to run the "restore" command multiple times until all desired files are recovered. For instance, to restore 10,000 files, you might have to execute the command up to 10 times.
 
 1. Key binding
-
    - Add this to your `keymap.toml`. Make it doesn't override other keymaps.
      [Read more about keymap](https://yazi-rs.github.io/docs/configuration/keymap):
 
@@ -53,13 +52,14 @@ ya pkg add boydaihungst/restore
          # - Restore multiple trashed files separated by comma, also support range:
          #      What file to restore [0..3]: 0-2, 3
 
-         # If you remove --overwrite it will exit without restore when there is existed file.
-         { on = [ "d", "U" ], run = "shell --block -- clear && trash-restore --overwrite", desc = "Restore deleted file (Interactive)" },
+         # This will throw error when there is existed file/folder
+         { on = [ "d", "U" ], run = "plugin restore -- --interactive", desc = "Restore deleted files/folders (Interactive)" },
+         # Or auto overwrite existed file/folder
+         { on = [ "d", "U" ], run = "plugin restore -- --interactive --interactive-overwrite", desc = "Restore deleted files/folders (Interactive overwrite)" },
        ]
      ```
 
 2. Configuration (Optional)
-
    - Default:
 
      ```lua
@@ -72,6 +72,9 @@ ya pkg add boydaihungst/restore
          -- Show confirm prompt before restore.
          -- NOTE: even if set this to false, overwrite prompt still pop up
          show_confirm = true,  -- Optional
+
+         -- Suppress success notification when all files or folder are restored.
+         suppress_success_notification = true,  -- Optional
 
          -- colors for confirm and overwrite prompts
          theme = { -- Optional

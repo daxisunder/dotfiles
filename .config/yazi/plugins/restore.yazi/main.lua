@@ -20,6 +20,7 @@ local PackageName = "Restore"
 ---@field position? AsPos
 ---@field show_confirm? boolean
 ---@field theme? Theme
+---@field suppress_success_notification? boolean
 
 local function success(s, ...)
 	ya.notify({ title = PackageName, content = string.format(s, ...), timeout = 5, level = "info" })
@@ -44,6 +45,7 @@ end)
 local STATE = {
 	POSITION = "position",
 	SHOW_CONFIRM = "show_confirm",
+	SUPPRESS_SUCCESS_NOTIFICATION = "suppress_success_notification",
 	THEME = "theme",
 	INITIALIZED = "initialized",
 }
@@ -76,9 +78,8 @@ local function get_file_type(path)
 	local cha, _ = fs.cha(Url(path), true)
 	if cha then
 		return cha.is_dir and File_Type.Dir or File_Type.File
-	else
-		return File_Type.None_Exist
 	end
+	return File_Type.None_Exist
 end
 
 --- Get trash volume of current working directory.
@@ -131,7 +132,7 @@ local function get_latest_trashed_items(curr_working_volume)
 				break
 			end
 			-- remove leading spaces
-			local trash_index, item_date, item_path = line:match("^%s*(%d+) (%S+ %S+) (.+)$")
+			local trash_index, item_date, item_path = line:match("^%s*(%d+) (%S+ %S+) ([^\n]+)")
 			if item_date and item_path and trash_index ~= nil then
 				if last_item_datetime and last_item_datetime ~= item_date then
 					break
@@ -186,7 +187,11 @@ local function restore_files(curr_working_volume, start_index, end_index)
 
 	local file_to_restore_count = end_index - start_index + 1
 	if restored_status then
-		success("Restored " .. tostring(file_to_restore_count) .. " file" .. (file_to_restore_count > 1 and "s" or ""))
+		if not get_state(STATE.SUPPRESS_SUCCESS_NOTIFICATION) then
+			success(
+				"Restored " .. tostring(file_to_restore_count) .. " file" .. (file_to_restore_count > 1 and "s" or "")
+			)
+		end
 	else
 		error(
 			"Failed to restore "
@@ -237,15 +242,27 @@ function M:setup(opts)
 	)
 	set_state(STATE.SHOW_CONFIRM, opts == nil or opts.show_confirm ~= false)
 	set_state(STATE.THEME, (opts and type(opts.theme) == "table") and opts.theme or {})
+	set_state(STATE.SUPPRESS_SUCCESS_NOTIFICATION, opts and opts.suppress_success_notification)
 	set_state(STATE.INITIALIZED, true)
 end
 
-function M:entry()
+function M:entry(job)
 	if not get_state(STATE.INITIALIZED) then
 		M:setup()
 	end
 	local curr_working_volume = get_trash_volume()
 	if not curr_working_volume then
+		return
+	end
+	local interactive_mode = job.args.interactive
+	local interactive_overwrite = job.args.interactive_overwrite
+	if interactive_mode == true then
+		ya.emit("shell", {
+			"clear && trash-restore " .. (interactive_overwrite and "--overwrite" or "") .. " " .. path_quote(
+				curr_working_volume
+			),
+			block = true,
+		})
 		return
 	end
 	--NOTE: No need to reverse the list here, waste of time and memory
@@ -267,7 +284,15 @@ function M:entry()
 			title = ui.Line("Restore files/folders"):style(theme.title),
 			body = ui.Text({
 				ui.Line(""),
-				ui.Line("The following files and folders are going to be restored:"):style(theme.header),
+				ui.Line(
+					#reversed_trashed_items
+						.. " file"
+						.. (#reversed_trashed_items <= 1 and " " or "s ")
+						.. "and folder"
+						.. (#reversed_trashed_items <= 1 and " " or "s ")
+						.. (#reversed_trashed_items <= 1 and "is " or "are ")
+						.. "going to be restored:"
+				):style(theme.header),
 				ui.Line(""),
 				table.unpack(get_components(reversed_trashed_items)),
 			})
@@ -276,7 +301,15 @@ function M:entry()
 			-- TODO: remove this after next yazi released
 			content = ui.Text({
 				ui.Line(""),
-				ui.Line("The following files and folders are going to be restored:"):style(theme.header),
+				ui.Line(
+					#reversed_trashed_items
+						.. " file"
+						.. (#reversed_trashed_items <= 1 and " " or "s ")
+						.. "and folder"
+						.. (#reversed_trashed_items <= 1 and " " or "s ")
+						.. (#reversed_trashed_items <= 1 and "is " or "are ")
+						.. "going to be restored:"
+				):style(theme.header),
 				ui.Line(""),
 				table.unpack(get_components(reversed_trashed_items)),
 			})
@@ -296,7 +329,15 @@ function M:entry()
 			title = ui.Line("Restore files/folders"):style(theme.title),
 			body = ui.Text({
 				ui.Line(""),
-				ui.Line("The following files and folders are existed, overwrite?"):style(theme.header_warning),
+				ui.Line(
+					#reversed_collided_items
+						.. " file"
+						.. (#reversed_collided_items <= 1 and " " or "s ")
+						.. "and folder"
+						.. (#reversed_collided_items <= 1 and " " or "s ")
+						.. (#reversed_collided_items <= 1 and "is " or "are ")
+						.. "existed, overwrite?"
+				):style(theme.header_warning),
 				ui.Line(""),
 				table.unpack(get_components(reversed_collided_items)),
 			})
@@ -305,7 +346,15 @@ function M:entry()
 			-- TODO: remove this after next yazi released
 			content = ui.Text({
 				ui.Line(""),
-				ui.Line("The following files and folders are existed, overwrite?"):style(theme.header_warning),
+				ui.Line(
+					#reversed_collided_items
+						.. " file"
+						.. (#reversed_collided_items <= 1 and " " or "s ")
+						.. "and folder"
+						.. (#reversed_collided_items <= 1 and " " or "s ")
+						.. (#reversed_collided_items <= 1 and "is " or "are ")
+						.. "existed, overwrite?"
+				):style(theme.header_warning),
 				ui.Line(""),
 				table.unpack(get_components(reversed_collided_items)),
 			})

@@ -1,37 +1,27 @@
 # gvfs.yazi
 
-<!--toc:start-->
+<!-- toc -->
 
-- [gvfs.yazi](#gvfsyazi)
-  - [Preview](#preview)
-  - [Features](#features)
-  - [Requirements](#requirements)
-  - [Installation](#installation)
-  - [Usage](#usage)
-  - [Note for mounting using fstab](#note-for-mounting-using-fstab)
-  <!--toc:end-->
+- [Preview](#preview)
+- [Features](#features)
+- [Requirements](#requirements)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Note for mounting using fstab](#note-for-mounting-using-fstab)
+- [Troubleshooting](#troubleshooting)
 
-[gvfs.yazi](https://github.com/boydaihungst/gvfs.yazi) uses [gvfs](https://wiki.gnome.org/Projects/gvfs) and [gio from glib](https://github.com/GNOME/glib) to transparently mount and unmount devices in read/write mode,
-allowing you to navigate inside, view, and edit individual or groups of files.
+<!-- tocstop -->
 
-Supported protocols: MTP, Hard disk/drive, SMB, SFTP, NFS, GPhoto2 (PTP), FTP, Google Drive (via [GOA](./GNOME_ONLINE_ACCOUNTS_GOA.md)), One drive (via [GOA](./GNOME_ONLINE_ACCOUNTS_GOA.md)), DNS-SD, DAV (WebDAV), AFP, AFC.
-You need to install corresponding packages to use them.
+[gvfs.yazi](https://github.com/boydaihungst/gvfs.yazi) uses [gvfs](https://wiki.gnome.org/Projects/gvfs) and [gio from glib](https://github.com/GNOME/glib) to transparently mount and unmount devices or remote storage in read and write mode,
+allowing you to navigate inside, view, and edit individual or groups of files and folders.
+
+Supported protocols: MTP, Hard disk/drive, SMB, SFTP, NFS, GPhoto2 (PTP), FTP, Google Drive (via [GOA](./GNOME_ONLINE_ACCOUNTS_GOA.md)), One drive (via [GOA](./GNOME_ONLINE_ACCOUNTS_GOA.md)), DNS-SD, DAV (WebDAV), AFP, AFC. You need to install corresponding packages to use them.
 
 Tested: MTP, Hard disk/drive (Encrypted and Unencrypted), GPhoto2 (PTP), DAV, SFTP, FTP, SMB, NFSv4, Google Drive, One Drive. You may need to unlock and turn screen on to mount some devices (Android MTP, etc.)
-
-By default, `mount` will automatically shows devices which have one of these protocals (MTP, GPhoto2, AFC, Hard disk/drive, google drive, one drive, fstab with x-gvfs-show) or list of added mount URIs.
-For other protocols (smb, ftp, sftp, etc), use `add-mount` command to add [Schemes URI format](<https://wiki.gnome.org/Projects(2f)gvfs(2f)schemes.html>).
 
 > [!NOTE]
 >
 > - This plugin only supports Linux
-> - Needs D-bus session to work. For headless session (non-active console like connect to a computer via SSH, etc.) Try this workaround: [HEADLESS_WORKAROUND.md](./HEADLESS_WORKAROUND.md)
-> - If you have any problems with one of the protocols, please manually mount the device with `gio mount SCHEMES`. [List of supported schemes](<https://wiki.gnome.org/Projects(2f)gvfs(2f)schemes.html>). Then create an issue ticket with the output of `gio mount -li` and list of the mount paths under `/run/user/1000/gvfs/XYZ` and `/run/media/USERNAME`
-> - Put files in Trash bin won't work on some protocols (Android MTP), use permanently delete instead.
-> - Scheme/Mount URIs shouldn't contain password, because they are saved as plain text in `yazi/config/gvfs.private`.
-> - MTP, GPhoto2, AFC, Hard disk/drive are listed automatically. So you also don't need to add them via `add-mount`
-> - Google Drive, One drive are created via GNOME Online Accounts (GOA). So you don't need to add them via `add-mount`.
->   Guide to setup [GNOME_ONLINE_ACCOUNTS_GOA.md](./GNOME_ONLINE_ACCOUNTS_GOA.md)
 
 ## Preview
 
@@ -43,20 +33,16 @@ https://github.com/user-attachments/assets/fb74a710-5f05-4bf4-b95f-10f40583c5a0
 
 ## Features
 
-- Support all gvfs schemes/protocols (mtp, smb, ftp, sftp, nfs, gphoto2, afp, afc, sshfs, dav, davs, dav+sd, davs+sd, dns-sd)
-- Mount hardware device or saved scheme/mount URI (use `--mount`)
-- Can unmount and eject hardware device (use `--eject`)
-- Auto jump to a device or saved scheme/mount URI mounted location after successfully mounted (use `--jump`)
+- Supports all gvfs schemes/protocols (mtp, smb, ftp, sftp, nfs, gphoto2, afp, afc, sshfs, dav, davs, dav+sd, davs+sd, dns-sd)
+- Mount hardware device or saved scheme/mount URI (use `--select-then-mount`)
+- Auto-jump to mounted location after mount (use `select-then-mount --jump`)
+- Unmount and eject hardware devices (use `select-then-unmount --eject`)
 - Auto select the first device or saved scheme/mount URI if there is only one listed.
-- Jump to device or saved scheme/mount URI's mounted location (use `jump-to-device` action)
+- Jump to mounted location (use `jump-to-device`)
 - After jumped to mounted location, jump back to the previous location
   with a single keybind. Make it easier to copy/paste files. (use `jump-back-prev-cwd`)
 - Add/Edit/Remove scheme/mount URI (use `add-mount`, `edit-mount`, `remove-mount`). Check this for schemes/mount URI format: [schemes.html](<https://wiki.gnome.org/Projects(2f)gvfs(2f)schemes.html>)
 - (Optional) Remember passwords using Keyring or Password Store (need `secret-tool` + `keyring` or `pass` + `gpg` installed)
-
-> [!NOTE]
-> There is a bug with yazi, which prevent mounted folders from refreshing after unmounted.
-> If you encounter this issue, try create new tab, or move cursor up and down a little bit for yazi to refresh.
 
 ## Requirements
 
@@ -68,8 +54,8 @@ https://github.com/user-attachments/assets/fb74a710-5f05-4bf4-b95f-10f40583c5a0
    # Ubuntu
    sudo apt install gvfs libglib2.0-dev
 
-   # Fedora (Not tested, please report if it works)
-   sudo dnf install gvfs glib2-devel
+   # Fedora
+   sudo dnf install gvfs gvfs-fuse
 
    # Arch
    sudo pacman -S gvfs glib2
@@ -82,14 +68,14 @@ https://github.com/user-attachments/assets/fb74a710-5f05-4bf4-b95f-10f40583c5a0
    # This included all protocols
    sudo apt install gvfs-backends gvfs-libs
 
-   # Fedora (Not tested, please report if it works)
-   sudo dnf install gvfs-mtp gvfs-archive gvfs-goa gvfs-gphoto2 gvfs-smb gvfs-afc gvfs-dnssd
+   # Fedora
+   sudo dnf install gvfs-afc gvfs-afp gvfs-archive gvfs-goa gvfs-gphoto2 gvfs-mtp gvfs-nfs gvfs-smb
 
    # Arch
    sudo pacman -S gvfs-mtp gvfs-afc gvfs-google gvfs-gphoto2 gvfs-nfs gvfs-smb gvfs-afc gvfs-dnssd gvfs-goa gvfs-onedrive gvfs-wsdd
    ```
 
-4. For headless session (non-active console, Like connect to a computer via SSH, etc.)
+4. For headless session (non-active console, like connect to a computer via SSH, etc.)
    If you see `GVFS.yazi can only run on DBUS session` error message, please refer to [HEADLESS_WORKAROUND.md](./HEADLESS_WORKAROUND.md) for a workaround.
 
 5. (Optional) Store passwords with Keyring or Password Store (secret-tool + keyring or pass + gpg)
@@ -112,7 +98,8 @@ require("gvfs"):setup({
   -- Default: ~/.config/yazi/gvfs.private
   save_path = os.getenv("HOME") .. "/.config/yazi/gvfs.private",
 
-  -- (Optional) input position. Default: { "top-center", y = 3, w = 60 },
+  -- (Optional) Input box position.
+  -- Default: { "top-center", y = 3, w = 60 },
   -- Position, which is a table:
   -- 	`1`: Origin position, available values: "top-left", "top-center", "top-right",
   -- 	     "bottom-left", "bottom-center", "bottom-right", "center", and "hovered".
@@ -123,7 +110,8 @@ require("gvfs"):setup({
   -- 	`h`: Height of the input.
   input_position = { "center", y = 0, w = 60 },
 
-  -- (Optional) Select where to save passwords. Default: nil
+  -- (Optional) Select where to save passwords.
+  -- Default: nil
   -- Available options: "keyring", "pass", or nil
   password_vault = "keyring",
 
@@ -131,64 +119,99 @@ require("gvfs"):setup({
   -- Read the guide at SECURE_SAVED_PASSWORD.md to get your key_grip
   key_grip = "BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB",
 
-  -- (Optional) save password automatically after mounting. Default: false
+  -- (Optional) Auto-save password after mount.
+  -- Default: false
   save_password_autoconfirm = true,
   -- (Optional) mountpoint of gvfs. Default: /run/user/USER_ID/gvfs
   -- On some system it could be ~/.gvfs
-  -- You can't choose this path, it will be created automatically, Only changed if you know where gvfs mountpoint is.
+  -- You can't decide this path, it will be created automatically. Only changed if you know where gvfs mountpoint is.
+  -- Use command `ps aux | grep gvfs` to search for gvfs process and get the mountpoint path.
   -- root_mountpoint = (os.getenv("XDG_RUNTIME_DIR") or ("/run/user/" .. ya.uid())) .. "/gvfs"
 })
 ```
 
 ## Usage
 
+> [!NOTE]
+>
+> - Moving files to the Trash bin does not work with some protocols (e.g., Android MTP). Please use permanent delete instead.
+> - Scheme/Mount URIs shouldn't contain password, because they are saved as plain text in `yazi/config/gvfs.private`.
+> - Google Drive, One drive are created via GNOME Online Accounts (GOA).
+>   Guide to setup [GNOME_ONLINE_ACCOUNTS_GOA.md](./GNOME_ONLINE_ACCOUNTS_GOA.md)
+> - MTP, GPhoto2, AFC, Hard disk/drive, fstab with x-gvfs-show mount option, Google Drive + One drive protocols are listed automatically. So you don't need to add them via `add-mount` command.
+>   For other protocols (smb, ftp, sftp, etc), use `add-mount` command to add [Schemes/Mount URI](<https://wiki.gnome.org/Projects(2f)gvfs(2f)schemes.html>).
+> - There is a bug in Yazi that prevents mounted folders from refreshing after they are mounted/unmounted.
+>   If you encounter this issue, try opening a new tab or moving the cursor up and down to trigger a refresh.
+
 Add this to your `~/.config/yazi/keymap.toml`:
 
 ```toml
 [mgr]
 prepend_keymap = [
-    # gvfs plugin
+    # Mount
     { on = [ "M", "m" ], run = "plugin gvfs -- select-then-mount", desc = "Select device then mount" },
     # or this if you want to jump to mountpoint after mounted
     { on = [ "M", "m" ], run = "plugin gvfs -- select-then-mount --jump", desc = "Select device to mount and jump to its mount point" },
-    # This will remount device under cwd (e.g. cwd = /run/user/1000/gvfs/DEVICE_1/FOLDER_A, device mountpoint = /run/user/1000/gvfs/DEVICE_1)
+
+    # This will remount device under current working directory (cwd)
+    #   -> cwd = /run/user/1000/gvfs/DEVICE_1/FOLDER_A
+    #   -> device mountpoint = /run/user/1000/gvfs/DEVICE_1
+    #   -> remount this DEVIEC_1 if needed
     { on = [ "M", "R" ], run = "plugin gvfs -- remount-current-cwd-device", desc = "Remount device under cwd" },
+
     { on = [ "M", "u" ], run = "plugin gvfs -- select-then-unmount", desc = "Select device then unmount" },
-    # or this if you want to unmount and eject device. Ejected device can safely be removed.
-    # Ejecting a device will unmount all paritions/volumes under it.
-    # Fallback to normal unmount if not supported by device.
+    # Or this if you want to unmount and eject device.
+    #   -> Ejected device can safely be removed.
+    #   -> Ejecting a device will unmount all paritions/volumes under it.
+    #   -> Fallback to normal unmount if not supported by device.
     { on = [ "M", "u" ], run = "plugin gvfs -- select-then-unmount --eject", desc = "Select device then eject" },
+
     # Also support force unmount/eject.
-    # force = true -> Ignore outstanding file operations when unmounting or ejecting
+    #   -> Ignore outstanding file operations when unmounting or ejecting
     { on = [ "M", "U" ], run = "plugin gvfs -- select-then-unmount --eject --force", desc = "Select device then force to eject/unmount" },
 
-    # Add|Edit|Remove mountpoint: smb, sftp, ftp, nfs, dns-sd, dav, davs, dav+sd, davs+sd, afp, afc, sshfs
-    # Read more about the schemes here: https://wiki.gnome.org/Projects(2f)gvfs(2f)schemes.html
-    # Explain about the scheme: If it show like this: {ftp,ftps,ftpis}://[user@]host[:port]
-    #   -> Every value within [] are optional; values within {} you need to choose only one of them; The rest are hardcoded
-    #   -> {ftp,ftps,ftpis}://[user@]host[:port] => ftp://myusername@IP:PORT or ftps://myusername@github.com
-    # More examples: smb://user@192.168.1.2/share, smb://WORKGROUP;user@192.168.1.2/share, sftp://user@192.168.1.2/, ftp://192.168.1.2/
-    # - Scheme/Mount URIs shouldn't contain password.
-    # - Google Drive, One drive are mounted automatically via GNOME Online Accounts (GOA). Avoid adding them. Use GOA instead: ./GNOME_ONLINE_ACCOUNTS_GOA.md
-    # - MTP, GPhoto2, AFC, Hard disk/drive, fstab with x-gvfs-show are listed automatically. Avoid adding them.
+    # Add Scheme/Mount URI:
+    #   -> Available schemes: mtp, gphoto2, smb, sftp, ftp, nfs, dns-sd, dav, davs, dav+sd, davs+sd, afp, afc, sshfs
+    #   -> Read more about the schemes here: https://wiki.gnome.org/Projects(2f)gvfs(2f)schemes.html
+    #   -> Explain about the scheme:
+    #       -> If it shows like this: {ftp,ftps,ftpis}://[user@]host[:port]
+    #       -> Every value within [] is optional. For values within {}, you must choose exactly one. All others are required.
+    #       -> Example: {ftp,ftps,ftpis}://[user@]host[:port] => ip and port: "ftp://myusername@192.168.1.2:9999" or domain: "ftps://myusername@github.com"
+    #       -> More examples: smb://user@192.168.1.2/share, smb://WORKGROUP;user@192.168.1.2/share, sftp://user@192.168.1.2/, ftp://192.168.1.2/
+    # !WARNING: - Scheme/Mount URI shouldn't contain password.
+    #           - Google Drive, One drive are listed automatically via GNOME Online Accounts (GOA). Avoid adding them.
+    #           - MTP, GPhoto2, AFC, Hard disk/drive, fstab with x-gvfs-show are listed automatically. Avoid adding them.
+    #           - ssh:// is alias for sftp://. Both don't support [/share]. Everything will still work if you accidentally add it.
+    #             -> {sftp,ssh}://[user@]host[:port]. Host can be Host alias in .ssh/config file, ip or domain.
+    #             -> For example (home is Host alias in .ssh/config file: Host home):
+    #                  -> ssh://user_name@home/home/user_name -> this won't mount subfolder /home/user_name, but the root path /
+    #                  -> sftp://user_name@192.168.1.2/home/user_name -> same as above
     { on = [ "M", "a" ], run = "plugin gvfs -- add-mount", desc = "Add a GVFS mount URI" },
-    # Edit or remove a GVFS mount URI will clear saved passwords for that mount URI.
+
+    # Edit a Scheme/Mount URI
+    #   -> Will clear saved passwords for that mount URI.
     { on = [ "M", "e" ], run = "plugin gvfs -- edit-mount", desc = "Edit a GVFS mount URI" },
+
+    # Remove a Scheme/Mount URI
+    #   -> Will clear saved passwords for that mount URI.
     { on = [ "M", "r" ], run = "plugin gvfs -- remove-mount", desc = "Remove a GVFS mount URI" },
 
     # Jump
     { on = [ "g", "m" ], run = "plugin gvfs -- jump-to-device", desc = "Select device then jump to its mount point" },
-    # If you use `x-systemd.automount` in /etc/fstab or manually added automount unit, you can use `--automount` to automount device automatically
+    # If you use `x-systemd.automount` in /etc/fstab or manually added automount unit,
+    # then you can use `--automount` argument to auto mount device before jump.
+    # Otherwise it won't show up in the jump list.
     { on = [ "g", "m" ], run = "plugin gvfs -- jump-to-device --automount", desc = "Automount then select device to jump to its mount point" },
     { on = [ "`", "`" ], run = "plugin gvfs -- jump-back-prev-cwd", desc = "Jump back to the position before jumped to device" },
 ]
 ```
 
-It's highly recommended to add these lines to your `~/.config/yazi/yazi.toml`,
-because GVFS is slow that can make yazi freeze when it preloads or previews a large number of files.
+It's highly recommended to add these lines to your `~/.config/yazi/yazi.toml`,  
+because GVFS is slow that can make yazi freeze when it preloads or previews a large number of files.  
 Especially when you use `Google-drive` or `One-drive`.
-Replace `1000` with your real user id (run `id -u` to get user id).
-Replace `USER_NAME` with your real user name (run `whoami` to get username).
+
+- Replace `1000` with your real user id (run `id -u` to get user id).
+- Replace `USER_NAME` with your real user name (run `whoami` to get username).
 
 > [!IMPORTANT]
 >
@@ -202,30 +225,31 @@ prepend_preloaders = [
   # Using absolute path instead.
   { name = "/run/user/1000/gvfs/**/*", run = "noop" },
 
-  # For mounted location for hard disk/drive
+  # For mounted hard disk/drive
   { name = "/run/media/USER_NAME/**/*", run = "noop" },
-  #... the rest of preloaders
 ]
 prepend_previewers = [
   # Allow to preview folder.
-  { name = "*/", run = "folder", sync = true },
-  # Do not previewing files in mounted locations (uncomment to except text file):
+  { name = "*/", run = "folder" },
+
+  # Do not previewing files in mounted locations.
+  # Uncomment the line below to allow previewing text files.
   # { mime = "{text/*,application/x-subrip}", run = "code" },
+
   # Using absolute path.
   { name = "/run/user/1000/gvfs/**/*", run = "noop" },
 
-  # For mounted hard disk.
+  # For mounted hard disk/drive.
   { name = "/run/media/USER_NAME/**/*", run = "noop" },
-  #... the rest of previewers
 ]
 ```
 
 ## Note for mounting using fstab
 
-If you are using fstab to mount, you need to add `x-gvfs-show` to the mount options. And with it you can only use `jump-to-device` and `jump-back-prev-cwd` actions.
+If you are using fstab to mount, you need to add `x-gvfs-show` to the mount options.  
+And with it you can only use `jump-to-device` and `jump-back-prev-cwd` actions.
 
 - Example `/etc/fstab`:
-
   - Mount on demand (manually mount):
 
     ```
@@ -247,14 +271,14 @@ If you are using fstab to mount, you need to add `x-gvfs-show` to the mount opti
   ```
 
   If you changed mount options (like uid=, gid=, umask=, exfat, ntfs, etc.), already-mounted filesystems won't update unless you unmount and remount them.
-  You can manually remount a specific entry using:
+  You can manually remount a specific entry with these commands:
 
   ```sh
   sudo umount /mnt/myshare
-  ```
-
-  And then:
-
-  ```sh
   sudo mount -a
   ```
+
+## Troubleshooting
+
+If you have any problems with one of the protocols, please manually mount it using `gio mount Scheme/Mount URI`. See the [list of supported schemes](<https://wiki.gnome.org/Projects(2f)gvfs(2f)schemes.html>).  
+Then create an issue ticket and include the output of `gio mount -li` along with the list of mount points under `/run/user/1000/gvfs/` and `/run/media/USERNAME`

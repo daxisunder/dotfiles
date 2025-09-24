@@ -81,6 +81,7 @@ keymap = [
   { on = "d", run = "remove", desc = "Trash selected files" },
   { on = "D", run = "remove --permanently", desc = "Permanently delete selected files" },
   { on = "u", run = "plugin restore", desc = "Restore last deleted files/folders" },
+  { on = "U", run = "plugin restore -- --interactive", desc = "Restore deleted files/folders interactively" },
   { on = "a", run = "create", desc = "Create a file (ends with / for directories)" },
   { on = "r", run = "rename --cursor=before_ext", desc = "Rename selected file(s)" },
   { on = ";", run = "shell --interactive", desc = "Run a shell command" },
@@ -468,7 +469,7 @@ keymap = [
   { on = "<F1>", run = "help", desc = "Open help" },
 ]
 
-[completion]
+[cmp]
 
 keymap = [
   { on = "<C-c>", run = "close", desc = "Cancel completion" },
