@@ -625,3 +625,39 @@ desc = "Delete from Trash permanently"
 on = ["u", "r"]
 run = "plugin recycle-bin -- restore"
 desc = "Restore from Trash"
+
+# SSHFS
+[[mgr.prepend_keymap]]
+on = ["H", "m"]
+run = "plugin sshfs -- mount --jump"
+desc = "Mount SSHFS and jump to its mount"
+
+[[mgr.prepend_keymap]]
+on = ["H", "u"]
+run = "plugin sshfs -- unmount"
+desc = "Unmount SSHFS"
+
+[[mgr.prepend_keymap]]
+on = ["H", "j"]
+run = "plugin sshfs -- jump"
+desc = "Jump to an existing SSHFS mount"
+
+[[mgr.prepend_keymap]]
+on = ["H", "a"]
+run = "plugin sshfs -- add"
+desc = "Add an SSHFS host"
+
+[[mgr.prepend_keymap]]
+on = ["H", "r"]
+run = "plugin sshfs -- remove"
+desc = "Remove an SSHFS host"
+
+[[mgr.prepend_keymap]]
+on = ["H", "h"]
+run = "plugin sshfs -- home"
+desc = "Go to mount home"
+
+[[mgr.prepend_keymap]]
+on = ["H", "c"]
+run = "cd ~/.ssh/"
+desc = "Go to ssh config dir"

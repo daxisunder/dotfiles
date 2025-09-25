@@ -47,6 +47,7 @@ return {
 	require("git"):setup(),
 	require("recycle-bin"):setup(),
 	require("no-header"):setup(),
+	require("sshfs"):setup(),
 	require("gvfs"):setup({
 		-- (Optional) Allowed keys to select device.
 		which_keys = "1234567890qwertyuiopasdfghjklzxcvbnm-=[]\\;',./!@#$%^&*()_+{}|:\"<>?",

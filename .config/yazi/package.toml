@@ -53,5 +53,10 @@ use = "uhs-robert/recycle-bin"
 rev = "03f6c4a"
 hash = "f14a951bf376d7fe73033c4a48aa5fa4"
 
+[[plugin.deps]]
+use = "uhs-robert/sshfs"
+rev = "1a466c8"
+hash = "216b0497421e49b7fda5f07d20435400"
+
 [flavor]
 deps = []
