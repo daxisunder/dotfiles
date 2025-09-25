@@ -1,5 +1,3 @@
----@diagnostic disable: undefined-global
-
 return {
 	"plugin/full-border",
 	require("full-border"):setup({
@@ -25,7 +23,7 @@ return {
 		filename_truncate_length = 6, -- leave 6 chars on both sides
 		filename_truncate_separator = "...",
 	}),
-	-- user:group add-on to show user and group names in the status line
+	-- user:group add-on to show user and group names in the yaziline
 	Status:children_add(function(self)
 		local h = self._current.hovered
 		if h and h.link_to then
@@ -46,6 +44,25 @@ return {
 			" ",
 		})
 	end, 500, Status.RIGHT),
+	require("git"):setup(),
+	require("recycle-bin"):setup(),
+	require("no-header"):setup(),
+	require("gvfs"):setup({
+		-- (Optional) Allowed keys to select device.
+		which_keys = "1234567890qwertyuiopasdfghjklzxcvbnm-=[]\\;',./!@#$%^&*()_+{}|:\"<>?",
+		-- (Optional) Save file.
+		-- Default: ~/.config/yazi/gvfs.private
+		save_path = os.getenv("HOME") .. "/.config/yazi/gvfs.private",
+		input_position = { "center", y = 0, w = 60 },
+		-- (Optional) Select where to save passwords. Default: nil
+		-- Available options: "keyring", "pass", or nil
+		password_vault = nil,
+		-- (Optional) Only need if you set password_vault = "pass"
+		-- Read the guide at SECURE_SAVED_PASSWORD.md to get your key_grip
+		key_grip = "BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB",
+		-- (Optional) save password automatically after mounting. Default: false
+		save_password_autoconfirm = false,
+	}),
 	-- require("githead"):setup({
 	-- 	order = {
 	-- 		"__spacer__",
@@ -100,23 +117,4 @@ return {
 	-- 	stashes_color = "#565f89",
 	-- 	stashes_symbol = "⚑",
 	-- }),
-	require("git"):setup(),
-	require("recycle-bin"):setup(),
-	require("no-header"):setup(),
-	require("gvfs"):setup({
-		-- (Optional) Allowed keys to select device.
-		which_keys = "1234567890qwertyuiopasdfghjklzxcvbnm-=[]\\;',./!@#$%^&*()_+{}|:\"<>?",
-		-- (Optional) Save file.
-		-- Default: ~/.config/yazi/gvfs.private
-		save_path = os.getenv("HOME") .. "/.config/yazi/gvfs.private",
-		input_position = { "center", y = 0, w = 60 },
-		-- (Optional) Select where to save passwords. Default: nil
-		-- Available options: "keyring", "pass", or nil
-		password_vault = nil,
-		-- (Optional) Only need if you set password_vault = "pass"
-		-- Read the guide at SECURE_SAVED_PASSWORD.md to get your key_grip
-		key_grip = "BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB",
-		-- (Optional) save password automatically after mounting. Default: false
-		save_password_autoconfirm = false,
-	}),
 }
