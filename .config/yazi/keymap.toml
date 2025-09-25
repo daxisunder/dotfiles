@@ -80,8 +80,6 @@ keymap = [
   { on = "X", run = "unyank", desc = "Cancel the yank status" },
   { on = "d", run = "remove", desc = "Trash selected files" },
   { on = "D", run = "remove --permanently", desc = "Permanently delete selected files" },
-  { on = "u", run = "plugin restore", desc = "Restore last deleted files/folders" },
-  { on = "U", run = "plugin restore -- --interactive", desc = "Restore deleted files/folders interactively" },
   { on = "a", run = "create", desc = "Create a file (ends with / for directories)" },
   { on = "r", run = "rename --cursor=before_ext", desc = "Rename selected file(s)" },
   { on = ";", run = "shell --interactive", desc = "Run a shell command" },
@@ -601,3 +599,29 @@ desc = "Select device then jump to its mount point"
 on = ["A", "`"]
 run = "plugin gvfs -- jump-back-prev-cwd"
 desc = "Jump back to the position before jumped to device"
+
+# Recycle Bin
+[[mgr.prepend_keymap]]
+on = ["u", "o"]
+run = "plugin recycle-bin -- open"
+desc = "Open Trash"
+
+[[mgr.prepend_keymap]]
+on = ["u", "e"]
+run = "plugin recycle-bin -- empty"
+desc = "Empty Trash"
+
+[[mgr.prepend_keymap]]
+on = ["u", "d"]
+run = "plugin recycle-bin -- emptyDays"
+desc = "Delete from Trash by dates"
+
+[[mgr.prepend_keymap]]
+on = ["u", "D"]
+run = "plugin recycle-bin -- delete"
+desc = "Delete from Trash permanently"
+
+[[mgr.prepend_keymap]]
+on = ["u", "r"]
+run = "plugin recycle-bin -- restore"
+desc = "Restore from Trash"

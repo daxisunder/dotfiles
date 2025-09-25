@@ -24,11 +24,6 @@ rev = "116a460"
 hash = "e65cd1dea5feb9ca58c33b870ca3070"
 
 [[plugin.deps]]
-use = "boydaihungst/restore"
-rev = "dc40509"
-hash = "e7e377f9b1bbaca4a2e5d9ec9709ac4d"
-
-[[plugin.deps]]
 use = "yazi-rs/plugins:mount"
 rev = "d1c8baa"
 hash = "435a2af56ecfb3d05755fd5e24977d8b"
@@ -52,6 +47,11 @@ hash = "6f61a6c119bd550c3c56f292b5e20ec7"
 use = "boydaihungst/gvfs"
 rev = "f07b496"
 hash = "162bf7326809fb2b831d7fac7525b067"
+
+[[plugin.deps]]
+use = "uhs-robert/recycle-bin"
+rev = "03f6c4a"
+hash = "f14a951bf376d7fe73033c4a48aa5fa4"
 
 [flavor]
 deps = []

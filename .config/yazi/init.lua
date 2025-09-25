@@ -101,16 +101,7 @@ return {
 	-- 	stashes_symbol = "⚑",
 	-- }),
 	require("git"):setup(),
-	require("restore"):setup({
-		position = { "center", w = 70, h = 40 },
-		show_confirm = true,
-		theme = {
-			title = "blue",
-			header = "green",
-			header_warning = "yellow",
-			list_item = { odd = "blue", even = "blue" },
-		},
-	}),
+	require("recycle-bin"):setup(),
 	require("no-header"):setup(),
 	require("gvfs"):setup({
 		-- (Optional) Allowed keys to select device.
