@@ -228,6 +228,7 @@ return {
                 "missing-field",
                 "missing-parameter",
                 "undefined-global",
+                "undefined-field",
               },
               globals = {
                 "require",
