@@ -58,5 +58,10 @@ use = "uhs-robert/sshfs"
 rev = "1a466c8"
 hash = "216b0497421e49b7fda5f07d20435400"
 
+[[plugin.deps]]
+use = "yazi-rs/plugins:smart-enter"
+rev = "d1c8baa"
+hash = "56fdabc96fc1f4d53c96eb884b02a5be"
+
 [flavor]
 deps = []
