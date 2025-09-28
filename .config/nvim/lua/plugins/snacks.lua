@@ -106,9 +106,6 @@ return {
       enabled = true,
       timeout = 6000,
       style = "minimal", -- compact, fancy, minimal
-      wo = {
-        wrap = true,
-      },
     },
     picker = {
       ui_select = true, -- replace `vim.ui.select` with the snacks picker
@@ -289,7 +286,7 @@ return {
             cursor = false,
             edge = true,
             treesitter = { blocks = { enabled = false } },
-            desc = "jump to top edge of scope",
+            desc = "Jump to top edge of scope",
           },
           ["]i"] = {
             min_size = 1, -- allow single line scopes
@@ -297,7 +294,7 @@ return {
             cursor = false,
             edge = true,
             treesitter = { blocks = { enabled = false } },
-            desc = "jump to bottom edge of scope",
+            desc = "Jump to bottom edge of scope",
           },
         },
       },
@@ -319,6 +316,18 @@ return {
       refresh = 50, -- refresh at most every 50ms
     },
     styles = {
+      notification = {
+        border = "rounded",
+        zindex = 100,
+        ft = "markdown",
+        wo = {
+          winblend = 5,
+          wrap = true,
+          conceallevel = 2,
+          colorcolumn = "",
+        },
+        bo = { filetype = "snacks_notif" },
+      },
       snacks_image = {
         relative = "editor",
         col = -1,
