@@ -74,6 +74,9 @@ export BAT_STYLE="full"
 # Set neovim as manpager
 export MANPAGER="nvim +Man!"
 
+# Use QEMU/KVM without sudo permissions
+export LIBVIRT_DEFAULT_URI="qemu:///system"
+
 # History
 HISTFILE=~/.zsh_history
 HISTSIZE=1000000
