@@ -84,7 +84,12 @@ return {
         { section = "startup" },
       },
     },
-    animate = { enabled = true },
+    animate = {
+      enabled = true,
+      duration = 20, -- ms per step
+      easing = "linear",
+      fps = 60, -- frames per second. Global setting for all animations
+    },
     bigfile = { enabled = true },
     dim = { enabled = true },
     explorer = { enabled = true },
@@ -316,6 +321,12 @@ return {
       refresh = 50, -- refresh at most every 50ms
     },
     styles = {
+      blame_line = {
+        title_pos = "left",
+      },
+      input = {
+        title_pos = "left",
+      },
       notification = {
         border = "rounded",
         zindex = 100,
