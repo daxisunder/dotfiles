@@ -14,6 +14,11 @@ return {
         },
         use_treesitter = true,
         error_sign = true,
+        exclude_filetypes = {
+          aerial = true,
+          dashboard = true,
+          CopilotChat = true,
+        },
       },
       line_num = {
         enable = false,
