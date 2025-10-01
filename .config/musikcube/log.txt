@@ -1,49 +1,49 @@
-18:16:08 [info] [LOG SESSION] ---------- START ----------
-18:16:08 [info] [PluginFactory] loading plugins
-18:16:08 [info] [PluginFactory] loaded: /usr/share/musikcube/plugins/libstockencoders.so
-18:16:08 [info] [PluginFactory] loaded: /usr/share/musikcube/plugins/libtaglibreader.so
-18:16:08 [info] [PluginFactory] loaded: /usr/share/musikcube/plugins/libnullout.so
-18:16:08 [info] [PluginFactory] loaded: /usr/share/musikcube/plugins/libalsaout.so
-18:16:08 [info] [PluginFactory] loaded: /usr/share/musikcube/plugins/libffmpegdecoder.so
-18:16:08 [info] [PluginFactory] loaded: /usr/share/musikcube/plugins/libserver.so
-18:16:08 [info] [PluginFactory] loaded: /usr/share/musikcube/plugins/libportaudioout.so
-18:16:08 [info] [PluginFactory] loaded: /usr/share/musikcube/plugins/libmpris.so
-18:16:08 [info] [PluginFactory] loaded: /usr/share/musikcube/plugins/libsupereqdsp.so
-18:16:08 [info] [PluginFactory] loaded: /usr/share/musikcube/plugins/libhttpdatastream.so
-18:16:08 [info] [PluginFactory] loaded: /usr/share/musikcube/plugins/libpulseout.so
-18:16:08 [info] [PluginFactory] loaded: /usr/share/musikcube/plugins/libpipewireout.so
-18:16:08 [info] [PluginFactory] loaded: /usr/share/musikcube/plugins/libopenmptdecoder.so
-18:16:08 [info] [PluginFactory] loaded: /usr/share/musikcube/plugins/libgmedecoder.so
-18:16:08 [info] [LocalLibrary] query 'PersistedPlayQueueQuery' enqueued
-18:16:08 [info] [LocalLibrary] query 'PersistedPlayQueueQuery' running
-18:16:08 [info] [LocalLibrary] query 'PersistedPlayQueueQuery' finished with status=4
-18:16:08 [info] [LocalLibrary] query 'TrackMetadataQuery' enqueued
-18:16:08 [info] [LocalLibrary] query 'TrackMetadataQuery' running
-18:16:08 [info] [LocalLibrary] query 'TrackMetadataQuery' finished with status=4
-18:16:08 [info] [CrossfadeTransport] trying to play /home/daxis/Music/Brkovi/Brkovi-Nevjernica ( 128kbps ).mp3
-18:16:08 [info] [Indexer] indexer source 155697690 running...
-18:16:08 [info] [Indexer] indexer source 155697690 finished
-18:16:08 [info] [Indexer] indexer source -1303229654 running...
-18:16:08 [info] [Indexer] indexer source -1303229654 finished
-18:16:08 [info] [Indexer] scanning /home/daxis/Music/
-18:16:08 [info] [Indexer] scan completed successfully
-18:16:08 [info] [Indexer] cleanup 1/2
-18:16:08 [info] [Indexer] cleanup 2/2
-18:16:08 [info] [Indexer] optimizing
-18:16:08 [info] [PortAudioOut] Pa_Initialize() return code: 0
-18:16:08 [info] [PipeWireOut] shutdown started
-18:16:08 [info] [PipeWireOut] shutdown complete
-18:16:08 [warning] [PortAudioOut] Pa_AbortStream() return code: -9988
-18:16:08 [warning] [PortAudioOut] Pa_CloseStream() return code: -9988
-18:16:08 [info] [Indexer] done!
-18:16:08 [info] [PortAudioOut] Pa_Terminate() return code: 0
-18:16:08 [info] [Player] new instance created
-18:16:08 [info] [Stream] opening /home/daxis/Music/Brkovi/Brkovi-Nevjernica ( 128kbps ).mp3
-18:16:08 [info] [LocalFileStream] opening file: /home/daxis/Music/Brkovi/Brkovi-Nevjernica ( 128kbps ).mp3
-18:16:08 [info] [ffmpegdecoder] parsing data stream...
-18:16:08 [info] [LocalLibrary] query 'TrackMetadataQuery' enqueued
-18:16:08 [info] [LocalLibrary] query 'TrackMetadataQuery' running
-18:16:08 [info] [LocalLibrary] query 'TrackMetadataQuery' finished with status=4
-18:16:08 [info] [ffmpegdecoder] found audio stream!
-18:16:08 [info] [ffmpegdecoder] resolved codec: MP3 (MPEG audio layer 3)
-18:16:08 [info] [Streams] found a decoder for /home/daxis/Music/Brkovi/Brkovi-Nevjernica ( 128kbps ).mp3
+15:40:27 [info] [LOG SESSION] ---------- START ----------
+15:40:27 [info] [PluginFactory] loading plugins
+15:40:27 [info] [PluginFactory] loaded: /usr/share/musikcube/plugins/libstockencoders.so
+15:40:27 [info] [PluginFactory] loaded: /usr/share/musikcube/plugins/libtaglibreader.so
+15:40:27 [info] [PluginFactory] loaded: /usr/share/musikcube/plugins/libnullout.so
+15:40:27 [info] [PluginFactory] loaded: /usr/share/musikcube/plugins/libalsaout.so
+15:40:27 [info] [PluginFactory] loaded: /usr/share/musikcube/plugins/libffmpegdecoder.so
+15:40:27 [info] [PluginFactory] loaded: /usr/share/musikcube/plugins/libserver.so
+15:40:27 [info] [PluginFactory] loaded: /usr/share/musikcube/plugins/libportaudioout.so
+15:40:27 [info] [PluginFactory] loaded: /usr/share/musikcube/plugins/libmpris.so
+15:40:27 [info] [PluginFactory] loaded: /usr/share/musikcube/plugins/libsupereqdsp.so
+15:40:27 [info] [PluginFactory] loaded: /usr/share/musikcube/plugins/libhttpdatastream.so
+15:40:27 [info] [PluginFactory] loaded: /usr/share/musikcube/plugins/libpulseout.so
+15:40:27 [info] [PluginFactory] loaded: /usr/share/musikcube/plugins/libpipewireout.so
+15:40:27 [info] [PluginFactory] loaded: /usr/share/musikcube/plugins/libopenmptdecoder.so
+15:40:27 [info] [PluginFactory] loaded: /usr/share/musikcube/plugins/libgmedecoder.so
+15:40:27 [info] [LocalLibrary] query 'PersistedPlayQueueQuery' enqueued
+15:40:27 [info] [LocalLibrary] query 'PersistedPlayQueueQuery' running
+15:40:27 [info] [LocalLibrary] query 'PersistedPlayQueueQuery' finished with status=4
+15:40:27 [info] [Indexer] indexer source 155697690 running...
+15:40:27 [info] [LocalLibrary] query 'TrackMetadataQuery' enqueued
+15:40:27 [info] [LocalLibrary] query 'TrackMetadataQuery' running
+15:40:27 [info] [LocalLibrary] query 'TrackMetadataQuery' finished with status=4
+15:40:27 [info] [CrossfadeTransport] trying to play /home/daxis/Music/Brkovi/Brkovi-Nevjernica ( 128kbps ).mp3
+15:40:27 [info] [Indexer] indexer source 155697690 finished
+15:40:27 [info] [Indexer] indexer source -1303229654 running...
+15:40:27 [info] [Indexer] indexer source -1303229654 finished
+15:40:27 [info] [Indexer] scanning /home/daxis/Music/
+15:40:27 [info] [Indexer] scan completed successfully
+15:40:27 [info] [Indexer] cleanup 1/2
+15:40:27 [info] [Indexer] cleanup 2/2
+15:40:27 [info] [Indexer] optimizing
+15:40:27 [info] [PortAudioOut] Pa_Initialize() return code: 0
+15:40:27 [info] [PipeWireOut] shutdown started
+15:40:27 [info] [PipeWireOut] shutdown complete
+15:40:27 [warning] [PortAudioOut] Pa_AbortStream() return code: -9988
+15:40:27 [warning] [PortAudioOut] Pa_CloseStream() return code: -9988
+15:40:27 [info] [Indexer] done!
+15:40:27 [info] [PortAudioOut] Pa_Terminate() return code: 0
+15:40:27 [info] [Player] new instance created
+15:40:27 [info] [Stream] opening /home/daxis/Music/Brkovi/Brkovi-Nevjernica ( 128kbps ).mp3
+15:40:27 [info] [LocalFileStream] opening file: /home/daxis/Music/Brkovi/Brkovi-Nevjernica ( 128kbps ).mp3
+15:40:27 [info] [ffmpegdecoder] parsing data stream...
+15:40:27 [info] [LocalLibrary] query 'TrackMetadataQuery' enqueued
+15:40:27 [info] [LocalLibrary] query 'TrackMetadataQuery' running
+15:40:27 [info] [LocalLibrary] query 'TrackMetadataQuery' finished with status=4
+15:40:27 [info] [ffmpegdecoder] found audio stream!
+15:40:27 [info] [ffmpegdecoder] resolved codec: MP3 (MPEG audio layer 3)
+15:40:27 [info] [Streams] found a decoder for /home/daxis/Music/Brkovi/Brkovi-Nevjernica ( 128kbps ).mp3
