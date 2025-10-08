@@ -6,6 +6,7 @@ return {
     { "archie-judd/blink-cmp-words" },
     { "rafamadriz/friendly-snippets" },
     { "fang2hou/blink-copilot" },
+    { "joelazar/blink-calc" },
     {
       "saghen/blink.compat",
       optional = true, -- make optional so it's only enabled if any extras need it
@@ -257,6 +258,7 @@ return {
         "lazydev",
         "omni",
         "cmdline",
+        "calc",
       },
       per_filetype = {
         text = { "dictionary" },
@@ -404,6 +406,10 @@ return {
         },
         cmdline = {
           module = "blink.cmp.sources.cmdline",
+        },
+        calc = {
+          name = "Calc",
+          module = "blink-calc",
         },
       },
       compat = {},

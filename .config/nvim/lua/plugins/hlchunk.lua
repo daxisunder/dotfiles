@@ -1,5 +1,6 @@
 return {
   "shellRaining/hlchunk.nvim",
+  version = "*",
   event = { "BufReadPre", "BufNewFile" },
   config = function()
     require("hlchunk").setup({
@@ -17,7 +18,7 @@ return {
         exclude_filetypes = {
           aerial = true,
           dashboard = true,
-          CopilotChat = true,
+          help = true,
         },
       },
       line_num = {
