@@ -22,12 +22,15 @@ return {
       "c",
       "css",
       "diff",
+      "graphql",
       "html",
+      "http",
       "hyprlang",
       "javascript",
       "jsdoc",
       "json",
       "jsonc",
+      "kitty",
       "lua",
       "luadoc",
       "luap",
@@ -54,7 +57,6 @@ return {
   ---@param opts lazyvim.TSConfig
   config = function(_, opts)
     local TS = require("nvim-treesitter")
-
     -- some quick sanity checks
     if not TS.get_installed then
       return LazyVim.error("Please use `:Lazy` and update `nvim-treesitter`")
@@ -68,6 +70,7 @@ return {
     end
     -- setup treesitter
     TS.setup(opts)
+    LazyVim.treesitter.get_installed(true)
     -- install missing parsers
     local install = vim.tbl_filter(function(lang)
       return not LazyVim.treesitter.have(lang)

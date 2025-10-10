@@ -25,6 +25,7 @@ return {
   event = "LazyFile",
   opts = {
     servers = {
+      emmylua_ls = false,
       lspconfig.asm_lsp.setup({
         capabilities = capabilities,
         on_attach = on_attach,
@@ -114,25 +115,6 @@ return {
         end,
         single_file_support = true,
       }),
-      -- lspconfig.ltex.setup({
-      --   capabilities = capabilities,
-      --   cmd = { "ltex-ls" },
-      --   filetypes = { "latex", "tex", "org", "bib", "plaintex", "markdown", "mail", "text" },
-      --   root_dir = function(fname)
-      --     return vim.fn.fnamemodify(fname, ":h")
-      --   end,
-      --   settings = {
-      --     ltex = {
-      --       enabled = { "org", "markdown", "text", "plaintext", "tex" },
-      --       language = "en-US",
-      --       check_text = {
-      --         on_change = true,
-      --         on_open = false,
-      --         on_save = false,
-      --       },
-      --     },
-      --   },
-      -- }),
       lspconfig.textlsp.setup({
         capabilities = capabilities,
         on_attach = on_attach,
@@ -214,6 +196,16 @@ return {
             },
           })
         end,
+        root_markers = {
+          ".luarc.json",
+          ".luarc.jsonc",
+          ".luacheckrc",
+          ".stylua.toml",
+          "stylua.toml",
+          "selene.toml",
+          "selene.yml",
+          ".git",
+        },
         settings = {
           Lua = {
             hint = {
@@ -231,6 +223,7 @@ return {
                 "undefined-field",
               },
               globals = {
+                "vim",
                 "require",
                 "LazyVim",
               },
