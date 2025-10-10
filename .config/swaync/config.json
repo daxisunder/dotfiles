@@ -21,7 +21,7 @@
   "timeout-critical": 0,
   "fit-to-screen": false,
   "control-center-width": 400,
-  "control-center-height": 720,
+  "control-center-height": 960,
   "notification-window-width": 400,
   "keyboard-shortcuts": true,
   "image-visibility": "when-available",
@@ -51,10 +51,7 @@
       "max-lines": 1,
       "text": "Notification"
     },
-    "mpris": {
-      "image-size": 10,
-      "image-radius": 0
-    },
+    "mpris": {},
     "volume": {
       "label": "󰕾"
     },
