@@ -83,9 +83,6 @@ map({ "n", "x" }, "<leader>gY", function()
   })
 end, { desc = "Git Browse (copy)" })
 
--- smart-translate
-map({ "n", "v" }, "<leader>t", ":Translate<CR>", { desc = "Translate Text Under Cursor" })
-
 -- "<leader>'{char}" opens file containing mark upper{char}
 map("n", "<leader>'", function()
   local char = vim.fn.getcharstr(-1)
@@ -133,9 +130,6 @@ map("v", "<leader>xl", function()
   vim.fn.setloclist(0, loclist)
   vim.cmd("lopen")
 end, { desc = "Send Lines To Location List" })
-
--- carbon-now
-map("v", "<leader>cn", ":CarbonNow<CR>", { desc = "Code Snapshot From Selection" })
 
 -- delete all comments in the current buffer
 map("n", "<leader>cD", function()
