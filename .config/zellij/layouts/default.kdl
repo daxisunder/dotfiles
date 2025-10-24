@@ -10,7 +10,7 @@ layout {
                 format_center              "#[fg=bright_black]󰇘 #[fg=cyan]{session} #[fg=bright_black]󰇘"
                 format_right               "#[fg=bright_black]󰇘 {command_git_branch} #[fg=bright_black]󰇘 #[fg=blue]{datetime}"
                 format_space               "#[fg=yellow] "
-                hide_frame_for_single_pane "true"
+                hide_frame_for_single_pane "false"
                 border_enabled             "false"
                 mode_normal                "#[fg=yellow]NORMAL"
                 mode_locked                "#[fg=red]LOCKED"

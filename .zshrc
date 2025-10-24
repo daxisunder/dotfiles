@@ -103,6 +103,9 @@ setopt autocd                  # Change directory just by typing its name
 setopt prompt_subst            # Enable command substitution in prompt
 setopt interactive_comments    # Allow comments in interactive shell
 
+# Replace zsh's default readkey engine (ZLE to NEX)
+ZVM_READKEY_ENGINE=$ZVM_READKEY_ENGINE_NEX
+
 # Set comment color (zsh-syntax-highlighting)
 typeset -A ZSH_HIGHLIGHT_STYLES
 ZSH_HIGHLIGHT_STYLES[comment]="fg=#565f89"
@@ -244,9 +247,6 @@ plugins=(
     zsh-vi-mode
 )
 
-# Replace zsh's default readkey engine (ZLE to NEX)
-ZVM_READKEY_ENGINE=$ZVM_READKEY_ENGINE_NEX
-
 # Source Oh My Zsh
 source $ZSH/oh-my-zsh.sh
 
@@ -368,9 +368,6 @@ eval "$(zoxide init zsh)"
 # Zellij integration
 eval "$(zellij setup --generate-auto-start zsh)"
 
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-
 # Atuin integration (pretty history)
 . "$HOME/.atuin/bin/env"
 eval "$(atuin init zsh)"
@@ -423,3 +420,6 @@ eval "$(tv init zsh)"
 
 # Auto-start "zombie-zfetch"
 source $HOME/.config/zfetch/zfetchrc
+
+# To customize prompt, run `p10k configure` or edit ~/projects/dotfiles/.p10k.zsh.
+[[ ! -f ~/projects/dotfiles/.p10k.zsh ]] || source ~/projects/dotfiles/.p10k.zsh
