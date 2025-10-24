@@ -75,6 +75,11 @@ require("gvfs"):setup({
 	save_password_autoconfirm = false,
 })
 
+-- session (yank,cut,paste from one yazi instance to another)
+require("session"):setup({
+	sync_yanked = true,
+})
+
 -- require("githead"):setup({
 -- 	order = {
 -- 		"__spacer__",

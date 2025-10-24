@@ -540,7 +540,7 @@ desc = "Smart filter"
 
 # Smart paste
 [[mgr.prepend_keymap]]
-on = "p"
+on = "P"
 run = "plugin smart-paste"
 desc = "Paste into the hovered directory or CWD"
 
