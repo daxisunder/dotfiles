@@ -219,13 +219,13 @@ return {
               disable = {
                 "missing-field",
                 "missing-parameter",
-                "undefined-global",
                 "undefined-field",
+                "undefined-global",
               },
               globals = {
-                "vim",
                 "require",
                 "LazyVim",
+                "vim",
               },
               telemetry = {
                 enable = false,

@@ -6,6 +6,8 @@ return {
   priority = 1000,
   lazy = false,
   ---@type snacks.Config
+  ---@class snacks.Picker
+  ---@field [string] unknown
   opts = {
     dashboard = {
       width = 90,
@@ -143,6 +145,24 @@ return {
         explorer = {
           hidden = true,
           ignored = true,
+          actions = {
+            explorer_del = function(picker)
+              local _, res = pcall(function()
+                return vim.fn.confirm("Do you want to put files into trash?", "&Yes\n&No\n&Cancel", 1, "Question")
+              end)
+              if res ~= 1 then
+                return
+              end
+              for _, item in ipairs(picker:selected({ fallback = true })) do
+                vim.fn.jobstart("trash " .. item.file, {
+                  detach = true,
+                  on_exit = function()
+                    picker:update()
+                  end,
+                })
+              end
+            end,
+          },
         },
         git_diff = {
           layout = {
@@ -233,6 +253,77 @@ return {
           layout = {
             preset = "vscode",
           },
+        },
+        snippets = {
+          layout = {
+            preset = "vscode",
+          },
+          supports_live = false,
+          preview = "preview",
+          format = function(item, picker)
+            local name = Snacks.picker.util.align(item.name, picker.align_1 + 5)
+            return {
+              { name, item.ft == "" and "Conceal" or "DiagnosticWarn" },
+              { item.description },
+            }
+          end,
+          finder = function(_, ctx)
+            local snippets = {}
+            for _, snip in ipairs(require("luasnip").get_snippets().all) do
+              snip.ft = ""
+              table.insert(snippets, snip)
+            end
+            for _, snip in ipairs(require("luasnip").get_snippets(vim.bo.ft)) do
+              snip.ft = vim.bo.ft
+              table.insert(snippets, snip)
+            end
+            local align_1 = 0
+            for _, snip in pairs(snippets) do
+              align_1 = math.max(align_1, #snip.name)
+            end
+            ctx.picker.align_1 = align_1
+            local items = {}
+            for _, snip in pairs(snippets) do
+              local docstring = snip:get_docstring()
+              if type(docstring) == "table" then
+                docstring = table.concat(docstring)
+              end
+              local name = snip.name
+              local description = table.concat(snip.description)
+              description = name == description and "" or description
+              table.insert(items, {
+                text = name .. " " .. description, -- search string
+                name = name,
+                description = description,
+                trigger = snip.trigger,
+                ft = snip.ft,
+                preview = {
+                  ft = snip.ft,
+                  text = docstring,
+                },
+              })
+            end
+            return items
+          end,
+          confirm = function(picker, item)
+            picker:close()
+            --
+            local expand = {}
+            require("luasnip").available(function(snippet)
+              if snippet.trigger == item.trigger then
+                table.insert(expand, snippet)
+              end
+              return snippet
+            end)
+            if #expand > 0 then
+              vim.cmd(":startinsert!")
+              vim.defer_fn(function()
+                require("luasnip").snip_expand(expand[1])
+              end, 50)
+            else
+              Snacks.notify.warn("No snippet to expand")
+            end
+          end,
         },
         undo = {
           layout = {
@@ -325,6 +416,9 @@ return {
         title_pos = "left",
       },
       input = {
+        relative = "editor",
+        col = 1,
+        row = -1,
         title_pos = "left",
       },
       notification = {
@@ -343,7 +437,6 @@ return {
         relative = "editor",
         col = -1,
         width = 80,
-        height = 23,
       },
       zen = {
         enter = true,
