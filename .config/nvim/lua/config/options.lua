@@ -9,6 +9,7 @@ g.deprecation_warnings = false
 g.filetype_plugin_on = true
 g.filetype_indent_on = true
 g.filetype_syntax_on = true
+g.lazyvim_picker = "snacks"
 g.loaded_java_provider = 0
 g.loaded_javac_provider = 0
 g.loaded_julia_provider = 0

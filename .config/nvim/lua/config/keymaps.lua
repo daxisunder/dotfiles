@@ -9,7 +9,7 @@ local Snacks = require("snacks")
 map({ "n", "v" }, "<leader>fPb", ":Pick buffers<CR>", { desc = "Pick: Buffers" })
 map({ "n", "v" }, "<leader>fPB", ":Pick buf_lines<CR>", { desc = "Pick: Buffer Lines" })
 map({ "n", "v" }, "<leader>fPC", ":Pick cli<CR>", { desc = "Pick: CLI" })
-map({ "n", "v" }, "<leader>fPc", ":Pick commands<CR>", { desc = "Pick: Comands" })
+map({ "n", "v" }, "<leader>fPc", ":Pick commands<CR>", { desc = "Pick: Commands" })
 map({ "n", "v" }, "<leader>fPd", ":Pick diagnostic<CR>", { desc = "Pick: Diagnostics" })
 map({ "n", "v" }, "<leader>fPe", ":Pick explorer<CR>", { desc = "Pick: Explorer" })
 map({ "n", "v" }, "<leader>fPf", ":Pick files<CR>", { desc = "Pick: Files" })
@@ -20,7 +20,7 @@ map({ "n", "v" }, "<leader>fPgh", ":Pick git_hunks<CR>", { desc = "Pick: Git Hun
 map({ "n", "v" }, "<leader>fPGg", ":Pick grep<CR>", { desc = "Pick: Grep" })
 map({ "n", "v" }, "<leader>fPGl", ":Pick grep_live<CR>", { desc = "Pick: Grep Live" })
 map({ "n", "v" }, "<leader>fPhh", ":Pick help<CR>", { desc = "Pick: Help" })
-map({ "n", "v" }, "<leader>fPhp", ":Pick hipatterns<CR>", { desc = "Pick: Hipatterns" })
+map({ "n", "v" }, "<leader>fPhp", ":Pick hipatterns<CR>", { desc = "Pick: HIpatterns" })
 map({ "n", "v" }, "<leader>fPhH", ":Pick history<CR>", { desc = "Pick: History" })
 map({ "n", "v" }, "<leader>fPhg", ":Pick hl_groups<CR>", { desc = "Pick: Hl Groups" })
 map({ "n", "v" }, "<leader>fPk", ":Pick keymaps<CR>", { desc = "Pick: Keymaps" })
@@ -82,6 +82,11 @@ map({ "n", "x" }, "<leader>gY", function()
     notify = false,
   })
 end, { desc = "Git Browse (copy)" })
+
+-- snacks picker for snippets
+map("n", "<leader>fs", function()
+  Snacks.picker.snippets()
+end, { desc = "Find Snippet" })
 
 -- "<leader>'{char}" opens file containing mark upper{char}
 map("n", "<leader>'", function()
