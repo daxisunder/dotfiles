@@ -438,7 +438,7 @@ return {
         bo = { filetype = "snacks_notif" },
       },
       snacks_image = {
-        relative = "cursor",
+        relative = "editor",
         border = true,
         focusable = false,
         backdrop = false,
