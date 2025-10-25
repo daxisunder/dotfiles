@@ -97,17 +97,21 @@ return {
     explorer = { enabled = true },
     gitbrowse = { enabled = true },
     image = {
-      enabled = false,
+      enabled = true,
+      force = true, -- try displaying the image, even if the terminal does not support it
       doc = {
         inline = false,
         float = true,
-        max_width = 40,
-        max_height = 23,
+      },
+      cache = vim.fn.stdpath("cache") .. "/snacks/image",
+      icons = {
+        math = "󰪚 ",
+        chart = "󰄧 ",
+        image = " ",
       },
     },
     indent = { enabled = false },
     input = { enabled = true },
-    layout = { enabled = true },
     lazygit = { enabled = true },
     notifier = {
       enabled = true,
@@ -255,7 +259,7 @@ return {
           },
         },
         snippets = {
-          layout = {
+          layoiut = {
             preset = "vscode",
           },
           supports_live = false,
@@ -434,8 +438,13 @@ return {
         bo = { filetype = "snacks_notif" },
       },
       snacks_image = {
-        relative = "editor",
+        relative = "cursor",
+        border = true,
+        focusable = false,
+        backdrop = false,
+        row = 1,
         col = -1,
+        -- width/height are automatically set by the image size unless specified below
         width = 80,
       },
       zen = {
