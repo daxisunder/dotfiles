@@ -332,7 +332,7 @@
   //"format": "{:%I:%M %p}", // AM PM format
   "format": "{:%H:%M:%S}", // 24H
 	"format-alt": "{:%A, %B %d, %Y}",
-	"tooltip-format": "<span size='10pt' font='Monospace'>{calendar}</span>",
+	"tooltip-format": "<span size='10pt' font='Sans'>{calendar}</span>",
 	"calendar": {
 		"mode"          : "year",
 		"mode-mon-col"  : 3,
