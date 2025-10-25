@@ -319,6 +319,7 @@ alias fz="fzf --preview 'bat --color=always -n {}'"
 alias wcp='wl-color-picker'
 alias wcpc='wl-color-picker clipboard'
 alias gstat='/home/daxis/projects/dotfiles/scripts/Show-GitStatusBash.sh'
+alias zsh='nvim ~/.zshrc'
 
 # FZF integration + key bindings (CTRL R for fuzzy history finder)
 source <(fzf --zsh)
