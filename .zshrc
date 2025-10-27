@@ -381,7 +381,7 @@ export BAT_THEME="Dracula"
 eval "$(batman --export-env)"
 
 # Pay-respects (better command-not-found) integration
-eval "$(pay-respects zsh)"
+# eval "$(pay-respects zsh)"
 
 # Yazi integration
 function y() {
