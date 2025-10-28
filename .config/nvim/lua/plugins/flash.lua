@@ -6,6 +6,13 @@ return {
     {
       "folke/snacks.nvim",
       opts = {
+        modes = {
+          search = {
+            jump = {
+              autojump = false,
+            },
+          },
+        },
         picker = {
           win = {
             input = {
