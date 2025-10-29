@@ -22,9 +22,6 @@ export NODE_EXTRA_CA_CERTS="/etc/ssl/certs/ACCVRAIZ1.pem"
 # Emacs path
 export PATH="$HOME/.config/emacs/bin:$PATH"
 
-# OMZ path
-export ZSH="$HOME/.oh-my-zsh"
-
 # Source api keys (has to be sourced before zsh-ai gemini provider)
 source $HOME/projects/dotfiles/api.env
 
@@ -114,7 +111,7 @@ ZSH_HIGHLIGHT_STYLES[comment]="fg=#565f89"
 fpath+=~/.zfunc
 
 # Load completion engine
-autoload -Uz compinit
+autoload -Uz compinit; compinit
 
 for dump in ~/.config/zsh/zcompdump(N.mh+24); do
   compinit -d ~/.config/zsh/zcompdump
@@ -247,6 +244,9 @@ plugins=(
     zsh-vi-mode
 )
 
+# OMZ path
+export ZSH="$HOME/.oh-my-zsh"
+
 # Source Oh My Zsh
 source $ZSH/oh-my-zsh.sh
 
@@ -300,7 +300,7 @@ alias prq='sudo pacman -Rsn $(pacman -Qtdq)' # List & remove all unneeded depend
 alias unlock='sudo rm -f /var/lib/pacman/db.lck' # Unlock pacman
 alias ftldr='compgen -c | fzf | xargs tldr' # Search for man pages with tldr + fzf (print page to stdout)
 alias fman='compgen -c | fzf | xargs man' # Search for man pages with man + fzf (view page with $MANPAGER)
-alias src='source ~/.zshrc'
+alias src='source $HOME/.zshrc'
 alias ttc='tty-clock -C6 -c'
 alias expacs="expac -S '%r/%n: %D'" # List dependencies w/o additional info
 alias n='nvim'
@@ -425,4 +425,3 @@ source $HOME/.config/zfetch/zfetchrc
 # To customize prompt, run `p10k configure` or edit ~/projects/dotfiles/.p10k.zsh.
 [[ ! -f ~/projects/dotfiles/.p10k.zsh ]] || source ~/projects/dotfiles/.p10k.zsh
 
-fpath+=~/.zfunc; autoload -Uz compinit; compinit
