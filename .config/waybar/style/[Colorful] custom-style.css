@@ -154,7 +154,7 @@ window#waybar.empty #window {
   border: 2px solid #455a64;
   border-radius: 20px;
   padding-left: 14px;
-  padding-right: 14px;
+  padding-right: 13px;
   font-size: 125%;
 }
 
