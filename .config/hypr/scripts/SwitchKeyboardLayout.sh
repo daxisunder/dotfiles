@@ -1,25 +1,25 @@
 #!/usr/bin/env bash
-# This is for changing kb_layouts. Set kb_layouts in $settings_file
-
+# This script cycles through keyboard layouts defined in UserSettings.conf
 layout_f="$HOME/.cache/kb_layout"
 settings_file="$HOME/.config/hypr/UserConfigs/UserSettings.conf"
 notif="$HOME/.config/swaync/images/bell.png"
 
 echo "Starting script..."
 
-# Check if ~/.cache/kb_layout exists and create it with a default layout from Settings.conf if not found
+# Read current layout from cache
 if [ ! -f "$layout_f" ]; then
-  echo "Creating layout file as it does not exist..."
-  default_layout=$(grep 'kb_layout = ' "$settings_file" | cut -d '=' -f 2 | cut -d ',' -f 1 2>/dev/null)
-  if [ -z "$default_layout" ]; then
-    default_layout="us" # Default to 'us' layout if Settings.conf or 'kb_layout' is not found
-  fi
-  echo "$default_layout" >"$layout_f"
-  echo "Default layout set to $default_layout"
+  echo "Layout file does not exist. Creating it..."
+  # Use the first layout from settings as the initial layout
+  kb_layout_line=$(grep 'kb_layout = ' "$settings_file" | cut -d '=' -f 2)
+  IFS=',' read -ra layout_mapping <<<"$kb_layout_line"
+  current_layout="${layout_mapping[0]}"
+  echo "Initial layout set to $current_layout"
+  echo '<span foreground="#e0af68"></span> <span foreground="#9fe044">'"$current_layout"'</span>' >"$layout_f"
+else
+  # Extract current layout from markup
+  current_layout=$(cat "$layout_f" | sed -E 's/.*foreground="#9fe044">([^<]*)<\/span>.*/\1/')
+  echo "Current layout: $current_layout"
 fi
-
-current_layout=$(cat "$layout_f")
-echo "Current layout: $current_layout"
 
 # Read keyboard layout settings from Settings.conf
 if [ -f "$settings_file" ]; then
@@ -49,15 +49,14 @@ next_index=$(((current_index + 1) % layout_count))
 new_layout="${layout_mapping[next_index]}"
 echo "Next layout: $new_layout"
 
-# Created by T-Crypt
-
+# Function to get keyboard names
 get_keyboard_names() {
   hyprctl devices -j | jq -r '.keyboards[].name'
 }
 
+# Function to change layout
 change_layout() {
   local got_error=false
-
   while read -r name; do
     echo "Switching layout for $name to $new_layout..."
     hyprctl switchxkblayout "$name" "$new_layout"
@@ -68,23 +67,23 @@ change_layout() {
       got_error=true
     fi
   done <<<"$(get_keyboard_names)"
-
   if [ "$got_error" = true ]; then
     >&2 echo "Some errors were found during the process..."
     return 1
   fi
-
-  return 0 # All layouts had been cycled successfully
+  return 0
 }
 
+# Change layout
 if ! change_layout; then
   notify-send -u low -t 2000 'Keyboard layout' 'Error: Layout change failed'
   >&2 echo "Layout change failed."
   exit 1
 else
   # Notification for the new keyboard layout
-  notify-send -u low -i "$notif" "new KB_Layout: $new_layout"
+  notify-send -u low -i "$notif" "New KB_Layout: $new_layout"
   echo "Layout change notification sent."
 fi
 
-echo "$new_layout" >"$layout_f"
+# Write the new layout to the file with Pango markup
+echo '<span foreground="#e0af68"></span> <span foreground="#9fe044">'"$new_layout"'</span>' >"$layout_f"

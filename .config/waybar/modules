@@ -639,9 +639,9 @@
 	"tooltip-format": "Left Click: Quick Tips\nRight Click: Keybinds"
 },
 "custom/keyboard": {
-	"exec": "cat ~/.cache/kb_layout",
-	"interval": 1,
-	"format": " {}"
+    "exec": "cat ~/.cache/kb_layout",
+    "interval": 1,
+    "return-type": "markup"
 },
 "custom/light_dark": {
 	"format": "󰔎",
