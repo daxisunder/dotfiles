@@ -5,6 +5,9 @@
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 export PATH="/usr/bin:$PATH"
 
+# OMZ path
+export ZSH="$HOME/.oh-my-zsh"
+
 # Cargo path
 export PATH="$PATH:$HOME/.cargo/bin"
 
@@ -74,6 +77,9 @@ export MANPAGER="nvim +Man!"
 # Use QEMU/KVM without sudo permissions
 export LIBVIRT_DEFAULT_URI="qemu:///system"
 
+# Compilation flags
+export ARCHFLAGS="-arch $(uname -m)"
+
 # History
 HISTFILE=~/.zsh_history
 HISTSIZE=1000000
@@ -90,6 +96,7 @@ setopt hist_find_no_dups
 setopt no_case_glob            # Case insensitive autocompletions
 setopt no_case_match           # Case insensitive autocompletions
 setopt globdots                # Include dotfiles in globbing
+setopt extended_glob           # Advanced globbing patterns
 setopt auto_menu               # Automatically highlight first element of completion menu
 setopt menu_complete           # Use menu completion
 setopt list_packed             # The completion menu takes less space
@@ -99,6 +106,7 @@ setopt correct                 # Auto-corrections
 setopt autocd                  # Change directory just by typing its name
 setopt prompt_subst            # Enable command substitution in prompt
 setopt interactive_comments    # Allow comments in interactive shell
+setopt vi                      # Use vi keybindings
 
 # Replace zsh's default readkey engine (ZLE to NEX)
 ZVM_READKEY_ENGINE=$ZVM_READKEY_ENGINE_NEX
@@ -107,11 +115,8 @@ ZVM_READKEY_ENGINE=$ZVM_READKEY_ENGINE_NEX
 typeset -A ZSH_HIGHLIGHT_STYLES
 ZSH_HIGHLIGHT_STYLES[comment]="fg=#565f89"
 
-# Set rust completion
-fpath+=~/.zfunc
-
 # Load completion engine
-autoload -Uz compinit; compinit
+autoload -Uz compinit
 
 for dump in ~/.config/zsh/zcompdump(N.mh+24); do
   compinit -d ~/.config/zsh/zcompdump
@@ -234,18 +239,16 @@ plugins=(
     auto-notify
     colored-man-pages
     fancy-ctrl-z
+    git
     safe-paste
     sudo
     you-should-use
-    zsh-ai
+    # zsh-ai
     zsh-autopair
     zsh-autosuggestions
     zsh-syntax-highlighting
-    zsh-vi-mode
+    # zsh-vi-mode
 )
-
-# OMZ path
-export ZSH="$HOME/.oh-my-zsh"
 
 # Source Oh My Zsh
 source $ZSH/oh-my-zsh.sh
@@ -283,7 +286,7 @@ alias ysi='yay -Si'
 alias ysii='yay -Sii' # List reverse dependencies
 alias yrq='yay -Rsn $(yay -Qdtq)' # List & remove all unneeded dependencies
 alias yi="yay -Slq|fzf -m --preview 'bat --color=always <(yay -Qi {1}|grep -e \"Install Reason\";echo '') <(yay`` -Si {1}) <(yay -Fl {1}|awk \"{print \$2}\")' | xargs -ro yay -S"
-alias yu="yay -Qq|fzf -m --preview \"yay -Qil {}\" | xargs -ro yay -Rsn"
+alias yu="yay -Qq | fzf -m --preview 'bat --color=always <(yay -Qi {1}|grep -e \"Install Reason\"; echo '') <(yay`` -Qil {1}); echo \"Files:\"; yay -Ql {1} | awk \"{print \$2}\"' | xargs -ro yay -Rsn"
 alias psyu='sudo pacman -Syu'
 alias psyyu='sudo pacman -Syyu' # Update only standard packages
 alias prsn='sudo pacman -Rsn'
