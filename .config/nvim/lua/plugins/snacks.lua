@@ -168,6 +168,16 @@ return {
             end,
           },
         },
+        gh_issue = {
+          layout = {
+            preset = "ivy",
+          },
+        },
+        gh_pr = {
+          layout = {
+            preset = "ivy",
+          },
+        },
         git_diff = {
           layout = {
             preset = "ivy",

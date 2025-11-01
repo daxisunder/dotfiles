@@ -53,3 +53,5 @@
   colorMoved = default
   tool = delta
 
+[mergetool "nvimdiff"]
+	layout = LOCAL,BASE@,REMOTE

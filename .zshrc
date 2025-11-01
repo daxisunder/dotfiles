@@ -285,8 +285,8 @@ alias yqi='yay -Qi'
 alias ysi='yay -Si'
 alias ysii='yay -Sii' # List reverse dependencies
 alias yrq='yay -Rsn $(yay -Qdtq)' # List & remove all unneeded dependencies
-alias yi="yay -Slq|fzf -m --preview 'bat --color=always <(yay -Qi {1}|grep -e \"Install Reason\";echo '') <(yay`` -Si {1}) <(yay -Fl {1}|awk \"{print \$2}\")' | xargs -ro yay -S"
-alias yu="yay -Qq | fzf -m --preview 'bat --color=always <(yay -Qi {1}|grep -e \"Install Reason\"; echo '') <(yay`` -Qil {1}); echo \"Files:\"; yay -Ql {1} | awk \"{print \$2}\"' | xargs -ro yay -Rsn"
+alias yi="yay -Slq|fzf -m --preview 'bat --color=always <(yay -Qi {1}|grep -e \"Install Reason\";echo '') <(yay`` -Sii {1}) <(yay -Fl {1}|awk \"{print \$2}\")'|xargs -ro yay -S"
+alias yu="yay -Qq|fzf -m --preview 'bat --color=always <(yay -Qi {1}|grep -e \"Install Reason\";echo '') <(yay`` -Sii {1}) <(yay -Fl {1}|awk \"{print \$2}\")'|xargs -ro yay -Rsn"
 alias psyu='sudo pacman -Syu'
 alias psyyu='sudo pacman -Syyu' # Update only standard packages
 alias prsn='sudo pacman -Rsn'
