@@ -188,7 +188,22 @@ return {
             preset = "ivy",
           },
         },
+        git_log_file = {
+          layout = {
+            preset = "ivy",
+          },
+        },
         git_log_line = {
+          layout = {
+            preset = "ivy",
+          },
+        },
+        git_stash = {
+          layout = {
+            preset = "ivy",
+          },
+        },
+        git_status = {
           layout = {
             preset = "ivy",
           },
