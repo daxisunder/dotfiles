@@ -235,7 +235,6 @@ function extract {
 plugins=(
     auto-notify
     colored-man-pages
-    fancy-ctrl-z
     git
     safe-paste
     sudo
@@ -244,7 +243,6 @@ plugins=(
     zsh-autopair
     zsh-autosuggestions
     zsh-syntax-highlighting
-    # zsh-vi-mode
 )
 
 # Source Oh My Zsh
@@ -401,6 +399,19 @@ yazi_pick_path() {
 }
 zle -N yazi_pick_path
 bindkey '\ey' yazi_pick_path
+
+# Fancy-ctrl-z integration (CTRL Z to toggle between fg and bg)
+fancy-ctrl-z () {
+  if [[ $#BUFFER -eq 0 ]]; then
+    BUFFER="fg"
+    zle accept-line -w
+  else
+    zle push-input -w
+    zle clear-screen -w
+  fi
+}
+zle -N fancy-ctrl-z
+bindkey '^Z' fancy-ctrl-z
 
 # Carapace integration (argument completion)
 export CARAPACE_BRIDGES='zsh,fish,bash,inshellisense' # optional
