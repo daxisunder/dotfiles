@@ -114,18 +114,14 @@ ZSH_HIGHLIGHT_STYLES[comment]="fg=#565f89"
 
 # Load completion engine
 autoload -Uz compinit
-
 for dump in ~/.config/zsh/zcompdump(N.mh+24); do
   compinit -d ~/.config/zsh/zcompdump
 done
-
 compinit -C -d ~/.config/zsh/zcompdump
-
 autoload -Uz add-zsh-hook
 autoload -Uz vcs_info
 precmd () { vcs_info }
 _comp_options+=(globdots)
-
 zstyle ':completion:*' verbose true
 zstyle ':completion:*:*:*:*:*' menu select
 zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS} 'ma=0\;33'
@@ -147,17 +143,14 @@ zle -N expand-or-complete-with-dots
 bindkey "^I" expand-or-complete-with-dots
 
 # Set command not found handler (fetch pacman files database first with pacman -Fy)
-
 function command_not_found_handler {
-    local purple='\e[1;35m' bright='\e[0;1m' green='\e[1;32m' reset='\e[0m'
+    local purple=$'\e[1;35m' bright=$'\e[0;1m' green=$'\e[1;32m' reset=$'\e[0m'
     printf 'zsh: Command not found!: %s\n' "$1"
-
     local entries=(
         ${(f)"$(pacman -F --machinereadable -- "/usr/bin/$1")"}
     )
-
     if (( ${#entries[@]} )); then
-        printf "${bright}$1${reset} may be found in the following packages:\n"
+        printf "${bright}%s${reset} may be found in the following packages:\n" "$1"
         local pkg=""
         for entry in "${entries[@]}"; do
             local fields=(${(0)entry})
@@ -165,21 +158,18 @@ function command_not_found_handler {
                 printf "${purple}%s/${bright}%s ${green}%s${reset}\n" \
                     "${fields[1]}" "${fields[2]}" "${fields[3]}"
                 printf '    /%s\n' "${fields[4]}"
-                printf '    → Install with: %s\n' \
-                    "${green}sudo pacman -S ${fields[2]}${reset}" \
-                    "${green}yay -S ${fields[2]}${reset}"
+                printf '    → Install with: %s\n' "${green}sudo pacman -S ${fields[2]}${reset}"
+                printf '    → Install with: %s\n' "${green}yay -S ${fields[2]}${reset}"
                 pkg="${fields[2]}"
             fi
         done
     else
         printf "${bright}No package provides '/usr/bin/$1'.${reset}\n"
         printf "You may want to search the AUR manually:\n"
-        printf "    → ${green}yay -Ss $1${reset}\n"
+        printf "    → %syay -Ss $1%s\n" "$green" "$reset"
     fi
-
     return 127
 }
-
 
 # Archive extraction (usage: extract <file>)
 # Github: https://github.com/xvoland/Extract/blob/master/extract.sh
@@ -378,7 +368,7 @@ source /usr/share/wikiman/widgets/widget.zsh
 export BAT_THEME="Dracula"
 eval "$(batman --export-env)"
 
-# Pay-respects (better command-not-found) integration
+# Pay-respects ("better"" command-not-found) integration
 # eval "$(pay-respects zsh)"
 
 # Yazi integration
