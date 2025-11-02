@@ -26,6 +26,11 @@ return {
   opts = {
     servers = {
       emmylua_ls = false,
+      texlab = {
+        keys = {
+          { "<Leader>K", "<plug>(vimtex-doc-package)", desc = "Vimtex Docs", silent = true },
+        },
+      },
       lspconfig.asm_lsp.setup({
         capabilities = capabilities,
         on_attach = on_attach,

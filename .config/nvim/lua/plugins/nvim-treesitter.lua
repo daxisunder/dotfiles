@@ -21,6 +21,7 @@ return {
       "bash",
       "c",
       "css",
+      "dart",
       "diff",
       "graphql",
       "html",
