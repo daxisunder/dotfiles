@@ -108,9 +108,6 @@ setopt prompt_subst            # Enable command substitution in prompt
 setopt interactive_comments    # Allow comments in interactive shell
 setopt vi                      # Use vi keybindings
 
-# Replace zsh's default readkey engine (ZLE to NEX)
-ZVM_READKEY_ENGINE=$ZVM_READKEY_ENGINE_NEX
-
 # Set comment color (zsh-syntax-highlighting)
 typeset -A ZSH_HIGHLIGHT_STYLES
 ZSH_HIGHLIGHT_STYLES[comment]="fg=#565f89"
@@ -394,6 +391,16 @@ function y() {
 	[ -n "$cwd" ] && [ "$cwd" != "$PWD" ] && builtin cd -- "$cwd"
 	rm -f -- "$tmp"
 }
+
+# Yazi file picker integration (bind to ALT-Y)
+yazi_pick_path() {
+  local file=$(yazi --chooser-file=>(cat))
+  [[ -z "$file" ]] && zle redisplay && return
+  LBUFFER+="\"$file\""
+  zle redisplay
+}
+zle -N yazi_pick_path
+bindkey '\ey' yazi_pick_path
 
 # Carapace integration (argument completion)
 export CARAPACE_BRIDGES='zsh,fish,bash,inshellisense' # optional
