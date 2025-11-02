@@ -50,13 +50,13 @@ hash = "4351334ef72ea0fb3bbafc6eec8738cf"
 
 [[plugin.deps]]
 use = "uhs-robert/recycle-bin"
-rev = "03f6c4a"
-hash = "f14a951bf376d7fe73033c4a48aa5fa4"
+rev = "8bb6286"
+hash = "f8d05a771c1d18c87f5558cbd4ae27fa"
 
 [[plugin.deps]]
 use = "uhs-robert/sshfs"
-rev = "924f0eb"
-hash = "730c21c785d579a85be2ae34d9a316f1"
+rev = "2728b14"
+hash = "8ee736ae855ed80ae341136bb8fb353c"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:smart-enter"
