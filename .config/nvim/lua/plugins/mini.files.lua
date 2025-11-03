@@ -1,62 +1,9 @@
 return {
-  "nvim-mini/mini.nvim",
+  "nvim-mini/mini.files",
   version = false,
   event = "VeryLazy",
   config = function()
-    require("mini.animate").setup({
-      enabled = true,
-      cursor = {
-        enable = false,
-      },
-      scroll = {
-        enable = false,
-      },
-      resize = {
-        enable = true,
-      },
-      open = {
-        enable = true,
-      },
-      close = {
-        enable = true,
-      },
-    })
-    require("mini.basics").setup({
-      enabled = true,
-      options = {
-        basic = true,
-        extra_ui = true,
-        win_borders = "rounded",
-      },
-      mappings = {
-        basic = true,
-        option_toggle_prefix = [[\]],
-        windows = true,
-        move_with_alt = true,
-      },
-      autocommands = {
-        basic = true,
-        relnum_in_visual_mode = false,
-      },
-      silent = false,
-    })
-    require("mini.diff").setup({
-      enabled = true,
-      view = {
-        style = "sign",
-        signs = {
-          add = "+",
-          change = "o",
-          delete = "-",
-        },
-        priority = 199,
-      },
-    })
-    require("mini.extra").setup({
-      enabled = true,
-    })
     require("mini.files").setup({
-      enabled = true,
       options = {
         permanent_delete = false,
         use_as_default_explorer = true,
@@ -276,55 +223,6 @@ return {
           updateMiniWithGit(bufnr, gitStatusCache[cwd].statusMap)
         end
       end,
-    })
-    -- Temporarily remove vim.ui to prevent mini.pick from saving it
-    local ui_backup = vim.ui
-    vim.ui = {}
-    require("mini.pick").setup({
-      enabled = true,
-      window = {
-        config = {
-          border = "rounded",
-        },
-      },
-      mappings = {
-        caret_left = "<Left>",
-        caret_right = "<Right>",
-        choose = "<CR>",
-        choose_in_split = "<C-s>",
-        choose_in_tabpage = "<C-t>",
-        choose_in_vsplit = "<C-v>",
-        choose_marked = "<M-CR>",
-        delete_char = "<BS>",
-        delete_char_right = "<Del>",
-        delete_left = "<C-u>",
-        delete_word = "<C-w>",
-        mark = "<C-x>",
-        mark_all = "<C-a>",
-        move_down = "<C-n>",
-        move_start = "<C-g>",
-        move_up = "<C-p>",
-        paste = "<C-r>",
-        refine = "<C-Space>",
-        refine_marked = "<M-Space>",
-        scroll_down = "<C-f>",
-        scroll_left = "<C-h>",
-        scroll_right = "<C-l>",
-        scroll_up = "<C-b>",
-        stop = "<Esc>",
-        toggle_info = "<S-Tab>",
-        toggle_preview = "<Tab>",
-      },
-    })
-    -- Restore vim.ui (with snacks' vim.ui.select intact)
-    vim.ui = ui_backup
-    require("mini.splitjoin").setup({
-      enabled = true,
-      mappings = {
-        toggle = "gS",
-        split = "",
-        join = "",
-      },
     })
   end,
 }
