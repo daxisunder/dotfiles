@@ -12,15 +12,18 @@ export ZSH="$HOME/.oh-my-zsh"
 export PATH="$PATH:$HOME/.cargo/bin"
 
 # Created by `pipx` on 2025-02-10 20:34:32
-export PATH="$PATH:~/.local/bin"
+export PATH="$PATH:$HOME/.local/bin"
 
 # Ruby path
-export PATH="$PATH:~/.local/share/gem/ruby/3.3.0/bin"
+export PATH="$PATH:$HOME/.local/share/gem/ruby/3.3.0/bin"
 
 # Node path
 export PATH="$PATH:/usr/bin/node"
-export PATH="$PATH:~/node_modules/.bin"
+export PATH="$PATH:$HOME/node_modules/.bin"
 export NODE_EXTRA_CA_CERTS="/etc/ssl/certs/ACCVRAIZ1.pem"
+
+# Flutter path
+export PATH="$HOME/fvm/default/bin:$PATH"
 
 # Emacs path
 export PATH="$HOME/.config/emacs/bin:$PATH"
@@ -435,4 +438,10 @@ source $HOME/.config/zfetch/zfetchrc
 
 # To customize prompt, run `p10k configure` or edit ~/projects/dotfiles/.p10k.zsh.
 [[ ! -f ~/projects/dotfiles/.p10k.zsh ]] || source ~/projects/dotfiles/.p10k.zsh
+
+
+## [Completion]
+## Completion scripts setup. Remove the following line to uninstall
+[[ -f /home/daxis/.dart-cli-completion/zsh-config.zsh ]] && . /home/daxis/.dart-cli-completion/zsh-config.zsh || true
+## [/Completion]
 
