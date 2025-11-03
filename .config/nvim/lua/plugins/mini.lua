@@ -1,9 +1,62 @@
 return {
-  "nvim-mini/mini.files",
+  "nvim-mini/mini.nvim",
   version = false,
   event = "VeryLazy",
   config = function()
+    require("mini.animate").setup({
+      enabled = true,
+      cursor = {
+        enable = false,
+      },
+      scroll = {
+        enable = false,
+      },
+      resize = {
+        enable = true,
+      },
+      open = {
+        enable = true,
+      },
+      close = {
+        enable = true,
+      },
+    })
+    require("mini.basics").setup({
+      enabled = true,
+      options = {
+        basic = true,
+        extra_ui = true,
+        win_borders = "rounded",
+      },
+      mappings = {
+        basic = true,
+        option_toggle_prefix = [[\]],
+        windows = true,
+        move_with_alt = true,
+      },
+      autocommands = {
+        basic = true,
+        relnum_in_visual_mode = false,
+      },
+      silent = false,
+    })
+    require("mini.diff").setup({
+      enabled = true,
+      view = {
+        style = "sign",
+        signs = {
+          add = "+",
+          change = "o",
+          delete = "-",
+        },
+        priority = 199,
+      },
+    })
+    require("mini.extra").setup({
+      enabled = true,
+    })
     require("mini.files").setup({
+      enabled = true,
       options = {
         permanent_delete = false,
         use_as_default_explorer = true,
@@ -37,12 +90,10 @@ return {
     local _, MiniFiles = pcall(require, "mini.files")
     local gitStatusCache = {}
     local cacheTimeout = 2000 -- Cache timeout in milliseconds
-
     local function isSymlink(path)
       local stat = vim.loop.fs_lstat(path)
       return stat and stat.type == "link"
     end
-
     ---@type table<string, {symbol: string, hlGroup: string}>
     ---@param status string
     ---@return string symbol, string hlGroup
@@ -65,7 +116,6 @@ return {
         ["!!"] = { symbol = "!", hlGroup  = "MiniDiffSignChange"}, -- Ignored files
         -- stylua: ignore end
       }
-
       local result = statusMap[status] or { symbol = "?", hlGroup = "NonText" }
       local gitSymbol = result.symbol
       local gitHlGroup = result.hlGroup
@@ -74,7 +124,6 @@ return {
       local combinedHlGroup = is_symlink and "MiniDiffSignDelete" or gitHlGroup
       return combinedSymbol, combinedHlGroup
     end
-
     ---@param cwd string
     ---@param callback function
     ---@return nil
@@ -87,7 +136,6 @@ return {
       end
       vim.system({ "git", "status", "--ignored", "--porcelain" }, { text = true, cwd = cwd }, on_exit)
     end
-
     ---@param str string|nil
     ---@return string
     local function escapePattern(str)
@@ -96,7 +144,6 @@ return {
       end
       return (str:gsub("([%^%$%(%)%%%.%[%]%*%+%-%?])", "%%%1"))
     end
-
     ---@param buf_id integer
     ---@param gitStatusMap table
     ---@return nil
@@ -108,7 +155,6 @@ return {
         if vim.fn.has("win32") == 1 then
           escapedcwd = escapedcwd:gsub("\\", "/")
         end
-
         for i = 1, nlines do
           local entry = MiniFiles.get_fs_entry(buf_id, i)
           if not entry then
@@ -116,7 +162,6 @@ return {
           end
           local relativePath = entry.path:gsub("^" .. escapedcwd .. "/", "")
           local status = gitStatusMap[relativePath]
-
           if status then
             local is_symlink = isSymlink(entry.path)
             local symbol, hlGroup = mapSymbols(status, is_symlink)
@@ -149,7 +194,6 @@ return {
         end
       end)
     end
-
     ---@param content string
     ---@return table
     local function parseGitStatus(content)
@@ -178,7 +222,6 @@ return {
       end
       return gitStatusMap
     end
-
     ---@param buf_id integer
     ---@return nil
     local function updateGitStatus(buf_id)
@@ -186,7 +229,6 @@ return {
       if not cwd or not vim.fs.root(cwd, ".git") then
         return
       end
-
       local currentTime = os.time()
       if gitStatusCache[cwd] and currentTime - gitStatusCache[cwd].time < cacheTimeout then
         updateMiniWithGit(buf_id, gitStatusCache[cwd].statusMap)
@@ -201,16 +243,13 @@ return {
         end)
       end
     end
-
     ---@return nil
     local function clearCache()
       gitStatusCache = {}
     end
-
     local function augroup(name)
       return vim.api.nvim_create_augroup("MiniFiles_" .. name, { clear = true })
     end
-
     autocmd("User", {
       group = augroup("start"),
       pattern = "MiniFilesExplorerOpen",
@@ -220,7 +259,6 @@ return {
         updateGitStatus(bufnr)
       end,
     })
-
     autocmd("User", {
       group = augroup("close"),
       pattern = "MiniFilesExplorerClose",
@@ -228,7 +266,6 @@ return {
         clearCache()
       end,
     })
-
     autocmd("User", {
       group = augroup("update"),
       pattern = "MiniFilesBufferUpdate",
@@ -239,6 +276,55 @@ return {
           updateMiniWithGit(bufnr, gitStatusCache[cwd].statusMap)
         end
       end,
+    })
+    -- Temporarily remove vim.ui to prevent mini.pick from saving it
+    local ui_backup = vim.ui
+    vim.ui = {}
+    require("mini.pick").setup({
+      enabled = true,
+      window = {
+        config = {
+          border = "rounded",
+        },
+      },
+      mappings = {
+        caret_left = "<Left>",
+        caret_right = "<Right>",
+        choose = "<CR>",
+        choose_in_split = "<C-s>",
+        choose_in_tabpage = "<C-t>",
+        choose_in_vsplit = "<C-v>",
+        choose_marked = "<M-CR>",
+        delete_char = "<BS>",
+        delete_char_right = "<Del>",
+        delete_left = "<C-u>",
+        delete_word = "<C-w>",
+        mark = "<C-x>",
+        mark_all = "<C-a>",
+        move_down = "<C-n>",
+        move_start = "<C-g>",
+        move_up = "<C-p>",
+        paste = "<C-r>",
+        refine = "<C-Space>",
+        refine_marked = "<M-Space>",
+        scroll_down = "<C-f>",
+        scroll_left = "<C-h>",
+        scroll_right = "<C-l>",
+        scroll_up = "<C-b>",
+        stop = "<Esc>",
+        toggle_info = "<S-Tab>",
+        toggle_preview = "<Tab>",
+      },
+    })
+    -- Restore vim.ui (with snacks' vim.ui.select intact)
+    vim.ui = ui_backup
+    require("mini.splitjoin").setup({
+      enabled = true,
+      mappings = {
+        toggle = "gS",
+        split = "",
+        join = "",
+      },
     })
   end,
 }
