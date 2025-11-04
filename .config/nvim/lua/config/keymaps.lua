@@ -4,6 +4,15 @@
 
 local map = vim.keymap.set
 local Snacks = require("snacks")
+local Luasnip = require("luasnip")
+
+-- luasnip
+map({ "i", "s" }, "<Tab>", function()
+  Luasnip.jump(1)
+end, { silent = true })
+map({ "i", "s" }, "<S-Tab>", function()
+  Luasnip.jump(-1)
+end, { silent = true })
 
 -- mini.pick
 map({ "n", "v" }, "<leader>fPb", ":Pick buffers<CR>", { desc = "Pick: Buffers" })

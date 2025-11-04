@@ -49,11 +49,6 @@ rev = "6db0c60"
 hash = "4351334ef72ea0fb3bbafc6eec8738cf"
 
 [[plugin.deps]]
-use = "uhs-robert/recycle-bin"
-rev = "8bb6286"
-hash = "f8d05a771c1d18c87f5558cbd4ae27fa"
-
-[[plugin.deps]]
 use = "uhs-robert/sshfs"
 rev = "2728b14"
 hash = "8ee736ae855ed80ae341136bb8fb353c"
@@ -67,6 +62,11 @@ hash = "56fdabc96fc1f4d53c96eb884b02a5be"
 use = "yazi-rs/plugins:smart-paste"
 rev = "8f1d971"
 hash = "75fd60b2df7115e0a6ca31a6a804d320"
+
+[[plugin.deps]]
+use = "daxisunder/recycle-bin"
+rev = "bce0eb1"
+hash = "fc696aa2ff140e8d8ee1f490ca787bb0"
 
 [flavor]
 deps = []
