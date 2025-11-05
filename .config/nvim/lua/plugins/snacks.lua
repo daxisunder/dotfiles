@@ -541,7 +541,7 @@ return {
       function()
         Snacks.win({
           file = vim.api.nvim_get_runtime_file("doc/news.txt", false)[1],
-          width = 0.6,
+          width = 0.4,
           height = 0.6,
           wo = {
             spell = false,
