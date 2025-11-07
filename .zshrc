@@ -180,7 +180,7 @@ function command_not_found_handler {
     return 127
 }
 
-# Archive extraction (usage: extract <file>)
+# Archive extraction (usage: ex <file>)
 # Github: https://github.com/xvoland/Extract/blob/master/extract.sh
 function ex {
     if [ $# -eq 0 ]; then
