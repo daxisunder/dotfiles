@@ -64,6 +64,9 @@ fi
 # Set prompt
 ZSH_THEME="powerlevel10k/powerlevel10k"
 
+# To customize prompt, run `p10k configure` or edit ~/projects/dotfiles/.p10k.zsh.
+[[ ! -f ~/projects/dotfiles/.p10k.zsh ]] || source ~/projects/dotfiles/.p10k.zsh
+
 # Set editor
 export EDITOR="nvim"
 export SUDO_EDITOR="${EDITOR}"
@@ -136,6 +139,9 @@ zstyle ':completion:*:warnings' format "%B%F{red}No matches for:%f %F{magenta}%d
 zstyle ':completion:*:descriptions' format '%F{yellow}[-- %d --]%f'
 zstyle ':vcs_info:*' formats ' %B%s-[%F{magenta}%f %F{yellow}%b%f]-'
 
+## Dart completion scripts setup. Remove the following line to uninstall:
+[[ -f /home/daxis/.dart-cli-completion/zsh-config.zsh ]] && . /home/daxis/.dart-cli-completion/zsh-config.zsh || true
+
 # Set waiting dots
 expand-or-complete-with-dots() {
   echo -n "\e[31m…\e[0m"
@@ -176,11 +182,11 @@ function command_not_found_handler {
 
 # Archive extraction (usage: extract <file>)
 # Github: https://github.com/xvoland/Extract/blob/master/extract.sh
-function extract {
+function ex {
     if [ $# -eq 0 ]; then
         # display usage if no parameters given
-        echo "Usage: extract <path/file_name>.<zip|rar|bz2|gz|tar|tbz2|tgz|Z|7z|xz|ex|tar.bz2|tar.gz|tar.xz|.zlib|.cso|.zst>"
-        echo "       extract <path/file_name_1.ext> [path/file_name_2.ext] [path/file_name_3.ext]"
+        echo "Usage: ex <path/file_name>.<zip|rar|bz2|gz|tar|tbz2|tgz|Z|7z|xz|ex|tar.bz2|tar.gz|tar.xz|.zlib|.cso|.zst>"
+        echo "       ex <path/file_name_1.ext> [path/file_name_2.ext] [path/file_name_3.ext]"
     fi
     for n in "$@"; do
         if [ ! -f "$n" ]; then
@@ -217,7 +223,7 @@ function extract {
           *.tar.zst)   tar -I zstd -xvf "$n" ;;
           *.zst)       zstd -d "$n" ;;
           *)
-              echo "extract: '$n' - unknown archive method"
+              echo "ex: '$n' - unknown archive method"
               return 1
               ;;
         esac
@@ -274,7 +280,7 @@ alias ysi='yay -Si'
 alias ysii='yay -Sii' # List reverse dependencies
 alias yrq='yay -Rsn $(yay -Qdtq)' # List & remove all unneeded dependencies
 alias yi="yay -Slq|fzf -m --preview 'bat --color=always <(yay -Qi {1}|grep -e \"Install Reason\";echo '') <(yay`` -Sii {1}) <(yay -Fl {1}|awk \"{print \$2}\")'|xargs -ro yay -S"
-alias yu="yay -Qq|fzf -m --preview 'bat --color=always <(yay -Qi {1}|grep -e \"Install Reason\";echo '') <(yay`` -Sii {1}) <(yay -Fl {1}|awk \"{print \$2}\")'|xargs -ro yay -Rsn"
+alias yu="yay -Qq|fzf -m --preview 'bat --color=always <(yay -Qi {1}|grep -e \"Install Reason\";echo '') <(yay`` -Sii {1}) <(yay -Ql {1}|awk \"{print \$2}\")'|xargs -ro yay -Rsn"
 alias psyu='sudo pacman -Syu'
 alias psyyu='sudo pacman -Syyu' # Update only standard packages
 alias prsn='sudo pacman -Rsn'
@@ -436,12 +442,4 @@ eval "$(tv init zsh)"
 # Auto-start "zombie-zfetch"
 source $HOME/.config/zfetch/zfetchrc
 
-# To customize prompt, run `p10k configure` or edit ~/projects/dotfiles/.p10k.zsh.
-[[ ! -f ~/projects/dotfiles/.p10k.zsh ]] || source ~/projects/dotfiles/.p10k.zsh
-
-
-## [Completion]
-## Completion scripts setup. Remove the following line to uninstall
-[[ -f /home/daxis/.dart-cli-completion/zsh-config.zsh ]] && . /home/daxis/.dart-cli-completion/zsh-config.zsh || true
-## [/Completion]
 
