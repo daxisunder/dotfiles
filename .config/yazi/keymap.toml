@@ -219,44 +219,56 @@ keymap = [
   # Goto
   { on = [
     "g",
-    "h",
-  ], run = "cd ~", desc = "Goto $HOME" },
-  { on = [
-    "g",
-    "e",
-  ], run = 'cd /etc', desc = "Goto /etc" },
-  { on = [
-    "g",
     "c",
   ], run = "cd ~/.config", desc = "Goto ~/.config" },
-  { on = [
-    "g",
-    "D",
-  ], run = "cd ~/Downloads", desc = "Goto ~/Downloads" },
-  { on = [
-    "g",
-    "f",
-  ], run = "cd ~/Documents", desc = "Goto ~/Documents" },
-  { on = [
-    "g",
-    "P",
-  ], run = "cd ~/Pictures", desc = "Goto ~/Pictures" },
-  { on = [
-    "g",
-    "p",
-  ], run = "cd ~/projects", desc = "Goto ~/projects" },
   { on = [
     "g",
     "d",
   ], run = "cd ~/projects/dotfiles", desc = "Goto ~/projects/dotfiles" },
   { on = [
     "g",
-    "w",
-  ], run = "cd ~/projects/website", desc = "Goto ~/projects/website" },
+    "D",
+  ], run = "cd ~/Downloads", desc = "Goto ~/Downloads" },
+  { on = [
+    "g",
+    "e",
+  ], run = 'cd /etc', desc = "Goto /etc" },
+  { on = [
+    "g",
+    "f",
+  ], run = "cd ~/Documents", desc = "Goto ~/Documents" },
+  { on = [
+    "g",
+    "h",
+  ], run = "cd ~", desc = "Goto $HOME" },
+  { on = [
+    "g",
+    "l",
+  ], run = "cd ~/.local", desc = "Goto ~/.local" },
   { on = [
     "g",
     "n",
   ], run = "cd ~/projects/neovim", desc = "Goto ~/projects/neovim" },
+  { on = [
+    "g",
+    "p",
+  ], run = "cd ~/projects", desc = "Goto ~/projects" },
+  { on = [
+    "g",
+    "P",
+  ], run = "cd ~/Pictures", desc = "Goto ~/Pictures" },
+  { on = [
+    "g",
+    "u",
+  ], run = "cd /usr", desc = "Goto /usr" },
+  { on = [
+    "g",
+    "w",
+  ], run = "cd ~/projects/website", desc = "Goto ~/projects/website" },
+  { on = [
+    "g",
+    "/",
+  ], run = "cd /", desc = "Goto /" },
   { on = [
     "g",
     "<Space>",
