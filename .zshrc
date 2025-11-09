@@ -242,6 +242,7 @@ plugins=(
     zsh-autopair
     zsh-autosuggestions
     zsh-syntax-highlighting
+    zsh-system-clipboard
 )
 
 # Source Oh My Zsh
