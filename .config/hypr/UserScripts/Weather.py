@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/env python
 
 from pyquery import PyQuery  # install using `pip install pyquery`
 import json

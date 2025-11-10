@@ -2,9 +2,10 @@
 # To get a full list of options execute: pyradio -pc
 # or examine the file: /usr/lib/python3.13/site-packages/pyradio/config
 #
-enable_mouse = True
+enable_notifications = 0
+enable_clock = True
+time_format = 0
 theme = dracula_by_Plyply99
 use_transparency = True
 force_transparency = True
-enable_clock = False
-time_format = 0
+enable_mouse = True
