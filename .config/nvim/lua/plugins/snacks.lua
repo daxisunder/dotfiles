@@ -231,7 +231,7 @@ return {
         },
         highlights = {
           layout = {
-            preset = "ivy",
+            preset = "vscode",
           },
         },
         jumps = {
