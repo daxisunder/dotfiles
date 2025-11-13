@@ -280,6 +280,7 @@ alias yqi='yay -Qi'
 alias ysi='yay -Si'
 alias ysii='yay -Sii' # List reverse dependencies
 alias yrq='yay -Rsn $(yay -Qdtq)' # List & remove all unneeded dependencies
+alias ysc='yay -Sc' # Clean cached packages
 alias yi="yay -Slq|fzf -m --preview 'bat --color=always <(yay -Qi {1}|grep -e \"Install Reason\";echo '') <(yay`` -Sii {1}) <(yay -Fl {1}|awk \"{print \$2}\")'|xargs -ro yay -S"
 alias yu="yay -Qq|fzf -m --preview 'bat --color=always <(yay -Qi {1}|grep -e \"Install Reason\";echo '') <(yay`` -Sii {1}) <(yay -Ql {1}|awk \"{print \$2}\")'|xargs -ro yay -Rsn"
 alias psyu='sudo pacman -Syu'
@@ -295,6 +296,7 @@ alias pqi='pacman -Qi'
 alias psi='pacman -Si'
 alias psii='pacman -Sii' # List reverse dependencies
 alias prq='sudo pacman -Rsn $(pacman -Qtdq)' # List & remove all unneeded dependencies
+alias psc='sudo pacman -Sc' # Clean cached packages
 alias unlock='sudo rm -f /var/lib/pacman/db.lck' # Unlock pacman
 alias ftldr='compgen -c | fzf | xargs tldr' # Search for man pages with tldr + fzf (print page to stdout)
 alias fman='compgen -c | fzf | xargs man' # Search for man pages with man + fzf (view page with $MANPAGER)
