@@ -41,12 +41,12 @@
 }
 
 .close-button {
-  background: #f7768e;
+  background: @noti-border-color;
   color: @noti-bg;
   text-shadow: none;
   padding: 0;
   border-radius: 6px;
-  border: 1px solid @noti-border-color;
+  border: 1px solid #f7768e;
   margin-top: 10px;
   margin-right: 10px;
 }
