@@ -203,8 +203,8 @@ window#waybar.empty #window {
 
 #cpu {
   font-size: 125%;
-  padding-left: 8px;
-  padding-right: 3px;
+  padding-left: 6px;
+  padding-right: 4px;
   color: #ffffed;
   border-top: 2px solid #455a64;
   border-bottom: 2px solid #455a64;
@@ -212,13 +212,26 @@ window#waybar.empty #window {
   border-radius: 20px 0px 0px 20px;
 }
 
+#cpu:hover {
+  color: #00ffff;
+  border: 2px solid #7dcfff;
+  border-radius: 20px;
+}
+
 #memory {
   font-size: 125%;
   color: #ffffed;
-  padding-right: 8px;
+  padding-left: 6px;
+  padding-right: 10px;
   border-bottom: 2px solid #455a64;
   border-top: 2px solid #455a64;
   border-radius: 0px;
+}
+
+#memory:hover {
+  color: #00ffff;
+  border: 2px solid #7dcfff;
+  border-radius: 20px;
 }
 
 #temperature {
@@ -229,9 +242,21 @@ window#waybar.empty #window {
   border-radius: 0px;
 }
 
+#temperature:hover {
+  color: #00ffff;
+  border: 2px solid #7dcfff;
+  border-radius: 20px;
+}
+
+#temperature.critical {
+  color: #f7768e;
+  border: 2px solid #f7768e;
+  border-radius: 20px;
+}
+
 #disk {
   font-size: 125%;
-  padding-right: 14px;
+  padding-right: 12px;
   color: #ffffed;
   border-top: 2px solid #455a64;
   border-bottom: 2px solid #455a64;
@@ -239,8 +264,10 @@ window#waybar.empty #window {
   border-radius: 0px 20px 20px 0px;
 }
 
-#temperature.critical {
-  background-color: #f7768e;
+#disk:hover {
+  color: #00ffff;
+  border: 2px solid #7dcfff;
+  border-radius: 20px;
 }
 
 #tray > .passive {
