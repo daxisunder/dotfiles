@@ -532,12 +532,6 @@ desc = "Cancel input"
 on = "M"
 run = "plugin mount"
 
-# Chmod
-[[mgr.prepend_keymap]]
-on = ["c", "m"]
-run = "plugin chmod"
-desc = "Chmod on selected files"
-
 #Smart enter
 [[mgr.prepend_keymap]]
 on = "l"
@@ -558,19 +552,25 @@ desc = "Paste into the hovered directory or CWD"
 
 # Convert
 [[mgr.prepend_keymap]]
-on = ["c", "p"]
-run = "plugin convert -- --extension='png'"
-desc = "Convert selected files to PNG"
-
-[[mgr.prepend_keymap]]
 on = ["c", "j"]
 run = "plugin convert -- --extension='jpg'"
 desc = "Convert selected files to JPG"
 
 [[mgr.prepend_keymap]]
+on = ["c", "p"]
+run = "plugin convert -- --extension='png'"
+desc = "Convert selected files to PNG"
+
+[[mgr.prepend_keymap]]
 on = ["c", "w"]
 run = "plugin convert -- --extension='webp'"
 desc = "Convert selected files to WebP"
+
+# Chmod
+[[mgr.prepend_keymap]]
+on = ["c", "m"]
+run = "plugin chmod"
+desc = "Chmod on selected files"
 
 # GVFS
 [[mgr.prepend_keymap]]
