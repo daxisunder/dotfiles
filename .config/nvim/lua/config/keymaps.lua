@@ -6,6 +6,9 @@ local map = vim.keymap.set
 local Snacks = require("snacks")
 local Luasnip = require("luasnip")
 
+-- name a file without writing it out
+map("n", "<leader>F", ":file ", { desc = "File Name (Full Path)" })
+
 -- luasnip
 map({ "i", "s" }, "<Tab>", function()
   Luasnip.jump(1)
