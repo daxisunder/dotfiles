@@ -243,6 +243,7 @@ plugins=(
     zsh-autosuggestions
     zsh-syntax-highlighting
     zsh-system-clipboard
+    zsh-vi-man
 )
 
 # Source Oh My Zsh
