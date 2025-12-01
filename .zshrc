@@ -269,7 +269,7 @@ alias ping='ping -c 5'
 alias df='df -h'
 alias du='du -h'
 alias ysua='yay -Sua' # Update only AUR packages
-alias yd='yay --devel'
+alias yd='yay --devel && sudo flatpak update' # Update AUR/development packages + flatpaks
 alias yrsn='yay -Rsn'
 alias yrsu='yay -Rsu'
 alias yrsnu='yay -Rsnu'
@@ -284,7 +284,7 @@ alias yrq='yay -Rsn $(yay -Qdtq)' # List & remove all unneeded dependencies
 alias ysc='yay -Sc' # Clean cached packages
 alias yi="yay -Slq|fzf -m --preview 'bat --color=always <(yay -Qi {1}|grep -e \"Install Reason\";echo '') <(yay`` -Sii {1}) <(yay -Fl {1}|awk \"{print \$2}\")'|xargs -ro yay -S"
 alias yu="yay -Qq|fzf -m --preview 'bat --color=always <(yay -Qi {1}|grep -e \"Install Reason\";echo '') <(yay`` -Sii {1}) <(yay -Ql {1}|awk \"{print \$2}\")'|xargs -ro yay -Rsn"
-alias psyu='sudo pacman -Syu'
+alias psyu='sudo pacman -Syu && sudo flatpak update' # Update standard packages + flatpaks
 alias psyyu='sudo pacman -Syyu' # Update only standard packages
 alias prsn='sudo pacman -Rsn'
 alias prsu='sudo pacman -Rsu'
