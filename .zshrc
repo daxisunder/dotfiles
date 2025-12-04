@@ -28,6 +28,9 @@ export PATH="$HOME/fvm/default/bin:$PATH"
 # Emacs path
 export PATH="$HOME/.config/emacs/bin:$PATH"
 
+# Flatpak exports path
+export PATH="$PATH:/var/lib/flatpak/exports/share"
+
 # Source api keys (has to be sourced before zsh-ai gemini provider)
 source $HOME/projects/dotfiles/api.env
 
