@@ -172,6 +172,7 @@ return {
     cmdline = {
       keymap = {
         preset = "inherit",
+        ["<CR>"] = { "accept_and_enter", "fallback" },
       },
       enabled = true,
       sources = function()
@@ -406,6 +407,12 @@ return {
         },
         cmdline = {
           module = "blink.cmp.sources.cmdline",
+          min_keyword_length = function(ctx)
+            if ctx.mode == "cmdline" and string.find(ctx.line, " ") == nil then
+              return 3
+            end
+            return 0
+          end,
         },
         calc = {
           name = "Calc",
