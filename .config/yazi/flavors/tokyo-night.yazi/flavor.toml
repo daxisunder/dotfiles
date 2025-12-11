@@ -1,36 +1,41 @@
-[mgr]
-# NOTE: can combined with tmTheme (sublime colorshceme file) for preview code highlight
-highlight = "~/.config/yazi/flavors/tokyo-night.yazi/tmtheme.xml"
+[app]
+overall = {}
 
+
+[mgr]
 cwd = { fg = "#a9b1d6", bg = "#292e42" }
 
-# Hovered
-hovered = { fg = "#9fe044", bg = "#292e42" }
-preview_hovered = { fg = "#0db9d7", bg = "#292e42" }
-
-# Find
 find_keyword = { fg = "#16161e", bg = "#ff9e64", bold = true }
 find_position = { fg = "#0db9d7", bg = "#192b38", bold = true }
 
-# Marker
+symlynk_target = { italic = true }
+
 marker_copied = { fg = "#73daca", bg = "#73daca" }
 marker_cut = { fg = "#f7768e", bg = "#f7768e" }
 marker_marked = { fg = "#bb9af7", bg = "#bb9af7" }
 marker_selected = { fg = "#7aa2f7", bg = "#7aa2f7" }
 
-# Tab
-tab_active = { fg = "#c0caf5", bg = "#292e42" }
-tab_inactive = { fg = "#3b4261", bg = "#1a1b26" }
-tab_width = 1
-
-# Count
 count_copied = { fg = "#c0caf5", bg = "#41a6b5" }
 count_cut = { fg = "#c0caf5", bg = "#db4b4b" }
 count_selected = { fg = "#c0caf5", bg = "#3d59a1" }
 
-# Border
 border_symbol = "│"
 border_style = { fg = "#1a1b26" }
+
+syntect_theme = "~/.config/yazi/flavors/tokyo-night.yazi/tmtheme.xml"
+
+[tabs]
+active = { fg = "#c0caf5", bg = "#292e42" }
+inactive = { fg = "#3b4261", bg = "#1a1b26" }
+
+sep_inner = { open = " ", close = " " }
+sep_outer = { open = " ", close = " " }
+
+[indicator]
+parrent = { fg = "#9fe044", bg = "#292e42" }
+current = { fg = "#9fe044", bg = "#292e42" }
+preview = { fg = "#0db9d7", bg = "#292e42", underline = false }
+padding = { open = " ", close = " " }
 
 [status]
 separator_open = "│"

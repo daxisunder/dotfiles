@@ -324,6 +324,7 @@ alias wcp='wl-color-picker'
 alias wcpc='wl-color-picker clipboard'
 alias gstat='$HOME/projects/dotfiles/scripts/Show-GitStatusBash.sh'
 alias zsh='nvim .zshrc'
+alias nls='nuls -lag'
 
 # FZF integration + key bindings (CTRL R for fuzzy history finder)
 source <(fzf --zsh)

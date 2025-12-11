@@ -1,6 +1,6 @@
 [[plugin.deps]]
 use = "yazi-rs/plugins:full-border"
-rev = "2301ff8"
+rev = "19dc890"
 hash = "3996fc74044bc44144b323686f887e1"
 
 [[plugin.deps]]
@@ -15,27 +15,27 @@ hash = "10c3bc6cd6f3223e18f2483320a9e24a"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:git"
-rev = "2301ff8"
+rev = "19dc890"
 hash = "94081eed9bc9fe176715c33b0db55d35"
 
 [[plugin.deps]]
 use = "boydaihungst/file-extra-metadata"
-rev = "b052d54"
-hash = "4be2c03287112bb645199c4331b746cc"
+rev = "524fd8e"
+hash = "c9c959f0472c9a70b8af6fcf657c7ca1"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:mount"
-rev = "2301ff8"
+rev = "19dc890"
 hash = "4fccaaf10c36dc2466e2438a386ff017"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:chmod"
-rev = "2301ff8"
-hash = "8ad3e90b079190b4905f24a44f4ca06b"
+rev = "19dc890"
+hash = "5b2eb0cc2050cec1e4de83cfa51a5b90"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:smart-filter"
-rev = "2301ff8"
+rev = "19dc890"
 hash = "bcda8eeb3f4013bae156aecabfc745e8"
 
 [[plugin.deps]]
@@ -45,22 +45,22 @@ hash = "6f61a6c119bd550c3c56f292b5e20ec7"
 
 [[plugin.deps]]
 use = "boydaihungst/gvfs"
-rev = "6db0c60"
-hash = "4351334ef72ea0fb3bbafc6eec8738cf"
+rev = "d4b8d83"
+hash = "8767b5484bc3e8fc23796b91e0a102b2"
 
 [[plugin.deps]]
 use = "uhs-robert/sshfs"
-rev = "ea0b089"
-hash = "14c5b354b75e954a0b18a7e0706ac5f9"
+rev = "75a025c"
+hash = "e1cebecfee70daef1f97aa083209340c"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:smart-enter"
-rev = "2301ff8"
+rev = "19dc890"
 hash = "56fdabc96fc1f4d53c96eb884b02a5be"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:smart-paste"
-rev = "2301ff8"
+rev = "19dc890"
 hash = "75fd60b2df7115e0a6ca31a6a804d320"
 
 [[plugin.deps]]
