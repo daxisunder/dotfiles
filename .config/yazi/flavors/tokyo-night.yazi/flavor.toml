@@ -32,7 +32,7 @@ sep_inner = { open = " ", close = " " }
 sep_outer = { open = " ", close = " " }
 
 [indicator]
-parrent = { fg = "#9fe044", bg = "#292e42" }
+parrent = { fg = "#a9b1d6", bg = "#292e42" }
 current = { fg = "#9fe044", bg = "#292e42" }
 preview = { fg = "#0db9d7", bg = "#292e42", underline = false }
 padding = { open = " ", close = " " }
@@ -107,7 +107,6 @@ hovered = { bg = "#283457" }
 footer = { fg = "#c0caf5", bg = "#1a1b26" }
 
 [filetype]
-
 rules = [
   # Images
   { mime = "image/*", fg = "#e0af68" },
