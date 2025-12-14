@@ -44,6 +44,9 @@ return {
           bg = c.bg,
           fg = c.bg_dark1,
         }
+        hl.BlinkCmpGhostText = {
+          fg = c.bg_dark1,
+        }
         hl.BlinkCmpMenuBorder = {
           bg = c.bg,
           fg = c.bg_dark1,
