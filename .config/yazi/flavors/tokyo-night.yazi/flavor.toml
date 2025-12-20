@@ -107,6 +107,7 @@ hovered = { bg = "#283457" }
 footer = { fg = "#c0caf5", bg = "#1a1b26" }
 
 [filetype]
+
 rules = [
   # Images
   { mime = "image/*", fg = "#e0af68" },
