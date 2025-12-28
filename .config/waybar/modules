@@ -524,7 +524,7 @@
   }
 },
 "pulseaudio": {
-	"format": "{icon}{volume}%",
+	"format": "<span color='#7dcfff'> </span>{volume}%",
 	"format-bluetooth": "{icon} 󰂰 {volume}%",
 	"format-muted": "󰖁 {volume}%",
 	"format-icons": {
@@ -535,7 +535,7 @@
 		"portable": "",
 		"car": "",
 		"default": [
-			"", "", "󰕾",  ""
+			"", "", "󰕾", ""
 		],
 		"ignored-sinks": [
 			"Easy Effects Sink"

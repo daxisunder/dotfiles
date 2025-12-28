@@ -284,6 +284,11 @@ return {
             preset = "vscode",
           },
         },
+        qflist = {
+          layout = {
+            preset = "ivy",
+          },
+        },
         registers = {
           layout = {
             preset = "vscode",
@@ -300,8 +305,8 @@ return {
           },
         },
         snippets = {
-          layoiut = {
-            preset = "vscode",
+          layout = {
+            preset = "ivy",
           },
           supports_live = false,
           preview = "preview",
@@ -370,17 +375,12 @@ return {
             end
           end,
         },
-        undo = {
-          layout = {
-            preset = "ivy",
-          },
-        },
         todo_comments = {
           layout = {
             preset = "ivy",
           },
         },
-        qflist = {
+        undo = {
           layout = {
             preset = "ivy",
           },
@@ -508,7 +508,7 @@ return {
     terminal = {
       win = {
         relative = "editor",
-        position = "float",
+        position = "bottom",
         style = "minimal",
         border = "rounded",
       },

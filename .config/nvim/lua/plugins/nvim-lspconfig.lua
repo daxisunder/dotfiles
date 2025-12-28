@@ -490,6 +490,22 @@ return {
         -- `settings` section is optional
         settings = { format = {}, lint = {} },
       }),
+      lspconfig.nim_langserver.setup({
+        capabilities = capabilities,
+        on_attach = on_attach,
+        cmd = { "nimlangserver" },
+        filetypes = { "nim" },
+        root_dir = function(fname)
+          return util.root_pattern("*.nimble")(fname)
+            or vim.fs.dirname(vim.fs.find(".git", { path = fname, upward = true })[1])
+        end,
+        single_file_support = true,
+        settings = {
+          nim = {
+            nimsuggestPath = vim.fn.expand("~/.nimble/bin/custom_lang_server_build"),
+          },
+        },
+      }),
     },
   },
 }
