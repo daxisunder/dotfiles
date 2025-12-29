@@ -1,5 +1,3 @@
---- @since 25.5.31
-
 local WINDOWS = ya.target_family() == "windows"
 
 -- The code of supported git status,
@@ -189,6 +187,11 @@ local function setup(st, opts)
 	}
 
 	Linemode:children_add(function(self)
+		-- TODO: use `not self._file.in_current` instead
+		if self._file.in_current == false then
+			return ""
+		end
+
 		local url = self._file.url
 		local repo = st.dirs[tostring(url.base or url.parent)]
 		local code
