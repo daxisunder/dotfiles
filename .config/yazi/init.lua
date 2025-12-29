@@ -47,10 +47,14 @@ end, 500, Status.RIGHT)
 
 -- signs for git.yazi
 th.git = th.git or {}
-th.git.added_sign = "+"
-th.git.modified_sign = "o"
-th.git.deleted_sign = "-"
-require("git"):setup()
+th.git.added_sign = "A"
+th.git.modified_sign = "M"
+th.git.deleted_sign = "D"
+th.git.untracked_sign = "U"
+th.git.ignored_sign = "I"
+require("git"):setup({
+	order = 500,
+})
 
 require("recycle-bin"):setup()
 
