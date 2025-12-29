@@ -465,6 +465,9 @@ return {
         col = 1,
         row = -1,
         title_pos = "left",
+        b = {
+          completion = true,
+        },
       },
       notification = {
         border = "rounded",
@@ -509,7 +512,7 @@ return {
       win = {
         relative = "editor",
         position = "bottom",
-        style = "minimal",
+        style = "terminal",
         border = "rounded",
       },
     },
