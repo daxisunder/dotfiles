@@ -99,7 +99,7 @@ window#waybar.empty #window {
 }
 
 #workspaces button.empty {
-  color: #ffffed;
+  color: #ffffff;
 }
 
 #workspaces button.active {
@@ -115,6 +115,7 @@ window#waybar.empty #window {
 }
 
 #workspaces button:hover {
+  color: #0fff80;
   border: 2px solid #7dcfff;
   border-radius: 16px;
 }
