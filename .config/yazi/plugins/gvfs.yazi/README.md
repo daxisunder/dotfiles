@@ -87,7 +87,7 @@ https://github.com/user-attachments/assets/fb74a710-5f05-4bf4-b95f-10f40583c5a0
 ya pkg add boydaihungst/gvfs
 ```
 
-Modify your `~/.config/yazi/init.lua` to include:
+Modify your `~/.config/yazi/init.lua` to include (`setup` function is required):
 
 ```lua
 require("gvfs"):setup({
@@ -236,7 +236,7 @@ Especially when you use `Google-drive` or `One-drive`.
 
 > [!IMPORTANT]
 >
-> For yazi nightly replace `name` with `url`
+> For yazi (>=v25.12.29) replace `name` with `url`
 
 ```toml
 [plugin]
