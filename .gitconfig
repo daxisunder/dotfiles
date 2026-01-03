@@ -11,6 +11,7 @@
 
 [apply]
   whitespace = fix
+
 [grep]
   lineNumber = true
 
@@ -55,3 +56,6 @@
 
 [mergetool "nvimdiff"]
 	layout = LOCAL,BASE@,REMOTE
+
+[pull]
+	rebase = false
