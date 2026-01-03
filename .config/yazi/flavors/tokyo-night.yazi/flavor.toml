@@ -42,7 +42,7 @@ unset_alt = { fg = "#56565e", bg = "#9d7cd8", bold = true }
 parrent = { fg = "#a9b1d6", bg = "#292e42" }
 current = { fg = "#9fe044", bg = "#292e42" }
 preview = { fg = "#0db9d7", bg = "#292e42", underline = false }
-padding = { open = "", close = "" }
+padding = { open = "█", close = "█"} 
 
 [status]
 overall = {}
