@@ -46,24 +46,24 @@ return {
         on_attach = on_attach,
         cmd = { "vscode-json-language-server", "--stdio" },
         filetypes = { "json", "jsonc" },
+        single_file_support = true,
         root_dir = function(fname)
           return vim.fs.dirname(vim.fs.find(".git", { path = fname, upward = true })[1])
         end,
         init_options = {
           provideFormatter = true,
         },
-        single_file_support = true,
       }),
       lspconfig.ruby_lsp.setup({
         capabilities = capabilities,
         on_attach = on_attach,
         cmd = { "ruby-lsp" },
         filetypes = { "ruby", "eruby" },
+        single_file_support = true,
         root_dir = util.root_pattern("Gemfile", ".git"),
         init_options = {
           formatter = "auto",
         },
-        single_file_support = true,
       }),
       lspconfig.rubocop.setup({
         capabilities = capabilities,
@@ -105,30 +105,30 @@ return {
           },
         },
         filetypes = { "perl" },
+        single_file_support = true,
         root_dir = function(fname)
           return vim.fs.dirname(vim.fs.find(".git", { path = fname, upward = true })[1])
         end,
-        single_file_support = true,
       }),
       lspconfig.hyprls.setup({
         capabilities = capabilities,
         on_attach = on_attach,
         cmd = { "hyprls", "--stdio" },
         filetypes = { "hyprlang" },
+        single_file_support = true,
         root_dir = function(fname)
           return vim.fs.dirname(vim.fs.find(".git", { path = fname, upward = true })[1])
         end,
-        single_file_support = true,
       }),
       lspconfig.textlsp.setup({
         capabilities = capabilities,
         on_attach = on_attach,
         cmd = { "textlsp" },
         filetypes = { "text", "tex", "org", "markdown" },
+        single_file_support = true,
         root_dir = function(fname)
           return vim.fs.dirname(vim.fs.find(".git", { path = fname, upward = true })[1])
         end,
-        single_file_support = true,
         settings = {
           textLSP = {
             analysers = {
@@ -309,10 +309,10 @@ return {
           },
         },
         filetypes = { "bash", "sh" },
+        single_file_support = true,
         root_dir = function(fname)
           return vim.fs.dirname(vim.fs.find(".git", { path = fname, upward = true })[1])
         end,
-        single_file_support = true,
       }),
       lspconfig.cssls.setup({
         capabilities = capabilities,
