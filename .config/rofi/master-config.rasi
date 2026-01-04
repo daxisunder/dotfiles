@@ -3,7 +3,6 @@
 /* ---- Configuration ---- */
 
 configuration {
-	font:					            	"zai Courier Polski 1941 24";
 	modi:                       "drun,run,filebrowser";
     show-icons:                 true;
     display-drun:               "Apps";
@@ -23,12 +22,13 @@ configuration {
 
 /* ---- Global Properties ---- */
 * {
-
+	  font:					            	"zai Courier Polski 1941 24";
+    background:                  @selected-normal-background;
     background-alt:              @selected-active-background; // Buttons background
+    foreground:                  @foreground;
     selected:                    @selected-urgent-background; // Button selected
     active:                      @selected-normal-background; // Window activated
     urgent:                      @selected; // When hovering the activated window (maybe more?)
-
     text-selected:               @background;
     text-color:                  @foreground;
     border-color:                @selected;
