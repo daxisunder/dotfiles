@@ -89,6 +89,9 @@ export LIBVIRT_DEFAULT_URI="qemu:///system"
 # Compilation flags
 export ARCHFLAGS="-arch $(uname -m)"
 
+# Kitty default terminal
+export TERM="xterm-kitty"
+
 # History
 HISTFILE=~/.zsh_history
 HISTSIZE=1000000
