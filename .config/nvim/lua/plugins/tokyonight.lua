@@ -123,6 +123,7 @@ return {
           fg = c.bg,
         }
         hl.SnacksIndentScope = {
+          bg = c.bg,
           fg = c.cyan,
         }
         hl.SnacksInputBorder = {

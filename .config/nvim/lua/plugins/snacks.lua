@@ -136,10 +136,15 @@ return {
     },
     indent = {
       indent = {
-        enabled = true,
+        enabled = false,
+      },
+      scope = {
+        enabled = false,
+        hl = "SnacksIndentScope",
       },
       chunk = {
-        enabled = true,
+        enabled = false,
+        hl = "SnacksIndentScope",
         char = {
           horizontal = "─",
           vertical = "│",
