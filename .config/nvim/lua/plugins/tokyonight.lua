@@ -119,6 +119,12 @@ return {
         hl.PmenuThumb = {
           bg = c.bg_dark1,
         }
+        hl.SnacksIndent = {
+          fg = c.bg,
+        }
+        hl.SnacksIndentScope = {
+          fg = c.cyan,
+        }
         hl.SnacksInputBorder = {
           bg = c.bg,
           fg = c.bg_dark1,
