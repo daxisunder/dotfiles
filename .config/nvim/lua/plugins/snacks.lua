@@ -498,14 +498,11 @@ return {
       refresh = 50, -- refresh at most every 50ms
     },
     styles = {
-      blame_line = {
-        title_pos = "left",
-      },
+      blame_line = {},
       input = {
         relative = "editor",
         col = 1,
         row = -1,
-        title_pos = "left",
         b = {
           completion = true,
         },

@@ -7,7 +7,7 @@ return {
       chunk = {
         enable = true,
         style = {
-          "#c0caf5",
+          "#455a64",
           "#ff899d",
         },
         chars = {

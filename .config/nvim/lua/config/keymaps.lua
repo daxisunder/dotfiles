@@ -37,6 +37,10 @@ map({ "n", "v" }, "<leader>fPhH", ":Pick history<CR>", { desc = "Pick: History" 
 map({ "n", "v" }, "<leader>fPhg", ":Pick hl_groups<CR>", { desc = "Pick: Hl Groups" })
 map({ "n", "v" }, "<leader>fPk", ":Pick keymaps<CR>", { desc = "Pick: Keymaps" })
 map({ "n", "v" }, "<leader>fPl", ":Pick list", { desc = "Pick: List (scope)" })
+map({ "n", "v" }, "<leader>fPm", ":Pick manpages<CR>", { desc = "Pick: Manpages" })
+map({ "n", "v" }, "<leader>fPo", ":Pick options<CR>", { desc = "Pick: Options" })
+map({ "n", "v" }, "<leader>fPt", ":Pick treesitter<CR>", { desc = "Pick: Treesitter" })
+map({ "n", "v" }, "<leader>fPr", ":Pick registers<CR>", { desc = "Pick: Registers" })
 
 -- line diagnostics
 map("n", "<localleader>k", function()
