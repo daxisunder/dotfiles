@@ -26,17 +26,17 @@ This is a Yazi plugin that replaces the default file previewer and spotter with 
 
 - Spotter
 
-  ![Before spot](statics/2025-12-29-before_spotter.png)
+  ![Before spot](statics/2024-11-21-04-19-01.png)
 
 ### After:
 
 - Previewer
 
-  ![After previewer](statics/2024-11-21-05-27-48.png)
+![After previewer](statics/2024-11-21-05-27-48.png)
 
 - Spotter
 
-  ![After spotter](statics/2025-12-29-after_spotter.png)
+![After spotter](statics/2024-11-21-05-29-50.png)
 
 ## Requirements
 
@@ -51,18 +51,18 @@ Install the plugin:
 ya pkg add boydaihungst/file-extra-metadata
 ```
 
-Create `~/.config/yazi/yazi.toml` and add:  
-For yazi < v25.12.29 (29/12/2025) replace `url` with `name`
+Create `~/.config/yazi/yazi.toml` and add:
+For yazi (>=v25.12.29) replace `name` with `url`
 
 ```toml
 [plugin]
   append_previewers = [
-    { url = "*", run = "file-extra-metadata" },
+    { name = "*", run = "file-extra-metadata" },
   ]
 
   # Setup keybind for spotter: https://github.com/sxyazi/yazi/pull/1802
   append_spotters = [
-    { url = "*", run = "file-extra-metadata" },
+    { name = "*", run = "file-extra-metadata" },
   ]
 ```
 
@@ -73,7 +73,7 @@ or
   previewers = [
     # ... the rest
     # disable default file plugin { name = "*", run = "file" },
-    { url = "*", run = "file-extra-metadata" },
+    { name = "*", run = "file-extra-metadata" },
   ]
 
   # Setup keybind for spotter: https://github.com/sxyazi/yazi/pull/1802
@@ -81,7 +81,7 @@ or
     # ... the rest
     # Fallback
     # { name = "*", run = "file" },
-    { url = "*", run = "file-extra-metadata" },
+    { name = "*", run = "file-extra-metadata" },
   ]
 ```
 
@@ -103,7 +103,7 @@ tbl_col = { fg = "#4fa6ed" }
 
 ## For developer
 
-If you want to combine this with other spotter/previewer:
+If you want to compile this with other spotter/previewer:
 
 ```lua
 require("file-extra-metadata"):render_table(job, { show_plugins_section = true })

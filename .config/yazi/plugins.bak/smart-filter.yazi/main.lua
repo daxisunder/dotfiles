@@ -1,4 +1,4 @@
---- @since 25.12.29
+--- @since 25.5.31
 
 local hovered = ya.sync(function()
 	local h = cx.active.current.hovered
@@ -17,6 +17,7 @@ local function prompt()
 	return ya.input {
 		title = "Smart filter:",
 		pos = { "center", w = 50 },
+		position = { "center", w = 50 }, -- TODO: remove
 		realtime = true,
 		debounce = 0.1,
 	}

@@ -2,7 +2,9 @@
 [[ $- != *i* ]] && return
 
 # If you come from bash you might have to change your $PATH.
-export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH="$HOME/bin:$PATH"
+export PATH="$HOME/.local/bin/:$PATH"
+export PATH="/usr/local/bin:$PATH"
 export PATH="/usr/bin:$PATH"
 
 # OMZ path
@@ -453,4 +455,13 @@ eval "$(tv init zsh)"
 # Auto-start "zombie-zfetch"
 source $HOME/.config/zfetch/zfetchrc
 
-
+# FZF-navigator
+source ~/.config/fzf-navigator.sh >> ~/.${SHELL##*/}rc
+export FZF_NAVIGATOR_HIDE_HELP=1
+export FZF_NAVIGATOR_SHOW_HIDDEN=1
+export FZF_NAVIGATOR_BINDINGS="
+  ctrl-h:toggle_hidden_files, \
+  ctrl-d:toggle_file_details, \
+  alt-b:go_back, alt-f:go_forward, \
+  ~:go_home, \
+  alt-p:go_to_parent"

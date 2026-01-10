@@ -9,7 +9,7 @@ require("yaziline"):setup({
 	selected_files_color = "magenta",
 	yanked_files_color = "green",
 	cut_files_color = "red",
-	separator_style = "liney", -- "angly" | "curvy" | "liney" | "empty"
+	separator_style = "empty", -- "angly" | "curvy" | "liney" | "empty"
 	separator_open = "",
 	separator_close = "",
 	separator_open_thin = "",

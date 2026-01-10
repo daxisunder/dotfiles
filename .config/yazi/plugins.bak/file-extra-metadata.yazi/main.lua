@@ -2,18 +2,6 @@
 
 local M = {}
 
-local STATE_KEY = {
-	ALTER_DF_COMMAND = "ALTER_DF_COMMAND",
-}
-
-local set_state = ya.sync(function(state, key, value)
-	state[key] = value
-end)
-
-local get_state = ya.sync(function(state, key)
-	return state[key]
-end)
-
 local function permission(file)
 	local h = file
 	if not h then
@@ -52,7 +40,7 @@ end
 
 local file_size_and_folder_childs = function(file)
 	local h = file
-	if not h then
+	if not h or h.cha.is_link then
 		return ""
 	end
 
@@ -65,7 +53,7 @@ end
 ---@return any
 local function fileTimestamp(file, type)
 	local h = file
-	if not h then
+	if not h or h.cha.is_link then
 		return ""
 	end
 	local time = math.floor(h.cha[type] or 0)
@@ -101,88 +89,45 @@ local function get_filesystem_extra(file)
 	local h = file
 	local file_url = h.url
 	local is_virtual = file_url.scheme and file_url.scheme.is_virtual
-	file_url = is_virtual and (file.path or Url(file_url.scheme.cache .. tostring(file_url.path)))
-		or (file_url.path or file_url.url)
+	file_url = is_virtual and Url(file_url.scheme.cache .. tostring(file_url.path)) or file_url
 	if not h or ya.target_family() ~= "unix" then
 		return result
 	end
-	local output, child
 
-	local alter_df_command = get_state(STATE_KEY.ALTER_DF_COMMAND)
-	if not alter_df_command then
-		child, _ = Command("df"):arg({ "-P", "-T", "-h", tostring(file_url) }):stdout(Command.PIPED):spawn()
-
-		if child then
-			-- Ignore header
-			local _, event = child:read_line()
-			if event == 0 then
-				output, _ = child:read_line()
-			end
-			child:start_kill()
+	local child, err = Command("df"):arg({ "-P", "-T", "-h", tostring(file_url) }):stdout(Command.PIPED):spawn()
+	if child then
+		-- Ignore header
+		local _, event = child:read_line()
+		if event ~= 0 then
+			result.error = "df are installed?"
+			return result
 		end
-	end
-
-	-- Fallback for macOS/BSD if -T failed (empty output or error)
-	if not output or output == "" then
-		if not alter_df_command then
-			set_state(STATE_KEY.ALTER_DF_COMMAND, true)
-		end
-		child, _ = Command("df"):arg({ "-P", "-h", tostring(file_url) }):stdout(Command.PIPED):spawn()
-		if child then
-			local _, event = child:read_line() -- skip header
-			if event == 0 then
-				output, _ = child:read_line()
-			end
-			child:start_kill()
-		end
-	end
-
-	if output and output ~= "" then
+		local output, _ = child:read_line()
 		-- Splitting the data
 		local parts = split_by_whitespace(output)
 
 		-- Display the result
-		if #parts >= 7 then
-			result.filesystem = is_virtual and (parts[7] .. " (vfs)") or parts[7]
-			result.device = is_virtual and (parts[1] .. " (vfs)") or parts[1]
-			result.total_space = parts[3]
-			result.used_space = parts[4]
-			result.avail_space = parts[5]
-			result.used_space_percent = parts[6]
-			result.avail_space_percent = 100 - tonumber((string.match(parts[6], "%d+") or "0"))
-			result.type = is_virtual and (parts[2] .. " (vfs)") or parts[2]
-		else
-			result.filesystem = is_virtual and (parts[6] .. " (vfs)") or parts[6]
-			-- result.device (Type) is missing in df output, fetch from mount
-			result.total_space = parts[2]
-			result.used_space = parts[3]
-			result.avail_space = parts[4]
-			result.used_space_percent = parts[5]
-			result.avail_space_percent = 100 - tonumber((string.match(parts[5], "%d+") or "0"))
-			result.device = is_virtual and (parts[1] .. " (vfs)") or parts[1]
-
-			local mount_child = Command("mount"):stdout(Command.PIPED):spawn()
-			if mount_child then
-				while true do
-					local line, event = mount_child:read_line()
-					if not line or event ~= 0 then
-						break
-					end
-					-- Check if line starts with filesystem (e.g. /dev/disk1s1 on ...)
-					local s, e = line:find(parts[1] .. " on ", 1, true)
-					if s == 1 then
-						local fstype = line:match("%(([^,]+)")
-						if fstype then
-							result.type = is_virtual and (fstype .. " (vfs)") or fstype
-						end
-						break
-					end
-				end
+		for i, part in ipairs(parts) do
+			if i == 1 then
+				result.filesystem = is_virtual and (part .. " (vfs)") or part
+			elseif i == 2 then
+				result.device = is_virtual and (part .. " (vfs)") or part
+			elseif i == 3 then
+				result.total_space = part
+			elseif i == 4 then
+				result.used_space = part
+			elseif i == 5 then
+				result.avail_space = part
+			elseif i == 6 then
+				result.used_space_percent = part
+				result.avail_space_percent = 100 - tonumber((string.match(part, "%d+") or "0"))
+			elseif i == 7 then
+				result.type = is_virtual and (part .. " (vfs)") or part
 			end
+			result.is_virtual = is_virtual
 		end
-		result.is_virtual = is_virtual
 	else
-		result.error = "df error: check install"
+		result.error = "df are installed?"
 	end
 	return result
 end
@@ -190,11 +135,8 @@ end
 local function attributes(file)
 	local h = file
 	local file_url = h.url
-	if h.cha.is_link then
-		file_url = Url(h.link_to)
-	end
 	local is_virtual = file_url.scheme and file_url.scheme.is_virtual
-	file_url = is_virtual and (file.path or Url(file_url.scheme.cache .. tostring(file_url.path))) or file_url
+	file_url = is_virtual and Url(file_url.scheme.cache .. tostring(file_url.path)) or file_url
 
 	if not h or ya.target_family() ~= "unix" then
 		return ""
@@ -214,7 +156,7 @@ local function attributes(file)
 		end
 		return ""
 	else
-		return "lsattr error: check install"
+		return "lsattr is installed?"
 	end
 end
 
@@ -258,11 +200,8 @@ function M:render_table(job, opts)
 		file_name_extension,
 		math.floor(job.area.w - label_max_length - utf8.len(file_name_extension))
 	)
-	local location = shorten(
-		tostring((job.file.url.path or job.file.url).parent),
-		"",
-		math.floor(job.area.w - label_max_length - utf8.len(prefix))
-	)
+	local location =
+		shorten(tostring(job.file.url.parent), "", math.floor(job.area.w - label_max_length - utf8.len(prefix)))
 	local filesystem_error = filesystem_extra.error
 			and shorten(filesystem_extra.error, "", math.floor(job.area.w - label_max_length - utf8.len(prefix)))
 		or nil
@@ -274,14 +213,11 @@ function M:render_table(job, opts)
 	row(prefix .. "Mimetype:", job.mime)
 	row(prefix .. "Location:", location)
 	if job.file.cache then
-		row(prefix .. "Cached:", tostring(job.file.path or job.file.cache))
+		row(prefix .. "Cached:", tostring(job.file.cache))
 	end
 	row(prefix .. "Mode:", permission(job.file))
 	row(prefix .. "Attributes:", attributes(job.file))
 	row(prefix .. "Links:", tostring(link_count(job.file)))
-	if job.file.cha.is_link then
-		row(prefix .. "Linked:", tostring(job.file.cha.is_link and job.file.link_to))
-	end
 	row(prefix .. "Owner:", owner_group(job.file))
 	row(prefix .. "Size:", file_size_and_folder_childs(job.file))
 	row(prefix .. "Created:", fileTimestamp(job.file, "btime"))

@@ -15,7 +15,6 @@ local SECRET_TOOL = "secret-tool"
 local GPG_TOOL = "gpg"
 local PASS_TOOL = "pass"
 local SECRET_VAULT_VERSION = "1"
-local path_separator = package.config:sub(1, 1)
 
 ---@enum NOTIFY_MSG
 local NOTIFY_MSG = {
@@ -377,8 +376,12 @@ local function tbl_remove_empty(tbl)
 	return cleaned
 end
 
+local get_cwd = ya.sync(function()
+	return cx.active.current.cwd
+end)
+
 local current_dir = ya.sync(function()
-	return tostring(cx.active.current.cwd.path or cx.active.current.cwd)
+	return tostring(cx.active.current.cwd)
 end)
 
 ---@enum PUBSUB_KIND
@@ -440,8 +443,12 @@ local function path_quote(path)
 	return result
 end
 
+local current_hovered_folder_cwd = ya.sync(function()
+	return cx.active.preview.folder and cx.active.preview.folder.cwd
+end)
+
 local get_hovered_path = ya.sync(function()
-	local h = cx.active.current.hovered.path or cx.active.current.hovered
+	local h = cx.active.current.hovered
 	if h then
 		return tostring(h.url)
 	end
@@ -950,10 +957,7 @@ local function display_virtual_children(cwd, children_folder_info)
 
 	for _, gdrive_mountpoint_info in ipairs(children_folder_info) do
 		if id ~= nil and id ~= "" then
-			-- TODO: WORKAROUND: cwd prefix `search://` can't be joined
-			-- local url = Url(cwd):join(gdrive_mountpoint_info.display_name)
-			local url =
-				Url(tostring(cwd.path or cwd) .. path_separator .. tostring(gdrive_mountpoint_info.display_name))
+			local url = Url(cwd):join(gdrive_mountpoint_info.display_name)
 
 			local kind = gdrive_mountpoint_info.type == "directory" and 1
 				or (
@@ -1431,12 +1435,7 @@ local function mount_device(opts)
 	end
 	-- show notification after get max retry
 	if retries >= max_retry then
-		error(
-			tostring(error_msg or (res and not res.status.success and res.stderr) or err or "Error: Unknown"):gsub(
-				"%%",
-				"%%%%"
-			)
-		)
+		error(error_msg or (res and not res.status.success and res.stderr) or err or "Error: Unknown")
 		return false
 	end
 
@@ -1823,10 +1822,9 @@ end
 local save_tab_hovered = ya.sync(function()
 	local hovered_item_per_tab = {}
 	for _, tab in ipairs(cx.tabs) do
-		local is_virtual = Url(tab.current.cwd).scheme and Url(tab.current.cwd).scheme.is_virtual
 		table.insert(hovered_item_per_tab, {
 			id = (type(tab.id) == "number" or type(tab.id) == "string") and tab.id or tab.id.value,
-			cwd = tostring(is_virtual and tab.current.cwd or tab.current.cwd.path),
+			cwd = tostring(tab.current.cwd),
 		})
 	end
 	return hovered_item_per_tab
@@ -1841,8 +1839,7 @@ local redirect_unmounted_tab_to_home = ya.sync(function(_, unmounted_url, notify
 		broadcast(PUBSUB_KIND.unmounted, hex_encode(unmounted_url))
 	end
 	for _, tab in ipairs(cx.tabs) do
-		local is_virtual = Url(tab.current.cwd).scheme and Url(tab.current.cwd).scheme.is_virtual
-		if (is_virtual and tab.current.cwd or tab.current.cwd.path):starts_with(unmounted_url) then
+		if tab.current.cwd:starts_with(unmounted_url) then
 			ya.emit("cd", {
 				HOME,
 				tab = (type(tab.id) == "number" or type(tab.id) == "string") and tab.id or tab.id.value,
@@ -2217,10 +2214,6 @@ end
 ---@param enabled boolean?
 local function toggle_automount_when_cd_action(enabled)
 	local hovered_path = get_hovered_path()
-	local is_virtual = Url(hovered_path).scheme and Url(hovered_path).scheme.is_virtual
-	if is_virtual then
-		return
-	end
 	local local_path = hovered_path:match("^" .. is_literal_string(get_state(STATE_KEY.ROOT_MOUNTPOINT)) .. "/[^/]+")
 		or hovered_path:match("^" .. is_literal_string(GVFS_ROOT_MOUNTPOINT_FILE) .. "/[^/]+")
 	if local_path then
