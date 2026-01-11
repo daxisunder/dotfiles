@@ -2,7 +2,7 @@
 overall = {}
 
 [mgr]
-cwd = { fg = "#a9b1d6", bg = "#292e42" }
+# cwd = { fg = "#a9b1d6", bg = "#292e42" }
 
 find_keyword = { fg = "#16161e", bg = "#ff9e64", bold = true }
 find_position = { fg = "#0db9d7", bg = "#192b38", bold = true }
@@ -39,9 +39,9 @@ unset_main = { fg = "#16161e", bg = "#9d7cd8", bold = true }
 unset_alt = { fg = "#56565e", bg = "#9d7cd8", bold = true }
 
 [indicator]
-parrent = { fg = "#a9b1d6", bg = "#292e42" }
-current = { fg = "#9fe044", bg = "#292e42" }
-preview = { fg = "#0db9d7", bg = "#292e42", underline = false }
+parent = { fg = "#0db9d7", bg = "#292e42", italic = true }
+current = { fg = "#9fe044", bg = "#292e42", italic = true }
+preview = { fg = "#0db9d7", bg = "#292e42", underline = false, italic = true }
 padding = { open = "█", close = "█" }
 
 [status]
@@ -287,6 +287,7 @@ files = [
   { name = "hyprlandd.conf", text = "", fg = "#00aaae" },
   { name = "hyprlock.conf", text = "", fg = "#00aaae" },
   { name = "hyprpaper.conf", text = "", fg = "#00aaae" },
+  { name = "hyprshot.conf", text = "", fg = "#00aaae" },
   { name = "i18n.config.js", text = "󰗊", fg = "#7986cb" },
   { name = "i18n.config.ts", text = "󰗊", fg = "#7986cb" },
   { name = "i3blocks.conf", text = "", fg = "#e8ebee" },
