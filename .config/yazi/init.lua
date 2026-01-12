@@ -3,7 +3,7 @@ require("full-border"):setup({
 })
 
 require("yaziline"):setup({
-	color = "#8db0ff",
+	color = "#7aa2f7",
 	secondary_color = "#3b4261",
 	default_files_color = "darkgray", -- color of the file counter when it's inactive
 	selected_files_color = "magenta",

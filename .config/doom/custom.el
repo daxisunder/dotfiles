@@ -16,7 +16,9 @@
      org-ac org-ai org-beautify-theme org-dashboard org-roam org-roam-ui
      org-upcoming-modeline page-break-lines projectile
      selected-window-accent-mode smart-mode-line-powerline-theme
-     treemacs-all-the-icons wakatime-mode)))
+     treemacs-all-the-icons wakatime-mode))
+ '(warning-suppress-log-types '((doom-init-ui-hook)))
+ '(warning-suppress-types '((doom-init-ui-hook) (defvaralias) (lexical-binding))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
