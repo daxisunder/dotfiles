@@ -5,6 +5,9 @@
 local g = vim.g
 local o = vim.opt
 
+g.mapleader = " "
+g.maplocalleader = "\\"
+
 g.deprecation_warnings = false
 g.filetype_plugin_on = true
 g.filetype_indent_on = true

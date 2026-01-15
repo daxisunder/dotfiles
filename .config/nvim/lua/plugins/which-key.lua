@@ -11,7 +11,7 @@ return {
       -- col = 0,
       -- row = math.huge,
       border = "rounded", -- none, single, double, shadow
-      padding = { 1, 0 }, -- extra window padding [top/bottom, right/left]
+      padding = { 0, 0 }, -- extra window padding [top/bottom, right/left]
       title = true,
       title_pos = "left",
       zindex = 1000,
@@ -25,9 +25,9 @@ return {
       width = {
         -- min and max width of the columns
         min = 25,
-        max = 45,
+        max = 25,
       },
-      spacing = 3, -- spacing between columns
+      spacing = 0, -- spacing between columns
     },
     spec = {
       mode = { "n", "v" },
@@ -37,14 +37,10 @@ return {
       { "<leader>no", group = "origin", icon = { icon = " ", color = "yellow" } },
       { "<leader>o", group = "orgmode", icon = { icon = " ", color = "green" } },
       { "<leader>O", group = "overlook", icon = { icon = " ", color = "yellow" } },
-      { "<leader>fP", group = "pick", icon = { icon = "󰢷 ", color = "green" } },
-      { "<leader>fPg", group = "git", icon = { icon = "󰊢 ", color = "orange" } },
-      { "<leader>fPG", group = "grep", icon = { icon = " ", color = "orange" } },
-      { "<leader>fPh", group = "hl/help/hist", icon = { icon = " ", color = "orange" } },
-      { "<leader>fPm", group = "Pick: Manpages", icon = { icon = " ", color = "cyan" } },
-      { "<leader>fPo", group = "Pick: Options", icon = { icon = "󰢷 ", color = "green" } },
-      { "<leader>fPt", group = "Pick: Treesitter", icon = { icon = "󰙅 ", color = "cyan" } },
-      { "<leader>fPr", group = "Pick: Registers", icon = { icon = "󰢷 ", color = "green" } },
+      { "<leader>P", group = "pick", icon = { icon = "󰢷 ", color = "green" } },
+      { "<leader>Pg", group = "git", icon = { icon = "󰊢 ", color = "orange" } },
+      { "<leader>PG", group = "grep", icon = { icon = " ", color = "orange" } },
+      { "<leader>Ph", group = "hl/help/hist", icon = { icon = " ", color = "orange" } },
     },
   },
   keys = {
