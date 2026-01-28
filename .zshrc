@@ -31,7 +31,7 @@ export PATH="$HOME/fvm/default/bin:$PATH"
 export PATH="$HOME/.config/emacs/bin:$PATH"
 
 # Flatpak exports path
-export PATH="$PATH:/var/lib/flatpak/exports/share"
+export PATH="/var/lib/flatpak/exports/share:$PATH"
 
 # Source api keys (has to be sourced before zsh-ai gemini provider)
 source $HOME/projects/dotfiles/api.env
@@ -187,6 +187,11 @@ function command_not_found_handler {
     fi
     return 127
 }
+
+# Edit command with $EDITOR
+autoload -z edit-command-line
+zle -N edit-command-line
+bindkey '^X' edit-command-line
 
 # Archive extraction (usage: ex <file>)
 # Github: https://github.com/xvoland/Extract/blob/master/extract.sh
@@ -377,7 +382,7 @@ export FZF_CTRL_R_OPTS="
 eval "$(zoxide init zsh)"
 
 # Zellij integration
-eval "$(zellij setup --generate-auto-start zsh)"
+# eval "$(zellij setup --generate-auto-start zsh)"
 
 # Atuin integration (pretty history)
 . "$HOME/.atuin/bin/env"
@@ -435,9 +440,6 @@ source /home/daxis/.config/broot/launcher/bash/br
 
 # NVM integration
 source /usr/share/nvm/init-nvm.sh
-
-# Copilot CLI aliases
-eval "$(gh copilot alias -- zsh)"
 
 # Cheatsheet integration
 export CHEAT_USE_FZF=true
