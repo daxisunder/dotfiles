@@ -247,6 +247,10 @@ keymap = [
   ], run = "cd ~/.local", desc = "Goto ~/.local" },
   { on = [
     "g",
+    "m",
+  ], run = "cd ~/Media", desc = "Goto ~/Media" },
+  { on = [
+    "g",
     "n",
   ], run = "cd ~/projects/neovim", desc = "Goto ~/projects/neovim" },
   { on = [
@@ -679,3 +683,9 @@ desc = "Go to mount home"
 on = ["H", "c"]
 run = "cd ~/.ssh/"
 desc = "Go to ssh config dir"
+
+# Toggle-pane
+[[mgr.prepend_keymap]]
+on = "T"
+run = "plugin toggle-pane max-preview"
+desc = "Maximize or restore the preview pane"
