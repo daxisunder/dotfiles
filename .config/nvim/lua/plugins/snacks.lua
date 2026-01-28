@@ -524,8 +524,8 @@ return {
         border = true,
         focusable = false,
         backdrop = false,
-        row = 1,
-        col = -1,
+        row = 0,
+        col = 130,
         -- width/height are automatically set by the image size unless specified below
         width = 80,
       },
