@@ -24,6 +24,12 @@ return {
   },
   event = "LazyFile",
   opts = {
+    inlay_hints = {
+      enabled = false,
+    },
+    codelens = {
+      enabled = true,
+    },
     servers = {
       emmylua_ls = false,
       texlab = {
@@ -84,32 +90,32 @@ return {
           return util.path.is_descendant(cwd, root) and cwd or root
         end,
       }),
-      lspconfig.perlls.setup({
-        capabilities = capabilities,
-        on_attach = on_attach,
-        cmd = {
-          "perl",
-          "-MPerl::LanguageServer",
-          "-e",
-          "Perl::LanguageServer::run",
-          "--",
-          "--port 13603",
-          "--nostdio 0",
-        },
-        settings = {
-          perl = {
-            perlCmd = "perl",
-            perlInc = " ",
-            fileFilter = { ".pm", ".pl" },
-            ignoreDirs = ".git",
-          },
-        },
-        filetypes = { "perl" },
-        single_file_support = true,
-        root_dir = function(fname)
-          return vim.fs.dirname(vim.fs.find(".git", { path = fname, upward = true })[1])
-        end,
-      }),
+      -- lspconfig.perlls.setup({
+      --   capabilities = capabilities,
+      --   on_attach = on_attach,
+      --   cmd = {
+      --     "perl",
+      --     "-MPerl::LanguageServer",
+      --     "-e",
+      --     "Perl::LanguageServer::run",
+      --     "--",
+      --     "--port 13603",
+      --     "--nostdio 0",
+      --   },
+      --   settings = {
+      --     perl = {
+      --       perlCmd = "perl",
+      --       perlInc = " ",
+      --       fileFilter = { ".pm", ".pl" },
+      --       ignoreDirs = ".git",
+      --     },
+      --   },
+      --   filetypes = { "perl" },
+      --   single_file_support = true,
+      --   root_dir = function(fname)
+      --     return vim.fs.dirname(vim.fs.find(".git", { path = fname, upward = true })[1])
+      --   end,
+      -- }),
       lspconfig.hyprls.setup({
         capabilities = capabilities,
         on_attach = on_attach,
