@@ -54,4 +54,3 @@ export function setupCursorHoverInfo(button) { // "?" mark cursor on hover
         button.get_window().set_cursor(cursor);
     });
 }
-

@@ -28,4 +28,3 @@ App.config({
     },
     windows: Windows().flat(1),
 });
-
