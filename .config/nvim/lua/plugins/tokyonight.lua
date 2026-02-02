@@ -65,6 +65,9 @@ return {
           bg = c.bg,
           fg = c.bg_dark1,
         }
+        hl.Folded = {
+          bg = c.bg,
+        }
         hl.FzfLuaBorder = {
           bg = c.bg,
           fg = c.bg_dark1,

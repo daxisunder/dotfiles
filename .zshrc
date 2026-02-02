@@ -467,3 +467,6 @@ export FZF_NAVIGATOR_BINDINGS="
   alt-b:go_back, alt-f:go_forward, \
   ~:go_home, \
   alt-p:go_to_parent"
+
+# GitArbor TUI
+export PATH="$PATH:/home/daxis/.gitarbor/bin"
