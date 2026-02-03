@@ -3,18 +3,17 @@
 /* ---- Configuration ---- */
 
 configuration {
-	modi:                       "drun,run,filebrowser";
+	modi:                        "drun,run,filebrowser";
     show-icons:                 true;
     display-drun:               "Apps";
     display-run:                "Run";
     display-filebrowser:        "Files";
     display-window:             "Windows";
-	drun-display-format:        "{name}";
-	hover-select:               true;
-	me-select-entry:            "MouseSecondary";
-  me-accept-entry:            "MousePrimary";
-	window-format:              "{w} · {c} · {t}";
-	dpi:						1;
+	drun-display-format:          "{name}";
+	hover-select:                 true;
+	me-select-entry:              "MouseSecondary";
+  me-accept-entry:              "MousePrimary";
+	window-format:                "{w} · {c} · {t}";
 }
 
 /* ---- Load wallust colors ---- */
@@ -22,16 +21,15 @@ configuration {
 
 /* ---- Global Properties ---- */
 * {
-	  font:					            	"zai Courier Polski 1941 24";
     background:                  @selected-normal-background;
     background-alt:              @selected-active-background; // Buttons background
-    foreground:                  @foreground;
+    foreground:                  @normal-foreground;
     selected:                    @selected-urgent-background; // Button selected
     active:                      @selected-normal-background; // Window activated
-    urgent:                      @selected; // When hovering the activated window (maybe more?)
-    text-selected:               @background;
-    text-color:                  @foreground;
-    border-color:                @selected;
+    urgent:                      @selected-urgent-background; // When hovering the activated window (maybe more?)
+    text-selected:               @selected-normal-background;
+    text-color:                  @normal-foreground;
+    border-color:                @urgent-background;
 }
 
 /* ---- Window ---- */
@@ -82,11 +80,13 @@ entry {
     expand:                      false;
     width:                       20%;
     padding:                     10px;
+    border:                      2px;
+    border-color:                @border-color;
     border-radius:               6px;
-    background-color:            @selected;
-    text-color:                  @text-selected;
+    background-color:            @normal-background;
+    text-color:                  @text-color;
     cursor:                      text;
-    placeholder:                 "🖥️ Search "; // << Search symbol
+    placeholder:                 "  Search:"; // << Search symbol
     placeholder-color:           inherit;
 }
 
@@ -103,7 +103,6 @@ listbox {
 listview {
     enabled:                     true;
     columns:                     2;
-    lines:                       6;
     cycle:                       true;
     dynamic:                     true;
     scrollbar:                   false;
@@ -134,13 +133,13 @@ button {
     width:                       5%;
     padding:                     10px;
     border-radius:               6px;
-    background-color:            @text-selected;
-    text-color:                  @text-color;
+    background-color:            @selected-active-background;
+    text-color:                  @active-foreground;
     cursor:                      pointer;
 }
 button selected {
     background-color:            @selected;
-    text-color:                  @text-selected;
+    text-color:                  @normal-background;
 }
 
 /* ---- Scrollbar ---- */
@@ -185,11 +184,11 @@ element selected.normal {
 
 element selected.urgent {
     background-color:            @urgent;
-    text-color:                  @text-selected;
+    text-color:                  @selected-urgent-background;
 }
 element selected.active {
     background-color:            @urgent;
-    text-color:                  @text-selected;
+    text-color:                  @selected-urgent-background;
 }
 // Adapt rofi theme
 element alternate.normal {
@@ -210,7 +209,6 @@ element-icon {
     cursor:                      inherit;
 }
 element-text {
-    font:						"Veteran Typewriter 24";
     background-color:            transparent;
     text-color:                  inherit;
     cursor:                      inherit;

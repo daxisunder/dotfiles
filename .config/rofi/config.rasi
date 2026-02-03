@@ -4,21 +4,21 @@
 
 /* ---- Configuration ---- */
 configuration {
-	font:	"zai Courier Polski 1941 24";
+	  font:	"Veteran Typewriter 12";
 }
 /* ---- Window ---- */
 window {
-    width:	40%;
+    width:	55%;
 }
 
 /* ---- Entry input ---- */
 entry {
-    width:	18%;
+    width:	25%;
 }
 
 /* ---- Listview ---- */
 listview {
-    lines:	8;
+    lines:	10;
 }
 
 /* ---- Mode Switcher ---- */
@@ -27,6 +27,6 @@ button {
 }
 
 element-text {
-    font:	"Veteran Typewriter 24";
+    font:	"Veteran Typewriter 14";
 }
 
