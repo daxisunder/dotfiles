@@ -556,17 +556,17 @@ desc = "Paste into the hovered directory or CWD"
 
 # Convert
 [[mgr.prepend_keymap]]
-on = ["c", "j"]
+on = ["C", "j"]
 run = "plugin convert -- --extension='jpg'"
 desc = "Convert selected files to JPG"
 
 [[mgr.prepend_keymap]]
-on = ["c", "p"]
+on = ["C", "p"]
 run = "plugin convert -- --extension='png'"
 desc = "Convert selected files to PNG"
 
 [[mgr.prepend_keymap]]
-on = ["c", "w"]
+on = ["C", "w"]
 run = "plugin convert -- --extension='webp'"
 desc = "Convert selected files to WebP"
 
