@@ -55,7 +55,7 @@ autocmd("FileType", {
   callback = function()
     vim.opt.formatoptions:remove({ "c", "r", "o" })
   end,
-  desc = "Disable New Line Comment",
+  desc = "Disable auto-commenting new lines",
 })
 
 -- Set LSP to recognize org files
@@ -87,13 +87,13 @@ autocmd("BufWritePre", {
 
 -- LSP progress
 autocmd("LspProgress", {
-  ---@param ev {data: {client_id: integer, params: lsp.ProgressParams}}
   callback = function(ev)
     local client = vim.lsp.get_client_by_id(ev.data.client_id)
-    local value = ev.data.params.value --[[@as {percentage?: number, title?: string, message?: string, kind: "begin" | "report" | "end"}]]
+    local value = ev.data.params.value
     if not client or type(value) ~= "table" then
       return
     end
+
     local p = progress[client.id]
 
     for i = 1, #p + 1 do
@@ -117,6 +117,7 @@ autocmd("LspProgress", {
     end, p)
 
     local spinner = { "⠋", "⠙", "⠹", "⠸", "⠼", "⠴", "⠦", "⠧", "⠇", "⠏" }
+
     vim.notify(table.concat(msg, "\n"), "info", {
       id = "lsp_progress",
       title = client.name,
@@ -137,4 +138,10 @@ autocmd("FileType", {
       buffer = true,
     })
   end,
+})
+
+-- automatically center the cursor when entering insert mode
+autocmd("InsertEnter", {
+  pattern = "*",
+  command = "normal! zz",
 })
