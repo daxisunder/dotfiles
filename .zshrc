@@ -94,6 +94,9 @@ export ARCHFLAGS="-arch $(uname -m)"
 # Kitty default terminal
 export TERM="xterm-kitty"
 
+# Change zsh-cheatsheet keymap to CTRL O (default is CTRL H)
+export ZSH_CHEATSHEET_BIND="^O"
+
 # History
 HISTFILE=~/.zsh_history
 HISTSIZE=1000000
@@ -470,3 +473,6 @@ export FZF_NAVIGATOR_BINDINGS="
 
 # GitArbor TUI
 export PATH="$PATH:/home/daxis/.gitarbor/bin"
+
+# zsh-cheatsheet integration (doesn't work with Oh My Zsh)
+source ~/.zsh-cheatsheet/zsh-cheatsheet.plugin.zsh

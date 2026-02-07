@@ -71,22 +71,23 @@
 }
 
 .notification-default-action:not(:only-child) {
-  border-bottom-left-radius: 6px;
-  border-bottom-right-radius: 6px;
+  border-radius: 6px;
+  background: @noti-bg;
 }
 
 .notification-action:first-child {
-  border-bottom-left-radius: 6px;
+  border-radius: 6px;
   background: @noti-bg;
 }
 
 .notification-action:last-child {
-  border-bottom-right-radius: 6px;
-  background: @noti-bg-alt;
+  border-radius: 6px;
+  background: @noti-bg;
 }
 
 .inline-reply {
   margin-top: 8px;
+  margin-bottom: 8px;
 }
 
 .inline-reply-entry {
