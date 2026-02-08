@@ -116,7 +116,7 @@ autocmd("LspProgress", {
       return table.insert(msg, v.msg) or not v.done
     end, p)
 
-    local spinner = { "⠋", "⠙", "⠹", "⠸", "⠼", "⠴", "⠦", "⠧", "⠇", "⠏" }
+    local spinner = { "⢎ ", "⠎⠁", "⠊⠑", "⠈⠱", " ⡱", "⢀⡰", "⢄⡠", "⢆⡀" }
 
     vim.notify(table.concat(msg, "\n"), "info", {
       id = "lsp_progress",
