@@ -3,7 +3,7 @@
   "LazyVim": { "branch": "main", "commit": "28db03f958d58dfff3c647ce28fdc1cb88ac158d" },
   "LuaSnip": { "branch": "master", "commit": "5a1e39223db9a0498024a77b8441169d260c8c25" },
   "SchemaStore.nvim": { "branch": "main", "commit": "ff73799fc8df725d51eada87a113581ba4d3717b" },
-  "TakaTime": { "branch": "main", "commit": "fcfd80ad3ce93955ce4385f2e0f3beafb8c4d4f2" },
+  "TakaTime": { "branch": "main", "commit": "6ee97bc5c48ad3f0c57ea8b4106fad6c1decee08" },
   "actions-preview.nvim": { "branch": "master", "commit": "cb938c25edaac38d362555f19244a9cb85d561e8" },
   "aerial.nvim": { "branch": "master", "commit": "7a6a42791eb2b54a7115c7db4488981f93471770" },
   "blink-calc": { "branch": "main", "commit": "199e8a5fe356d553d33a3511ca28e625dac5c470" },
@@ -76,7 +76,7 @@
   "org-checkbox.nvim": { "branch": "trunk", "commit": "d33464548b7c743c6ca12c3ac0712573e3964daa" },
   "org-list.nvim": { "branch": "master", "commit": "2d6f2985e0312daabb6d06725746f5b8c2e5a002" },
   "org-roam.nvim": { "branch": "main", "commit": "74276a94e9e4af463e7ba35c22259eeced9c90f9" },
-  "orgmode": { "branch": "master", "commit": "e448c72ebc3d7a10d00a865b41b25336122a2c67" },
+  "orgmode": { "branch": "master", "commit": "5e90dc5d06b2155d85eb0dab619137eb4e8b29b8" },
   "output-panel.nvim": { "branch": "main", "commit": "9979f9988acb35fd8e699d8b1fbc7aa17c9d8148" },
   "overlook.nvim": { "branch": "master", "commit": "6f74f20a61204275989050a2c1221bdc53b534c4" },
   "persistence.nvim": { "branch": "main", "commit": "b20b2a7887bd39c1a356980b45e03250f3dce49c" },
@@ -95,5 +95,5 @@
   "vim-wakatime": { "branch": "master", "commit": "d7973b157a632d1edeff01818f18d67e584eeaff" },
   "vimtex": { "branch": "master", "commit": "f707368022cdb851716be0d2970b90599c84a6a6" },
   "which-key.nvim": { "branch": "main", "commit": "3aab2147e74890957785941f0c1ad87d0a44c15a" },
-  "yanky.nvim": { "branch": "main", "commit": "29f31f75afe9adf40b85a48756b349807064be5d" }
+  "yanky.nvim": { "branch": "main", "commit": "9d3caea67cf183639d4e510d34f2d58b6109abdd" }
 }
