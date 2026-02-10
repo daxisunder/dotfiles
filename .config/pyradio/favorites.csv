@@ -1,0 +1,3 @@
+# PyRadio Playlist File Format:
+# name,url,encoding,icon,profile,buffering,force-http,volume,referer,player
+n5MD Radio (Ambient and Experimental),https://somafm.com/n5md.pls
