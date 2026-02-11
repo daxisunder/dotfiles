@@ -1,63 +1,29 @@
-12:36:59 [info] [LOG SESSION] ---------- START ----------
-12:36:59 [info] [PluginFactory] loading plugins
-12:36:59 [error] [PluginFactory] exception while loading plugin /usr/share/musikcube/plugins/libstockencoders.so: libavcodec.so.61: cannot open shared object file: No such file or directory
-12:36:59 [info] [PluginFactory] loaded: /usr/share/musikcube/plugins/libtaglibreader.so
-12:36:59 [info] [PluginFactory] loaded: /usr/share/musikcube/plugins/libnullout.so
-12:36:59 [info] [PluginFactory] loaded: /usr/share/musikcube/plugins/libalsaout.so
-12:36:59 [error] [PluginFactory] exception while loading plugin /usr/share/musikcube/plugins/libffmpegdecoder.so: libavcodec.so.61: cannot open shared object file: No such file or directory
-12:36:59 [info] [PluginFactory] loaded: /usr/share/musikcube/plugins/libserver.so
-12:36:59 [info] [PluginFactory] loaded: /usr/share/musikcube/plugins/libportaudioout.so
-12:36:59 [info] [PluginFactory] loaded: /usr/share/musikcube/plugins/libmpris.so
-12:36:59 [info] [PluginFactory] loaded: /usr/share/musikcube/plugins/libsupereqdsp.so
-12:36:59 [info] [PluginFactory] loaded: /usr/share/musikcube/plugins/libhttpdatastream.so
-12:36:59 [info] [PluginFactory] loaded: /usr/share/musikcube/plugins/libpulseout.so
-12:36:59 [info] [PluginFactory] loaded: /usr/share/musikcube/plugins/libpipewireout.so
-12:36:59 [info] [PluginFactory] loaded: /usr/share/musikcube/plugins/libopenmptdecoder.so
-12:36:59 [info] [PluginFactory] loaded: /usr/share/musikcube/plugins/libgmedecoder.so
-12:36:59 [info] [Indexer] indexer source 155697690 running...
-12:36:59 [info] [LocalLibrary] query 'CategoryListQuery' enqueued
-12:36:59 [info] [LocalLibrary] query 'CategoryListQuery' running
-12:36:59 [info] [LocalLibrary] query 'CategoryListQuery' finished with status=4
-12:36:59 [info] [Indexer] indexer source 155697690 finished
-12:36:59 [info] [Indexer] indexer source -1303229654 running...
-12:36:59 [info] [Indexer] indexer source -1303229654 finished
-12:36:59 [info] [Indexer] scanning /home/daxis/Music/
-12:36:59 [info] [Indexer] scan completed successfully
-12:36:59 [info] [Indexer] cleanup 1/2
-12:36:59 [info] [Indexer] cleanup 2/2
-12:36:59 [info] [Indexer] optimizing
-12:36:59 [info] [LocalLibrary] query 'SearchTrackListQuery' enqueued
-12:36:59 [info] [Indexer] done!
-12:36:59 [info] [LocalLibrary] query 'SearchTrackListQuery' running
-12:36:59 [info] [LocalLibrary] query 'SearchTrackListQuery' finished with status=4
-12:36:59 [info] [LocalLibrary] query 'PersistedPlayQueueQuery' enqueued
-12:36:59 [info] [LocalLibrary] query 'PersistedPlayQueueQuery' running
-12:36:59 [info] [LocalLibrary] query 'PersistedPlayQueueQuery' finished with status=4
-12:36:59 [error] [WebSocketServer] [ThreadProc] websocketpp::exception: Address already in use
-12:36:59 [info] [LocalLibrary] query 'CategoryTrackListQuery' enqueued
-12:36:59 [info] [LocalLibrary] query 'CategoryTrackListQuery' running
-12:36:59 [info] [LocalLibrary] query 'CategoryTrackListQuery' enqueued
-12:36:59 [info] [LocalLibrary] query 'CategoryTrackListQuery' finished with status=4
-12:36:59 [info] [LocalLibrary] query 'CategoryTrackListQuery' running
-12:36:59 [info] [LocalLibrary] query 'CategoryTrackListQuery' finished with status=4
-12:36:59 [info] [LocalLibrary] query 'CategoryListQuery' enqueued
-12:36:59 [info] [LocalLibrary] query 'CategoryListQuery' running
-12:36:59 [info] [LocalLibrary] query 'CategoryListQuery' finished with status=4
-12:36:59 [info] [LocalLibrary] query 'CategoryListQuery' enqueued
-12:36:59 [info] [LocalLibrary] query 'CategoryListQuery' running
-12:36:59 [info] [LocalLibrary] query 'CategoryListQuery' enqueued
-12:36:59 [info] [LocalLibrary] query 'CategoryListQuery' finished with status=4
-12:36:59 [info] [LocalLibrary] query 'CategoryListQuery' running
-12:36:59 [info] [LocalLibrary] query 'CategoryListQuery' finished with status=4
-12:36:59 [info] [LocalLibrary] query 'TrackMetadataBatchQuery' enqueued
-12:36:59 [info] [LocalLibrary] query 'TrackMetadataBatchQuery' running
-12:36:59 [info] [LocalLibrary] query 'TrackMetadataBatchQuery' finished with status=4
-12:36:59 [info] [LocalLibrary] query 'CategoryTrackListQuery' enqueued
-12:36:59 [info] [LocalLibrary] query 'CategoryTrackListQuery' running
-12:36:59 [info] [LocalLibrary] query 'CategoryTrackListQuery' finished with status=4
-12:36:59 [info] [LocalLibrary] query 'TrackMetadataBatchQuery' enqueued
-12:36:59 [info] [LocalLibrary] query 'TrackMetadataBatchQuery' running
-12:36:59 [info] [LocalLibrary] query 'TrackMetadataBatchQuery' finished with status=4
-12:37:12 [info] [LocalLibrary] query 'PersistedPlayQueueQuery' enqueued
-12:37:12 [info] [LocalLibrary] query 'PersistedPlayQueueQuery' running
-12:37:12 [info] [LocalLibrary] query 'PersistedPlayQueueQuery' finished with status=4
+23:55:08 [info] [LOG SESSION] ---------- START ----------
+23:55:08 [info] [PluginFactory] loading plugins
+23:55:08 [error] [PluginFactory] exception while loading plugin /usr/share/musikcube/plugins/libstockencoders.so: libavcodec.so.61: cannot open shared object file: No such file or directory
+23:55:08 [info] [PluginFactory] loaded: /usr/share/musikcube/plugins/libtaglibreader.so
+23:55:08 [info] [PluginFactory] loaded: /usr/share/musikcube/plugins/libnullout.so
+23:55:08 [info] [PluginFactory] loaded: /usr/share/musikcube/plugins/libalsaout.so
+23:55:08 [error] [PluginFactory] exception while loading plugin /usr/share/musikcube/plugins/libffmpegdecoder.so: libavcodec.so.61: cannot open shared object file: No such file or directory
+23:55:08 [info] [PluginFactory] loaded: /usr/share/musikcube/plugins/libserver.so
+23:55:08 [info] [PluginFactory] loaded: /usr/share/musikcube/plugins/libportaudioout.so
+23:55:08 [info] [PluginFactory] loaded: /usr/share/musikcube/plugins/libmpris.so
+23:55:08 [info] [PluginFactory] loaded: /usr/share/musikcube/plugins/libsupereqdsp.so
+23:55:08 [info] [PluginFactory] loaded: /usr/share/musikcube/plugins/libhttpdatastream.so
+23:55:08 [info] [PluginFactory] loaded: /usr/share/musikcube/plugins/libpulseout.so
+23:55:08 [info] [PluginFactory] loaded: /usr/share/musikcube/plugins/libpipewireout.so
+23:55:08 [info] [PluginFactory] loaded: /usr/share/musikcube/plugins/libopenmptdecoder.so
+23:55:08 [info] [PluginFactory] loaded: /usr/share/musikcube/plugins/libgmedecoder.so
+23:55:08 [info] [LocalLibrary] query 'PersistedPlayQueueQuery' enqueued
+23:55:08 [info] [LocalLibrary] query 'PersistedPlayQueueQuery' running
+23:55:08 [info] [LocalLibrary] query 'PersistedPlayQueueQuery' finished with status=4
+23:55:08 [info] [Indexer] indexer source 155697690 running...
+23:55:08 [info] [Indexer] indexer source 155697690 finished
+23:55:08 [info] [Indexer] indexer source -1303229654 running...
+23:55:08 [info] [Indexer] indexer source -1303229654 finished
+23:55:08 [info] [Indexer] scanning /home/daxis/Music/
+23:55:08 [info] [Indexer] scan completed successfully
+23:55:08 [info] [Indexer] cleanup 1/2
+23:55:08 [info] [Indexer] cleanup 2/2
+23:55:08 [info] [Indexer] optimizing
+23:55:08 [info] [Indexer] done!
