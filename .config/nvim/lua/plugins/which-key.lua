@@ -25,9 +25,9 @@ return {
       width = {
         -- min and max width of the columns
         min = 25,
-        max = 25,
+        max = 40,
       },
-      spacing = 0, -- spacing between columns
+      spacing = 2, -- spacing between columns
     },
     spec = {
       mode = { "n", "v" },
@@ -41,6 +41,7 @@ return {
       { "<leader>Pg", group = "git", icon = { icon = "󰊢 ", color = "orange" } },
       { "<leader>PG", group = "grep", icon = { icon = " ", color = "orange" } },
       { "<leader>Ph", group = "hl/help/hist", icon = { icon = " ", color = "orange" } },
+      { "<leader>y", group = "prompt-yank", icon = { icon = " ", color = "yellow" } },
     },
   },
   keys = {

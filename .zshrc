@@ -252,6 +252,7 @@ plugins=(
     colored-man-pages
     git
     safe-paste
+    shellfirm
     sudo
     you-should-use
     # zsh-ai
@@ -450,16 +451,6 @@ export CHEAT_USE_FZF=true
 # televisiion integration
 eval "$(tv init zsh)"
 
-# Display Pokemon-colorscripts
-# Project page: https://gitlab.com/phoneybadger/pokemon-colorscripts#on-other-distros-and-macos
-#pokemon-colorscripts --no-title -s -r
-
-# Display colorscripts
-#colorscript -r
-
-# Auto-start "zombie-zfetch"
-source $HOME/.config/zfetch/zfetchrc
-
 # FZF-navigator
 source ~/.config/fzf-navigator.sh >> ~/.${SHELL##*/}rc
 export FZF_NAVIGATOR_HIDE_HELP=1
@@ -474,5 +465,12 @@ export FZF_NAVIGATOR_BINDINGS="
 # GitArbor TUI
 export PATH="$PATH:/home/daxis/.gitarbor/bin"
 
-# zsh-cheatsheet integration (doesn't work with Oh My Zsh)
-source ~/.zsh-cheatsheet/zsh-cheatsheet.plugin.zsh
+# Display Pokemon-colorscripts
+# Project page: https://gitlab.com/phoneybadger/pokemon-colorscripts#on-other-distros-and-macos
+#pokemon-colorscripts --no-title -s -r
+
+# Display colorscripts
+#colorscript -r
+
+# Auto-start "zombie-zfetch"
+source $HOME/.config/zfetch/zfetchrc

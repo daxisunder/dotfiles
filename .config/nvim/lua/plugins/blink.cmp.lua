@@ -409,7 +409,7 @@ return {
           module = "blink.cmp.sources.cmdline",
           min_keyword_length = function(ctx)
             if ctx.mode == "cmdline" and string.find(ctx.line, " ") == nil then
-              return 3
+              return 1
             end
             return 0
           end,
