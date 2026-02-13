@@ -1,5 +1,6 @@
 return {
   "polacekpavel/prompt-yank.nvim",
+  event = "VeryLazy",
   cmd = { "PromptYank" },
   keys = {
     { "<Leader>yp", mode = { "n", "v" }, desc = "PromptYank: file/selection" },

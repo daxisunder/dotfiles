@@ -45,7 +45,7 @@ return {
           vim.api.nvim_win_set_config(harpoon_win, {
             anchor = "NW",
             col = 0,
-            row = 0,
+            row = 1,
             relative = "editor",
             title = " Harpoon Quick Menu ",
             border = "rounded",
