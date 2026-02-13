@@ -78,7 +78,7 @@ export SUDO_EDITOR="${EDITOR}"
 export VISUAL="${EDITOR}"
 
 # Set bat as manpager
-export BAT_THEME="ansi"
+export BAT_THEME="Dracula"
 export BAT_STYLE="full"
 #export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 
@@ -299,8 +299,8 @@ alias ysi='yay -Si'
 alias ysii='yay -Sii' # List reverse dependencies
 alias yrq='yay -Rsn $(yay -Qdtq)' # List & remove all unneeded dependencies
 alias ysc='yay -Sc' # Clean cached packages
-alias yi="yay -Slq|fzf -m --preview 'bat <(yay -Qi {1}|grep -e \"Install Reason\";echo '') <(yay`` -Sii {1}) <(yay -Fl {1}|awk \"{print \$2}\")'|xargs -ro yay -S"
-alias yu="yay -Qq|fzf -m --preview 'bat <(yay -Qi {1}|grep -e \"Install Reason\";echo '') <(yay`` -Sii {1}) <(yay -Ql {1}|awk \"{print \$2}\")'|xargs -ro yay -Rsn"
+alias yi="yay -Slq|fzf -m --preview-window=right:75% --preview 'bat -f <(yay -Qi {1}|grep -e \"Install Reason\";echo '') <(yay`` -Sii {1}) <(yay -Fl {1}|awk \"{print \$2}\")'|xargs -ro yay -S"
+alias yu="yay -Qq|fzf -m --preview-window=right:75% --preview 'bat -f <(yay -Qi {1}|grep -e \"Install Reason\";echo '') <(yay`` -Sii {1}) <(yay -Ql {1}|awk \"{print \$2}\")'|xargs -ro yay -Rsn"
 alias psyu='sudo pacman -Syu && sudo flatpak update' # Update standard packages + flatpaks
 alias psyyu='sudo pacman -Syyu' # Update only standard packages
 alias prsn='sudo pacman -Rsn'
@@ -333,7 +333,7 @@ alias pscpu='ps auxf | sort -nr -k 3 | head -10' # Show top 10 CPU-consuming pro
 alias ssn='sudo shutdown now'
 alias sr='sudo reboot'
 alias jctl='journalctl -p 3' # Show logs with priority 3 and above (errors)
-alias fz="fzf --preview 'bat --color=always -n {}'"
+alias fz="fzf --preview-window=right:75% --preview 'bat -n --color=always {}'"
 alias wcp='wl-color-picker'
 alias wcpc='wl-color-picker clipboard'
 alias gstat='$HOME/projects/dotfiles/scripts/Show-GitStatusBash.sh'
@@ -396,7 +396,6 @@ eval "$(atuin init zsh)"
 source /usr/share/wikiman/widgets/widget.zsh
 
 # Batman integration
-export BAT_THEME="Dracula"
 eval "$(batman --export-env)"
 
 # Pay-respects (better command-not-found) integration
