@@ -31,9 +31,9 @@ return {
       extend = true,
       config = {
         -- determines how many columns are used to display the hints. If you leave this option nil, the number of columns will depend on the size of your window.
-        column_count = 10,
+        column_count = 5,
         -- maximum width of a column.
-        max_hint_length = 25,
+        max_hint_length = 45,
       },
     },
   },

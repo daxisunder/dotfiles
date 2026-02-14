@@ -212,8 +212,8 @@
 	"modules": [
 		"cpu",
 		"memory",
-		"temperature",
-		"disk"
+    "temperature",
+    "disk"
 	]
 },
 "group/mobo_drawer": {
@@ -227,7 +227,7 @@
 		"cpu",
 		"memory",
 		"temperature",
-		"disk"
+    "disk"
 	]
 },
 "group/laptop": {
@@ -392,6 +392,15 @@
 	"interval": 30,
 	//"format": "󰋊",
 	"path": "/",
+	//"format-alt-click": "click",
+	"format": "<span color='#ffffff'>{percentage_used}%</span> <span color='#7dcfff'>󰋊</span>",
+	//"tooltip": true,
+	"tooltip-format": "{used} used out of {total} on {path} ({percentage_used}%)"
+},
+"diskmedia": {
+	"interval": 30,
+	//"format": "󰋊",
+	"path": "/home/daxis/Media",
 	//"format-alt-click": "click",
 	"format": "<span color='#ffffff'>{percentage_used}%</span> <span color='#7dcfff'>󰋊</span>",
 	//"tooltip": true,

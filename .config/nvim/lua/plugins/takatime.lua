@@ -4,7 +4,7 @@ return {
   config = function()
     -- Optional: Enable debug mode if you run into issues
     require("taka-time").setup({
-      debug = true,
+      debug = false,
     })
   end,
 }
