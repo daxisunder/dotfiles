@@ -340,6 +340,11 @@ alias gstat='$HOME/projects/dotfiles/scripts/Show-GitStatusBash.sh'
 alias zsh='nvim .zshrc'
 alias nls='nuls -lag'
 
+# Colorize --help output with bat
+help() {
+    "$@" --help 2>&1 | bat -plhelp
+}
+
 # FZF integration + key bindings (CTRL R for fuzzy history finder)
 source <(fzf --zsh)
 
@@ -394,9 +399,6 @@ eval "$(atuin init zsh)"
 
 # Wikiman integration
 source /usr/share/wikiman/widgets/widget.zsh
-
-# Batman integration
-eval "$(batman --export-env)"
 
 # Pay-respects (better command-not-found) integration
 eval "$(pay-respects zsh)"

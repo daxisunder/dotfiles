@@ -18,6 +18,7 @@ g.loaded_javac_provider = 0
 g.loaded_julia_provider = 0
 g.loaded_perl_provider = 0
 g.loaded_ruby_provider = 0
+g.man_hardwrap = 0
 g.trouble_lualine = true
 g.vimtex_view_general_viewer = "okular"
 o.cursorcolumn = true
