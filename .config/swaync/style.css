@@ -27,6 +27,10 @@
   outline: none;
 }
 
+.notification-group {
+  background: @noti-bg;
+}
+
 .notification {
   color: @text-color;
   background: @noti-bg;
