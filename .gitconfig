@@ -46,13 +46,6 @@
   side-by-side = true
   true-color = always
 
-[delta "interactive"]
-  keep-plus-minus-markers = true
-
-[delta "decorations"]
-  file-style = omit
-  hunk-header-style = file line-number syntax
-
 [diff]
   colorMoved = default
   tool = delta
@@ -67,9 +60,7 @@
 	rebase = false
 
 [credential "https://github.com"]
-	helper =
 	helper = !/usr/bin/gh auth git-credential
 
 [credential "https://gist.github.com"]
-	helper =
 	helper = !/usr/bin/gh auth git-credential
