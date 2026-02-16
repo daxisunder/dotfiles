@@ -535,7 +535,6 @@ return {
         relative = "editor",
         position = "bottom",
         style = "terminal",
-        border = "rounded",
       },
     },
     toggle = {
