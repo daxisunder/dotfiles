@@ -1,3 +1,6 @@
+[include]
+  path = ~/.config/delta/themes.gitconfig
+
 [user]
 	email = no-prophet@proton.me
 	name = daxisunder
@@ -36,7 +39,7 @@
 
 [delta]
   dark = true
-  features = decorations
+  features = arctic-fox,decorations,side-by-side
   hyperlinks = true
   line-numbers = true
   navigate = true
@@ -54,14 +57,19 @@
   colorMoved = default
   tool = delta
 
+[merge]
+    conflictStyle = zdiff3
+
 [mergetool "nvimdiff"]
 	layout = LOCAL,BASE@,REMOTE
 
 [pull]
 	rebase = false
+
 [credential "https://github.com"]
-	helper = 
+	helper =
 	helper = !/usr/bin/gh auth git-credential
+
 [credential "https://gist.github.com"]
-	helper = 
+	helper =
 	helper = !/usr/bin/gh auth git-credential

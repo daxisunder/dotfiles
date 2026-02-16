@@ -11,17 +11,17 @@ export PATH="/usr/bin:$PATH"
 export ZSH="$HOME/.oh-my-zsh"
 
 # Cargo path
-export PATH="$PATH:$HOME/.cargo/bin"
+export PATH="$HOME/.cargo/bin:$PATH"
 
 # Created by `pipx` on 2025-02-10 20:34:32
-export PATH="$PATH:$HOME/.local/bin"
+export PATH="$HOME/.local/bin:$PATH"
 
 # Ruby path
-export PATH="$PATH:$HOME/.local/share/gem/ruby/3.3.0/bin"
+export PATH="$HOME/.local/share/gem/ruby/3.3.0/bin:$PATH"
 
 # Node path
-export PATH="$PATH:/usr/bin/node"
-export PATH="$PATH:$HOME/node_modules/.bin"
+export PATH="/usr/bin/node:$PATH"
+export PATH="$HOME/node_modules/.bin:$PATH"
 export NODE_EXTRA_CA_CERTS="/etc/ssl/certs/ACCVRAIZ1.pem"
 
 # Flutter path
@@ -33,6 +33,9 @@ export PATH="$HOME/.config/emacs/bin:$PATH"
 # Flatpak exports path
 export PATH="/var/lib/flatpak/exports/share:$PATH"
 
+# GitArbor TUI
+export PATH="$PATH:/home/daxis/.gitarbor/bin"
+
 # Source api keys (has to be sourced before zsh-ai gemini provider)
 source $HOME/projects/dotfiles/api.env
 
@@ -42,7 +45,7 @@ export ZSH_AI_OLLAMA_MODEL="llama3.2"
 export ZSH_AI_GEMINI_MODEL="gemini-2.5-flash"
 export ZSH_AI_PROMPT_EXTEND="Always prefer modern CLI tools like ripgrep, fd, and bat."
 
-# Set pop to use gmail
+# Set pop to use outlook SMTP server (for sending emails from CLI)
 # export POP_SMTP_HOST=smtp-mail.outlook.com
 # export POP_SMTP_PORT=587
 # export POP_SMTP_USERNAME=daxisunder@hotmail.com
@@ -59,7 +62,7 @@ export YDOTOOL_SOCKET="$HOME/.ydotool_socket"
 
 # Add scripts to PATH
 export SCRIPTS_DIR="$HOME/projects/dotfiles/scripts"
-export PATH="$PATH:$SCRIPTS_DIR"
+export PATH="$SCRIPTS_DIR:$PATH"
 
 # Make all scripts executable
 if [ -d "$SCRIPTS_DIR" ]; then
@@ -149,9 +152,6 @@ zstyle ':completion:*' matcher-list \
 zstyle ':completion:*:warnings' format "%B%F{red}No matches for:%f %F{magenta}%d%b"
 zstyle ':completion:*:descriptions' format '%F{yellow}[-- %d --]%f'
 zstyle ':vcs_info:*' formats ' %B%s-[%F{magenta}%f %F{yellow}%b%f]-'
-
-## Dart completion scripts setup. Remove the following line to uninstall:
-[[ -f /home/daxis/.dart-cli-completion/zsh-config.zsh ]] && . /home/daxis/.dart-cli-completion/zsh-config.zsh || true
 
 # Set waiting dots
 expand-or-complete-with-dots() {
@@ -462,9 +462,6 @@ export FZF_NAVIGATOR_BINDINGS="
   alt-b:go_back, alt-f:go_forward, \
   ~:go_home, \
   alt-p:go_to_parent"
-
-# GitArbor TUI
-export PATH="$PATH:/home/daxis/.gitarbor/bin"
 
 # Display Pokemon-colorscripts
 # Project page: https://gitlab.com/phoneybadger/pokemon-colorscripts#on-other-distros-and-macos
