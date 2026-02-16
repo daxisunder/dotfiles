@@ -1,6 +1,7 @@
 return {
   "leath-dub/snipe.nvim",
   event = "VeryLazy",
+  enabled = false,
   keys = {
     {
       "gb",

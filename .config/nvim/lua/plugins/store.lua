@@ -6,6 +6,7 @@ return {
   },
   event = "VeryLazy",
   cmd = "Store",
+  enabled = false,
   keys = {
     { "<leader>sP", "<cmd>Store<cr>", desc = "Plugin Store" },
   },
