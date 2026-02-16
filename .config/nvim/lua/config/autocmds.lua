@@ -139,9 +139,3 @@ autocmd("FileType", {
     })
   end,
 })
-
--- automatically center the cursor when entering insert mode
-autocmd("InsertEnter", {
-  pattern = "*",
-  command = "normal! zz",
-})
