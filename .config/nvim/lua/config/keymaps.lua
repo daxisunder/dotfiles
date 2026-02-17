@@ -159,6 +159,3 @@ end, { desc = "Delete Comments in Current Buffer" })
 
 -- alias "find & replace all" to leader + r
 map("n", "<leader>r", ":%s///gI<Left><Left><Left><Left>", { desc = "Find & Replace All" })
-
--- change list (noice)
-map("n", "<leader>snc", ":changes<CR>", { desc = "Noice Changes" })

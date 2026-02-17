@@ -106,16 +106,13 @@ return {
     },
     image = {
       enabled = true,
-      force = false, -- try displaying the image, even if the terminal does not support it
+      force = true, -- try displaying the image, even if the terminal does not support it
       doc = {
         inline = false,
         float = true,
       },
-      cache = vim.fn.stdpath("cache") .. "/snacks/image",
-      icons = {
-        math = "󰪚 ",
-        chart = "󰄧 ",
-        image = " ",
+      convert = {
+        notify = true, -- notify on error
       },
     },
     indent = {
