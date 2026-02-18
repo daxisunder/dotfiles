@@ -13,7 +13,7 @@ return {
       function()
         require("neogit").open({ kind = "split" })
       end,
-      desc = "Show Neogit UI",
+      desc = "Neogit UI",
     },
   },
 }

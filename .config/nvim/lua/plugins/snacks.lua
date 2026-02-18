@@ -5,9 +5,6 @@ return {
   "folke/snacks.nvim",
   priority = 1000,
   lazy = false,
-  ---@type snacks.Config
-  ---@class snacks.Picker
-  ---@field [string] unknown
   opts = {
     dashboard = {
       width = 90,
@@ -99,6 +96,9 @@ return {
       enabled = true,
     },
     explorer = {
+      enabled = true,
+    },
+    gh = {
       enabled = true,
     },
     gitbrowse = {
