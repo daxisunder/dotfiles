@@ -422,6 +422,19 @@ yazi_pick_path() {
 zle -N yazi_pick_path
 bindkey '\ey' yazi_pick_path
 
+# SuperFile cd-on-quit
+spf() {
+    os=$(uname -s)
+    if [[ "$os" == "Linux" ]]; then
+        export SPF_LAST_DIR="${XDG_STATE_HOME:-$HOME/.local/state}/superfile/lastdir"
+    fi
+    command spf "$@"
+    [ ! -f "$SPF_LAST_DIR" ] || {
+        . "$SPF_LAST_DIR"
+        rm -f -- "$SPF_LAST_DIR" > /dev/null
+    }
+}
+
 # Fancy-ctrl-z integration (CTRL Z to toggle between fg and bg)
 fancy-ctrl-z () {
   if [[ $#BUFFER -eq 0 ]]; then

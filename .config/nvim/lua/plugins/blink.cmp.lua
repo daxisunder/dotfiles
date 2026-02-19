@@ -25,12 +25,23 @@ return {
       ["<CR>"] = { "accept", "fallback" },
       ["<Tab>"] = {
         function(cmp)
-          cmp.show({ providers = { "snippets" } })
+          local luasnip = require("luasnip")
+          if luasnip.jumpable(1) then
+            return luasnip.jump(1)
+          end
+          return cmp.show({ providers = { "snippets" } })
         end,
-        "snippet_forward",
         "fallback",
       },
-      ["<S-Tab>"] = { "snippet_backward", "fallback" },
+      ["<S-Tab>"] = {
+        function(cmp)
+          local luasnip = require("luasnip")
+          if luasnip.jumpable(-1) then
+            return luasnip.jump(-1)
+          end
+        end,
+        "fallback",
+      },
       ["<Up>"] = { "select_prev", "fallback" },
       ["<Down>"] = { "select_next", "fallback" },
       ["<C-p>"] = { "select_prev", "fallback_to_mappings" },
