@@ -34,7 +34,7 @@ return {
         "fallback",
       },
       ["<S-Tab>"] = {
-        function(cmp)
+        function()
           local luasnip = require("luasnip")
           if luasnip.jumpable(-1) then
             return luasnip.jump(-1)
