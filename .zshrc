@@ -316,8 +316,6 @@ alias psii='pacman -Sii' # List reverse dependencies
 alias prq='sudo pacman -Rsn $(pacman -Qtdq)' # List & remove all unneeded dependencies
 alias psc='sudo pacman -Sc' # Clean cached packages
 alias unlock='sudo rm -f /var/lib/pacman/db.lck' # Unlock pacman
-alias ftldr='compgen -c | fzf | xargs tldr' # Search for man pages with tldr + fzf (print page to stdout)
-alias fman='compgen -c | fzf | xargs man' # Search for man pages with man + fzf (view page with $MANPAGER)
 alias src='source $HOME/.zshrc'
 alias ttc='tty-clock -C6 -c'
 alias expacs="expac -S '%r/%n: %D'" # List dependencies w/o additional info
@@ -343,6 +341,11 @@ alias nls='nuls -lag'
 # Colorize --help output with bat
 help() {
     "$@" --help 2>&1 | bat -plhelp
+}
+
+# Colorize manpages with bat
+mann() {
+  man $1 | bat -l man -p
 }
 
 # FZF integration + key bindings (CTRL R for fuzzy history finder)
