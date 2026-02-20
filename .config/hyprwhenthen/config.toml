@@ -1,5 +1,8 @@
+[general]
+timeout = "1s"
+
 [[handler]]
 on = "windowtitlev2"
 # (.*) captures the window's address (first field), then we match the title
-when = "(.*),Sign In - Google Accounts — Mozilla Firefox"
-then = "~/.config/hyprwhenthen/scripts/float.sh $REGEX_GROUP_1"
+when = "(.*),Sign In - Google Account — Mozilla Firefox"
+then = "/home/daxis/projects/dotfiles/.config/hyprwhenthen/scripts/float.sh $REGEX_GROUP_1"
