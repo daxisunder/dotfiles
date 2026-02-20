@@ -1,20 +1,25 @@
 #!/usr/bin/env bash
 
 # Header Helper
-print_header() { echo -e "\n\033[1;34m--- $1 ---\033[0m"; }
+print_header() { echo -e "\033[1;34m--- $1 ---\033[0m"; }
 
 # Get current available blocks (in KB)
 get_space() { df / --output=avail | tail -1; }
 
-# Initial state
+# Record Start Time and Initial Space
 start_space=$(get_space)
+current_time=$(date "+%Y-%m-%d %H:%M:%S")
+
+# 0. Welcome Header with Date
+print_header "System Cleanup Started: $current_time"
 
 print_header "Cleaning Pacman Cache"
 
 # 1. Remove Orphans
 ORPHANS=$(pacman -Qdtq)
 if [[ -n "$ORPHANS" ]]; then
-  pacman -Rns --noconfirm "$ORPHANS"
+  # Removed quotes so it treats multiple orphans as separate packages
+  pacman -Rns --noconfirm $ORPHANS
 else
   echo "No orphaned packages to remove."
 fi
@@ -26,12 +31,14 @@ paccache -ruk0
 # 3. Clean Yay / AUR Cache
 if command -v yay &>/dev/null; then
   print_header "Cleaning Yay (AUR) Cache"
-  yay -Yc --noconfirm
-  yay -Sc --aur --noconfirm
+  # Using sed '/^$/d' to delete the specific empty lines yay is known for
+  yay -Yc --noconfirm -q | sed '/^$/d'
+  yay -Sc --aur --noconfirm -q | sed '/^$/d'
+
   YAY_CACHE="${XDG_CACHE_HOME:-$HOME/.cache}/yay"
   if [ -d "$YAY_CACHE" ]; then
     paccache -rk1 -c "$YAY_CACHE"
-    find "$YAY_CACHE" -type d \( -name "src" -o -name "pkg" \) -exec rm -rf {} +
+    find "$YAY_CACHE" -mindepth 1 -type d \( -name "src" -o -name "pkg" \) -exec rm -rf {} +
     echo "Source and build directories cleared."
   fi
 fi
@@ -48,12 +55,19 @@ system_saved=$(((mid_space - start_space) / 1024))
 print_header "Trash Management"
 TRASH_DIR="$HOME/.local/share/Trash/files"
 
-# Check if the directory exists and has files
-if [ -d "$TRASH_DIR" ] && [ "$(ls -A "$TRASH_DIR")" ]; then
-  read -p "Trash contains files. Empty it? [y/N] " -n 1 -r
-  echo
+if [ -d "$TRASH_DIR" ] && [ "$(ls -A "$TRASH_DIR" 2>/dev/null)" ]; then
+  file_count=$(find "$TRASH_DIR" -mindepth 1 | wc -l)
+  trash_size=$(du -sh "$TRASH_DIR" | cut -f1)
+
+  echo "Trash contains $file_count items ($trash_size)."
+
+  # We use printf to keep the prompt tight
+  printf "Empty it? [y/N] "
+  read -n 1 -r REPLY
+
   if [[ $REPLY =~ ^[Yy]$ ]]; then
-    echo "Force-emptying trash..."
+    # \r cleans up the prompt line, \n moves down once
+    printf "\r\033[KForce-emptying trash...\n"
     rm -rf "$HOME/.local/share/Trash/files"/* 2>/dev/null
     rm -rf "$HOME/.local/share/Trash/info"/* 2>/dev/null
 
@@ -61,9 +75,10 @@ if [ -d "$TRASH_DIR" ] && [ "$(ls -A "$TRASH_DIR")" ]; then
     trash_saved=$(((end_space - mid_space) / 1024))
     echo "Trash cleared (Reclaimed: ${trash_saved} MB)."
   else
+    # \r\033[K clears the [y/N] prompt line and replaces it immediately
+    printf "\r\033[KTrash cleanup skipped.\n"
     trash_saved=0
     end_space=$mid_space
-    echo "Trash cleanup skipped."
   fi
 else
   echo "Trash is already empty."
@@ -75,13 +90,14 @@ fi
 total_saved=$(((end_space - start_space) / 1024))
 
 print_header "Cleanup Results"
-echo -e "System & Cache:  ${system_saved} MB"
-echo -e "Trash Bin:       ${trash_saved} MB"
-echo -e "---------------------------"
-echo -e "Total Reclaimed: \033[1;32m${total_saved} MB\033[0m"
-print_header "SystemCleanup Complete!"
+echo -e "System & Cache:  $(printf "%'8d" $system_saved) MB"
+echo -e "Trash Bin:       $(printf "%'8d" $trash_saved) MB"
+echo "---------------------------"
+echo -e "Total Reclaimed: \033[1;32m$(printf "%'8d" $total_saved) MB\033[0m"
+
+print_header "System Cleanup Complete: $current_time"
 
 # 7. Desktop Notification
 if command -v notify-send &>/dev/null; then
-  notify-send "System Cleanup Complete" "Total Space Reclaimed: ${total_saved} MB" --icon=trash-empty
+  notify-send "System Cleanup Complete" "Total Space Reclaimed: ${total_saved} MB" --icon=user-trash
 fi
