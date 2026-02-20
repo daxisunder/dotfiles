@@ -18,15 +18,15 @@ print_header "Cleaning Pacman Cache"
 # 1. Remove Orphans
 ORPHANS=$(pacman -Qdtq)
 if [[ -n "$ORPHANS" ]]; then
-  # Removed quotes so it treats multiple orphans as separate packages
-  pacman -Rns --noconfirm $ORPHANS
+  # Removed quotes so it treats multiple orphans as separate packages??? ## test ##
+  pacman -Rns --noconfirm "$ORPHANS"
 else
   echo "No orphaned packages to remove."
 fi
 
 # 2. Clean Pacman Cache
-paccache -rk1
-paccache -ruk0
+paccache -rk1 | sed '/^$/d'
+paccache -ruk0 | sed '/^$/d'
 
 # 3. Clean Yay / AUR Cache
 if command -v yay &>/dev/null; then
@@ -45,7 +45,7 @@ fi
 
 # 4. Vacuum Systemd Journal
 print_header "Vacuuming Journal Logs"
-journalctl --vacuum-time=2d
+sudo journalctl --vacuum-time=2d
 
 # Calculate System Clean Savings
 mid_space=$(get_space)
