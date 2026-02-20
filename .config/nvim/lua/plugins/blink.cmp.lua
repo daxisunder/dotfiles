@@ -267,7 +267,6 @@ return {
         "buffer",
         "copilot",
         "thesaurus",
-        "lazydev",
         "omni",
         "cmdline",
         "calc",
@@ -400,11 +399,6 @@ return {
         --     },
         --   },
         -- },
-        lazydev = {
-          name = "LazyDev",
-          module = "lazydev.integrations.blink",
-          score_offset = 100, -- show at a higher priority than lsp
-        },
         omni = {
           module = "blink.cmp.sources.complete_func",
           enabled = function()

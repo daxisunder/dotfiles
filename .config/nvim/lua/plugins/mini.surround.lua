@@ -4,7 +4,6 @@ return {
   event = "VeryLazy",
   recommended = true,
   keys = function(_, keys)
-    ---@diagnostic disable-next-line: undefined-global
     local opts = LazyVim.opts("mini.surround")
     local mappings = {
       { opts.mappings.add, desc = "Add Surrounding", mode = { "n", "v" } },
