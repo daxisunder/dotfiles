@@ -97,9 +97,6 @@ export ARCHFLAGS="-arch $(uname -m)"
 # Kitty default terminal
 export TERM="xterm-kitty"
 
-# Change zsh-cheatsheet keymap to CTRL O (default is CTRL H)
-export ZSH_CHEATSHEET_BIND="^O"
-
 # History
 HISTFILE=~/.zsh_history
 HISTSIZE=1000000
@@ -461,9 +458,6 @@ source /home/daxis/.config/broot/launcher/bash/br
 
 # NVM integration
 source /usr/share/nvm/init-nvm.sh
-
-# Cheatsheet integration
-export CHEAT_USE_FZF=true
 
 # televisiion integration
 eval "$(tv init zsh)"

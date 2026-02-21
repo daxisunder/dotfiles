@@ -1,29 +1,29 @@
-18:00:31 [info] [LOG SESSION] ---------- START ----------
-18:00:31 [info] [PluginFactory] loading plugins
-18:00:31 [error] [PluginFactory] exception while loading plugin /usr/share/musikcube/plugins/libstockencoders.so: libavcodec.so.61: cannot open shared object file: No such file or directory
-18:00:31 [info] [PluginFactory] loaded: /usr/share/musikcube/plugins/libtaglibreader.so
-18:00:31 [info] [PluginFactory] loaded: /usr/share/musikcube/plugins/libnullout.so
-18:00:31 [info] [PluginFactory] loaded: /usr/share/musikcube/plugins/libalsaout.so
-18:00:31 [error] [PluginFactory] exception while loading plugin /usr/share/musikcube/plugins/libffmpegdecoder.so: libavcodec.so.61: cannot open shared object file: No such file or directory
-18:00:31 [info] [PluginFactory] loaded: /usr/share/musikcube/plugins/libserver.so
-18:00:31 [info] [PluginFactory] loaded: /usr/share/musikcube/plugins/libportaudioout.so
-18:00:31 [info] [PluginFactory] loaded: /usr/share/musikcube/plugins/libmpris.so
-18:00:31 [info] [PluginFactory] loaded: /usr/share/musikcube/plugins/libsupereqdsp.so
-18:00:31 [info] [PluginFactory] loaded: /usr/share/musikcube/plugins/libhttpdatastream.so
-18:00:31 [info] [PluginFactory] loaded: /usr/share/musikcube/plugins/libpulseout.so
-18:00:31 [info] [PluginFactory] loaded: /usr/share/musikcube/plugins/libpipewireout.so
-18:00:31 [info] [PluginFactory] loaded: /usr/share/musikcube/plugins/libopenmptdecoder.so
-18:00:31 [info] [PluginFactory] loaded: /usr/share/musikcube/plugins/libgmedecoder.so
-18:00:31 [info] [LocalLibrary] query 'PersistedPlayQueueQuery' enqueued
-18:00:31 [info] [LocalLibrary] query 'PersistedPlayQueueQuery' running
-18:00:31 [info] [LocalLibrary] query 'PersistedPlayQueueQuery' finished with status=4
-18:00:31 [info] [Indexer] indexer source 155697690 running...
-18:00:31 [info] [Indexer] indexer source 155697690 finished
-18:00:31 [info] [Indexer] indexer source -1303229654 running...
-18:00:31 [info] [Indexer] indexer source -1303229654 finished
-18:00:31 [info] [Indexer] scanning /home/daxis/Music/
-18:00:31 [info] [Indexer] scan completed successfully
-18:00:31 [info] [Indexer] cleanup 1/2
-18:00:31 [info] [Indexer] cleanup 2/2
-18:00:31 [info] [Indexer] optimizing
-18:00:31 [info] [Indexer] done!
+21:33:13 [info] [LOG SESSION] ---------- START ----------
+21:33:13 [info] [PluginFactory] loading plugins
+21:33:13 [error] [PluginFactory] exception while loading plugin /usr/share/musikcube/plugins/libstockencoders.so: libavcodec.so.61: cannot open shared object file: No such file or directory
+21:33:13 [info] [PluginFactory] loaded: /usr/share/musikcube/plugins/libtaglibreader.so
+21:33:13 [info] [PluginFactory] loaded: /usr/share/musikcube/plugins/libnullout.so
+21:33:13 [info] [PluginFactory] loaded: /usr/share/musikcube/plugins/libalsaout.so
+21:33:13 [error] [PluginFactory] exception while loading plugin /usr/share/musikcube/plugins/libffmpegdecoder.so: libavcodec.so.61: cannot open shared object file: No such file or directory
+21:33:13 [info] [PluginFactory] loaded: /usr/share/musikcube/plugins/libserver.so
+21:33:13 [info] [PluginFactory] loaded: /usr/share/musikcube/plugins/libportaudioout.so
+21:33:13 [info] [PluginFactory] loaded: /usr/share/musikcube/plugins/libmpris.so
+21:33:13 [info] [PluginFactory] loaded: /usr/share/musikcube/plugins/libsupereqdsp.so
+21:33:13 [info] [PluginFactory] loaded: /usr/share/musikcube/plugins/libhttpdatastream.so
+21:33:13 [info] [PluginFactory] loaded: /usr/share/musikcube/plugins/libpulseout.so
+21:33:13 [info] [PluginFactory] loaded: /usr/share/musikcube/plugins/libpipewireout.so
+21:33:13 [info] [PluginFactory] loaded: /usr/share/musikcube/plugins/libopenmptdecoder.so
+21:33:13 [info] [PluginFactory] loaded: /usr/share/musikcube/plugins/libgmedecoder.so
+21:33:13 [info] [LocalLibrary] query 'PersistedPlayQueueQuery' enqueued
+21:33:13 [info] [LocalLibrary] query 'PersistedPlayQueueQuery' running
+21:33:13 [info] [LocalLibrary] query 'PersistedPlayQueueQuery' finished with status=4
+21:33:13 [info] [Indexer] indexer source 155697690 running...
+21:33:13 [info] [Indexer] indexer source 155697690 finished
+21:33:13 [info] [Indexer] indexer source -1303229654 running...
+21:33:13 [info] [Indexer] indexer source -1303229654 finished
+21:33:13 [info] [Indexer] scanning /home/daxis/Music/
+21:33:13 [info] [Indexer] scan completed successfully
+21:33:13 [info] [Indexer] cleanup 1/2
+21:33:13 [info] [Indexer] cleanup 2/2
+21:33:13 [info] [Indexer] optimizing
+21:33:13 [info] [Indexer] done!
