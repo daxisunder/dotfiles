@@ -19,7 +19,7 @@ print_header "Cleaning Pacman Cache"
 ORPHANS=$(pacman -Qdtq)
 if [[ -n "$ORPHANS" ]]; then
   # Removed quotes so it treats multiple orphans as separate packages??? ## test ##
-  pacman -Rns --noconfirm "$ORPHANS"
+  pacman -Rns --noconfirm $ORPHANS
 else
   echo "No orphaned packages to remove."
 fi
