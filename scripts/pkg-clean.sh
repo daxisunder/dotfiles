@@ -14,14 +14,12 @@ get_space() { df / --output=avail | tail -1; }
 # Initialize Counters
 deleted_count=0
 start_space=$(get_space)
-current_time=$(date "+%Y-%m-%d %H:%M:%S")
+current_time=$(date "+%H:%M:%S")
 
 print_header "System Cleanup Started: $current_time"
 
-# 1. Remove Orphans & Clean Pacman Cache
-print_header "Cleaning Pacman Cache"
-
-# Orphan Removal
+# 1. Remove Orphans
+print_header "Checking for Orphaned Packages"
 ORPHANS=$(pacman -Qdtq)
 if [[ -n "$ORPHANS" ]]; then
   orphan_count=$(echo "$ORPHANS" | wc -w)
@@ -31,25 +29,24 @@ else
   echo "No orphaned packages to remove."
 fi
 
-# Paccache (Cleaning /var/cache/pacman/pkg)
-# We capture the output of both paccache commands
+# 2. Clean Pacman Cache
+print_header "Cleaning Pacman Cache"
 PAC_CLEAN=$(paccache -rk1 2>&1)
 PAC_UNINST=$(paccache -ruk0 2>&1)
 
 if [[ "$PAC_CLEAN" == *"pruned"* ]] || [[ "$PAC_UNINST" == *"pruned"* ]]; then
-  # If something was actually removed, show the result (filtered)
+  # Show only the successful pruning lines, skip the 'no candidate' noise
   echo "$PAC_CLEAN" | sed '/no candidate/d; /^$/d'
   echo "$PAC_UNINST" | sed '/no candidate/d; /^$/d'
 else
-  # If both returned "no candidate packages found"
   echo "Pacman cache is already clean."
 fi
 
-# 2. Clean Yay / AUR Cache
+# 3. Clean Yay / AUR Cache
 if command -v yay &>/dev/null; then
   print_header "Cleaning Yay (AUR) Cache"
 
-  # Silence standard yay headers
+  # Silence standard yay status headers
   sudo -u daxis yay -Yc --noconfirm -q >/dev/null 2>&1
   sudo -u daxis yay -Sc --aur --noconfirm -q >/dev/null 2>&1
 
@@ -57,11 +54,10 @@ if command -v yay &>/dev/null; then
 
   if [ -d "$YAY_CACHE" ]; then
     PAC_OUT=$(paccache -rk1 -c "$YAY_CACHE" 2>&1)
-    # Find non-empty build directories
     DEBRIS=$(find "$YAY_CACHE" -maxdepth 3 -type d \( -name "src" -o -name "pkg" \) -not -empty)
 
     if [[ "$PAC_OUT" == *"pruned"* ]] || [[ -n "$DEBRIS" ]]; then
-      [[ "$PAC_OUT" == *"pruned"* ]] && echo "$PAC_OUT" | sed '/^$/d'
+      [[ "$PAC_OUT" == *"pruned"* ]] && echo "$PAC_OUT" | sed '/no candidate/d; /^$/d'
 
       if [[ -n "$DEBRIS" ]]; then
         debris_count=$(echo "$DEBRIS" | wc -l)
@@ -70,26 +66,26 @@ if command -v yay &>/dev/null; then
         deleted_count=$((deleted_count + debris_count))
       fi
     else
-      echo "AUR cache is already clean. Nothing to do."
+      echo "AUR cache is already clean."
     fi
   fi
 fi
 
-# 3. Vacuum Systemd Journal
+# 4. Vacuum Systemd Journal
 print_header "Vacuuming Journal Logs"
 JOURNAL_OUT=$(journalctl --vacuum-time=2d 2>&1)
 
 if [[ "$JOURNAL_OUT" == *"freed 0B"* ]]; then
-  echo "Journal logs are within limits. Nothing to vacuum."
+  echo "Journal logs are within limits."
 else
   echo "$JOURNAL_OUT" | sed '/^$/d'
 fi
 
-# Calculate Space
+# Calculate Space for Trash logic
 mid_space=$(get_space)
 system_saved=$(((mid_space - start_space) / 1024))
 
-# 4. Trash Management
+# 5. Trash Management
 print_header "Trash Management"
 TRASH_DIR="/home/daxis/.local/share/Trash/files"
 
@@ -121,7 +117,7 @@ else
   end_space=$mid_space
 fi
 
-# 5. Final Summary
+# 6. Final Summary
 total_saved=$(((end_space - start_space) / 1024))
 
 print_header "Cleanup Results"
@@ -133,7 +129,7 @@ echo -e "Total Reclaimed: \033[1;32m$(printf "%6d" $total_saved) MB\033[0m"
 
 print_header "System Cleanup Complete: $(date "+%H:%M:%S")"
 
-# 6. Desktop Notification
+# 7. Desktop Notification
 if command -v notify-send &>/dev/null; then
   sudo -u daxis DBUS_SESSION_BUS_ADDRESS="unix:path=/run/user/$(id -u daxis)/bus" \
     notify-send "System Cleanup Complete" "Reclaimed: ${total_saved} MB | Items: ${deleted_count}" --icon=user-trash

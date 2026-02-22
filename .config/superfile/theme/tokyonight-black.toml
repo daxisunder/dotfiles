@@ -15,7 +15,7 @@ sidebar_border = "#1a1b26"
 footer_border = "#1a1b26"
 
 # ========= Border Active =========
-file_panel_border_active = "#b4befe"
+file_panel_border_active = "#c7a9ff"
 sidebar_border_active = "#f7768e"
 footer_border_active = "#73daca"
 modal_border_active = "#73daca"

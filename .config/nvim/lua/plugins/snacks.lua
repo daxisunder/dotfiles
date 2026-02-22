@@ -111,9 +111,6 @@ return {
         inline = false,
         float = true,
       },
-      convert = {
-        notify = true, -- notify on error
-      },
     },
     indent = {
       indent = {
