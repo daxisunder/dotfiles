@@ -7,6 +7,12 @@ export PATH="$HOME/.local/bin/:$PATH"
 export PATH="/usr/local/bin:$PATH"
 export PATH="/usr/bin:$PATH"
 
+# XDG Base Directory specification
+export XDG_CONFIG_HOME="$HOME/.config"
+export XDG_CACHE_HOME="$HOME/.cache"
+export XDG_DATA_HOME="$HOME/.local/share"
+export XDG_STATE_HOME="$HOME/.local/state"
+
 # OMZ path
 export ZSH="$HOME/.oh-my-zsh"
 
