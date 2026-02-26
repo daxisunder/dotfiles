@@ -13,9 +13,6 @@ export XDG_CACHE_HOME="$HOME/.cache"
 export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_STATE_HOME="$HOME/.local/state"
 
-# OMZ path
-export ZSH="$HOME/.oh-my-zsh"
-
 # Cargo path
 export PATH="$HOME/.cargo/bin:$PATH"
 
@@ -119,6 +116,7 @@ setopt hist_find_no_dups
 setopt no_case_glob            # Case insensitive autocompletions
 setopt no_case_match           # Case insensitive autocompletions
 setopt globdots                # Include dotfiles in globbing
+setopt globcomplete            # Enable globbing in completion
 setopt extended_glob           # Advanced globbing patterns
 setopt auto_menu               # Automatically highlight first element of completion menu
 setopt menu_complete           # Use menu completion
@@ -129,7 +127,7 @@ setopt correct                 # Auto-corrections
 setopt autocd                  # Change directory just by typing its name
 setopt prompt_subst            # Enable command substitution in prompt
 setopt interactive_comments    # Allow comments in interactive shell
-setopt vi                      # Use vi keybindings
+setopt chaselinks              # Follow symbolic links when changing directories
 
 # Set comment color (zsh-syntax-highlighting)
 typeset -A ZSH_HIGHLIGHT_STYLES
@@ -253,11 +251,14 @@ function ex {
 plugins=(
     auto-notify
     colored-man-pages
+    fancy-ctrl-z
     git
     safe-paste
     shellfirm
     sudo
+    vi-mode
     you-should-use
+    zoxide
     # zsh-ai
     zsh-autopair
     zsh-autosuggestions
@@ -265,6 +266,9 @@ plugins=(
     zsh-system-clipboard
     zsh-vi-man
 )
+
+# OMZ path
+export ZSH="$HOME/.oh-my-zsh"
 
 # Source Oh My Zsh
 source $ZSH/oh-my-zsh.sh
@@ -392,9 +396,6 @@ export FZF_CTRL_R_OPTS="
   --bind 'ctrl-y:execute-silent(echo -n {2..} | pbcopy)+abort'
   --color header:italic
   --header 'Press CTRL-Y to copy command into clipboard'"
-
-# Zoxide integration
-eval "$(zoxide init zsh)"
 
 # Zellij integration
 # eval "$(zellij setup --generate-auto-start zsh)"
