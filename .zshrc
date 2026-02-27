@@ -30,6 +30,10 @@ export NODE_EXTRA_CA_CERTS="/etc/ssl/certs/ACCVRAIZ1.pem"
 # Flutter path
 export PATH="$HOME/fvm/default/bin:$PATH"
 
+# Go path
+export GOPATH=$HOME/go
+export PATH=$PATH:$GOPATH/bin
+
 # Emacs path
 export PATH="$HOME/.config/emacs/bin:$PATH"
 
