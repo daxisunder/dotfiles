@@ -33,8 +33,8 @@ return {
           red_bright = "#ff899d",
           white = "#a9b1d6",
           white_bright = "#c0caf5",
-          yellow = "#e0af68",
-          yellow_bright = "#faba4a",
+          yellow = "#faba4a",
+          yellow_bright = "#fff192",
         }
       end,
       on_highlights = function(hl, c)
