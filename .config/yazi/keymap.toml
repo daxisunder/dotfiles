@@ -220,15 +220,15 @@ keymap = [
   { on = [
     "g",
     "c",
-  ], run = "cd ~/.config", desc = "Goto ~/.config" },
+  ], run = "cd $HOME/.config", desc = "Goto $HOME/.config" },
   { on = [
     "g",
     "d",
-  ], run = "cd ~/projects/dotfiles", desc = "Goto ~/projects/dotfiles" },
+  ], run = "cd $HOME/projects/dotfiles", desc = "Goto $HOME/projects/dotfiles" },
   { on = [
     "g",
     "D",
-  ], run = "cd ~/Downloads", desc = "Goto ~/Downloads" },
+  ], run = "cd $HOME/Downloads", desc = "Goto $HOME/Downloads" },
   { on = [
     "g",
     "e",
@@ -236,31 +236,35 @@ keymap = [
   { on = [
     "g",
     "f",
-  ], run = "cd ~/Documents", desc = "Goto ~/Documents" },
+  ], run = "cd $HOME/Documents", desc = "Goto $HOME/Documents" },
   { on = [
     "g",
     "h",
-  ], run = "cd ~", desc = "Goto $HOME" },
+  ], run = "cd $HOME", desc = "Goto $HOME" },
   { on = [
     "g",
     "l",
-  ], run = "cd ~/.local", desc = "Goto ~/.local" },
+  ], run = "cd $HOME/.local", desc = "Goto $HOME/.local" },
   { on = [
     "g",
     "m",
-  ], run = "cd ~/Media", desc = "Goto ~/Media" },
+  ], run = "cd $HOME/Media", desc = "Goto $HOME/Media" },
   { on = [
     "g",
     "n",
-  ], run = "cd ~/projects/neovim", desc = "Goto ~/projects/neovim" },
+  ], run = "cd $HOME/projects/neovim", desc = "Goto $HOME/projects/neovim" },
   { on = [
     "g",
     "p",
-  ], run = "cd ~/projects", desc = "Goto ~/projects" },
+  ], run = "cd $HOME/projects", desc = "Goto $HOME/projects" },
   { on = [
     "g",
     "P",
-  ], run = "cd ~/Pictures", desc = "Goto ~/Pictures" },
+  ], run = "cd $HOME/Pictures", desc = "Goto $HOME/Pictures" },
+  { on = [
+    "g",
+    "s",
+  ], run = "cd /usr/share", desc = "Goto /usr/share" },
   { on = [
     "g",
     "u",
@@ -268,7 +272,7 @@ keymap = [
   { on = [
     "g",
     "w",
-  ], run = "cd ~/projects/website", desc = "Goto ~/projects/website" },
+  ], run = "cd $HOME/projects/website", desc = "Goto $HOME/projects/website" },
   { on = [
     "g",
     "/",
@@ -695,3 +699,9 @@ desc = "Maximize or restore the preview pane"
 on = ["c", "y"]
 run = ["plugin copy-file-contents"]
 desc = "Copy contents of file"
+
+# LazyGit
+[[mgr.prepend_keymap]]
+on = ["g", "i"]
+run = "plugin lazygit"
+desc = "Run LazyGit"

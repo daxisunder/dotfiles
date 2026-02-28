@@ -210,18 +210,18 @@ return {
     }
     local macro_recording = {
       show_macro_recording,
-      color = { fg = "#333333", bg = "#ff6666" },
+      color = { fg = "#000000", bg = "#ff6666" },
       separator = { left = "", right = "" },
     }
     local harpoon = {
       "harpoon2",
       icon = "󰦾",
-      indicators = { "1", "2", "3", "4", "5", "6", "7", "8", "9" },
-      active_indicators = { "[1]", "[2]", "[3]", "[4]", "[5]", "[6]", "[7]", "[8]", "[9]" },
+      indicators = { "1", "2", "3", "4", "5", "6", "7", "8" },
+      active_indicators = { "[1]", "[2]", "[3]", "[4]", "[5]", "[6]", "[7]", "[8]" },
       _separator = " ",
       separator = { left = "", right = "" },
       color = function()
-        return { bg = mode_color[vim.fn.mode()], fg = colors.bg, gui = "bold" }
+        return { bg = mode_color[vim.fn.mode()], fg = "#000000", gui = "bold" }
       end,
     }
     local copilot = {
