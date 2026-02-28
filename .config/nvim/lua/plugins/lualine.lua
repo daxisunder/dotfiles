@@ -79,7 +79,8 @@ return {
         return vim.fn.winwidth(0) > 80
       end,
       alpha = function()
-        if vim.bo.filetype ~= "alpha" then
+        -- Hide components if we are in Alpha OR Snacks Dashboard
+        if vim.bo.filetype ~= "alpha" and ft ~= "snacks_dashboard" then
           return true
         end
       end,
@@ -172,11 +173,12 @@ return {
     }
     local alpha = {
       function()
-        return "Alpha Dashboard"
+        return "Dashboard"
       end,
       color = { fg = colors.magenta, bg = "None", gui = "bold" },
       cond = function()
-        if vim.bo.filetype == "alpha" then
+        local ft = vim.bo.filetype
+        if ft == "alpha" or ft == "snacks_dashboard" then
           return true
         end
       end,
@@ -200,13 +202,13 @@ return {
     local diagnostics = {
       "diagnostics",
       sources = { "nvim_diagnostic" },
-      symbols = { error = " ", warn = " ", info = " " },
+      symbols = { error = " ", warn = " ", info = " ", hint = "󰰂 " },
       diagnostics_color = {
         color_error = { fg = colors.red, bg = "None", gui = "bold" },
         color_warn = { fg = colors.yellow, bg = "None", gui = "bold" },
         color_info = { fg = colors.cyan, bg = "None", gui = "bold" },
+        color_hint = { fg = colors.green, bg = "None", gui = "bold" },
       },
-      color = { bg = mode, gui = "bold" },
     }
     local macro_recording = {
       show_macro_recording,
@@ -243,7 +245,7 @@ return {
     }
     local diff = {
       "diff",
-      symbols = { added = " ", modified = "󰝤 ", removed = " " },
+      symbols = { added = " ", modified = " ", removed = " " },
       diff_color = {
         added = { fg = colors.green, bg = "None" },
         modified = { fg = colors.orange, bg = "None" },
@@ -317,12 +319,16 @@ return {
         component_separators = "",
         section_separators = { left = "", right = "" },
         always_divide_middle = false,
+        -- disabled_filetypes = {
+        --   statusline = { "snacks_dashboard" }, -- Hides the statusline
+        --   winbar = { "snacks_dashboard" }, -- Hides the winbar (if you use one)
+        -- },
       },
       sections = {
         lualine_a = { mode },
         lualine_b = { filename, alpha, branch, lsp_status },
         lualine_c = { diagnostics, sep, macro_recording, harpoon },
-        lualine_x = { copilot, diff, fileformat, lazy, mason },
+        lualine_x = { copilot, diff, lazy, mason },
         lualine_y = { buffers, filetype, progress },
         lualine_z = { location },
       },
@@ -347,13 +353,18 @@ return {
     vim.api.nvim_create_autocmd("RecordingLeave", {
       callback = function()
         local timer = vim.loop.new_timer()
-        timer:start(
-          50,
-          0,
-          vim.schedule_wrap(function()
-            lualine.refresh()
-          end)
-        )
+        if timer then -- This "check nil" satisfies the LSP
+          timer:start(
+            50,
+            0,
+            vim.schedule_wrap(function()
+              lualine.refresh()
+              if not timer:is_closing() then
+                timer:close()
+              end
+            end)
+          )
+        end
       end,
     })
   end,
