@@ -689,3 +689,9 @@ desc = "Go to ssh config dir"
 on = "T"
 run = "plugin toggle-pane max-preview"
 desc = "Maximize or restore the preview pane"
+
+# Copy-file-contents
+[[mgr.prepend_keymap]]
+on = ["c", "y"]
+run = ["plugin copy-file-contents"]
+desc = "Copy contents of file"

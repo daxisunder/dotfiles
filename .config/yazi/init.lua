@@ -84,6 +84,12 @@ require("session"):setup({
 	sync_yanked = true,
 })
 
+-- copy file content to clipboard
+require("copy-file-contents"):setup({
+	append_char = "\n",
+	notification = true,
+})
+
 -- require("githead"):setup({
 -- 	order = {
 -- 		"__spacer__",

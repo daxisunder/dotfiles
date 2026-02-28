@@ -1,7 +1,7 @@
 [[plugin.deps]]
 use = "yazi-rs/plugins:full-border"
-rev = "230b9c6"
-hash = "3996fc74044bc44144b323686f887e1"
+rev = "1962818"
+hash = "6fa6a05a81c98dd000fbca3cca6e9682"
 
 [[plugin.deps]]
 use = "llanosrocas/yaziline"
@@ -15,23 +15,23 @@ hash = "41dc37a724b2afd21da4f1ea6c1182d8"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:git"
-rev = "230b9c6"
-hash = "270915fa8282a19908449530ff66f7e2"
+rev = "1962818"
+hash = "26db011a778f261d730d4f5f8bf24b3f"
 
 [[plugin.deps]]
 use = "boydaihungst/file-extra-metadata"
-rev = "4fbb106"
-hash = "8765a20c837f4be5718f89ab1cf33b4"
+rev = "871ba3c"
+hash = "ff02946e042df4869617edb9aa310523"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:mount"
-rev = "230b9c6"
-hash = "9ad20d763df07ce40fd09de549d914b0"
+rev = "1962818"
+hash = "91937a4a9b779eabc6983e258befdfe9"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:chmod"
-rev = "230b9c6"
-hash = "8da0b15a97b5dfd13941d1ecc617ac7c"
+rev = "1962818"
+hash = "f0c8c378184d5f8abd1b095a443d336d"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:smart-filter"
@@ -72,6 +72,11 @@ hash = "fc696aa2ff140e8d8ee1f490ca787bb0"
 use = "yazi-rs/plugins:toggle-pane"
 rev = "230b9c6"
 hash = "8a7c58225816a163a6e8730c0adafbc8"
+
+[[plugin.deps]]
+use = "AnirudhG07/plugins-yazi:copy-file-contents"
+rev = "71545f4"
+hash = "f8530ee84fee95dbcc26bb1d8d8019c7"
 
 [flavor]
 deps = []
