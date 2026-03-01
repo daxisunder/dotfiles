@@ -16,9 +16,6 @@ export XDG_STATE_HOME="$HOME/.local/state"
 # Cargo path
 export PATH="$HOME/.cargo/bin:$PATH"
 
-# Created by `pipx` on 2025-02-10 20:34:32
-export PATH="$HOME/.local/bin:$PATH"
-
 # Ruby path
 export PATH="$HOME/.local/share/gem/ruby/3.3.0/bin:$PATH"
 
@@ -41,7 +38,7 @@ export PATH="$HOME/.config/emacs/bin:$PATH"
 export PATH="/var/lib/flatpak/exports/share:$PATH"
 
 # GitArbor TUI
-export PATH="$PATH:/home/daxis/.gitarbor/bin"
+export PATH="$HOME/.gitarbor/bin:$PATH"
 
 # Source api keys (has to be sourced before zsh-ai gemini provider)
 source $HOME/projects/dotfiles/api.env
@@ -470,7 +467,7 @@ source /home/daxis/.config/broot/launcher/bash/br
 # NVM integration
 source /usr/share/nvm/init-nvm.sh
 
-# televisiion integration
+# Television integration
 eval "$(tv init zsh)"
 
 # FZF-navigator
