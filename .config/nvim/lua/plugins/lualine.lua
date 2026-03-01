@@ -318,7 +318,7 @@ return {
         theme = theme,
         component_separators = "",
         section_separators = { left = "", right = "" },
-        always_divide_middle = false,
+        always_divide_middle = true,
         -- disabled_filetypes = {
         --   statusline = { "snacks_dashboard" }, -- Hides the statusline
         --   winbar = { "snacks_dashboard" }, -- Hides the winbar (if you use one)
