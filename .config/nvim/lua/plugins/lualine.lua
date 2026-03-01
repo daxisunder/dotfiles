@@ -186,7 +186,7 @@ return {
     local branch = {
       "branch",
       icon = "",
-      color = { fg = colors.violet, bg = "None", gui = "bold" },
+      color = { fg = colors.yellow, bg = "None", gui = "bold" },
       on_click = function()
         vim.cmd("LazyGit")
       end,
