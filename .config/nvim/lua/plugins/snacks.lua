@@ -503,7 +503,7 @@ return {
         focusable = false,
         backdrop = false,
         row = 0,
-        col = 130,
+        col = -1,
         -- width/height are automatically set by the image size unless specified below
         width = 80,
       },
