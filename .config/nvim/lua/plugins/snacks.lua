@@ -366,7 +366,6 @@ return {
           end,
           confirm = function(picker, item)
             picker:close()
-            --
             local expand = {}
             require("luasnip").available(function(snippet)
               if snippet.trigger == item.trigger then
@@ -502,7 +501,7 @@ return {
         border = true,
         focusable = false,
         backdrop = false,
-        row = 0,
+        row = 1,
         col = -1,
         -- width/height are automatically set by the image size unless specified below
         width = 80,
