@@ -456,9 +456,6 @@ source <(carapace _carapace)
 # Broot integration
 source /home/daxis/.config/broot/launcher/bash/br
 
-# NVM integration
-source /usr/share/nvm/init-nvm.sh
-
 # Television integration
 eval "$(tv init zsh)"
 
