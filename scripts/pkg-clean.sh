@@ -46,7 +46,6 @@ fi
 if command -v yay &>/dev/null; then
   print_header "Cleaning Yay (AUR) Cache"
 
-  # Silence standard yay status headers
   sudo -u daxis yay -Yc --noconfirm -q >/dev/null 2>&1
   sudo -u daxis yay -Sc --aur --noconfirm -q >/dev/null 2>&1
 
@@ -61,7 +60,16 @@ if command -v yay &>/dev/null; then
 
       if [[ -n "$DEBRIS" ]]; then
         debris_count=$(echo "$DEBRIS" | wc -l)
-        find "$YAY_CACHE" -mindepth 1 -type d \( -name "src" -o -name "pkg" \) -exec rm -rf {} +
+        echo "Found $debris_count build directories to remove:"
+        while IFS= read -r dir; do
+          echo "  [dir] $dir"
+        done <<<"$DEBRIS"
+
+        while IFS= read -r dir; do
+          echo "Removing: $dir"
+          rm -rf "$dir"
+        done <<<"$DEBRIS"
+
         echo "Source and build directories cleared ($debris_count items)."
         deleted_count=$((deleted_count + debris_count))
       fi
@@ -78,7 +86,17 @@ JOURNAL_OUT=$(journalctl --vacuum-time=2d 2>&1)
 if [[ "$JOURNAL_OUT" == *"freed 0B"* ]]; then
   echo "Journal logs are within limits."
 else
-  echo "$JOURNAL_OUT" | sed '/^$/d'
+  REMOVED_JOURNALS=$(echo "$JOURNAL_OUT" | grep -oP 'Deleted archived journal \S+')
+  journal_count=$(echo "$REMOVED_JOURNALS" | grep -c 'Deleted' || echo 0)
+
+  echo "Found $journal_count journal files to remove:"
+  echo "$JOURNAL_OUT" | grep 'Deleted archived journal' | while IFS= read -r line; do
+    echo "  [log] $(echo "$line" | grep -oP '/[^ ]+')"
+  done
+  echo "$REMOVED_JOURNALS" | while IFS= read -r line; do
+    echo "Removing: $(echo "$line" | grep -oP '/[^ ]+')"
+  done
+  echo "$JOURNAL_OUT" | grep -v 'Deleted' | sed '/^$/d'
 fi
 
 # Calculate Space for Trash logic
@@ -93,13 +111,20 @@ if [ -d "$TRASH_DIR" ] && [ "$(ls -A "$TRASH_DIR" 2>/dev/null)" ]; then
   file_count=$(find "$TRASH_DIR" -mindepth 1 | wc -l)
   trash_size=$(du -sh "$TRASH_DIR" | cut -f1)
 
-  echo "Trash contains $file_count items ($trash_size)."
+  echo "Trash contains $file_count items ($trash_size):"
+  find "$TRASH_DIR" -mindepth 1 -maxdepth 1 | while IFS= read -r item; do
+    echo "  [trash] $item"
+  done
+
   printf "Empty it? [y/N] "
   read -n 1 -r REPLY
 
   if [[ $REPLY =~ ^[Yy]$ ]]; then
     printf "\r\033[KForce-emptying trash...\n"
-    rm -rf "/home/daxis/.local/share/Trash/files"/* 2>/dev/null
+    find "$TRASH_DIR" -mindepth 1 -maxdepth 1 | while IFS= read -r item; do
+      echo "Removing: $item"
+      rm -rf "$item"
+    done
     rm -rf "/home/daxis/.local/share/Trash/info"/* 2>/dev/null
 
     deleted_count=$((deleted_count + file_count))
