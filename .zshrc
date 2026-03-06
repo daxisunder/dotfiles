@@ -77,7 +77,7 @@ export SUDO_EDITOR="${EDITOR}"
 export VISUAL="${EDITOR}"
 
 # Set bat as manpager
-export BAT_THEME="Dracula"
+export BAT_THEME="base16-256"
 export BAT_STYLE="full"
 #export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 
