@@ -255,6 +255,7 @@ plugins=(
     # zsh-ai
     zsh-autopair
     zsh-autosuggestions
+    zsh-expand
     zsh-syntax-highlighting
     zsh-system-clipboard
     zsh-vi-man
