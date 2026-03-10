@@ -300,8 +300,8 @@ alias ysi='yay -Si'
 alias ysii='yay -Sii' # List reverse dependencies
 alias yrq='yay -Rsn $(yay -Qdtq)' # List & remove all unneeded dependencies
 alias ysc='yay -Sc' # Clean cached packages
-alias yi="yay -Slq|fzf -m --preview-window=right:75% --preview 'bat -p <(yay -Qi {1}|grep -e \"Install Reason\";echo '') <(yay`` -Sii {1}) <(yay -Fl {1}|awk \"{print \$2}\")'|xargs -ro yay -S"
-alias yu="yay -Qq|fzf -m --preview-window=right:75% --preview 'bat -p <(yay -Qi {1}|grep -e \"Install Reason\";echo '') <(yay`` -Sii {1}) <(yay -Ql {1}|awk \"{print \$2}\")'|xargs -ro yay -Rsn"
+alias yi="yay -Slq|fzf -m --preview-window=right:75% --preview 'bat -p <(yay -Qi {1}|grep -e \"Install Reason\";echo \"\") <(yay -Sii {1}) <(yay -Fl {1}|awk \"{print \$2}\")'|xargs -ro yay -S"
+alias yu="yay -Qq|fzf -m --preview-window=right:75% --preview 'bat -p <(yay -Qi {1}|grep -e \"Install Reason\";echo \"\") <(yay`` -Sii {1}) <(yay -Ql {1}|awk \"{print \$2}\")'|xargs -ro yay -Rsn"
 alias psyu='sudo pacman -Syu && sudo flatpak update' # Update standard packages + flatpaks
 alias psyyu='sudo pacman -Syyu' # Update only standard packages and force refresh databases (useful when mirrors are out of sync)
 alias prsn='sudo pacman -Rsn'
@@ -351,29 +351,6 @@ mann() {
 
 # FZF integration + key bindings (CTRL R for fuzzy history finder)
 source <(fzf --zsh)
-
-# FZF theme
-export FZF_DEFAULT_OPTS="$FZF_DEFAULT_OPTS \
-  --style=full \
-  --highlight-line \
-  --info=inline-right \
-  --ansi \
-  --color=bg+:#1a1b26 \
-  --color=border:#1a1b26 \
-  --color=fg:#c0caf5 \
-  --color=gutter:#16161e \
-  --color=header:#ff9e64 \
-  --color=hl+:#2ac3de \
-  --color=hl:#2ac3de \
-  --color=info:#545c7e \
-  --color=marker:#ff007c \
-  --color=pointer:#ff007c \
-  --color=prompt:#2ac3de \
-  --color=query:#c0caf5:regular \
-  --color=scrollbar:#1a1b26 \
-  --color=separator:#ff9e64 \
-  --color=spinner:#ff007c \
-"
 
 # FZF previews
 # Preview file content using bat (https://github.com/sharkdp/bat)
