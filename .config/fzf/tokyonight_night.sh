@@ -1,4 +1,4 @@
-export FZF_DEFAULT_OPTS="\
+export FZF_DEFAULT_OPTS=" \
   --style=full \
   --highlight-line \
   --info=inline-right \

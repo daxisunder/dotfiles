@@ -247,7 +247,7 @@ plugins=(
     fancy-ctrl-z
     git
     safe-paste
-    # shellfirm
+    shellfirm
     sudo
     vi-mode
     you-should-use
@@ -255,7 +255,7 @@ plugins=(
     # zsh-ai
     zsh-autopair
     zsh-autosuggestions
-    zsh-expand
+    # zsh-expand
     zsh-syntax-highlighting
     zsh-system-clipboard
     zsh-vi-man
