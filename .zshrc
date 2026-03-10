@@ -352,6 +352,29 @@ mann() {
 # FZF integration + key bindings (CTRL R for fuzzy history finder)
 source <(fzf --zsh)
 
+# FZF theme
+export FZF_DEFAULT_OPTS=" \
+  --style=full \
+  --highlight-line \
+  --info=inline-right \
+  --ansi \
+  --color=bg+:#1a1b26 \
+  --color=border:#1a1b26 \
+  --color=fg:#c0caf5 \
+  --color=gutter:#16161e \
+  --color=header:#ff9e64 \
+  --color=hl+:#2ac3de \
+  --color=hl:#2ac3de \
+  --color=info:#545c7e \
+  --color=marker:#ff007c \
+  --color=pointer:#ff007c \
+  --color=prompt:#2ac3de \
+  --color=query:#c0caf5:regular \
+  --color=scrollbar:#1a1b26 \
+  --color=separator:#ff9e64 \
+  --color=spinner:#ff007c \
+"
+
 # FZF previews
 # Preview file content using bat (https://github.com/sharkdp/bat)
 export FZF_CTRL_T_OPTS="
