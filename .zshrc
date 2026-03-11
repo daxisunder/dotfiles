@@ -245,7 +245,7 @@ plugins=(
     auto-notify
     colored-man-pages
     fancy-ctrl-z
-    git
+    # git
     safe-paste
     shellfirm
     sudo
@@ -274,7 +274,7 @@ alias la='eza -a --tree --level=1 --icons'
 alias l.='eza -a | egrep "^\."'  # Show only hidden files
 alias q='exit'
 alias z='cd'
-alias ..='cd ..'
+alias .1='cd ..'
 alias .2='cd ../..'
 alias .3='cd ../../..'
 alias .4='cd ../../../..'
