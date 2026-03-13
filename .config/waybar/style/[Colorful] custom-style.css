@@ -100,7 +100,7 @@ window#waybar.empty #window {
 }
 
 #workspaces button.empty {
-  color: #ffffed;
+  color: #ffffff;
 }
 
 #workspaces button.active {
@@ -369,7 +369,7 @@ window#waybar.empty #window {
 
 #window {
   font-size: 100%;
-  color: #ffffed;
+  color: #ffffff;
 }
 
 #mpris {
