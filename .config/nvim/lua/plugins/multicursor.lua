@@ -7,6 +7,9 @@ return {
 
     local set = vim.keymap.set
 
+    -- Disable and enable cursors.
+    set({ "n", "x" }, "<c-q>", mc.toggleCursor, { desc = "Toggle Cursors" })
+
     -- Add or skip cursor above/below the main cursor.
     set({ "n", "x" }, "<up>", function()
       mc.lineAddCursor(-1)
@@ -35,13 +38,35 @@ return {
       mc.matchSkipCursor(-1)
     end, { desc = "Skip Cursor Previous Match" })
 
+    -- Add a cursor for all matches of cursor word/selection in the document.
+    set({ "n", "x" }, "<leader>A", mc.matchAllAddCursors, { desc = "Add Cursors To All Matches" })
+
+    -- Add a cursor and jump to the next/previous search result.
+    set("n", "<leader>/n", function()
+      mc.searchAddCursor(1)
+    end, { desc = "Add Cursor To Next Search Result" })
+    set("n", "<leader>/N", function()
+      mc.searchAddCursor(-1)
+    end, { desc = "Add Cursor To Previous Search Result" })
+
+    -- Jump to the next/previous search result without adding a cursor.
+    set("n", "<leader>/s", function()
+      mc.searchSkipCursor(1)
+    end, { desc = "Skip To Next Search Result" })
+    set("n", "<leader>/S", function()
+      mc.searchSkipCursor(-1)
+    end, { desc = "Skip To Previous Search Result" })
+
+    -- Add a cursor to every search result in the buffer.
+    set("n", "<leader>/A", mc.searchAllAddCursors, { desc = "Add Cursors To All Search Results" })
+
     -- Add and remove cursors with control + left click.
     set("n", "<c-leftmouse>", mc.handleMouse, { desc = "Add Cursor With Mouse" })
     set("n", "<c-leftdrag>", mc.handleMouseDrag, { desc = "Add Cursors With Mouse Drag" })
     set("n", "<c-leftrelease>", mc.handleMouseRelease, { desc = "Clear Cursors With Mouse Release" })
 
-    -- Disable and enable cursors.
-    set({ "n", "x" }, "<c-q>", mc.toggleCursor, { desc = "Toggle Cursors" })
+    -- bring back cursors if you accidentally clear them
+    set("n", "<leader>gv", mc.restoreCursors, { desc = "Restore Cursors" })
 
     -- Mappings defined in a keymap layer only apply when there are
     -- multiple cursors. This lets you have overlapping mappings.

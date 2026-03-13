@@ -27,7 +27,7 @@ return {
         min = 25,
         max = 40,
       },
-      spacing = 1, -- spacing between columns
+      spacing = 2, -- spacing between columns
     },
     spec = {
       mode = { "n", "v" },
