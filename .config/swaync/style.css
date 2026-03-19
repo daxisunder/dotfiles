@@ -199,7 +199,7 @@
 
 .widget-dnd {
   background: @noti-bg-alt;
-  padding: 2px 1px;
+  padding: 2px 6px;
   margin: 5px;
   border-radius: 6px;
   font-size: 0.5rem;

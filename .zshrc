@@ -190,6 +190,17 @@ autoload -z edit-command-line
 zle -N edit-command-line
 bindkey '^X' edit-command-line
 
+# Clear backbuffer/screen with CTRL L
+function clear-screen-and-scrollback() {
+    printf '\x1Bc'
+    zle clear-screen
+}
+zle -N clear-screen-and-scrollback
+bindkey '^L' clear-screen-and-scrollback
+
+# zsh-vi-man
+ZVM_MAN_PAGER='nvim'
+
 # Archive extraction (usage: ex <file>)
 # Github: https://github.com/xvoland/Extract/blob/master/extract.sh
 function ex {
@@ -402,7 +413,7 @@ eval "$(atuin init zsh)"
 source /usr/share/wikiman/widgets/widget.zsh
 
 # Pay-respects (better command-not-found) integration
-eval "$(pay-respects zsh)"
+# eval "$(pay-respects zsh)"
 
 # Yazi integration
 function y() {
@@ -436,7 +447,7 @@ spf() {
     }
 }
 
-# Fancy-ctrl-z integration (CTRL Z to toggle between fg and bg)
+# Fancy-ctrl-z integration (doesn't work if set before sourcing OMZ)
 fancy-ctrl-z () {
   if [[ $#BUFFER -eq 0 ]]; then
     BUFFER="fg"
