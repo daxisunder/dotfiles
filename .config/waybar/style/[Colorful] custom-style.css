@@ -136,7 +136,7 @@ window#waybar.empty #window {
 #clock {
   color: #9fe044;
   font-size: 125%;
-  padding-right: 0px;
+  padding-right: 2px;
 }
 
 #custom-swaync {

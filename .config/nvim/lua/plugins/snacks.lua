@@ -151,6 +151,11 @@ return {
             preset = "ivy",
           },
         },
+        cliphist = {
+          layout = {
+            preset = "vscode",
+          },
+        },
         commands = {
           layout = {
             preset = "vscode",
@@ -288,6 +293,16 @@ return {
             preset = "vscode",
           },
         },
+        pickers = {
+          layout = {
+            preset = "ivy",
+          },
+        },
+        picker_layouts = {
+          layout = {
+            preset = "ivy",
+          },
+        },
         projects = {
           layout = {
             preset = "vscode",
@@ -389,6 +404,11 @@ return {
           },
         },
         undo = {
+          layout = {
+            preset = "ivy",
+          },
+        },
+        yanky = {
           layout = {
             preset = "ivy",
           },

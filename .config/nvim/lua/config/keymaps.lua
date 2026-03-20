@@ -5,6 +5,9 @@
 local map = vim.keymap.set
 local Snacks = require("snacks")
 
+-- search clipboard history
+map({ "n" }, "<leader>sv", ":lua Snacks.picker.cliphist()<CR>", { desc = "Clipboard History" })
+
 -- name a file without writing it out
 map("n", "<leader>F", ":file ", { desc = "File Name (Full Path)" })
 
