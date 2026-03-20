@@ -34,7 +34,7 @@ map({ "n", "v" }, "<leader>PhH", ":Pick history<CR>", { desc = "Pick: History" }
 map({ "n", "v" }, "<leader>Phg", ":Pick hl_groups<CR>", { desc = "Pick: Hl Groups" })
 
 -- line diagnostics
-map("n", "<localleader>k", function()
+map("n", "<leader>uK", function()
   vim.diagnostic.config({ virtual_lines = { current_line = true }, virtual_text = false })
   vim.api.nvim_create_autocmd("CursorMoved", {
     group = vim.api.nvim_create_augroup("line-diagnostics", { clear = true }),

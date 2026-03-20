@@ -542,17 +542,6 @@ return {
   },
   keys = {
     {
-      "<leader>n",
-      false,
-    },
-    {
-      "<leader>sN",
-      function()
-        Snacks.picker.notifications()
-      end,
-      desc = "Notification History",
-    },
-    {
       "<leader>N",
       desc = "Neovim News",
       function()

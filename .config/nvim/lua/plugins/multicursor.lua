@@ -17,48 +17,48 @@ return {
     set({ "n", "x" }, "<down>", function()
       mc.lineAddCursor(1)
     end, { desc = "Add Cursor Below" })
-    set({ "n", "x" }, "<leader><up>", function()
+    set({ "n", "x" }, "<localleader><up>", function()
       mc.lineSkipCursor(-1)
     end, { desc = "Skip Cursor Above" })
-    set({ "n", "x" }, "<leader><down>", function()
+    set({ "n", "x" }, "<localleader><down>", function()
       mc.lineSkipCursor(1)
     end, { desc = "Skip Cursor Below" })
 
     -- Add or skip adding a new cursor by matching word/selection
-    set({ "n", "x" }, "<leader>n", function()
+    set({ "n", "x" }, "<localleader>n", function()
       mc.matchAddCursor(1)
     end, { desc = "Add Cursor Next Match" })
-    set({ "n", "x" }, "<leader>s", function()
+    set({ "n", "x" }, "<localleader>s", function()
       mc.matchSkipCursor(1)
     end, { desc = "Skip Cursor Next Match" })
-    set({ "n", "x" }, "<leader>N", function()
+    set({ "n", "x" }, "<localleader>N", function()
       mc.matchAddCursor(-1)
     end, { desc = "Add Cursor Previous Match" })
-    set({ "n", "x" }, "<leader>S", function()
+    set({ "n", "x" }, "<localleader>S", function()
       mc.matchSkipCursor(-1)
     end, { desc = "Skip Cursor Previous Match" })
 
     -- Add a cursor for all matches of cursor word/selection in the document.
-    set({ "n", "x" }, "<leader>A", mc.matchAllAddCursors, { desc = "Add Cursors To All Matches" })
+    set({ "n", "x" }, "<localleader>A", mc.matchAllAddCursors, { desc = "Add Cursors To All Matches" })
 
     -- Add a cursor and jump to the next/previous search result.
-    set("n", "<leader>/n", function()
+    set("n", "<localleader>/n", function()
       mc.searchAddCursor(1)
     end, { desc = "Add Cursor To Next Search Result" })
-    set("n", "<leader>/N", function()
+    set("n", "<localleader>/N", function()
       mc.searchAddCursor(-1)
     end, { desc = "Add Cursor To Previous Search Result" })
 
     -- Jump to the next/previous search result without adding a cursor.
-    set("n", "<leader>/s", function()
+    set("n", "<localleader>/s", function()
       mc.searchSkipCursor(1)
     end, { desc = "Skip To Next Search Result" })
-    set("n", "<leader>/S", function()
+    set("n", "<localleader>/S", function()
       mc.searchSkipCursor(-1)
     end, { desc = "Skip To Previous Search Result" })
 
     -- Add a cursor to every search result in the buffer.
-    set("n", "<leader>/A", mc.searchAllAddCursors, { desc = "Add Cursors To All Search Results" })
+    set("n", "<localleader>/A", mc.searchAllAddCursors, { desc = "Add Cursors To All Search Results" })
 
     -- Add and remove cursors with control + left click.
     set("n", "<c-leftmouse>", mc.handleMouse, { desc = "Add Cursor With Mouse" })
@@ -66,7 +66,7 @@ return {
     set("n", "<c-leftrelease>", mc.handleMouseRelease, { desc = "Clear Cursors With Mouse Release" })
 
     -- bring back cursors if you accidentally clear them
-    set("n", "<leader>gv", mc.restoreCursors, { desc = "Restore Cursors" })
+    set("n", "<localleader>gv", mc.restoreCursors, { desc = "Restore Cursors" })
 
     -- Mappings defined in a keymap layer only apply when there are
     -- multiple cursors. This lets you have overlapping mappings.
@@ -76,7 +76,7 @@ return {
       layerSet({ "n", "x" }, "<right>", mc.nextCursor, { desc = "SelectNext Cursor" })
 
       -- Delete the main cursor.
-      layerSet({ "n", "x" }, "<leader>x", mc.deleteCursor, { desc = "Delete Main Cursor" })
+      layerSet({ "n", "x" }, "<localleader>x", mc.deleteCursor, { desc = "Delete Main Cursor" })
 
       -- Enable and clear cursors using escape.
       layerSet("n", "<esc>", function()

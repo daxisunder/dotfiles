@@ -10,6 +10,9 @@ return {
       org_files = {
         "~/Dropbox/orgfiles",
       },
+      bindings = {
+        prefix = "<Leader>O",
+      },
     })
   end,
 }
