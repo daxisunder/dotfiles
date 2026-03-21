@@ -1,6 +1,5 @@
 /* Waybar Modules */
 
-
 {
 // HYPRLAND WORKSPACES. CHOOSE as desired and place on waybar configs
 // CIRCLES Style
@@ -736,7 +735,7 @@
   "format": "{}°C",
   "tooltip": true,
   "interval": 3600,
-  "exec": "wttrbar --location 44.77,17.19",
+  "exec": "wttrbar --location banjaluka",
   "return-type": "json"
 },
 "custom/github": {
