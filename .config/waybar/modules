@@ -735,7 +735,7 @@
   "format": "{}°C",
   "tooltip": true,
   "interval": 3600,
-  "exec": "wttrbar --location banjaluka",
+  "exec": "wttrbar",
   "return-type": "json"
 },
 "custom/github": {
