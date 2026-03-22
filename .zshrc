@@ -355,7 +355,7 @@ help() {
     "$@" --help 2>&1 | bat -plhelp
 }
 
-# Colorize manpages with bat
+# Colorize manpages with bat (pager = less)
 mann() {
   man $1 | bat -l man -p
 }
