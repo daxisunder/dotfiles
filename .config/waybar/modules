@@ -734,8 +734,8 @@
 "custom/weather": {
   "format": "{}°C",
   "tooltip": true,
-  "interval": 3600,
-  "exec": "wttrbar",
+  "interval": 60,
+  "exec": "cat /tmp/wttrbar-cache.json 2>/dev/null || echo '{\"text\":\"N/A\"}'",
   "return-type": "json"
 },
 "custom/github": {
