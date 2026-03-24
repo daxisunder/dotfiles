@@ -735,7 +735,7 @@
   "format": "{}°C",
   "tooltip": true,
   "interval": 60,
-  "exec": "cat /tmp/wttrbar-cache.json 2>/dev/null || echo '{\"text\":\"⚠️\"}'",
+  "exec": "wttrbar",
   "return-type": "json"
 },
 "custom/github": {
