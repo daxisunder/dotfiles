@@ -3,11 +3,12 @@
 CACHE="/tmp/wttrbar-cache.json"
 TMP="/tmp/wttrbar-cache.tmp"
 
-rm -f "$CACHE"
+rm -f /tmp/wttrbar--*.json
 
 wttrbar >"$TMP" 2>/dev/null
+EXIT=$?
 
-if [[ -s "$TMP" ]] && jq -e '.text' "$TMP" &>/dev/null; then
+if [[ $EXIT -eq 0 && -s "$TMP" ]]; then
   mv "$TMP" "$CACHE"
 else
   rm -f "$TMP"
