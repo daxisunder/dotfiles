@@ -5,14 +5,14 @@
 wallDIR="$HOME/Pictures/wallpapers"
 SCRIPTSDIR="$HOME/.config/hypr/scripts"
 
-# variables
+# Variables
 focused_monitor=$(hyprctl monitors | awk '/^Monitor/{name=$2} /focused: yes/{print name}')
-# swww transition config
+
+# awww transition config
 FPS=60
-TYPE="any"
+TYPE="simple"
 DURATION=2
-BEZIER=".43,1.19,1,.4"
-SWWW_PARAMS="--transition-fps $FPS --transition-type $TYPE --transition-duration $DURATION"
+AWWW_PARAMS="--transition-fps $FPS --transition-type $TYPE --transition-duration $DURATION"
 
 # Check if swaybg is running
 if pidof swaybg >/dev/null; then
@@ -30,16 +30,13 @@ rofi_command="rofi -i -show -dmenu -config ~/.config/rofi/config-wallpaper.rasi"
 
 # Sorting Wallpapers
 menu() {
-  # Sort the PICS array
   IFS=$'\n' sorted_options=($(sort <<<"${PICS[*]}"))
 
-  # Place ". random" at the beginning with the random picture as an icon
   printf "%s\x00icon\x1f%s\n" "$RANDOM_PIC_NAME" "$RANDOM_PIC"
 
   for pic_path in "${sorted_options[@]}"; do
     pic_name=$(basename "$pic_path")
 
-    # Displaying .gif to indicate animated images
     if [[ ! "$pic_name" =~ \.gif$ ]]; then
       printf "%s\x00icon\x1f%s\n" "$(echo "$pic_name" | cut -d. -f1)" "$pic_path"
     else
@@ -48,32 +45,41 @@ menu() {
   done
 }
 
-# initiate swww if not running
-swww query || swww-daemon --format xrgb
+# Initiate awww if not running
+awww query &>/dev/null || {
+  awww-daemon --format xrgb &
+  sleep 0.5
+}
+
+# Check if rofi is already running
+if pidof rofi >/dev/null; then
+  pkill rofi
+  sleep 1
+fi
 
 # Choice of wallpapers
 main() {
   choice=$(menu | $rofi_command)
 
-  # Trim any potential whitespace or hidden characters
   choice=$(echo "$choice" | xargs)
   RANDOM_PIC_NAME=$(echo "$RANDOM_PIC_NAME" | xargs)
 
-  # No choice case
   if [[ -z "$choice" ]]; then
     echo "No choice selected. Exiting."
     exit 0
   fi
 
-  # Random choice case
   if [[ "$choice" == "$RANDOM_PIC_NAME" ]]; then
-    swww img -o "$focused_monitor" "$RANDOM_PIC" $SWWW_PARAMS
+    if [[ -n "$focused_monitor" ]]; then
+      awww img -o "$focused_monitor" "$RANDOM_PIC" $AWWW_PARAMS
+    else
+      awww img "$RANDOM_PIC" $AWWW_PARAMS
+    fi
     sleep 0.5
     "$SCRIPTSDIR/Refresh.sh"
     exit 0
   fi
 
-  # Find the index of the selected file
   pic_index=-1
   for i in "${!PICS[@]}"; do
     filename=$(basename "${PICS[$i]}")
@@ -84,18 +90,16 @@ main() {
   done
 
   if [[ $pic_index -ne -1 ]]; then
-    swww img -o "$focused_monitor" "${PICS[$pic_index]}" $SWWW_PARAMS
+    if [[ -n "$focused_monitor" ]]; then
+      awww img -o "$focused_monitor" "${PICS[$pic_index]}" $AWWW_PARAMS
+    else
+      awww img "${PICS[$pic_index]}" $AWWW_PARAMS
+    fi
   else
     echo "Image not found."
     exit 1
   fi
 }
-
-# Check if rofi is already running
-if pidof rofi >/dev/null; then
-  pkill rofi
-  sleep 1 # Allow some time for rofi to close
-fi
 
 main
 
