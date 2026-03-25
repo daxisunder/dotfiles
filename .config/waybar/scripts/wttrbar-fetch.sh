@@ -10,6 +10,8 @@ EXIT=$?
 
 if [[ $EXIT -eq 0 && -s "$TMP" ]]; then
   mv "$TMP" "$CACHE"
+  sleep 1
+  ~/.config/hypr/scripts/Refresh.sh
 else
   rm -f "$TMP"
 fi
