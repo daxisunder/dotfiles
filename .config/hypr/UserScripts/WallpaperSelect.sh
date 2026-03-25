@@ -76,7 +76,6 @@ main() {
       awww img "$RANDOM_PIC" $AWWW_PARAMS
     fi
     sleep 0.5
-    "$SCRIPTSDIR/Refresh.sh"
     exit 0
   fi
 
@@ -104,4 +103,3 @@ main() {
 main
 
 sleep 0.2
-"$SCRIPTSDIR/Refresh.sh"

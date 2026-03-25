@@ -30,4 +30,3 @@ fi
 
 "${scriptsDir}/WallustSwww.sh"
 sleep 1
-"${scriptsDir}/Refresh.sh"

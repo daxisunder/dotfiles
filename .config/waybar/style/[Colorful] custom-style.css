@@ -4,7 +4,7 @@
   font-family: "zai Courier Polski 1941";
   font-weight: bold;
   min-height: 0;
-  font-size: 95%;
+  font-size: 92%;
   font-feature-settings: '"zero", "ss01", "ss02", "ss03", "ss04", "ss05", "cv31"';
 }
 
@@ -83,12 +83,16 @@ window#waybar.empty #window {
 }
 
 #workspaces {
-  font-size: 100%;
+  padding-top: 0px;
+  padding-bottom: 0px;
   /* border: 2px solid #455a64; */
   /* border-radius: 20px; */
 }
 
 #workspaces button {
+  font-size: 125%;
+  padding-top: 0px;
+  padding-bottom: 0px;
   padding-left: 10px;
   padding-right: 10px;
   animation: gradient_f 20s ease-in infinite;
@@ -96,26 +100,36 @@ window#waybar.empty #window {
 }
 
 #workspaces button.persistent {
+  padding-top: 0px;
+  padding-bottom: 0px;
   color: #0fff80;
 }
 
 #workspaces button.empty {
+  padding-top: 0px;
+  padding-bottom: 0px;
   color: #ffffff;
 }
 
 #workspaces button.active {
+  padding-top: 0px;
+  padding-bottom: 0px;
   color: #00ffff;
   border: 2px solid #455a64;
   border-radius: 16px;
 }
 
 #workspaces button.urgent {
+  padding-top: 0px;
+  padding-bottom: 0px;
   color: #f7768e;
   border: 2px solid #f7768e;
   border-radius: 16px;
 }
 
 #workspaces button:hover {
+  padding-top: 0px;
+  padding-bottom: 0px;
   color: #9fe044;
   border: 2px solid #7dcfff;
   border-radius: 16px;
@@ -135,46 +149,60 @@ window#waybar.empty #window {
 
 #clock {
   color: #9fe044;
-  font-size: 125%;
+  font-size: 150%;
   padding-right: 2px;
+  padding-top: 0px;
+  padding-bottom: 0px;
 }
 
 #custom-swaync {
   border: 2px solid #455a64;
-  font-size: 125%;
+  font-size: 150%;
   border-radius: 20px;
+  padding-top: 0px;
+  padding-bottom: 0px;
   padding-left: 13px;
   padding-right: 12px;
 }
 
 #custom-swaync:hover {
+  padding-top: 0px;
+  padding-bottom: 0px;
   border: 2px solid #7dcfff;
 }
 
 #custom-keyboard {
   border: 2px solid #455a64;
   border-radius: 20px;
+  padding-top: 0px;
+  padding-bottom: 0px;
   padding-left: 13px;
   padding-right: 13px;
-  font-size: 125%;
+  font-size: 150%;
 }
 
 #custom-keyboard:hover {
+  padding-top: 0px;
+  padding-bottom: 0px;
   border: 2px solid #7dcfff;
 }
 
 #custom-cycle_wall {
   color: #c0caf5;
+  padding-top: 0px;
+  padding-bottom: 0px;
   padding-left: 7px;
   padding-right: 4px;
-  font-size: 125%;
+  font-size: 150%;
 }
 
 #custom-hint {
   color: #c0caf5;
+  padding-top: 0px;
+  padding-bottom: 0px;
   padding-left: 0px;
   padding-right: 4px;
-  font-size: 125%;
+  font-size: 150%;
 }
 
 #custom-github {
@@ -192,18 +220,24 @@ window#waybar.empty #window {
 
 #custom-niflveil {
   color: #7dcfff;
+  padding-top: 0px;
+  padding-bottom: 0px;
   padding-left: 0px;
   padding-right: 10px;
-  font-size: 125%;
+  font-size: 150%;
 }
 
 #custom-niflveil.empty {
   color: #c0caf5;
-  font-size: 125%;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  font-size: 150%;
 }
 
 #cpu {
-  font-size: 125%;
+  font-size: 150%;
+  padding-top: 0px;
+  padding-bottom: 0px;
   padding-left: 8px;
   padding-right: 4px;
   border-top: 2px solid #455a64;
@@ -214,6 +248,8 @@ window#waybar.empty #window {
 
 #cpu:hover {
   color: #00ffff;
+  padding-top: 0px;
+  padding-bottom: 0px;
   padding-left: 8px;
   padding-right: 8px;
   border: 2px solid #7dcfff;
@@ -221,7 +257,9 @@ window#waybar.empty #window {
 }
 
 #memory {
-  font-size: 125%;
+  font-size: 150%;
+  padding-top: 0px;
+  padding-bottom: 0px;
   padding-left: 6px;
   padding-right: 10px;
   border-bottom: 2px solid #455a64;
@@ -231,6 +269,8 @@ window#waybar.empty #window {
 
 #memory:hover {
   color: #00ffff;
+  padding-top: 0px;
+  padding-bottom: 0px;
   padding-left: 12px;
   padding-right: 14px;
   border: 2px solid #7dcfff;
@@ -238,7 +278,9 @@ window#waybar.empty #window {
 }
 
 #temperature {
-  font-size: 125%;
+  font-size: 150%;
+  padding-top: 0px;
+  padding-bottom: 0px;
   border-bottom: 2px solid #455a64;
   border-top: 2px solid #455a64;
   border-radius: 0px;
@@ -246,6 +288,8 @@ window#waybar.empty #window {
 
 #temperature:hover {
   color: #00ffff;
+  padding-top: 0px;
+  padding-bottom: 0px;
   padding-left: 11px;
   padding-right: 11px;
   border: 2px solid #7dcfff;
@@ -254,12 +298,16 @@ window#waybar.empty #window {
 
 #temperature.critical {
   color: #f7768e;
+  padding-top: 0px;
+  padding-bottom: 0px;
   border: 2px solid #f7768e;
   border-radius: 20px;
 }
 
 #disk {
-  font-size: 125%;
+  font-size: 150%;
+  padding-top: 0px;
+  padding-bottom: 0px;
   padding-right: 14px;
   border-top: 2px solid #455a64;
   border-right: 2px solid #455a64;
@@ -268,6 +316,8 @@ window#waybar.empty #window {
 }
 
 #disk:hover {
+  padding-top: 0px;
+  padding-bottom: 0px;
   padding-left: 12px;
   padding-right: 14px;
   color: #00ffff;
@@ -276,7 +326,9 @@ window#waybar.empty #window {
 }
 
 #diskmedia {
-  font-size: 125%;
+  font-size: 150%;
+  padding-top: 0px;
+  padding-bottom: 0px;
   padding-right: 14px;
   border-top: 2px solid #455a64;
   border-right: 2px solid #455a64;
@@ -286,6 +338,8 @@ window#waybar.empty #window {
 
 #diskmedia:hover {
   color: #00ffff;
+  padding-top: 0px;
+  padding-bottom: 0px;
   padding-left: 12px;
   padding-right: 14px;
   border: 2px solid #7dcfff;
@@ -310,17 +364,21 @@ window#waybar.empty #window {
 }
 
 #custom-menu {
-  font-size: 125%;
+  font-size: 150%;
   color: #7dcfff;
   padding-left: 14px;
   padding-right: 14px;
+  padding-top: 0px;
+  padding-bottom: 0px;
 }
 
 #custom-power {
-  font-size: 125%;
+  font-size: 150%;
   color: #f7768e;
   padding-left: 8px;
   padding-right: 17px;
+  padding-top: 0px;
+  padding-bottom: 0px;
 }
 
 #custom-updater {
@@ -328,11 +386,15 @@ window#waybar.empty #window {
   border-radius: 20px;
   padding-left: 10pt;
   padding-right: 12px;
-  font-size: 125%;
+  font-size: 150%;
+  padding-top: 0px;
+  padding-bottom: 0px;
 }
 
 #custom-updater:hover {
   border: 2px solid #7dcfff;
+  padding-top: 0px;
+  padding-bottom: 0px;
 }
 
 #custom-light_dark {
@@ -341,8 +403,10 @@ window#waybar.empty #window {
 
 #custom-weather {
   color: #9fe044;
-  font-size: 125%;
+  font-size: 150%;
   padding-left: 0px;
+  padding-top: 0px;
+  padding-bottom: 0px;
 }
 
 #custom-speaker {
@@ -351,7 +415,9 @@ window#waybar.empty #window {
 
 #pulseaudio {
   color: #faba4a;
-  font-size: 125%;
+  font-size: 150%;
+  padding-top: 0px;
+  padding-bottom: 0px;
 }
 
 #pulseaudio.bluetooth {
@@ -359,7 +425,10 @@ window#waybar.empty #window {
 }
 
 #pulseaudio.muted {
+  font-size: 150%;
   color: #f7768e;
+  padding-top: 0px;
+  padding-bottom: 0px;
 }
 
 #pulseaudio-microphone {
@@ -368,8 +437,11 @@ window#waybar.empty #window {
 }
 
 #window {
-  font-size: 100%;
+  font-size: 125%;
   color: #ffffff;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  padding-left: 0px;
 }
 
 #mpris {
@@ -389,6 +461,8 @@ window#waybar.empty #window {
 #pulseaudio-slider slider {
   opacity: 0;
   background-image: none;
+  padding-top: 0px;
+  padding-bottom: 0px;
 }
 
 #pulseaudio-slider trough {
@@ -425,5 +499,8 @@ window#waybar.empty #window {
 #custom-separator {
   font-size: 125%;
   padding-left: 6px;
+  padding-right: 6px;
   color: #f7768e;
+  padding-top: 0px;
+  padding-bottom: 0px;
 }

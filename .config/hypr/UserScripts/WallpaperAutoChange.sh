@@ -7,7 +7,6 @@
 # NOTE: this script uses bash (not POSIX shell) for the RANDOM variable
 
 wallDIR="$HOME/Pictures/wallpapers"
-wallust_refresh="$HOME/.config/hypr/scripts/RefreshNoWaybar.sh"
 
 # Initiate awww if not running
 awww query &>/dev/null || {
@@ -35,7 +34,6 @@ while true; do
       else
         awww img "$img"
       fi
-      "$wallust_refresh"
       sleep "$INTERVAL"
     done
 done
