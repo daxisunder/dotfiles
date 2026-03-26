@@ -258,7 +258,7 @@ plugins=(
     fancy-ctrl-z
     # git
     safe-paste
-    shellfirm
+    # shellfirm
     sudo
     vi-mode
     you-should-use
