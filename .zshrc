@@ -357,7 +357,7 @@ help() {
 
 # Colorize manpages with bat (pager = less)
 mann() {
-  man $1 | bat -l man -p
+  man $1 | col -bx | bat -plman
 }
 
 # FZF integration + key bindings (CTRL R for fuzzy history finder)
