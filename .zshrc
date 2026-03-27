@@ -403,7 +403,7 @@ export FZF_CTRL_R_OPTS="
   --header 'Press CTRL-Y to copy command into clipboard'"
 
 # Zellij integration
-# eval "$(zellij setup --generate-auto-start zsh)"
+eval "$(zellij setup --generate-auto-start zsh)"
 
 # Atuin integration (pretty history)
 . "$HOME/.atuin/bin/env"
