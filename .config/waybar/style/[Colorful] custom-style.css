@@ -363,7 +363,7 @@ window#waybar.empty #window {
   font-size: 150%;
   color: #f7768e;
   padding-left: 4px;
-  padding-right: 12px;
+  padding-right: 16px;
   padding-top: 0px;
   padding-bottom: 0px;
 }
