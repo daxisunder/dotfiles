@@ -363,7 +363,7 @@ window#waybar.empty #window {
   font-size: 150%;
   color: #f7768e;
   padding-left: 4px;
-  padding-right: 11px;
+  padding-right: 12px;
   padding-top: 0px;
   padding-bottom: 0px;
 }
@@ -410,17 +410,20 @@ window#waybar.empty #window {
 #pulseaudio.muted {
   font-size: 150%;
   color: #f7768e;
+}
+
+#pulseaudio-microphone {
+  color: #faba4a;
+  font-size: 150%;
+  padding-left: 4px;
+  padding-right: 2px;
   padding-top: 0px;
   padding-bottom: 0px;
 }
 
-#pulseaudio.bluetooth {
-  color: #c7a9ff;
-}
-
-#pulseaudio-microphone {
-  color: #c7a9ff;
-  font-size: 125%;
+pulseaudio-microphone.muted {
+  font-size: 150%;
+  color: #f7768e;
 }
 
 #pulseaudio-slider slider {
@@ -441,6 +444,10 @@ window#waybar.empty #window {
 #pulseaudio-slider highlight {
   min-height: 8px;
   border-radius: 8px;
+}
+
+#pulseaudio.bluetooth {
+  color: #c7a9ff;
 }
 
 #window {
