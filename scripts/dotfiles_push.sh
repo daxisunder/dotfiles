@@ -2,9 +2,11 @@
 
 set -e
 
-OLLAMA_MODEL="${OLLAMA_MODEL:-llama3.2}"
-OLLAMA_URL="http://localhost:11434/api/chat"
-MAX_DIFF_CHARS=12000
+GROQ_API_KEY="${GROQ_API_KEY:-}"
+GROQ_URL="https://api.groq.com/openai/v1/chat/completions"
+GROQ_MODEL="llama-3.3-70b-versatile"
+MAX_DIFF_CHARS=4000
+TIMEOUT=30
 
 can_notify() {
   [ -n "$DBUS_SESSION_BUS_ADDRESS" ]
@@ -30,52 +32,53 @@ if git diff-index --quiet --cached HEAD; then
   exit 0
 fi
 
-# Capture staged diff, truncate if too large
 DIFF=$(git diff --cached)
 if [[ ${#DIFF} -gt $MAX_DIFF_CHARS ]]; then
   DIFF="${DIFF:0:$MAX_DIFF_CHARS}"$'\n[diff truncated...]'
 fi
 
-# Check Ollama is running
-if ! curl -sf "$OLLAMA_URL" >/dev/null 2>&1; then
+if [[ -z "$GROQ_API_KEY" ]]; then
   if can_notify; then
-    notify-send -u critical -i github "Dotfiles" "Ollama is not running. Falling back to timestamp commit."
+    notify-send -u critical -i github "Dotfiles" "GROQ_API_KEY not set. Using timestamp commit."
   fi
   COMMIT_MSG="chore: dotfiles update $(date '+%Y-%m-%d %H:%M')"
 else
-  # Build JSON payload safely with jq
   PAYLOAD=$(jq -n \
-    --arg model "$OLLAMA_MODEL" \
+    --arg model "$GROQ_MODEL" \
     --arg diff "$DIFF" \
     '{
       model: $model,
-      stream: false,
       messages: [
         {
           role: "system",
-          content: "You are an expert developer assistant. Analyze git diffs and write concise commit messages following Conventional Commits (feat:, fix:, chore:, refactor:, etc.). Output ONLY the commit message. No markdown, no explanation, no quotes."
+          content: "You are a git commit message generator. You only output commit messages. Always use Conventional Commits format. Examples: \"feat: add dark mode toggle\", \"fix: correct null pointer in parser\", \"chore: update dependencies\"."
         },
         {
           role: "user",
-          content: ("Write a commit message for this dotfiles diff:\n\n" + $diff)
+          content: $diff
         }
       ]
     }')
 
-  RESPONSE=$(curl -sf --request POST \
-    --url "$OLLAMA_URL" \
+  RESPONSE=$(curl -sf --max-time "$TIMEOUT" \
+    --request POST \
+    --url "$GROQ_URL" \
+    --header "Authorization: Bearer ${GROQ_API_KEY}" \
     --header "Content-Type: application/json" \
-    --data "$PAYLOAD")
+    --data "$PAYLOAD") || true
 
-  COMMIT_MSG=$(echo "$RESPONSE" | jq -r '.message.content // empty' | head -n1 | xargs)
+  COMMIT_MSG=$(printf '%s' "$RESPONSE" | jq -r '.choices[0].message.content // empty' | head -n1 | xargs)
 
-  # Fallback if model returned nothing
   if [[ -z "$COMMIT_MSG" ]]; then
+    if can_notify; then
+      notify-send -u normal -i github "Dotfiles" "Groq failed. Using timestamp commit."
+    fi
     COMMIT_MSG="chore: dotfiles update $(date '+%Y-%m-%d %H:%M')"
   fi
 fi
 
 git commit -m "$COMMIT_MSG"
+git pull --rebase origin main
 git push
 
 if can_notify; then
