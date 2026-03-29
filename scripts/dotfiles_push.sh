@@ -51,7 +51,7 @@ else
       messages: [
         {
           role: "system",
-          content: "You are a git commit message generator. You only output commit messages. Always use Conventional Commits format. Examples: \"feat: add dark mode toggle\", \"fix: correct null pointer in parser\", \"chore: update dependencies\"."
+          content: "You are a git commit message generator. Output a commit message with two parts:\n1. A subject line in Conventional Commits format (feat:, fix:, chore:, refactor:, etc.), max 72 characters.\n2. A blank line followed by a short body explaining what changed and why.\nOutput only the commit message. No markdown, no code blocks, no extra commentary."
         },
         {
           role: "user",
@@ -67,7 +67,7 @@ else
     --header "Content-Type: application/json" \
     --data "$PAYLOAD") || true
 
-  COMMIT_MSG=$(printf '%s' "$RESPONSE" | jq -r '.choices[0].message.content // empty' | head -n1 | xargs)
+  COMMIT_MSG=$(printf '%s' "$RESPONSE" | jq -r '.choices[0].message.content // empty' | xargs -0)
 
   if [[ -z "$COMMIT_MSG" ]]; then
     if can_notify; then
