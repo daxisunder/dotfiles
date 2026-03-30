@@ -2,6 +2,13 @@
 
 set -e
 
+# Load API keys directly, independent of shell environment
+API_ENV="$HOME/api.env"
+if [[ -f "$API_ENV" ]]; then
+  # shellcheck source=/dev/null
+  source "$API_ENV"
+fi
+
 GROQ_API_KEY="${GROQ_API_KEY:-}"
 GROQ_URL="https://api.groq.com/openai/v1/chat/completions"
 GROQ_MODEL="llama-3.3-70b-versatile"
@@ -51,7 +58,7 @@ else
       messages: [
         {
           role: "system",
-          content: "You are a git commit message generator. Output a commit message with two parts:\n1. A subject line in Conventional Commits format (feat:, fix:, chore:, refactor:, etc.), max 72 characters.\n2. A blank line followed by a short body explaining what changed and why.\nOutput only the commit message. No markdown, no code blocks, no extra commentary."
+          content: "You are a git commit message generator. Output a commit message with two parts:\n1. A subject line in Conventional Commits format (feat:, fix:, chore:, refactor:, etc.), max 72 characters.\n2. A blank line followed by a body explaining what changed and why.\nOutput only the commit message. No markdown, no code blocks, no extra commentary."
         },
         {
           role: "user",
