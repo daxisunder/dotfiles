@@ -1,8 +1,43 @@
-/* Hide tabbar completely */
-#TabsToolbar {
-    visibility: collapse;
+/*Change default font*/
+* {
+  font-family: Veteran Typewriter !important;
+  font-size: 12pt !important;
 }
 
-#navigator-toolbox:hover #TabsToolbar {
-    visibility: colapse;
+/*Quick find fix*/
+.findbar-container > *,
+.findbar-container > hbox > * {
+  display: flex !important;
+  visibility: visible !important;
+}
+
+/*Change split-tab border color*/
+#tabbrowser-tabpanels {
+  &[splitview] {
+    &
+      .split-view-panel:not(.deck-selected)
+      > .browserContainer
+      > .browserStack
+      > split-view-footer {
+      display: none !important;
+    }
+
+    & .browserContainer {
+      outline: 2px solid #303f46 !important;
+
+      .deck-selected > & {
+        outline: 2px solid #5a7582 !important;
+      }
+
+      &:first-child {
+        outline: none !important;
+        border: 2px solid #303f46 !important;
+
+        .deck-selected > & {
+          outline: none !important;
+          border: 2px solid #5a7582 !important;
+        }
+      }
+    }
+  }
 }
