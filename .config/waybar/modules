@@ -418,7 +418,7 @@
 },
 "hyprland/window": {
 	"format": "{}",
-	"max-length": 60,
+	"max-length": 40,
 	"separate-outputs": true,
 	"offscreen-css": true,
 	"offscreen-css-text": "(inactive)",
@@ -637,7 +637,7 @@
 	"on-click-right": "~/.config/hypr/UserScripts/WallpaperRandom.sh",
 	"on-click-middle": "~/.config/hypr/scripts/WaybarStyles.sh",
 	"tooltip": true,
-	"tooltip-format": "Left Click: Wallpaper Menu\nMiddle Click: Random wallpaper\nRight Click: Waybar Styles Menu"
+	"tooltip-format": "Left Click: Wallpaper Menu\nRight Click: Random wallpaper\nMiddle Click: Waybar Styles Menu"
 },
 "custom/hint": {
 	"format": "󱜦",
