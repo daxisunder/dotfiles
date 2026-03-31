@@ -12,8 +12,8 @@ fi
 GROQ_API_KEY="${GROQ_API_KEY:-}"
 GROQ_URL="https://api.groq.com/openai/v1/chat/completions"
 GROQ_MODEL="llama-3.3-70b-versatile"
-MAX_DIFF_CHARS=4000
-TIMEOUT=30
+MAX_DIFF_CHARS=12000
+TIMEOUT=60
 
 can_notify() {
   [ -n "$DBUS_SESSION_BUS_ADDRESS" ]
@@ -58,7 +58,7 @@ else
       messages: [
         {
           role: "system",
-          content: "You are a git commit message generator. Output a commit message with two parts:\n1. A subject line in Conventional Commits format (feat:, fix:, chore:, refactor:, etc.), max 72 characters.\n2. A blank line followed by a body explaining what changed and why.\nOutput only the commit message. No markdown, no code blocks, no extra commentary."
+          content: "You are a git commit message generator. Output a commit message with two parts:\n1. A subject line in Conventional Commits format (feat:, fix:, chore:, refactor:, etc.), max 216 characters.\n2. A blank line followed by a body explaining what changed and why.\nOutput only the commit message. No markdown, no code blocks, no extra commentary."
         },
         {
           role: "user",
