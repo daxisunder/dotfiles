@@ -1,4 +1,4 @@
-/*Tab-Stash - Alter Sidebar body background color*/
+/* Tab-Stash - Alter Sidebar body background color */
 @-moz-document url-prefix("moz-extension://0eb46baa-2afb-4269-a6dd-dc9469e34222")
 {
   body {
@@ -6,7 +6,7 @@
   }
 }
 
-/*Change selected text color on YT*/
+/* Change selected text color on YT */
 ::selection {
   background: #2a2b3d !important;
   color: #ff899d !important;

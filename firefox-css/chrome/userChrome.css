@@ -1,17 +1,17 @@
-/*Change default font*/
+/* Change default fon t*/
 * {
   font-family: Veteran Typewriter !important;
   font-size: 12pt !important;
 }
 
-/*Quick find fix*/
+/* Quick find fix */
 .findbar-container > *,
 .findbar-container > hbox > * {
   display: flex !important;
   visibility: visible !important;
 }
 
-/*Change split-tab border color*/
+/* Change split-tab border colo r*/
 #tabbrowser-tabpanels {
   &[splitview] {
     &
@@ -40,4 +40,9 @@
       }
     }
   }
+}
+
+/* Hide close button */
+.titlebar-close {
+  display: none !important;
 }
