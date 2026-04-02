@@ -35,7 +35,7 @@ git add .
 
 if git diff-index --quiet --cached HEAD; then
   if can_notify; then
-    notify-send -i github "Dotfiles" "No changes to push."
+    notify-send -i github "Dotfiles" "No changes since last push."
   fi
   exit 0
 fi
@@ -47,7 +47,7 @@ fi
 
 if [[ -z "$GROQ_API_KEY" ]]; then
   if can_notify; then
-    notify-send -u critical -i github "Dotfiles" "GROQ_API_KEY not set. Falling back to timestamp commit."
+    notify-send -u critical -i github "Dotfiles" "GROQ_API_KEY not set. Falling back to timestamped commit."
   fi
   COMMIT_MSG="chore: dotfiles update $(date '+%Y-%m-%d %H:%M')"
 else
@@ -74,7 +74,7 @@ else
 
   if [[ -z "$COMMIT_MSG" ]]; then
     if can_notify; then
-      notify-send -u normal -i github "Dotfiles" "Groq failed. Using timestamp commit."
+      notify-send -u normal -i github "Dotfiles" "Groq failed. Falling back to timestamped commit."
     fi
     COMMIT_MSG="chore: dotfiles update $(date '+%Y-%m-%d %H:%M')"
   fi
