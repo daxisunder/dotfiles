@@ -60,7 +60,16 @@ require("recycle-bin"):setup()
 
 require("no-header"):setup()
 
-require("sshfs"):setup()
+require("sshfs"):setup({
+	custom_hosts_file = (os.getenv("XDG_DATA_HOME") or (os.getenv("HOME") .. "/.local/share")) .. "/yazi/sshfs.list",
+	mount_dir = os.getenv("HOME") .. "/mnt",
+	password_attempts = 3,
+	default_mount_point = "auto", -- home | root | auto
+	default_user = "auto", -- auto | prompt
+	ui = {
+		picker = "fzf", -- "auto" | "fzf"
+	},
+})
 
 require("gvfs"):setup({
 	-- (Optional) Allowed keys to select device.

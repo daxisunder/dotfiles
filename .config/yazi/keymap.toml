@@ -251,6 +251,10 @@ keymap = [
   ], run = "cd $HOME", desc = "Goto $HOME" },
   { on = [
     "g",
+    "i",
+  ], run = "plugin lazygit", desc = "Run LazyGit" },
+  { on = [
+    "g",
     "l",
   ], run = "cd $HOME/.local", desc = "Goto $HOME/.local" },
   { on = [
@@ -582,12 +586,6 @@ on = ["C", "w"]
 run = "plugin convert -- --extension='webp'"
 desc = "Convert selected files to WebP"
 
-# Chmod
-# [[mgr.prepend_keymap]]
-# on = ["c", "m"]
-# run = "plugin chmod"
-# desc = "Chmod on selected files"
-
 # GVFS
 [[mgr.prepend_keymap]]
 on = ["A", "a"]
@@ -682,6 +680,11 @@ run = "plugin sshfs -- jump"
 desc = "Jump to an existing SSHFS mount"
 
 [[mgr.prepend_keymap]]
+on = ["H", "l"]
+run = "plugin sshfs -- hosts"
+desc = "Open custom SSHFS hosts list"
+
+[[mgr.prepend_keymap]]
 on = ["H", "m"]
 run = "plugin sshfs -- mount --jump"
 desc = "Mount SSHFS and jump to its mount"
@@ -703,7 +706,7 @@ run = "plugin toggle-pane max-preview"
 desc = "Maximize or restore the preview pane"
 
 # LazyGit
-[[mgr.prepend_keymap]]
-on = ["g", "i"]
-run = "plugin lazygit"
-desc = "Run LazyGit"
+# [[mgr.prepend_keymap]]
+# on = ["g", "i"]
+# run = "plugin lazygit"
+# desc = "Run LazyGit"
