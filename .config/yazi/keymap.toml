@@ -94,14 +94,6 @@ keymap = [
   # Linemode
   { on = [
     "m",
-    "s",
-  ], run = "linemode size", desc = "Linemode: size" },
-  { on = [
-    "m",
-    "p",
-  ], run = "linemode permissions", desc = "Linemode: permissions" },
-  { on = [
-    "m",
     "b",
   ], run = "linemode btime", desc = "Linemode: btime" },
   { on = [
@@ -110,12 +102,20 @@ keymap = [
   ], run = "linemode mtime", desc = "Linemode: mtime" },
   { on = [
     "m",
+    "n",
+  ], run = "linemode none", desc = "Linemode: none" },
+  { on = [
+    "m",
     "o",
   ], run = "linemode owner", desc = "Linemode: owner" },
   { on = [
     "m",
-    "n",
-  ], run = "linemode none", desc = "Linemode: none" },
+    "p",
+  ], run = "linemode permissions", desc = "Linemode: permissions" },
+  { on = [
+    "m",
+    "s",
+  ], run = "linemode size", desc = "Linemode: size" },
 
   # Copy
   { on = [
@@ -132,8 +132,16 @@ keymap = [
   ], run = "copy filename", desc = "Copy the filename" },
   { on = [
     "c",
+    "m",
+  ], run = "plugin chmod", desc = "Chmod on selected files" },
+  { on = [
+    "c",
     "n",
   ], run = "copy name_without_ext", desc = "Copy the filename without extension" },
+  { on = [
+    "c",
+    "y",
+  ], run = "plugin copy-file-contents", desc = "Copy the file contents" },
 
   # Filter
   { on = "f", run = "filter --smart", desc = "Filter files" },
@@ -575,12 +583,27 @@ run = "plugin convert -- --extension='webp'"
 desc = "Convert selected files to WebP"
 
 # Chmod
-[[mgr.prepend_keymap]]
-on = ["c", "m"]
-run = "plugin chmod"
-desc = "Chmod on selected files"
+# [[mgr.prepend_keymap]]
+# on = ["c", "m"]
+# run = "plugin chmod"
+# desc = "Chmod on selected files"
 
 # GVFS
+[[mgr.prepend_keymap]]
+on = ["A", "a"]
+run = "plugin gvfs -- add-mount"
+desc = "Add a GVFS mount URI"
+
+[[mgr.prepend_keymap]]
+on = ["A", "e"]
+run = "plugin gvfs -- edit-mount"
+desc = "Edit a GVFS mount URI"
+
+[[mgr.prepend_keymap]]
+on = ["A", "m"]
+run = "plugin gvfs -- jump-to-device"
+desc = "Select device then jump to its mount point"
+
 [[mgr.prepend_keymap]]
 on = ["A", "M"]
 run = "plugin gvfs -- select-then-mount --jump"
@@ -590,6 +613,11 @@ desc = "Select device to mount and jump to its mount"
 on = ["A", "r"]
 run = "plugin gvfs -- remount-current-cwd-device"
 desc = "Remount device under cwd"
+
+[[mgr.prepend_keymap]]
+on = ["A", "R"]
+run = "plugin gvfs -- remove-mount"
+desc = "Remove a GVFS mount URI"
 
 [[mgr.prepend_keymap]]
 on = ["A", "u"]
@@ -602,41 +630,11 @@ run = "plugin gvfs -- select-then-unmount --eject --force"
 desc = "Select device then force to eject/unmount"
 
 [[mgr.prepend_keymap]]
-on = ["A", "a"]
-run = "plugin gvfs -- add-mount"
-desc = "Add a GVFS mount URI"
-
-[[mgr.prepend_keymap]]
-on = ["A", "e"]
-run = "plugin gvfs -- edit-mount"
-desc = "Edit a GVFS mount URI"
-
-[[mgr.prepend_keymap]]
-on = ["A", "R"]
-run = "plugin gvfs -- remove-mount"
-desc = "Remove a GVFS mount URI"
-
-[[mgr.prepend_keymap]]
-on = ["A", "m"]
-run = "plugin gvfs -- jump-to-device"
-desc = "Select device then jump to its mount point"
-
-[[mgr.prepend_keymap]]
 on = ["A", "`"]
 run = "plugin gvfs -- jump-back-prev-cwd"
 desc = "Jump back to the position before jumped to device"
 
 # Recycle Bin
-[[mgr.prepend_keymap]]
-on = ["u", "o"]
-run = "plugin recycle-bin -- open"
-desc = "Open Trash"
-
-[[mgr.prepend_keymap]]
-on = ["u", "e"]
-run = "plugin recycle-bin -- empty"
-desc = "Empty Trash"
-
 [[mgr.prepend_keymap]]
 on = ["u", "d"]
 run = "plugin recycle-bin -- emptyDays"
@@ -648,35 +646,30 @@ run = "plugin recycle-bin -- delete"
 desc = "Delete from Trash permanently"
 
 [[mgr.prepend_keymap]]
+on = ["u", "e"]
+run = "plugin recycle-bin -- empty"
+desc = "Empty Trash"
+
+[[mgr.prepend_keymap]]
 on = ["u", "r"]
 run = "plugin recycle-bin -- restore"
 desc = "Restore from Trash"
 
+[[mgr.prepend_keymap]]
+on = ["u", "o"]
+run = "plugin recycle-bin -- open"
+desc = "Open Trash"
+
 # SSHFS
-[[mgr.prepend_keymap]]
-on = ["H", "m"]
-run = "plugin sshfs -- mount --jump"
-desc = "Mount SSHFS and jump to its mount"
-
-[[mgr.prepend_keymap]]
-on = ["H", "u"]
-run = "plugin sshfs -- unmount"
-desc = "Unmount SSHFS"
-
-[[mgr.prepend_keymap]]
-on = ["H", "j"]
-run = "plugin sshfs -- jump"
-desc = "Jump to an existing SSHFS mount"
-
 [[mgr.prepend_keymap]]
 on = ["H", "a"]
 run = "plugin sshfs -- add"
 desc = "Add an SSHFS host"
 
 [[mgr.prepend_keymap]]
-on = ["H", "r"]
-run = "plugin sshfs -- remove"
-desc = "Remove an SSHFS host"
+on = ["H", "c"]
+run = "cd ~/.ssh/"
+desc = "Go to ssh config dir"
 
 [[mgr.prepend_keymap]]
 on = ["H", "h"]
@@ -684,21 +677,30 @@ run = "plugin sshfs -- home"
 desc = "Go to mount home"
 
 [[mgr.prepend_keymap]]
-on = ["H", "c"]
-run = "cd ~/.ssh/"
-desc = "Go to ssh config dir"
+on = ["H", "j"]
+run = "plugin sshfs -- jump"
+desc = "Jump to an existing SSHFS mount"
+
+[[mgr.prepend_keymap]]
+on = ["H", "m"]
+run = "plugin sshfs -- mount --jump"
+desc = "Mount SSHFS and jump to its mount"
+
+[[mgr.prepend_keymap]]
+on = ["H", "r"]
+run = "plugin sshfs -- remove"
+desc = "Remove an SSHFS host"
+
+[[mgr.prepend_keymap]]
+on = ["H", "u"]
+run = "plugin sshfs -- unmount"
+desc = "Unmount SSHFS"
 
 # Toggle-pane
 [[mgr.prepend_keymap]]
 on = "T"
 run = "plugin toggle-pane max-preview"
 desc = "Maximize or restore the preview pane"
-
-# Copy-file-contents
-[[mgr.prepend_keymap]]
-on = ["c", "y"]
-run = ["plugin copy-file-contents"]
-desc = "Copy contents of file"
 
 # LazyGit
 [[mgr.prepend_keymap]]

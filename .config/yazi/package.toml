@@ -1,6 +1,6 @@
 [[plugin.deps]]
 use = "yazi-rs/plugins:full-border"
-rev = "1962818"
+rev = "e84f4fe"
 hash = "6fa6a05a81c98dd000fbca3cca6e9682"
 
 [[plugin.deps]]
@@ -15,7 +15,7 @@ hash = "41dc37a724b2afd21da4f1ea6c1182d8"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:git"
-rev = "1962818"
+rev = "e84f4fe"
 hash = "26db011a778f261d730d4f5f8bf24b3f"
 
 [[plugin.deps]]
@@ -25,17 +25,17 @@ hash = "ff02946e042df4869617edb9aa310523"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:mount"
-rev = "1962818"
+rev = "e84f4fe"
 hash = "91937a4a9b779eabc6983e258befdfe9"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:chmod"
-rev = "1962818"
+rev = "e84f4fe"
 hash = "f0c8c378184d5f8abd1b095a443d336d"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:smart-filter"
-rev = "1962818"
+rev = "e84f4fe"
 hash = "c887903a63a2ff520081b6d90a4b3392"
 
 [[plugin.deps]]
@@ -45,22 +45,22 @@ hash = "6f61a6c119bd550c3c56f292b5e20ec7"
 
 [[plugin.deps]]
 use = "boydaihungst/gvfs"
-rev = "9d64595"
-hash = "b6f691f01a2122bd94866800d4d12a22"
+rev = "3abc0a2"
+hash = "eed89e75671723c8f9390a2862af0e4e"
 
 [[plugin.deps]]
 use = "uhs-robert/sshfs"
-rev = "4070c8e"
-hash = "a4cd81fe60c350c3f0fde9957f4a4bb9"
+rev = "b4c7c5c"
+hash = "d1cd188c14a53d03ae4a87e6e40f7233"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:smart-enter"
-rev = "1962818"
+rev = "e84f4fe"
 hash = "187cc58ba7ac3befd49c342129e6f1b6"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:smart-paste"
-rev = "1962818"
+rev = "e84f4fe"
 hash = "3f8d49413bc8691b4c652eb417a20178"
 
 [[plugin.deps]]
@@ -70,7 +70,7 @@ hash = "fc696aa2ff140e8d8ee1f490ca787bb0"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:toggle-pane"
-rev = "1962818"
+rev = "e84f4fe"
 hash = "4c0260feb50ea2437380690ffc241da7"
 
 [[plugin.deps]]
@@ -80,8 +80,8 @@ hash = "f8530ee84fee95dbcc26bb1d8d8019c7"
 
 [[plugin.deps]]
 use = "Lil-Dank/lazygit"
-rev = "0e56060"
-hash = "ab2e66065a94cca4886b303518e44bd8"
+rev = "8c4086c"
+hash = "85316b5e9abeae2531d3e5d02a094381"
 
 [flavor]
 deps = []

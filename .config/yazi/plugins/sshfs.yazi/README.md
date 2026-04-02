@@ -17,6 +17,38 @@
 A minimal, blazing fast <strong>SSHFS</strong> integration for the <a target="_blank" rel="noopener noreferrer" href="https://github.com/sxyazi/yazi">Yazi</a> terminal file‑manager.
 </p>
 
+<details align="center">
+<summary>✨ What's New / 🚨 Breaking Changes</summary>
+<br/>
+<!-- whats-new:start -->
+
+  <details>
+    <summary>🚨 v2.0: Custom host file relocated (migration required)</summary>
+    <!-- v2.0:start -->
+    <div align="left">
+      <h3>🚨 BREAKING CHANGE: <code>sshfs.list</code> relocated to follow XDG Base Directory spec</h3>
+      <p>
+        The custom hosts file has moved from <code>~/.config/yazi/sshfs.list</code> to
+        <code>$XDG_DATA_HOME/yazi/sshfs.list</code> (this is usually located in <code>~/.local/share/yazi/sshfs.list</code>).
+      </p>
+      <p><strong>If you have custom hosts saved, migrate your file before upgrading:</strong></p>
+      <pre>mv ~/.config/yazi/sshfs.list ~/.local/share/yazi/sshfs.list</pre>
+      <p>
+        If <code>$XDG_DATA_HOME</code> is set to a custom path, use that instead:
+      </p>
+      <pre>mv ~/.config/yazi/sshfs.list "$XDG_DATA_HOME/yazi/sshfs.list"</pre>
+      <p>
+        Hosts from <code>~/.ssh/config</code> are unaffected. Only manually added custom hosts need migration.
+        If you have no custom hosts then no action is needed.
+      </p>
+    </div>
+    <!-- v2.0:end -->
+
+  </details>
+
+<!-- whats-new:end -->
+</details>
+
 ## 🕶️ What does it do?
 
 Mount any host from your `~/.ssh/config`, or add custom hosts, and browse remote files as if they were local. Mount specific remote directories (like `/var/log` or `/etc`) or the entire home/root filesystem. Jump between your local machine and remote mounts with a single keystroke.
@@ -46,7 +78,7 @@ Perfect for tweaking configs, deploying sites, inspecting logs, or just grabbing
 
 ## 🧠 What it does under the hood
 
-This plugin serves as a wrapper for the `sshfs` command, integrating it seamlessly with Yazi. It automatically reads hosts from your `~/.ssh/config` file. Additionally, it maintains a separate list of custom hosts in `~/.config/yazi/sshfs.list`.
+This plugin serves as a wrapper for the `sshfs` command, integrating it seamlessly with Yazi. It automatically reads hosts from your `~/.ssh/config` file. Additionally, it maintains a separate list of custom hosts which is by default stored in `$XDG_DATA_HOME/yazi/sshfs.list` (or in `~/.local/share/yazi/sshfs.list` if `$XDG_DATA_HOME` is not defined).
 
 The core default `sshfs` command used is as follows (you may tweak these options and the mount directory with your setup settings):
 
@@ -134,6 +166,7 @@ The `M s` menu provides access to all SSHFS functions:
 - `r` → Remove host
 - `h` → Go to mount home
 - `c` → Open ~/.ssh/config
+- `l` → Open custom host list
 
 > [!TIP]
 > `sshfs.yazi` uses the [array form for keymaps](https://yazi-rs.github.io/docs/configuration/keymap).
@@ -159,6 +192,7 @@ prepend_keymap = [
   { on = ["M","r"], run = "plugin sshfs -- remove",          desc = "Remove SSH host" },
   { on = ["M","h"], run = "plugin sshfs -- home",            desc = "Go to mount home" },
   { on = ["M","c"], run = "cd ~/.ssh/",                      desc = "Go to ssh config" },
+  { on = ["M","l"], run = "plugin sshfs -- hosts",           desc = "Open custom host list" },
 ]
 ```
 
@@ -176,6 +210,7 @@ prepend_keymap = [
   - **Add host (`M a`):** Enter a custom host (`user@host`) and optionally specify a remote directory (e.g., `/var/log`, `/etc/nginx`) to create an alias for that specific path. When you mount this alias later, it will go directly to that remote directory. This is useful for frequently accessed remote directories or quick testing. For persistent, system-wide access, updating your `.ssh/config` is recommended.
   - **Remove host (`M r`):** Select and remove any Yazi-only hosts that you've added.
   - **Jump to mount home directory (`M h`):** Jump to the mount home directory.
+  - **Open custom host list (`M l`):** Navigate to the directory containing your custom hosts file for direct editing.
 
 ## 💡 Tips and Performance
 
@@ -194,6 +229,9 @@ To customize plugin behavior, you may pass a config table to `setup()` (default 
 
 ```lua
 require("sshfs"):setup({
+  -- Custom hosts file
+  custom_hosts_file = (os.getenv("XDG_DATA_HOME") or (os.getenv("HOME") .. "/.local/share")) .. "/yazi/sshfs.list",
+
   -- Mount directory
   mount_dir = os.getenv("HOME") .. "/mnt",
 
