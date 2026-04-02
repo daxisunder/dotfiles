@@ -12,7 +12,7 @@ fi
 GROQ_API_KEY="${GROQ_API_KEY:-}"
 GROQ_URL="https://api.groq.com/openai/v1/chat/completions"
 GROQ_MODEL="llama-3.3-70b-versatile"
-MAX_DIFF_CHARS=12000
+MAX_DIFF_CHARS=120000
 TIMEOUT=60
 
 can_notify() {
@@ -46,7 +46,7 @@ fi
 
 if [[ -z "$GROQ_API_KEY" ]]; then
   if can_notify; then
-    notify-send -u critical -i github "Dotfiles" "GROQ_API_KEY not set. Using timestamp commit."
+    notify-send -u critical -i github "Dotfiles" "GROQ_API_KEY not set. Falling back to timestamp commit."
   fi
   COMMIT_MSG="chore: dotfiles update $(date '+%Y-%m-%d %H:%M')"
 else
@@ -58,7 +58,38 @@ else
       messages: [
         {
           role: "system",
-          content: "You are a git commit message generator. Output a commit message with two parts:\n1. A subject line in Conventional Commits format (feat:, fix:, chore:, refactor:, etc.), max 216 characters.\n2. A blank line followed by a body explaining what changed and why.\nOutput only the commit message. No markdown, no code blocks, no extra commentary."
+          content: "You are a git commit message generator. You will receive a raw git diff.
+
+          Follow these steps internally — do NOT output them:
+
+          1. **Parse all changed files** from the diff. For each file, identify:
+            - What changed (additions, deletions, modifications)
+            - The category of change (logic/behavior, API/interface, config, deps, docs, tests, style/formatting)
+
+          2. **Rank changes by importance** using this priority order:
+            - breaking changes or behavior-altering logic (highest)
+            - new features or capabilities
+            - bug fixes
+            - performance improvements
+            - dependency updates
+            - refactoring without behavior change
+            - config, build, or tooling changes
+            - docs, tests, style/formatting (lowest)
+
+          3. **Determine the dominant commit type** from the highest-ranked change:
+            revert > feat > fix > perf > deps > refactor > build > docs > test > style > chore
+
+          4. **Write the commit message** based on what matters most, not a file-by-file dump.
+
+          Output format — two parts, nothing else:
+          1. A subject line in Conventional Commits format (type(optional-scope): short summary), max 72 characters, imperative mood.
+          2. A blank line, then a body that:
+            - Leads with the most impactful change and why it was made
+            - Briefly covers secondary changes in descending order of importance
+            - Groups related changes across files rather than listing files
+            - Focuses on WHY, not just what
+
+          No markdown. No code blocks. No bullet points in output. No extra commentary."
         },
         {
           role: "user",
