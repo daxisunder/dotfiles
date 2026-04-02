@@ -36,7 +36,7 @@ export PATH="$HOME/.gitarbor/bin:$PATH"
 source $HOME/projects/dotfiles/api.env
 
 # ZSH AI integration with local AI models
-export ZSH_AI_PROVIDER="ollama" # (anthropic (default), ollama (local), gemini, opennai)
+export ZSH_AI_PROVIDER="gemini" # (anthropic (default), ollama (local), gemini, opennai)
 export ZSH_AI_OLLAMA_MODEL="llama3.2"
 export ZSH_AI_GEMINI_MODEL="gemini-2.5-flash"
 export ZSH_AI_PROMPT_EXTEND="Always prefer modern CLI tools like ripgrep, fd, and bat."
@@ -45,7 +45,7 @@ export ZSH_AI_PROMPT_EXTEND="Always prefer modern CLI tools like ripgrep, fd, an
 # export POP_SMTP_HOST=smtp-mail.outlook.com
 # export POP_SMTP_PORT=587
 # export POP_SMTP_USERNAME=daxisunder@hotmail.com
-# export POP_SMTP_PASSWORD=pjrhwoufwvczawgu
+# export POP_SMTP_PASSWORD=
 export POP_FROM=onboarding@resend.dev
 export POP_SIGNATURE="Sent with [Pop](https://github.com/charmbracelet/pop)!"
 
@@ -263,7 +263,7 @@ plugins=(
     vi-mode
     you-should-use
     zoxide
-    # zsh-ai
+    zsh-ai
     zsh-autopair
     zsh-autosuggestions
     # zsh-expand
@@ -414,7 +414,7 @@ eval "$(atuin init zsh)"
 source /usr/share/wikiman/widgets/widget.zsh
 
 # Pay-respects (better command-not-found) integration
-# eval "$(pay-respects zsh)"
+eval "$(pay-respects zsh)"
 
 # Yazi integration
 function y() {
