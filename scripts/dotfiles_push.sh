@@ -2,7 +2,6 @@
 
 set -e
 
-# Load API keys directly, independent of shell environment
 API_ENV="$HOME/api.env"
 if [[ -f "$API_ENV" ]]; then
   # shellcheck source=/dev/null
@@ -14,6 +13,8 @@ GROQ_URL="https://api.groq.com/openai/v1/chat/completions"
 GROQ_MODEL="llama-3.3-70b-versatile"
 MAX_DIFF_CHARS=120000
 TIMEOUT=60
+
+SYSTEM_PROMPT='You are a git commit message generator. You will receive a raw git diff.\n\nFollow these steps internally — do NOT output them:\n\n1. Parse all changed files from the diff. For each file, identify what changed (additions, deletions, modifications) and the category of change (logic/behavior, API/interface, config, deps, docs, tests, style/formatting).\n\n2. Rank changes by importance using this priority order: breaking changes or behavior-altering logic (highest), new features or capabilities, bug fixes, performance improvements, dependency updates, refactoring without behavior change, config/build/tooling changes, docs/tests/style/formatting (lowest).\n\n3. Determine the dominant commit type from the highest-ranked change: revert > feat > fix > perf > deps > refactor > build > docs > test > style > chore.\n\n4. Write the commit message based on what matters most, not a file-by-file dump.\n\nOutput format — two parts, nothing else:\n1. A subject line in Conventional Commits format (type(optional-scope): short summary), max 72 characters, imperative mood.\n2. A blank line, then a body that leads with the most impactful change and why it was made, briefly covers secondary changes in descending order of importance, groups related changes across files rather than listing files, and focuses on WHY not just what.\n\nNo markdown. No code blocks. No bullet points in output. No extra commentary.'
 
 can_notify() {
   [ -n "$DBUS_SESSION_BUS_ADDRESS" ]
@@ -52,49 +53,13 @@ if [[ -z "$GROQ_API_KEY" ]]; then
 else
   PAYLOAD=$(jq -n \
     --arg model "$GROQ_MODEL" \
+    --arg system "$SYSTEM_PROMPT" \
     --arg diff "$DIFF" \
     '{
       model: $model,
       messages: [
-        {
-          role: "system",
-          content: "You are a git commit message generator. You will receive a raw git diff.
-
-          Follow these steps internally — do NOT output them:
-
-          1. **Parse all changed files** from the diff. For each file, identify:
-            - What changed (additions, deletions, modifications)
-            - The category of change (logic/behavior, API/interface, config, deps, docs, tests, style/formatting)
-
-          2. **Rank changes by importance** using this priority order:
-            - breaking changes or behavior-altering logic (highest)
-            - new features or capabilities
-            - bug fixes
-            - performance improvements
-            - dependency updates
-            - refactoring without behavior change
-            - config, build, or tooling changes
-            - docs, tests, style/formatting (lowest)
-
-          3. **Determine the dominant commit type** from the highest-ranked change:
-            revert > feat > fix > perf > deps > refactor > build > docs > test > style > chore
-
-          4. **Write the commit message** based on what matters most, not a file-by-file dump.
-
-          Output format — two parts, nothing else:
-          1. A subject line in Conventional Commits format (type(optional-scope): short summary), max 72 characters, imperative mood.
-          2. A blank line, then a body that:
-            - Leads with the most impactful change and why it was made
-            - Briefly covers secondary changes in descending order of importance
-            - Groups related changes across files rather than listing files
-            - Focuses on WHY, not just what
-
-          No markdown. No code blocks. No bullet points in output. No extra commentary."
-        },
-        {
-          role: "user",
-          content: $diff
-        }
+        { role: "system", content: $system },
+        { role: "user",   content: $diff   }
       ]
     }')
 
