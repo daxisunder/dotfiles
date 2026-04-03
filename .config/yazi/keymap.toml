@@ -634,27 +634,27 @@ desc = "Jump back to the position before jumped to device"
 
 # Recycle Bin
 [[mgr.prepend_keymap]]
-on = ["u", "d"]
+on = ["U", "d"]
 run = "plugin recycle-bin -- emptyDays"
 desc = "Delete from Trash by dates"
 
 [[mgr.prepend_keymap]]
-on = ["u", "D"]
+on = ["U", "D"]
 run = "plugin recycle-bin -- delete"
 desc = "Delete from Trash permanently"
 
 [[mgr.prepend_keymap]]
-on = ["u", "e"]
+on = ["U", "e"]
 run = "plugin recycle-bin -- empty"
 desc = "Empty Trash"
 
 [[mgr.prepend_keymap]]
-on = ["u", "r"]
+on = ["U", "r"]
 run = "plugin recycle-bin -- restore"
 desc = "Restore from Trash"
 
 [[mgr.prepend_keymap]]
-on = ["u", "o"]
+on = ["U", "o"]
 run = "plugin recycle-bin -- open"
 desc = "Open Trash"
 
@@ -704,9 +704,3 @@ desc = "Unmount SSHFS"
 on = "T"
 run = "plugin toggle-pane max-preview"
 desc = "Maximize or restore the preview pane"
-
-# LazyGit
-# [[mgr.prepend_keymap]]
-# on = ["g", "i"]
-# run = "plugin lazygit"
-# desc = "Run LazyGit"
