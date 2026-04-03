@@ -1,6 +1,8 @@
 -- https://gitlab.com/taken-personal/neovim-config/-/blob/main/lua/taken/plugins/lualine.lua?ref_type=heads
 return {
   "nvim-lualine/lualine.nvim",
+  version = false,
+  event = "VeryLazy",
   dependencies = {
     "nvim-mini/mini.icons",
     "AndreM222/copilot-lualine",
@@ -14,73 +16,24 @@ return {
       fg = "#c0caf5",
       yellow = "#fff192",
       cyan = "#a4daff",
+      blue = "#8db0ff",
       darkblue = "#7aa2f7",
       green = "#9fe044",
       orange = "#e0af68",
       violet = "#bb9af7",
       magenta = "#c7a9ff",
-      blue = "#8db0ff",
       red = "#f7768e",
     }
 
-    local theme = {
-      normal = {
-        a = { bg = "None", gui = "bold" },
-        b = { bg = "None", gui = "bold" },
-        c = { bg = "None", gui = "bold" },
-        x = { bg = "None", gui = "bold" },
-        y = { bg = "None", gui = "bold" },
-        z = { bg = "None", gui = "bold" },
-      },
-      insert = {
-        a = { bg = "None", gui = "bold" },
-        b = { bg = "None", gui = "bold" },
-        c = { bg = "None", gui = "bold" },
-        x = { bg = "None", gui = "bold" },
-        y = { bg = "None", gui = "bold" },
-        z = { bg = "None", gui = "bold" },
-      },
-      visual = {
-        a = { bg = "None", gui = "bold" },
-        b = { bg = "None", gui = "bold" },
-        c = { bg = "None", gui = "bold" },
-        x = { bg = "None", gui = "bold" },
-        y = { bg = "None", gui = "bold" },
-        z = { bg = "None", gui = "bold" },
-      },
-      replace = {
-        a = { bg = "None", gui = "bold" },
-        b = { bg = "None", gui = "bold" },
-        c = { bg = "None", gui = "bold" },
-        x = { bg = "None", gui = "bold" },
-        y = { bg = "None", gui = "bold" },
-        z = { bg = "None", gui = "bold" },
-      },
-      command = {
-        a = { bg = "None", gui = "bold" },
-        b = { bg = "None", gui = "bold" },
-        c = { bg = "None", gui = "bold" },
-        x = { bg = "None", gui = "bold" },
-        y = { bg = "None", gui = "bold" },
-        z = { bg = "None", gui = "bold" },
-      },
-      inactive = {
-        a = { bg = "None", gui = "bold" },
-        b = { bg = "None", gui = "bold" },
-        c = { bg = "None", gui = "bold" },
-        x = { bg = "None", gui = "bold" },
-        y = { bg = "None", gui = "bold" },
-        z = { bg = "None", gui = "bold" },
-      },
-    }
+    vim.api.nvim_set_hl(0, "lualine_c_normal", { fg = colors.fg, bg = colors.bg })
 
     local conditions = {
       hide_in_width = function()
         return vim.fn.winwidth(0) > 80
       end,
       alpha = function()
-        -- Hide components if we are in Alpha OR Snacks Dashboard
-        if vim.bo.filetype ~= "alpha" and ft ~= "snacks_dashboard" then
+        local ft = vim.bo.filetype
+        if ft ~= "alpha" and ft ~= "snacks_dashboard" then
           return true
         end
       end,
@@ -90,13 +43,13 @@ return {
       n = colors.darkblue,
       i = colors.green,
       v = colors.red,
-      [""] = colors.red,
+      [""] = colors.red,
       V = colors.red,
       c = colors.magenta,
       no = colors.red,
       s = colors.orange,
       S = colors.orange,
-      [""] = colors.orange,
+      [""] = colors.orange,
       ic = colors.yellow,
       R = colors.violet,
       Rv = colors.violet,
@@ -113,19 +66,15 @@ return {
       local registry = require("mason-registry")
       registry.refresh()
       local installed_packages = registry.get_installed_package_names()
-
       local packages_outdated = 0
-
       for _, pkg in pairs(installed_packages) do
         local p = registry.get_package(pkg)
         local version = p.get_installed_version(p)
         local latest = p.get_latest_version(p)
-
         if version ~= latest then
           packages_outdated = packages_outdated + 1
         end
       end
-
       return packages_outdated
     end
 
@@ -137,6 +86,7 @@ return {
         return "󰑋  " .. recording_register
       end
     end
+
     local function get_buffers()
       local bufs = vim.api.nvim_list_bufs()
       local bufNumb = 0
@@ -150,17 +100,12 @@ return {
           bufNumb = bufNumb + 1
         end
       end
-
-      if bufNumb == 1 then
-        return bufNumb .. " "
-      else
-        return bufNumb .. " "
-      end
+      return "[" .. bufNumb .. "] "
     end
 
     local mode = {
       "mode",
-      separator = { left = "", right = "" },
+      separator = { left = " ", right = " " },
       right_padding = 2,
       color = function()
         return { bg = mode_color[vim.fn.mode()], fg = colors.bg }
@@ -168,14 +113,14 @@ return {
     }
     local filename = {
       "filename",
-      color = { fg = colors.magenta, bg = "None", gui = "bold" },
+      color = { fg = colors.magenta, bg = colors.bg, gui = "bold" },
       cond = conditions.alpha,
     }
     local alpha = {
       function()
         return "Dashboard"
       end,
-      color = { fg = colors.magenta, bg = "None", gui = "bold" },
+      color = { fg = colors.magenta, bg = colors.bg, gui = "bold" },
       cond = function()
         local ft = vim.bo.filetype
         if ft == "alpha" or ft == "snacks_dashboard" then
@@ -185,15 +130,15 @@ return {
     }
     local branch = {
       "branch",
-      icon = "",
-      color = { fg = colors.yellow, bg = "None", gui = "bold" },
+      icon = "",
+      color = { fg = colors.yellow, bg = colors.bg, gui = "bold" },
       on_click = function()
         vim.cmd("LazyGit")
       end,
     }
     local lsp_status = {
       "lsp-status",
-      color = { fg = colors.green, bg = "None", gui = "bold" },
+      color = { fg = colors.green, bg = colors.bg, gui = "bold" },
       on_click = function()
         vim.cmd("LspInfo")
       end,
@@ -202,18 +147,26 @@ return {
     local diagnostics = {
       "diagnostics",
       sources = { "nvim_diagnostic" },
-      symbols = { error = " ", warn = " ", info = " ", hint = " " },
-      diagnostics_color = {
-        color_error = { fg = colors.red, bg = "None", gui = "bold" },
-        color_warn = { fg = colors.yellow, bg = "None", gui = "bold" },
-        color_info = { fg = colors.cyan, bg = "None", gui = "bold" },
-        color_hint = { fg = colors.green, bg = "None", gui = "bold" },
+      -- FIX: use explicit icon strings, not relying on mini.icons override
+      symbols = {
+        error = " ",
+        warn = " ",
+        info = " ",
+        hint = " ",
       },
+      diagnostics_color = {
+        color_error = { fg = colors.red, bg = colors.bg, gui = "bold" },
+        color_warn = { fg = colors.yellow, bg = colors.bg, gui = "bold" },
+        color_info = { fg = colors.cyan, bg = colors.bg, gui = "bold" },
+        color_hint = { fg = colors.green, bg = colors.bg, gui = "bold" },
+      },
+      -- FIX: prevent mini.icons from hijacking the component's icon rendering
+      icon = "",
     }
     local macro_recording = {
       show_macro_recording,
       color = { fg = "#000000", bg = "#ff6666" },
-      separator = { left = "", right = "" },
+      separator = { left = "", right = "" },
     }
     local harpoon = {
       "harpoon2",
@@ -221,7 +174,7 @@ return {
       indicators = { "1", "2", "3", "4", "5", "6", "7", "8" },
       active_indicators = { "[1]", "[2]", "[3]", "[4]", "[5]", "[6]", "[7]", "[8]" },
       _separator = " ",
-      separator = { left = "", right = "" },
+      separator = { left = "", right = "" },
       color = function()
         return { bg = mode_color[vim.fn.mode()], fg = "#000000", gui = "bold" }
       end,
@@ -240,29 +193,34 @@ return {
         },
       },
       show_colors = true,
-      color = { bg = "None", gui = "bold" },
+      color = { bg = colors.bg, gui = "bold" },
       cond = conditions.alpha,
     }
     local diff = {
       "diff",
-      symbols = { added = " ", modified = " ", removed = " " },
+      -- FIX: explicit nerd font glyphs so mini.icons doesn't suppress them
+      symbols = {
+        added = " ",
+        modified = " ",
+        removed = " ",
+      },
       diff_color = {
-        added = { fg = colors.green, bg = "None" },
-        modified = { fg = colors.orange, bg = "None" },
-        removed = { fg = colors.red, bg = "None" },
+        added = { fg = colors.green, bg = colors.bg },
+        modified = { fg = colors.orange, bg = colors.bg },
+        removed = { fg = colors.red, bg = colors.bg },
       },
       cond = conditions.hide_in_width,
     }
     local fileformat = {
       "fileformat",
       fmt = string.upper,
-      color = { fg = colors.green, bg = "None", gui = "bold" },
+      color = { fg = colors.green, bg = colors.bg, gui = "bold" },
       cond = conditions.alpha,
     }
     local lazy = {
       require("lazy.status").updates,
       cond = require("lazy.status").has_updates,
-      color = { fg = colors.violet, bg = "None" },
+      color = { fg = colors.violet, bg = colors.bg },
       on_click = function()
         vim.ui.select({ "Yes", "No" }, { prompt = "Update plugins?" }, function(choice)
           if choice == "Yes" then
@@ -274,35 +232,43 @@ return {
       end,
     }
     local mason = {
-      mason_updates() .. "",
-      color = { fg = colors.violet, bg = "None" },
+      function()
+        return mason_updates() .. ""
+      end,
+      color = { fg = colors.violet, bg = colors.bg },
       cond = function()
         return mason_updates() > 0
       end,
-      icon = "",
+      icon = " ",
       on_click = function()
         vim.cmd("Mason")
       end,
     }
     local buffers = {
-      get_buffers(),
-      color = { fg = colors.darkblue, bg = "None" },
+      function()
+        return get_buffers()
+      end,
+      color = { fg = colors.darkblue, bg = colors.bg },
+      cond = conditions.alpha,
       on_click = function()
-        require("buffer_manager.ui").toggle_quick_menu()
+        if package.loaded["snacks"] then
+          require("snacks").picker.buffers()
+        else
+          vim.cmd("ls")
+        end
       end,
     }
     local filetype = {
       "filetype",
-      color = { fg = colors.darkblue, bg = "None" },
-      cond = conditions.alpha,
+      color = { fg = colors.darkblue, bg = colors.bg },
     }
     local progress = {
       "progress",
-      color = { fg = colors.magenta, bg = "None" },
+      color = { fg = colors.magenta, bg = colors.bg },
     }
     local location = {
       "location",
-      separator = { left = "", right = "" },
+      separator = { left = "", right = "" },
       left_padding = 2,
       color = function()
         return { bg = mode_color[vim.fn.mode()], fg = colors.bg }
@@ -310,19 +276,47 @@ return {
     }
     local sep = {
       "%=",
-      color = { fg = colors.bg, bg = "None" },
+      color = { fg = colors.bg, bg = colors.bg },
     }
 
     lualine.setup({
       options = {
-        theme = theme,
+        theme = {
+          normal = {
+            a = { bg = colors.bg, fg = colors.fg },
+            b = { bg = colors.bg, fg = colors.fg },
+            c = { bg = colors.bg, fg = colors.fg },
+          },
+          insert = {
+            a = { bg = colors.bg, fg = colors.fg },
+            b = { bg = colors.bg, fg = colors.fg },
+            c = { bg = colors.bg, fg = colors.fg },
+          },
+          visual = {
+            a = { bg = colors.bg, fg = colors.fg },
+            b = { bg = colors.bg, fg = colors.fg },
+            c = { bg = colors.bg, fg = colors.fg },
+          },
+          replace = {
+            a = { bg = colors.bg, fg = colors.fg },
+            b = { bg = colors.bg, fg = colors.fg },
+            c = { bg = colors.bg, fg = colors.fg },
+          },
+          command = {
+            a = { bg = colors.bg, fg = colors.fg },
+            b = { bg = colors.bg, fg = colors.fg },
+            c = { bg = colors.bg, fg = colors.fg },
+          },
+          inactive = {
+            a = { bg = colors.bg, fg = colors.fg },
+            b = { bg = colors.bg, fg = colors.fg },
+            c = { bg = colors.bg, fg = colors.fg },
+          },
+        },
         component_separators = "",
         section_separators = { left = "", right = "" },
         always_divide_middle = false,
-        -- disabled_filetypes = {
-        --   statusline = { "snacks_dashboard" }, -- Hides the statusline
-        --   winbar = { "snacks_dashboard" }, -- Hides the winbar (if you use one)
-        -- },
+        globalstatus = true,
       },
       sections = {
         lualine_a = { mode },
@@ -353,7 +347,7 @@ return {
     vim.api.nvim_create_autocmd("RecordingLeave", {
       callback = function()
         local timer = vim.loop.new_timer()
-        if timer then -- This "check nil" satisfies the LSP
+        if timer then
           timer:start(
             50,
             0,
