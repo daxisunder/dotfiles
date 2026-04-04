@@ -83,7 +83,7 @@ return {
       if recording_register == "" then
         return ""
       else
-        return "󰑋  " .. recording_register
+        return "󰑋 " .. recording_register
       end
     end
 
@@ -170,7 +170,7 @@ return {
     }
     local harpoon = {
       "harpoon2",
-      icon = "󰦾",
+      icon = "󰦾 ",
       indicators = { "1", "2", "3", "4", "5", "6", "7", "8" },
       active_indicators = { "[1]", "[2]", "[3]", "[4]", "[5]", "[6]", "[7]", "[8]" },
       _separator = " ",
@@ -178,6 +178,7 @@ return {
       color = function()
         return { bg = mode_color[vim.fn.mode()], fg = "#000000", gui = "bold" }
       end,
+      cond = conditions.alpha,
     }
     local copilot = {
       "copilot",
@@ -211,12 +212,6 @@ return {
       },
       cond = conditions.hide_in_width,
     }
-    local fileformat = {
-      "fileformat",
-      fmt = string.upper,
-      color = { fg = colors.green, bg = colors.bg, gui = "bold" },
-      cond = conditions.alpha,
-    }
     local lazy = {
       require("lazy.status").updates,
       cond = require("lazy.status").has_updates,
@@ -239,7 +234,7 @@ return {
       cond = function()
         return mason_updates() > 0
       end,
-      icon = " ",
+      icon = "",
       on_click = function()
         vim.cmd("Mason")
       end,
