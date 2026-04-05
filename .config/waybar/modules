@@ -67,7 +67,6 @@
 "hyprland/workspaces#pacman": {
 	"active-only": false,
 	"all-outputs": true,
-	"format": "{icon}",
 	"on-click": "activate",
 	"on-scroll-up": "hyprctl dispatch workspace e+1",
 	"on-scroll-down": "hyprctl dispatch workspace e-1",
@@ -117,7 +116,7 @@
 },
 //  NUMBERS and ICONS style
 "hyprland/workspaces#4": {
-	"format": "{name}",
+	//"format": "{name}",
 	"format": " {name} {icon} ",
 	//"format": " {icon} ",
 	"show-special": false,
@@ -414,7 +413,8 @@
 	"on-click": "hyprctl switchxkblayout $SET_KB next"
 },
   "hyprland/submap": {
-    "format": "<span size='11000' foreground='#F8B471'> </span>{}",
+    //That's neovim iccon, it just looks like that here
+    "format": "<span size='12000' foreground='#7dcfff'> </span>{}",
     "max-length": 20,
     "tooltip": false,
     "on-click": "hyprctl dispatch submap reset"
@@ -603,7 +603,7 @@
 	"format-icons": [
 		"󰈸"
 	],
-	"on-click-right": "kitty --title nvtop sh -c 'nvtop'",
+	"on-click-right": "kitty --title nvtop sh -c 'nvtop'"
 },
 "tray": {
 	"icon-size": 18,
@@ -660,7 +660,7 @@
 	"on-click-right": "~/.config/hypr/scripts/WaybarStyles.sh",
 	"on-click-middle": "~/.config/hypr/UserScripts/WallpaperSelect.sh",
 	"tooltip": true,
-	"tooltip-format": "Left Click: Switch Dark-Light Themes\nMiddle Click: Wallpaper Menu\nRight Click: Waybar Styles Menu",
+	"tooltip-format": "Left Click: Switch Dark-Light Themes\nMiddle Click: Wallpaper Menu\nRight Click: Waybar Styles Menu"
 },
 "custom/lock": {
 	"format": "󰌾",
@@ -676,7 +676,7 @@
 	"on-click-middle": "~/.config/hypr/UserScripts/WallpaperSelect.sh",
 	"on-click-right": "~/.config/hypr/scripts/WaybarLayout.sh",
 	"tooltip": true,
-	"tooltip-format": "Left Click: Rofi Menu\nMiddle Click: Wallpaper Menu\nRight Click: Waybar Layout Menu",
+	"tooltip-format": "Left Click: Rofi Menu\nMiddle Click: Wallpaper Menu\nRight Click: Waybar Layout Menu"
 },
 // This is a custom cava visualizer
 "custom/cava_mviz": {
