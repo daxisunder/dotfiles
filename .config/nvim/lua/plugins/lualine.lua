@@ -230,11 +230,11 @@ return {
       function()
         return mason_updates() .. ""
       end,
-      color = { fg = colors.violet, bg = colors.bg },
+      color = { fg = colors.green, bg = colors.bg },
       cond = function()
         return mason_updates() > 0
       end,
-      icon = "",
+      icon = "",
       on_click = function()
         vim.cmd("Mason")
       end,
@@ -310,15 +310,15 @@ return {
         },
         component_separators = "",
         section_separators = { left = "", right = "" },
-        always_divide_middle = false,
+        always_divide_middle = true,
         globalstatus = true,
       },
       sections = {
         lualine_a = { mode },
-        lualine_b = { filename, alpha, branch, lsp_status },
+        lualine_b = { filename, alpha, buffers, branch, lsp_status },
         lualine_c = { diagnostics, sep, macro_recording, harpoon },
-        lualine_x = { copilot, diff, lazy, mason },
-        lualine_y = { buffers, filetype, progress },
+        lualine_x = { copilot, diff, filetype },
+        lualine_y = { mason, lazy, progress },
         lualine_z = { location },
       },
       inactive_sections = {
