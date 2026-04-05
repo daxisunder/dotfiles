@@ -349,7 +349,7 @@ alias wcpc='wl-color-picker clipboard'
 alias gstat='$HOME/projects/dotfiles/scripts/Show-GitStatusBash.sh'
 alias zsh='nvim .zshrc'
 alias nls='nuls -lag'
-alias rww='rm /tmp/wttrbar-*.json && wttrbar >/dev/null 2>&1 && ~/.config/hypr/scripts/Refresh.sh >/dev/null 2>&1' # Rfresh wttrbar weather widget
+alias rww='rm /tmp/wttrbar-*.json && wttrbar --location banjaluka >/dev/null 2>&1 && ~/.config/hypr/scripts/Refresh.sh >/dev/null 2>&1' # Rfresh wttrbar weather widget
 
 # Colorize --help output with bat
 help() {

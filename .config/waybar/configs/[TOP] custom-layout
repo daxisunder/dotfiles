@@ -38,6 +38,7 @@
   "custom/weather",
   ],
 "modules-right": [
+ "hyprland/submap",
   "tray",
   "custom/separator#blank",
   "group/motherboard",

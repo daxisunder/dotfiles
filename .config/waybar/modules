@@ -1,3 +1,4 @@
+// vim: set ft=jsonc:
 /* Waybar Modules */
 
 {
@@ -412,10 +413,12 @@
 	"keyboard-name": "at-translated-set-2-keyboard",
 	"on-click": "hyprctl switchxkblayout $SET_KB next"
 },
-"hyprland/submap": {
-	"format": "<span style=\"italic\">  {}</span>", // Icon: expand-arrows-alt
-	"tooltip": false
-},
+  "hyprland/submap": {
+    "format": "<span size='11000' foreground='#F8B471'> </span>{}",
+    "max-length": 20,
+    "tooltip": false,
+    "on-click": "hyprctl dispatch submap reset"
+  },
 "hyprland/window": {
 	"format": "{}",
 	"max-length": 40,
@@ -735,7 +738,7 @@
   "format": "{}°C",
   "tooltip": true,
   "interval": 60,
-  "exec": "wttrbar",
+  "exec": "wttrbar --location banjaluka",
   "return-type": "json"
 },
 "custom/github": {
