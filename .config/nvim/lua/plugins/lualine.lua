@@ -105,8 +105,7 @@ return {
 
     local mode = {
       "mode",
-      separator = { left = " ", right = " " },
-      right_padding = 2,
+      separator = { left = "", right = " " },
       color = function()
         return { bg = mode_color[vim.fn.mode()], fg = colors.bg }
       end,
