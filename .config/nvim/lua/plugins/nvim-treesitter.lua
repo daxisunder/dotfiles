@@ -1,8 +1,6 @@
 return {
   "nvim-treesitter/nvim-treesitter",
   branch = "main",
-  -- remove the commit pin when we update to Neeovim 0.12
-  commit = vim.fn.has("nvim-0.12") == 0 and "7caec274fd19c12b55902a5b795100d21531391f" or nil,
   version = false,
   build = function()
     local TS = require("nvim-treesitter")
