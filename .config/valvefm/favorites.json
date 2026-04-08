@@ -1,0 +1,16 @@
+{
+  "stations": [
+    {
+      "uuid": "d1a54d2e-623e-4970-ab11-35f7b56c5ec3",
+      "name": "Classic Vinyl HD",
+      "country": "The United States Of America",
+      "tags": "1930,1940,1950,1960,beautiful music,big band,classic hits,crooners,easy,easy listening,hd,jazz,light orchestral,lounge,oldies,orchestral,otr,relaxation,strings,swing,unwind,walm"
+    },
+    {
+      "uuid": "961b7325-0601-11e8-ae97-52543be04c81",
+      "name": ".977 80s",
+      "country": "The United States Of America",
+      "tags": "80s"
+    }
+  ]
+}

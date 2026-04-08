@@ -1,0 +1,10 @@
+[thresholds]
+block_at = "critical"
+warn_at = "medium"
+
+[whitelist]
+packages = []
+
+[ignored]
+signals = []
+categories = []
