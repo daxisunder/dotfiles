@@ -1,1 +1,33 @@
-[2026-02-10 12:36:59] [info] asio listen error: asio.system:98 (Address already in use)
+[2026-04-08 12:20:08] [info] asio listen error: asio.system:98 (Address already in use)
+AlsaOut::AlsaOut() called
+ALSA lib pcm.c:2722:(snd_pcm_open_noupdate) [error.pcm] Unknown PCM cards.pcm.rear
+ALSA lib pcm.c:2722:(snd_pcm_open_noupdate) [error.pcm] Unknown PCM cards.pcm.center_lfe
+ALSA lib pcm.c:2722:(snd_pcm_open_noupdate) [error.pcm] Unknown PCM cards.pcm.side
+ALSA lib pcm_route.c:886:(find_matching_chmap) [error.pcm] Found no matching channel map
+ALSA lib pcm_route.c:886:(find_matching_chmap) [error.pcm] Found no matching channel map
+ALSA lib pcm_route.c:886:(find_matching_chmap) [error.pcm] Found no matching channel map
+ALSA lib pcm_route.c:886:(find_matching_chmap) [error.pcm] Found no matching channel map
+PulseOut::PulseOut() called
+AlsaOut: destructor
+AlsaOut: joining...
+AlsaOut: thread finished
+AlsaOut: closing device...
+AlsaOut: destroyed.
+AlsaOut::AlsaOut() called
+ALSA lib pcm.c:2722:(snd_pcm_open_noupdate) [error.pcm] Unknown PCM cards.pcm.rear
+ALSA lib pcm.c:2722:(snd_pcm_open_noupdate) [error.pcm] Unknown PCM cards.pcm.center_lfe
+ALSA lib pcm.c:2722:(snd_pcm_open_noupdate) [error.pcm] Unknown PCM cards.pcm.side
+ALSA lib pcm_route.c:886:(find_matching_chmap) [error.pcm] Found no matching channel map
+ALSA lib pcm_route.c:886:(find_matching_chmap) [error.pcm] Found no matching channel map
+ALSA lib pcm_route.c:886:(find_matching_chmap) [error.pcm] Found no matching channel map
+ALSA lib pcm_route.c:886:(find_matching_chmap) [error.pcm] Found no matching channel map
+PulseOut::PulseOut() called
+AlsaOut: destructor
+AlsaOut: joining...
+AlsaOut: thread finished
+AlsaOut: closing device...
+AlsaOut: destroyed.
+PulseOut: destroy
+PulseOut: destructor
+PulseOut: destroy
+PulseOut: destructor
