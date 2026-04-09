@@ -1,8 +1,7 @@
 return {
   "massix/org-checkbox.nvim",
-  event = "VeryLazy",
+  ft = { "org" },
   config = function()
     require("orgcheckbox").setup()
   end,
-  ft = { "org" },
 }

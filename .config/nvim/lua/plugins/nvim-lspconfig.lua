@@ -31,6 +31,8 @@ return {
       enabled = true,
     },
     servers = {
+      -- copilot.lua only works with its own copilot lsp server
+      copilot = { enabled = false },
       emmylua_ls = false,
       texlab = {
         keys = {

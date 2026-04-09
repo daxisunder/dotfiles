@@ -1,6 +1,6 @@
 return {
   "hamidi-dev/org-list.nvim",
-  event = "VeryLazy",
+  ft = "org",
   config = function()
     require("org-list").setup({
       mapping = {
@@ -11,7 +11,7 @@ return {
         enabled = true,
         key = "<C-,>", -- Change the checkbox toggle key
         desc = "Toggle checkbox state",
-        filetypes = { "org", "markdown" }, -- Add more filetypes as needed
+        filetypes = { "org", "markdown", "text" }, -- Add more filetypes as needed
       },
     })
   end,

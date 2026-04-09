@@ -1,6 +1,6 @@
 return {
   "akinsho/org-bullets.nvim",
-  event = "VeryLazy",
+  ft = "org",
   config = function()
     require("org-bullets").setup()
   end,

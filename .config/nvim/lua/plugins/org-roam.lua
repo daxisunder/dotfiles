@@ -1,9 +1,9 @@
 return {
   "chipsenkbeil/org-roam.nvim",
-  event = "VeryLazy",
   dependencies = {
     "nvim-orgmode/orgmode",
   },
+  ft = "org",
   config = function()
     require("org-roam").setup({
       directory = "~/Dropbox/orgroam",

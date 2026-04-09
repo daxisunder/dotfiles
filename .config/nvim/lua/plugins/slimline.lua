@@ -40,9 +40,9 @@ return {
         verbose = true, -- Selects the `verbose` format
         hl = {
           normal = "Type",
-          visual = "Constructor",
+          visual = "Statement",
           insert = "Character",
-          replace = "Statement",
+          replace = "Constructor",
           command = "String",
           other = "Function",
         },
@@ -72,11 +72,11 @@ return {
         -- truncates the directory path. Can be disabled by setting `truncate = false`
         truncate = {
           chars = 1, -- number of characters for each path component
-          full_dirs = 2, -- how many path components to keep unshortened
+          full_dirs = 3, -- how many path components to keep unshortened
         },
         icons = {
-          folder = " ",
-          modified = "",
+          folder = " /",
+          modified = "",
           read_only = "",
         },
       },
@@ -119,8 +119,15 @@ return {
         trunc_width = 95,
         -- Map lsp client names to custom names or ignore them by setting to `false`
         -- E.g. { ['tsserver'] = 'TS', ['pyright'] = 'Python', ['GitHub Copilot'] = false }
-        map_lsps = {},
-        lsp_sep = ",", -- separator between attached LSPs
+        map_lsps = {
+          ["lua_ls"] = "Lua",
+          ["basics_ls"] = "Basics",
+          ["harper_ls"] = "Harper",
+          ["copilot"] = "Copilot",
+          ["textlsp"] = "Text",
+          ["asm_lsp"] = "ASM",
+        },
+        lsp_sep = ":", -- separator between attached LSPs
       },
       selectioncount = {
         hl = {

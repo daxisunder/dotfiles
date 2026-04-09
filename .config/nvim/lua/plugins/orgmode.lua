@@ -5,7 +5,6 @@ return {
     "massix/org-checkbox.nvim",
     "saghen/blink.cmp",
   },
-  event = "VeryLazy",
   ft = { "org", "orgagenda" },
   cmd = "Org",
   config = function()
