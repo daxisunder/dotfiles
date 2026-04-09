@@ -28,29 +28,20 @@ return {
         "progress",
       },
     },
+    -- Always split the middle section, even if it's empty
+    always_split_middle = true,
 
     -- Inactive components
-    -- Uses all `components` by default.
-    -- E.g. for only showing `path`:
-    -- components_inactive = {
-    --   left = { 'path' },
-    --   right = {},
-    -- },
     components_inactive = {},
 
     -- Component configuration
-    -- `<component>.style` can be used to overwrite the global 'style'
-    -- `<component>.sep` can be used to overwrite the global 'sep.left' and `sep.right`
-    -- `<component>.hl = { primary = ..., secondary = ...}` can be used to overwrite global ones
-    -- `<component>.follow` can point to another component name to follow its style (e.g. 'progress' following 'mode' by default). Follow can be disabled by setting it to `false`
-    -- `<component>.trunc_width` can be used to hide a component completely once the window width drops below that value
     configs = {
       mode = {
-        verbose = false, -- Selects the `verbose` format
+        verbose = true, -- Selects the `verbose` format
         hl = {
           normal = "Type",
-          visual = "Keyword",
-          insert = "Function",
+          visual = "Constructor",
+          insert = "Character",
           replace = "Statement",
           command = "String",
           other = "Function",
@@ -74,7 +65,7 @@ return {
       },
       path = {
         hl = {
-          secondary = "Identifier",
+          secondary = "Boolean",
         },
         trunc_width = 120,
         directory = true, -- Whether to show the directory
@@ -91,11 +82,11 @@ return {
       },
       git = {
         hl = {
-          secondary = "Identifier",
+          secondary = "Function",
         },
         trunc_width = 120,
         icons = {
-          branch = " ",
+          branch = "",
           added = " ",
           modified = " ",
           removed = " ",
@@ -123,7 +114,7 @@ return {
       },
       filetype_lsp = {
         hl = {
-          secondary = "Identifier",
+          secondary = "Function",
         },
         trunc_width = 95,
         -- Map lsp client names to custom names or ignore them by setting to `false`
@@ -162,9 +153,9 @@ return {
 
     -- Spacing configuration
     spaces = {
-      components = " ", -- string between components
-      left = " ", -- string at the start of the line
-      right = " ", -- string at the end of the line
+      components = "─",
+      left = "─",
+      right = "─",
     },
 
     -- Seperator configuartion
