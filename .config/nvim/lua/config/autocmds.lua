@@ -139,3 +139,12 @@ autocmd("FileType", {
     })
   end,
 })
+
+-- disable builtin lsp-document-color
+autocmd("LspAttach", {
+  callback = function()
+    if vim.lsp.document_color then
+      vim.lsp.document_color.enable(false, nil, { style = "virtual" })
+    end
+  end,
+})

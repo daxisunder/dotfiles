@@ -6,8 +6,8 @@
   }
 }
 
-/* Change selected text color on YT */
+/* Change selected text color */
 ::selection {
   background: #2a2b3d !important;
-  color: #ff899d !important;
+  color: #a4daff !important;
 }

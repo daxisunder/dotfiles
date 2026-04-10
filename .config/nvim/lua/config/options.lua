@@ -39,3 +39,4 @@ o.scrolloff = 8
 o.sidescrolloff = 8
 o.signcolumn = "yes"
 o.startofline = true
+o.termguicolors = true

@@ -4,6 +4,7 @@ return {
   recommended = true,
   desc = "Highlight colors in your code. Also includes Tailwind CSS support.",
   event = "LazyFile",
+  enabled = false,
   opts = function()
     local hi = require("mini.hipatterns")
     return {
