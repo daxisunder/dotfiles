@@ -1,7 +1,10 @@
 return {
   "nvim-mini/mini.diff",
+  dependencies = {
+    { "lewis6991/gitsigns.nvim", enabled = false },
+  },
   version = false,
-  event = "VeryLazy",
+  event = "LazyFile",
   config = function()
     require("mini.diff").setup({
       view = {
