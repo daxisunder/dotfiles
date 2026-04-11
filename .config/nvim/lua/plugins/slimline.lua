@@ -170,6 +170,8 @@ return {
             ["clangd"] = "Clang",
             ["gopls"] = "Go",
             ["hyprls"] = "Hypr",
+            ["rubocop"] = "Ruby",
+            ["tsserver"] = "TS",
           },
           lsp_sep = ":",
         },

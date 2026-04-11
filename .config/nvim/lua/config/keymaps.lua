@@ -5,6 +5,13 @@
 local map = vim.keymap.set
 local Snacks = require("snacks")
 
+-- restart session/neovim
+map("n", "<leader>qr", function()
+  local session = vim.fn.stdpath("state") .. "/restart_session.vim"
+  vim.cmd("mksession! " .. vim.fn.fnameescape(session))
+  vim.cmd("restart source " .. vim.fn.fnameescape(session))
+end, { desc = "Restart Session/Neovim" })
+
 -- search clipboard history
 map({ "n" }, "<leader>sv", ":lua Snacks.picker.cliphist()<CR>", { desc = "Clipboard History" })
 
