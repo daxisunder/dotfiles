@@ -7,7 +7,7 @@ return {
   opts = function()
     local sep_left = ""
     local sep_right = ""
-    local icon = " "
+    local icon = "  "
 
     local custom_progress = function(active)
       local line = vim.fn.line(".")
@@ -47,7 +47,7 @@ return {
       }
 
       return Slimline.highlights.hl_component({
-        primary = icon .. pos .. "  " .. line,
+        primary = icon .. pos .. "%",
         secondary = line .. ":" .. col,
       }, hl, { left = sep_left, right = sep_right }, "left", active, "bg")
     end
@@ -153,7 +153,6 @@ return {
           },
         },
         filetype_lsp = {
-          icon = " ",
           hl = {
             secondary = "Function",
           },
@@ -165,6 +164,12 @@ return {
             ["copilot"] = "Copilot",
             ["textlsp"] = "Text",
             ["asm_lsp"] = "ASM",
+            ["rust-analyzer"] = "Rust",
+            ["pyright"] = "Pyright",
+            ["ruff"] = "Ruff",
+            ["clangd"] = "Clang",
+            ["gopls"] = "Go",
+            ["hyprls"] = "Hypr",
           },
           lsp_sep = ":",
         },
@@ -172,13 +177,13 @@ return {
           hl = {
             primary = "Special",
           },
-          icon = "󰒅 ",
+          icon = "󱊅 ",
         },
         searchcount = {
           hl = {
             primary = "Special",
           },
-          icon = "󱈄 ",
+          icon = "󱈅 ",
           options = {
             recompute = true,
           },
@@ -210,7 +215,7 @@ return {
         base = "Normal",
         base_inactive = "Normal",
         primary = "Normal",
-        secondary = "Keyword",
+        secondary = "Character",
       },
 
       disabled_filetypes = {},
