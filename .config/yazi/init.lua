@@ -3,19 +3,7 @@ require("full-border"):setup({
 })
 
 require("yaziline"):setup({
-	color = "#7aa2f7",
-	secondary_color = "#3b4261",
-	default_files_color = "#3b4261", -- color of the file counter when it's inactive
-	selected_files_color = "#bb9af7",
-	yanked_files_color = "#9fe044",
-	cut_files_color = "#ff899d",
 	separator_style = "empty", -- "angly" | "curvy" | "liney" | "empty"
-	separator_open = "",
-	separator_close = "",
-	separator_open_thin = "",
-	separator_close_thin = "",
-	separator_head = "",
-	separator_tail = "",
 	select_symbol = "",
 	yank_symbol = "",
 	filename_max_length = 24, -- truncate when filename > 24

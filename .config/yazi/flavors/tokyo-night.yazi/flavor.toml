@@ -1,5 +1,5 @@
 [app]
-overall = {}
+overall = { bg = "#000000" }
 
 [mgr]
 # cwd = { fg = "#a9b1d6", bg = "#292e42" }
@@ -7,16 +7,16 @@ overall = {}
 find_keyword = { fg = "#16161e", bg = "#ff9e64", bold = true }
 find_position = { fg = "#0db9d7", bg = "#192b38", bold = true }
 
-symlynk_target = { italic = true }
+symlynk_target = { italic = false }
 
 marker_copied = { fg = "#73daca", bg = "#73daca" }
 marker_cut = { fg = "#f7768e", bg = "#f7768e" }
 marker_marked = { fg = "#bb9af7", bg = "#bb9af7" }
 marker_selected = { fg = "#7aa2f7", bg = "#7aa2f7" }
 
-count_copied = { fg = "#c0caf5", bg = "#41a6b5" }
-count_cut = { fg = "#c0caf5", bg = "#db4b4b" }
-count_selected = { fg = "#c0caf5", bg = "#3d59a1" }
+count_copied = { fg = "#73daca", bg = "#73daca" }
+count_cut = { fg = "#f7768e", bg = "#f7768e" }
+count_selected = { fg = "#7aa2f7", bg = "#7aa2f7" }
 
 border_symbol = "│"
 border_style = { fg = "#1a1b26" }
@@ -31,12 +31,12 @@ sep_inner = { open = " ", close = " " }
 sep_outer = { open = " ", close = " " }
 
 [mode]
-normal_main = { fg = "#16161e", bg = "#7aa2f7", bold = true }
-normal_alt = { fg = "#56565e", bg = "#7aa2f7", bold = true }
-select_main = { fg = "#16161e", bg = "#bb9af7", bold = true }
-select_alt = { fg = "#56565e", bg = "#bb9af7", bold = true }
-unset_main = { fg = "#16161e", bg = "#9d7cd8", bold = true }
-unset_alt = { fg = "#56565e", bg = "#9d7cd8", bold = true }
+normal_main = { fg = "#3b4261", bg = "#7aa2f7", bold = true }
+normal_alt = { fg = "#7aa2f7", bg = "#3b4261", bold = true }
+select_main = { fg = "#3b4261", bg = "#bb9af7", bold = true }
+select_alt = { fg = "#bb9af7", bg = "#3b4261", bold = true }
+unset_main = { fg = "#3b4261", bg = "#9d7cd8", bold = true }
+unset_alt = { fg = "#9d7cd8", bg = "#3b4261", bold = true }
 
 [indicator]
 parent = { fg = "#c0caf5", bg = "#292e42", bold = true }
