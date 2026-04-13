@@ -55,6 +55,9 @@ return {
           bg = c.bg,
           fg = c.bg_dark1,
         }
+        hl.ColorColumn = {
+          bg = c.bg,
+        }
         hl.CursorColumn = {
           bg = c.bg_dark1,
         }
@@ -142,6 +145,10 @@ return {
         }
         hl.TreesitterContext = {
           bg = c.bg_dark1,
+        }
+        hl.VirtColumn = {
+          bg = c.bg,
+          fg = c.bg_dark1,
         }
         hl.WinSeparator = {
           bold = true,

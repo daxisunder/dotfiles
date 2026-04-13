@@ -21,6 +21,7 @@ g.loaded_ruby_provider = 0
 g.man_hardwrap = 0
 g.trouble_lualine = true
 g.vimtex_view_general_viewer = "okular"
+o.colorcolumn = "80"
 o.cursorcolumn = true
 o.cursorline = true
 o.list = false
