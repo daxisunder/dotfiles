@@ -93,8 +93,8 @@ window#waybar.empty #window {
   font-size: 125%;
   padding-top: 0px;
   padding-bottom: 0px;
-  padding-left: 10px;
-  padding-right: 10px;
+  padding-left: 8px;
+  padding-right: 8px;
   animation: gradient_f 20s ease-in infinite;
   transition: all 0.1s linear;
 }
@@ -161,8 +161,8 @@ window#waybar.empty #window {
   border-radius: 20px;
   padding-top: 0px;
   padding-bottom: 0px;
-  padding-left: 10px;
-  padding-right: 11px;
+  padding-left: 8px;
+  padding-right: 9px;
 }
 
 #custom-swaync:hover {
@@ -174,8 +174,8 @@ window#waybar.empty #window {
   border-radius: 20px;
   padding-top: 0px;
   padding-bottom: 0px;
-  padding-left: 10px;
-  padding-right: 10px;
+  padding-left: 8px;
+  padding-right: 8px;
   font-size: 150%;
 }
 
@@ -187,7 +187,7 @@ window#waybar.empty #window {
   color: #c0caf5;
   padding-top: 0px;
   padding-bottom: 0px;
-  padding-left: 4px;
+  padding-left: 2px;
   padding-right: 4px;
   font-size: 150%;
 }
@@ -219,7 +219,7 @@ window#waybar.empty #window {
   padding-top: 0px;
   padding-bottom: 0px;
   padding-left: 0px;
-  padding-right: 10px;
+  padding-right: 8px;
   font-size: 150%;
 }
 
@@ -234,7 +234,7 @@ window#waybar.empty #window {
   font-size: 150%;
   padding-top: 0px;
   padding-bottom: 0px;
-  padding-left: 6px;
+  padding-left: 4px;
   padding-right: 2px;
   border-top: 2px solid #455a64;
   border-bottom: 2px solid #455a64;
@@ -244,8 +244,8 @@ window#waybar.empty #window {
 
 #cpu:hover {
   color: #00ffff;
-  padding-left: 6px;
-  padding-right: 6px;
+  padding-left: 4px;
+  padding-right: 4px;
   border: 2px solid #7dcfff;
   border-radius: 20px;
 }
@@ -254,8 +254,8 @@ window#waybar.empty #window {
   font-size: 150%;
   padding-top: 0px;
   padding-bottom: 0px;
-  padding-left: 4px;
-  padding-right: 8px;
+  padding-left: 2px;
+  padding-right: 6px;
   border-bottom: 2px solid #455a64;
   border-top: 2px solid #455a64;
   border-radius: 0px;
@@ -263,16 +263,16 @@ window#waybar.empty #window {
 
 #memory:hover {
   color: #00ffff;
-  padding-left: 10px;
-  padding-right: 14px;
+  padding-left: 8px;
+  padding-right: 12px;
   border: 2px solid #7dcfff;
   border-radius: 20px;
 }
 
 #temperature {
   font-size: 150%;
-  padding-left: 6px;
-  padding-right: 4px;
+  padding-left: 4px;
+  padding-right: 2px;
   padding-top: 0px;
   padding-bottom: 0px;
   border-bottom: 2px solid #455a64;
@@ -282,8 +282,8 @@ window#waybar.empty #window {
 
 #temperature:hover {
   color: #00ffff;
-  padding-left: 10px;
-  padding-right: 10px;
+  padding-left: 8px;
+  padding-right: 8px;
   border: 2px solid #7dcfff;
   border-radius: 20px;
 }
@@ -297,8 +297,8 @@ window#waybar.empty #window {
 #disk {
   font-size: 150%;
   padding-top: 0px;
-  padding-left: 5px;
-  padding-right: 11px;
+  padding-left: 3px;
+  padding-right: 9px;
   padding-bottom: 0px;
   border-top: 2px solid #455a64;
   border-right: 2px solid #455a64;
@@ -307,8 +307,8 @@ window#waybar.empty #window {
 }
 
 #disk:hover {
-  padding-left: 9px;
-  padding-right: 11px;
+  padding-left: 7px;
+  padding-right: 9px;
   color: #00ffff;
   border: 2px solid #7dcfff;
   border-radius: 20px;
@@ -318,7 +318,7 @@ window#waybar.empty #window {
   font-size: 150%;
   padding-top: 0px;
   padding-bottom: 0px;
-  padding-right: 14px;
+  padding-right: 12px;
   border-top: 2px solid #455a64;
   border-right: 2px solid #455a64;
   border-bottom: 2px solid #455a64;
@@ -327,8 +327,8 @@ window#waybar.empty #window {
 
 #diskmedia:hover {
   color: #00ffff;
-  padding-left: 12px;
-  padding-right: 14px;
+  padding-left: 10px;
+  padding-right: 12px;
   border: 2px solid #7dcfff;
   border-radius: 20px;
 }
@@ -353,8 +353,8 @@ window#waybar.empty #window {
 #custom-menu {
   font-size: 150%;
   color: #7dcfff;
-  padding-left: 9px;
-  padding-right: 11px;
+  padding-left: 7px;
+  padding-right: 9px;
   padding-top: 0px;
   padding-bottom: 0px;
 }
@@ -362,8 +362,8 @@ window#waybar.empty #window {
 #custom-power {
   font-size: 150%;
   color: #f7768e;
-  padding-left: 4px;
-  padding-right: 16px;
+  padding-left: 2px;
+  padding-right: 14px;
   padding-top: 0px;
   padding-bottom: 0px;
 }
@@ -371,8 +371,8 @@ window#waybar.empty #window {
 #custom-updater {
   border: 2px solid #455a64;
   border-radius: 20px;
-  padding-left: 8pt;
-  padding-right: 10px;
+  padding-left: 6pt;
+  padding-right: 8px;
   font-size: 150%;
   padding-top: 0px;
   padding-bottom: 0px;
@@ -401,8 +401,8 @@ window#waybar.empty #window {
 #pulseaudio {
   color: #faba4a;
   font-size: 150%;
-  padding-left: 4px;
-  padding-right: 2px;
+  padding-left: 2px;
+  padding-right: 0px;
   padding-top: 0px;
   padding-bottom: 0px;
 }
@@ -415,8 +415,8 @@ window#waybar.empty #window {
 #pulseaudio-microphone {
   color: #faba4a;
   font-size: 150%;
-  padding-left: 4px;
-  padding-right: 2px;
+  padding-left: 2px;
+  padding-right: 0px;
   padding-top: 0px;
   padding-bottom: 0px;
 }
@@ -429,8 +429,8 @@ pulseaudio-microphone.muted {
 #pulseaudio-slider slider {
   opacity: 0;
   background-image: none;
-  padding-left: 2px;
-  padding-right: 2px;
+  padding-left: 0px;
+  padding-right: 0px;
   padding-top: 0px;
   padding-bottom: 0px;
 }
@@ -494,8 +494,8 @@ pulseaudio-microphone.muted {
 
 #custom-separator {
   font-size: 125%;
-  padding-left: 4px;
-  padding-right: 4px;
+  padding-left: 2px;
+  padding-right: 2px;
   color: #f7768e;
   padding-top: 0px;
   padding-bottom: 0px;

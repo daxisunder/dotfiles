@@ -177,6 +177,8 @@ return {
             ["cssls"] = "CSS",
             ["tailwindcss"] = "Tailwind",
             ["json-lsp"] = "JSON",
+            ["yamlls"] = "YAML",
+            ["texlab"] = "LaTeX",
           },
           lsp_sep = ":",
         },
