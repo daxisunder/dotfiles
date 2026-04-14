@@ -5,7 +5,7 @@
   "AutoHideCommandBar": false,
   "AutoUpdateCheck": true,
   "CategoryTrackListSortOrder": 0,
-  "ColorTheme": "tokyonight-black",
+  "ColorTheme": "default",
   "DisableAlbumArtistFallback": false,
   "DisableCustomColors": false,
   "DisableRatingColumn": false,
@@ -43,5 +43,5 @@
   "StartMinimized": false,
   "SyncOnStartup": true,
   "TrackSearchSortOrder": 0,
-  "UsePaletteColors": false
+  "UsePaletteColors": true
 }

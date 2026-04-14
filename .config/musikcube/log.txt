@@ -1,117 +1,29 @@
-12:20:08 [info] [LOG SESSION] ---------- START ----------
-12:20:08 [info] [PluginFactory] loading plugins
-12:20:08 [error] [PluginFactory] exception while loading plugin /usr/share/musikcube/plugins/libstockencoders.so: libavcodec.so.61: cannot open shared object file: No such file or directory
-12:20:08 [info] [PluginFactory] loaded: /usr/share/musikcube/plugins/libtaglibreader.so
-12:20:08 [info] [PluginFactory] loaded: /usr/share/musikcube/plugins/libnullout.so
-12:20:08 [info] [PluginFactory] loaded: /usr/share/musikcube/plugins/libalsaout.so
-12:20:08 [error] [PluginFactory] exception while loading plugin /usr/share/musikcube/plugins/libffmpegdecoder.so: libavcodec.so.61: cannot open shared object file: No such file or directory
-12:20:08 [info] [PluginFactory] loaded: /usr/share/musikcube/plugins/libserver.so
-12:20:08 [info] [PluginFactory] loaded: /usr/share/musikcube/plugins/libportaudioout.so
-12:20:08 [info] [PluginFactory] loaded: /usr/share/musikcube/plugins/libmpris.so
-12:20:08 [info] [PluginFactory] loaded: /usr/share/musikcube/plugins/libsupereqdsp.so
-12:20:08 [info] [PluginFactory] loaded: /usr/share/musikcube/plugins/libhttpdatastream.so
-12:20:08 [info] [PluginFactory] loaded: /usr/share/musikcube/plugins/libpulseout.so
-12:20:08 [info] [PluginFactory] loaded: /usr/share/musikcube/plugins/libpipewireout.so
-12:20:08 [info] [PluginFactory] loaded: /usr/share/musikcube/plugins/libopenmptdecoder.so
-12:20:08 [info] [PluginFactory] loaded: /usr/share/musikcube/plugins/libgmedecoder.so
-12:20:08 [info] [Indexer] indexer source 155697690 running...
-12:20:08 [info] [Indexer] indexer source 155697690 finished
-12:20:08 [info] [Indexer] indexer source -1303229654 running...
-12:20:08 [info] [Indexer] indexer source -1303229654 finished
-12:20:08 [info] [Indexer] scanning /home/daxis/Music/
-12:20:08 [info] [Indexer] scan completed successfully
-12:20:08 [info] [Indexer] cleanup 1/2
-12:20:08 [info] [Indexer] cleanup 2/2
-12:20:08 [info] [Indexer] optimizing
-12:20:08 [info] [LocalLibrary] query 'SearchTrackListQuery' enqueued
-12:20:08 [info] [Indexer] done!
-12:20:08 [info] [LocalLibrary] query 'SearchTrackListQuery' running
-12:20:08 [info] [LocalLibrary] query 'SearchTrackListQuery' finished with status=4
-12:20:08 [info] [LocalLibrary] query 'PersistedPlayQueueQuery' enqueued
-12:20:08 [info] [LocalLibrary] query 'PersistedPlayQueueQuery' running
-12:20:08 [info] [LocalLibrary] query 'PersistedPlayQueueQuery' finished with status=4
-12:20:08 [error] [WebSocketServer] [ThreadProc] websocketpp::exception: Address already in use
-12:20:08 [info] [LocalLibrary] query 'CategoryListQuery' enqueued
-12:20:08 [info] [LocalLibrary] query 'CategoryListQuery' running
-12:20:08 [info] [LocalLibrary] query 'CategoryListQuery' enqueued
-12:20:08 [info] [LocalLibrary] query 'CategoryListQuery' finished with status=4
-12:20:08 [info] [LocalLibrary] query 'CategoryListQuery' running
-12:20:08 [info] [LocalLibrary] query 'SearchTrackListQuery' enqueued
-12:20:08 [info] [LocalLibrary] query 'CategoryListQuery' finished with status=4
-12:20:08 [info] [LocalLibrary] query 'SearchTrackListQuery' running
-12:20:08 [info] [LocalLibrary] query 'SearchTrackListQuery' finished with status=4
-12:20:08 [info] [LocalLibrary] query 'CategoryTrackListQuery' enqueued
-12:20:08 [info] [LocalLibrary] query 'CategoryTrackListQuery' enqueued
-12:20:08 [info] [LocalLibrary] query 'TrackMetadataBatchQuery' enqueued
-12:20:08 [info] [LocalLibrary] query 'CategoryTrackListQuery' running
-12:20:08 [info] [LocalLibrary] query 'CategoryTrackListQuery' finished with status=4
-12:20:08 [info] [LocalLibrary] query 'CategoryTrackListQuery' running
-12:20:08 [info] [LocalLibrary] query 'CategoryTrackListQuery' finished with status=4
-12:20:08 [info] [LocalLibrary] query 'TrackMetadataBatchQuery' running
-12:20:08 [info] [LocalLibrary] query 'TrackMetadataBatchQuery' finished with status=4
-12:20:22 [info] [LocalLibrary] query 'SearchTrackListQuery' enqueued
-12:20:22 [info] [LocalLibrary] query 'SearchTrackListQuery' running
-12:20:22 [info] [LocalLibrary] query 'SearchTrackListQuery' finished with status=4
-12:20:22 [info] [LocalLibrary] query 'TrackMetadataBatchQuery' enqueued
-12:20:22 [info] [LocalLibrary] query 'TrackMetadataBatchQuery' running
-12:20:22 [info] [LocalLibrary] query 'TrackMetadataBatchQuery' finished with status=4
-12:20:25 [info] [LocalLibrary] query 'TrackMetadataBatchQuery' enqueued
-12:20:25 [info] [LocalLibrary] query 'TrackMetadataBatchQuery' running
-12:20:25 [info] [LocalLibrary] query 'TrackMetadataBatchQuery' finished with status=4
-12:20:25 [info] [LocalLibrary] query 'CategoryListQuery' enqueued
-12:20:25 [info] [LocalLibrary] query 'CategoryListQuery' running
-12:20:25 [info] [LocalLibrary] query 'CategoryListQuery' finished with status=4
-12:20:25 [info] [LocalLibrary] query 'CategoryTrackListQuery' enqueued
-12:20:25 [info] [LocalLibrary] query 'CategoryTrackListQuery' running
-12:20:25 [info] [LocalLibrary] query 'CategoryTrackListQuery' finished with status=4
-12:20:25 [info] [LocalLibrary] query 'TrackMetadataBatchQuery' enqueued
-12:20:25 [info] [LocalLibrary] query 'TrackMetadataBatchQuery' running
-12:20:25 [info] [LocalLibrary] query 'TrackMetadataBatchQuery' finished with status=4
-12:20:43 [info] [LocalLibrary] query 'CategoryTrackListQuery' enqueued
-12:20:43 [info] [LocalLibrary] query 'CategoryTrackListQuery' running
-12:20:43 [info] [LocalLibrary] query 'CategoryTrackListQuery' finished with status=4
-12:20:43 [info] [LocalLibrary] query 'TrackMetadataBatchQuery' enqueued
-12:20:43 [info] [LocalLibrary] query 'TrackMetadataBatchQuery' running
-12:20:43 [info] [LocalLibrary] query 'TrackMetadataBatchQuery' finished with status=4
-12:20:43 [info] [LocalLibrary] query 'CategoryTrackListQuery' enqueued
-12:20:43 [info] [LocalLibrary] query 'CategoryTrackListQuery' running
-12:20:43 [info] [LocalLibrary] query 'CategoryTrackListQuery' finished with status=4
-12:20:43 [info] [LocalLibrary] query 'TrackMetadataBatchQuery' enqueued
-12:20:43 [info] [LocalLibrary] query 'TrackMetadataBatchQuery' running
-12:20:43 [info] [LocalLibrary] query 'TrackMetadataBatchQuery' finished with status=4
-12:20:43 [info] [LocalLibrary] query 'CategoryTrackListQuery' enqueued
-12:20:43 [info] [LocalLibrary] query 'CategoryTrackListQuery' running
-12:20:43 [info] [LocalLibrary] query 'CategoryTrackListQuery' finished with status=4
-12:20:43 [info] [LocalLibrary] query 'TrackMetadataBatchQuery' enqueued
-12:20:43 [info] [LocalLibrary] query 'TrackMetadataBatchQuery' running
-12:20:43 [info] [LocalLibrary] query 'TrackMetadataBatchQuery' finished with status=4
-12:20:44 [info] [LocalLibrary] query 'CategoryTrackListQuery' enqueued
-12:20:44 [info] [LocalLibrary] query 'CategoryTrackListQuery' running
-12:20:44 [info] [LocalLibrary] query 'CategoryTrackListQuery' finished with status=4
-12:20:44 [info] [LocalLibrary] query 'TrackMetadataBatchQuery' enqueued
-12:20:44 [info] [LocalLibrary] query 'TrackMetadataBatchQuery' running
-12:20:44 [info] [LocalLibrary] query 'TrackMetadataBatchQuery' finished with status=4
-12:20:53 [info] [PortAudioOut] Pa_Initialize() return code: 0
-12:20:53 [info] [PipeWireOut] shutdown started
-12:20:53 [info] [PipeWireOut] shutdown complete
-12:20:53 [warning] [PortAudioOut] Pa_AbortStream() return code: -9988
-12:20:53 [warning] [PortAudioOut] Pa_CloseStream() return code: -9988
-12:20:53 [info] [PortAudioOut] Pa_Terminate() return code: 0
-12:20:53 [info] [PortAudioOut] Pa_Initialize() return code: 0
-12:20:53 [info] [PipeWireOut] shutdown started
-12:20:53 [info] [PipeWireOut] shutdown complete
-12:20:53 [warning] [PortAudioOut] Pa_AbortStream() return code: -9988
-12:20:53 [warning] [PortAudioOut] Pa_CloseStream() return code: -9988
-12:20:53 [info] [PortAudioOut] Pa_Terminate() return code: 0
-12:21:23 [info] [LocalLibrary] query 'CategoryListQuery' enqueued
-12:21:23 [info] [LocalLibrary] query 'CategoryListQuery' running
-12:21:23 [info] [LocalLibrary] query 'CategoryListQuery' finished with status=4
-12:21:23 [info] [LocalLibrary] query 'CategoryTrackListQuery' enqueued
-12:21:23 [info] [LocalLibrary] query 'CategoryTrackListQuery' running
-12:21:23 [info] [LocalLibrary] query 'CategoryTrackListQuery' finished with status=4
-12:21:23 [info] [LocalLibrary] query 'TrackMetadataBatchQuery' enqueued
-12:21:23 [info] [LocalLibrary] query 'TrackMetadataBatchQuery' running
-12:21:23 [info] [LocalLibrary] query 'TrackMetadataBatchQuery' finished with status=4
-12:21:30 [info] [LocalLibrary] query 'PersistedPlayQueueQuery' enqueued
-12:21:30 [info] [LocalLibrary] query 'PersistedPlayQueueQuery' running
-12:21:30 [info] [LocalLibrary] query 'PersistedPlayQueueQuery' finished with status=4
+19:17:38 [info] [LOG SESSION] ---------- START ----------
+19:17:38 [info] [PluginFactory] loading plugins
+19:17:38 [error] [PluginFactory] exception while loading plugin /usr/share/musikcube/plugins/libstockencoders.so: libavcodec.so.61: cannot open shared object file: No such file or directory
+19:17:38 [info] [PluginFactory] loaded: /usr/share/musikcube/plugins/libtaglibreader.so
+19:17:38 [info] [PluginFactory] loaded: /usr/share/musikcube/plugins/libnullout.so
+19:17:38 [info] [PluginFactory] loaded: /usr/share/musikcube/plugins/libalsaout.so
+19:17:38 [error] [PluginFactory] exception while loading plugin /usr/share/musikcube/plugins/libffmpegdecoder.so: libavcodec.so.61: cannot open shared object file: No such file or directory
+19:17:38 [info] [PluginFactory] loaded: /usr/share/musikcube/plugins/libserver.so
+19:17:38 [info] [PluginFactory] loaded: /usr/share/musikcube/plugins/libportaudioout.so
+19:17:38 [info] [PluginFactory] loaded: /usr/share/musikcube/plugins/libmpris.so
+19:17:38 [info] [PluginFactory] loaded: /usr/share/musikcube/plugins/libsupereqdsp.so
+19:17:38 [info] [PluginFactory] loaded: /usr/share/musikcube/plugins/libhttpdatastream.so
+19:17:38 [info] [PluginFactory] loaded: /usr/share/musikcube/plugins/libpulseout.so
+19:17:38 [info] [PluginFactory] loaded: /usr/share/musikcube/plugins/libpipewireout.so
+19:17:38 [info] [PluginFactory] loaded: /usr/share/musikcube/plugins/libopenmptdecoder.so
+19:17:38 [info] [PluginFactory] loaded: /usr/share/musikcube/plugins/libgmedecoder.so
+19:17:38 [info] [LocalLibrary] query 'PersistedPlayQueueQuery' enqueued
+19:17:38 [info] [LocalLibrary] query 'PersistedPlayQueueQuery' running
+19:17:38 [info] [LocalLibrary] query 'PersistedPlayQueueQuery' finished with status=4
+19:17:38 [info] [Indexer] indexer source 155697690 running...
+19:17:38 [info] [Indexer] indexer source 155697690 finished
+19:17:38 [info] [Indexer] indexer source -1303229654 running...
+19:17:38 [info] [Indexer] indexer source -1303229654 finished
+19:17:38 [info] [Indexer] scanning /home/daxis/Music/
+19:17:38 [info] [Indexer] scan completed successfully
+19:17:38 [info] [Indexer] cleanup 1/2
+19:17:38 [info] [Indexer] cleanup 2/2
+19:17:38 [info] [Indexer] optimizing
+19:17:38 [info] [Indexer] done!
