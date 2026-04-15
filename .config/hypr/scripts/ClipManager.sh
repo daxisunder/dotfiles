@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/bash
 # Clipboard Manager. This script uses cliphist, rofi, and wl-copy.
 
 # Actions:

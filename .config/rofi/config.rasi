@@ -13,7 +13,7 @@ window {
 
 /* ---- Entry input ---- */
 entry {
-    width:	25%;
+    width:	10%;
 }
 
 /* ---- Listview ---- */

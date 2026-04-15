@@ -20,7 +20,7 @@ imagebox {
 
 
 entry {
-  expand: false;
+  width: 7%;
   placeholder: "🎞️ Choose Wallpaper";
 }
 

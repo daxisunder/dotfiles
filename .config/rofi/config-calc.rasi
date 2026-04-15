@@ -1,17 +1,17 @@
 /* Main Config Calculator */
 /* Submitted by: https://github.com/JosephArmas */
 
-@import "~/.config/rofi/config.rasi" 
+@import "~/.config/rofi/config.rasi"
 
 /* ---- Entry ---- */
 entry {
-  width: 27%;
-  placeholder: "🧮 Calculate";
+  width: 5%;
+  placeholder: " 🧮 Calculate";
 }
 
 /* ---- Window ---- */
 window {
-    width:	30%;
+    width:	20%;
     x-offset: 12px;
     location: north;
 }

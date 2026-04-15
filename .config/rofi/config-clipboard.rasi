@@ -1,11 +1,11 @@
 /* Clipboard Config - Clipboard */
 
-@import "~/.config/rofi/config.rasi" 
+@import "~/.config/rofi/config.rasi"
 
 /* ---- Entry ---- */
 entry {
-  width: 37%;
-  placeholder: "📋 Search Clipboard **note** 👀 CTRL Del - Cliphist del or Alt Del - cliphist wipe";
+  width: 25%;
+  placeholder: " 🧮 Search Clipboard ☣️ NOTE ☣️ CTRL Del - Cliphist del or ALT Del - Cliphist wipe";
 }
 
 /* ---- Listview ---- */
