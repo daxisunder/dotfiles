@@ -1,2 +1,7 @@
-# ignore .env files
-*.env
+# ignore api.env file
+api.env
+# ignore musikcube shit
+.config/musikcube/1/
+.config/musikcube/log.txt
+.config/musikcube/stderr.txt
+.config/musikcube/session.json
