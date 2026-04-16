@@ -18,6 +18,6 @@ window {
 
 /* ---- Message ---- */
 textbox {
-    background-color:            @selected;
-    text-color:                  @background;
+    background-color: @selected;
+    text-color: @background;
 }

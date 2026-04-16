@@ -86,7 +86,7 @@ entry {
     background-color:            @normal-background;
     text-color:                  @text-color;
     cursor:                      text;
-    placeholder:                 "  Search:"; // << Search symbol
+    placeholder:                 "   Search:"; // << Search symbol
     placeholder-color:           inherit;
 }
 
