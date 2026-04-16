@@ -181,6 +181,8 @@ return {
             ["texlab"] = "LaTeX",
             ["julials"] = "Julia",
             ["markdown_oxide"] = "MD",
+            ["dockerls"] = "Docker",
+            ["bashls"] = "Bash",
           },
           lsp_sep = ":",
         },
