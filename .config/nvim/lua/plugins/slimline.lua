@@ -170,6 +170,7 @@ return {
             ["clangd"] = "Clang",
             ["gopls"] = "Go",
             ["hyprls"] = "Hypr",
+            ["hyprlang"] = "HyprLang",
             ["rubocop"] = "Ruby",
             ["tsserver"] = "TS",
             ["taplo"] = "TOML",
