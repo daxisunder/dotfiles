@@ -183,6 +183,7 @@ return {
             ["markdown_oxide"] = "MD",
             ["dockerls"] = "Docker",
             ["bashls"] = "Bash",
+            ["qmlls"] = "QML",
           },
           lsp_sep = ":",
         },
