@@ -344,6 +344,7 @@ return {
           finder = function(_, ctx)
             local snippets = {}
             for _, snip in ipairs(require("luasnip").get_snippets().all) do
+              ---@diagnostic disable-next-line: inject-field
               snip.ft = ""
               table.insert(snippets, snip)
             end
@@ -406,6 +407,12 @@ return {
         undo = {
           layout = {
             preset = "ivy",
+          },
+        },
+        vimtex_toc = {
+          layers = "ctl",
+          layout = {
+            preset = "dropdown",
           },
         },
         yanky = {

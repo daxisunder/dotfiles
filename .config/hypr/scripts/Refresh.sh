@@ -17,11 +17,11 @@ for _prs in "${_ps[@]}"; do
   fi
 done
 
-#Restart waybar
+# Restart waybar
 sleep 0.3
 waybar &
 
-# relaunch swaync
+# Relaunch swaync
 sleep 0.3
 swaync >/dev/null 2>&1 &
 
