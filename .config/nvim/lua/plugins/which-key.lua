@@ -31,11 +31,12 @@ return {
     },
     spec = {
       mode = { "n", "v" },
+      { "<leader>o", group = "orgmode", icon = { icon = " ", color = "green" } },
       { "<leader>O", group = "org-roam", icon = { icon = " ", color = "green" } },
       { "<leader>Oa", group = "alias", icon = { icon = " ", color = "yellow" } },
       { "<leader>Od", group = "dailies", icon = { icon = " ", color = "yellow" } },
       { "<leader>Oo", group = "origin", icon = { icon = " ", color = "yellow" } },
-      { "<leader>o", group = "orgmode", icon = { icon = " ", color = "green" } },
+      { "<leader>M", group = "multicursor", icon = { icon = "󱢓 ", color = "cyan" } },
       { "<leader>P", group = "pick", icon = { icon = "󰢷 ", color = "green" } },
       { "<leader>Pg", group = "git", icon = { icon = "󰊢 ", color = "orange" } },
       { "<leader>PG", group = "grep", icon = { icon = " ", color = "orange" } },
