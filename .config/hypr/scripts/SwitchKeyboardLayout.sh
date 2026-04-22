@@ -14,10 +14,10 @@ if [ ! -f "$layout_f" ]; then
   IFS=',' read -ra layout_mapping <<<"$kb_layout_line"
   current_layout="${layout_mapping[0]}"
   echo "Initial layout set to $current_layout"
-  echo '<span foreground="#e0af68"></span>&#8201;<span foreground="#9fe044">'"$current_layout"'</span>' >"$layout_f"
+  echo '<span foreground="#e0af68"></span>&#8201;<span foreground="#8db0ff">'"$current_layout"'</span>' >"$layout_f"
 else
   # Extract current layout from markup
-  current_layout=$(cat "$layout_f" | sed -E 's/.*foreground="#9fe044">([^<]*)<\/span>.*/\1/')
+  current_layout=$(cat "$layout_f" | sed -E 's/.*foreground="#8db0ff">([^<]*)<\/span>.*/\1/')
   echo "Current layout: $current_layout"
 fi
 
@@ -86,4 +86,4 @@ else
 fi
 
 # Write the new layout to the file with Pango markup (thin space)
-echo '<span foreground="#e0af68"></span>&#8201;<span foreground="#9fe044">'"$new_layout"'</span>' >"$layout_f"
+echo '<span foreground="#e0af68"></span>&#8201;<span foreground="#8db0ff">'"$new_layout"'</span>' >"$layout_f"

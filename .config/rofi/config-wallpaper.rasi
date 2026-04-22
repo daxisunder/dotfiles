@@ -20,8 +20,8 @@ imagebox {
 
 
 entry {
-  width: 7%;
-  placeholder: "🎞️ Choose Wallpaper";
+  width: 9%;
+  placeholder: " 🎞️ Choose Wallpaper";
 }
 
 /* ---- Listview ---- */
