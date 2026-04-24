@@ -10,7 +10,7 @@ file_exists() {
 }
 
 # Kill already running processes — use -f for Python-wrapped apps
-_ps=(waybar rofi swaync signal-desktop)
+_ps=(waybar rofi swaync)
 for _prs in "${_ps[@]}"; do
   if pidof "${_prs}" >/dev/null; then
     pkill "${_prs}"
@@ -29,10 +29,6 @@ waybar &
 # Relaunch swaync
 sleep 0.3
 swaync >/dev/null 2>&1 &
-
-# Relaunch Signal Desktop
-sleep 0.5
-signal-desktop &
 
 # Relaunch Proton VPN
 sleep 0.5
