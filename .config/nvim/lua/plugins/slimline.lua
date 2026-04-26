@@ -117,7 +117,7 @@ return {
           },
           icons = {
             folder = " /",
-            modified = "",
+            modified = "[+]",
             read_only = "󰌾",
           },
         },
