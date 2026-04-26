@@ -90,8 +90,10 @@ export LIBVIRT_DEFAULT_URI="qemu:///system"
 # Compilation flags
 export ARCHFLAGS="-arch $(uname -m)"
 
-# Limit cmake to 8 threads (webkit2gtk compilation was causing system to freeze otherwise)
+# Limit make, cmake and cargo to 8 threads (webkit2gtk compilation was causing system to freeze otherwise)
+export MAKEFLAGS="-j8"
 export CMAKE_BUILD_PARALLEL_LEVEL=8
+export CARGO_BUILD_JOBS=8
 
 # Kitty default terminal
 export TERM="xterm-kitty"
