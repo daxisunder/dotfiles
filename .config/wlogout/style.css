@@ -6,7 +6,7 @@ window {
   font-family: Veteran Typewriter Medium;
   font-size: 0pt;
   color: #cdd6f4; /* text */
-  background-color: rgba(30, 30, 46, 0);
+  background-color: rgba(30, 30, 46, 0.7);
 }
 
 button {
@@ -19,8 +19,8 @@ button {
 }
 
 button:focus {
-  background-color: @color12;
-  color: #1e1e2e;
+  background-color: rgba(141, 176, 255, 0.5);
+  color: rgba(30, 30, 46, 1);
   background-size: 40%;
   margin: 30px;
   border-radius: 80px;
@@ -28,12 +28,12 @@ button:focus {
     all 0.3s cubic-bezier(0.55, 0, 0.28, 1.682),
     box-shadow 0.2s ease-in-out,
     background-color 0.2s ease-in-out;
-  box-shadow: 0 0 50px @color7;
+  box-shadow: 0 0 50px rgba(169, 177, 214, 1);
 }
 
 button:hover {
-  background-color: @color12;
-  color: #1e1e2e;
+  background-color: rgba(141, 176, 255, 0.5);
+  color: rgba(30, 30, 46, 1);
   background-size: 40%;
   margin: 30px;
   border-radius: 80px;
@@ -41,7 +41,7 @@ button:hover {
     all 0.3s cubic-bezier(0.55, 0, 0.28, 1.682),
     box-shadow 0.2s ease-in-out,
     background-color 0.2s ease-in-out;
-  box-shadow: 0 0 50px @color7;
+  box-shadow: 0 0 50px rgba(169, 177, 214, 1);
 }
 
 /* Adjust the size of the icon or content inside the button */
