@@ -9,9 +9,13 @@ if [[ -f "$API_ENV" ]]; then
 fi
 
 GEMINI_API_KEY="${GEMINI_API_KEY:-}"
-GEMINI_URL="https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent"
+GEMINI_MODEL="gemini-2.5-flash"
+GEMINI_URL="https://generativelanguage.googleapis.com/v1beta/models/${GEMINI_MODEL}:generateContent"
 MAX_DIFF_CHARS=120000
 TIMEOUT=60
+
+# Debug toggle: set to "1" to log raw API responses
+DEBUG="${DEBUG:-0}"
 
 SYSTEM_PROMPT='You are a git commit message generator. You will receive a raw git diff.
 
@@ -66,38 +70,78 @@ if [[ -z "$GEMINI_API_KEY" ]]; then
   fi
   COMMIT_MSG="chore: dotfiles update $(date '+%Y-%m-%d %H:%M')"
 else
+  # Gemini uses a top-level systemInstruction field, not a system role
   PAYLOAD=$(jq -n \
     --arg system "$SYSTEM_PROMPT" \
     --arg diff "$DIFF" \
     '{
+      systemInstruction: {
+        parts: [{ text: $system }]
+      },
       contents: [
         {
           role: "user",
-          parts: [
-            { text: $system },
-            { text: $diff }
-          ]
+          parts: [{ text: $diff }]
         }
       ],
       generationConfig: {
         temperature: 0.1,
         maxOutputTokens: 512
-      }
+      },
+      safetySettings: [
+        { category: "HARM_CATEGORY_HARASSMENT", threshold: "BLOCK_NONE" },
+        { category: "HARM_CATEGORY_HATE_SPEECH", threshold: "BLOCK_NONE" },
+        { category: "HARM_CATEGORY_SEXUALLY_EXPLICIT", threshold: "BLOCK_NONE" },
+        { category: "HARM_CATEGORY_DANGEROUS_CONTENT", threshold: "BLOCK_NONE" }
+      ]
     }')
 
-  RESPONSE=$(curl -sf --max-time "$TIMEOUT" \
+  REQUEST_URL="${GEMINI_URL}?key=${GEMINI_API_KEY}"
+
+  if [[ "$DEBUG" == "1" ]]; then
+    echo "[DEBUG] Request URL: ${REQUEST_URL//${GEMINI_API_KEY}/***REDACTED***}" >&2
+    echo "[DEBUG] Payload size: $((${#PAYLOAD})) bytes" >&2
+  fi
+
+  # Do not use -f (fail silently) so we can capture error JSON
+  HTTP_CODE=$(curl -s --max-time "$TIMEOUT" \
+    -o /tmp/gemini_response.json \
+    -w "%{http_code}" \
     --request POST \
-    --url "${GEMINI_URL}?key=${GEMINI_API_KEY}" \
+    --url "$REQUEST_URL" \
     --header "Content-Type: application/json" \
-    --data "$PAYLOAD") || true
+    --data "$PAYLOAD")
 
-  COMMIT_MSG=$(printf '%s' "$RESPONSE" | jq -r '.candidates[0].content.parts[0].text // empty' | xargs -0)
+  if [[ "$DEBUG" == "1" ]]; then
+    echo "[DEBUG] HTTP status: $HTTP_CODE" >&2
+    echo "[DEBUG] Raw response:" >&2
+    cat /tmp/gemini_response.json >&2
+  fi
 
-  if [[ -z "$COMMIT_MSG" ]]; then
+  if [[ "$HTTP_CODE" -ne 200 ]]; then
     if can_notify; then
-      notify-send -u normal -i github "Dotfiles" "Gemini failed. Falling back to timestamped commit."
+      ERROR_MSG=$(jq -r '.error.message // "Unknown error"' /tmp/gemini_response.json 2>/dev/null || echo "HTTP $HTTP_CODE")
+      notify-send -u normal -i github "Dotfiles" "Gemini failed: $ERROR_MSG. Falling back."
     fi
     COMMIT_MSG="chore: dotfiles update $(date '+%Y-%m-%d %H:%M')"
+  else
+    # Check for empty candidates (safety block or other issue)
+    CANDIDATES=$(jq '.candidates | length' /tmp/gemini_response.json)
+    if [[ "$CANDIDATES" -eq 0 ]]; then
+      if can_notify; then
+        PROMPT_BLOCK=$(jq -r '.promptFeedback.blockReason // "empty candidates"' /tmp/gemini_response.json)
+        notify-send -u normal -i github "Dotfiles" "Gemini returned no candidates ($PROMPT_BLOCK). Falling back."
+      fi
+      COMMIT_MSG="chore: dotfiles update $(date '+%Y-%m-%d %H:%M')"
+    else
+      COMMIT_MSG=$(jq -r '.candidates[0].content.parts[0].text // empty' /tmp/gemini_response.json | xargs -0)
+      if [[ -z "$COMMIT_MSG" ]]; then
+        if can_notify; then
+          notify-send -u normal -i github "Dotfiles" "Gemini returned empty text. Falling back to timestamped commit."
+        fi
+        COMMIT_MSG="chore: dotfiles update $(date '+%Y-%m-%d %H:%M')"
+      fi
+    fi
   fi
 fi
 
