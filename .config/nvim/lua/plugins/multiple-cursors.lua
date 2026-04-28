@@ -29,7 +29,7 @@ return {
       mode = { "x" },
       desc = "Add cursors to the lines of the visual area",
     },
-    { "<leader>a", "<Cmd>MultipleCursorsAddMatches<CR>", mode = { "n", "x" }, desc = "Add cursors to cword" },
+    { "<leader>Ma", "<Cmd>MultipleCursorsAddMatches<CR>", mode = { "n", "x" }, desc = "Add cursors to cword" },
     {
       "<leader>MA",
       "<Cmd>MultipleCursorsAddMatchesV<CR>",
