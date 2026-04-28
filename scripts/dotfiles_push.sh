@@ -11,8 +11,8 @@ fi
 GEMINI_API_KEY="${GEMINI_API_KEY:-}"
 GEMINI_MODEL="gemini-3-flash-preview"
 GEMINI_URL="https://generativelanguage.googleapis.com/v1beta/models/${GEMINI_MODEL}:generateContent"
-MAX_DIFF_CHARS=120000
-TIMEOUT=60
+MAX_DIFF_CHARS=360000
+TIMEOUT=90
 
 DEBUG="${DEBUG:-0}"
 
@@ -151,5 +151,5 @@ git pull --rebase origin main
 git push
 
 if can_notify; then
-  notify-send -i github "Dotfiles" "Pushed: $(echo "$COMMIT_MSG" | head -n 1)"
+  notify-send -i github "Dotfiles" "Pushed: $COMMIT_MSG"
 fi
