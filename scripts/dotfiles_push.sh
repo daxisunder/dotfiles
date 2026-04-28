@@ -9,7 +9,7 @@ if [[ -f "$API_ENV" ]]; then
 fi
 
 GEMINI_API_KEY="${GEMINI_API_KEY:-}"
-GEMINI_MODEL="gemini-2.5-flash"
+GEMINI_MODEL="gemini-2.5-pro"
 GEMINI_URL="https://generativelanguage.googleapis.com/v1beta/models/${GEMINI_MODEL}:generateContent"
 MAX_DIFF_CHARS=120000
 TIMEOUT=60
@@ -31,7 +31,7 @@ Follow these steps internally — do NOT output them:
 
 Output format — two parts, nothing else:
 1. A subject line in Conventional Commits format (type(optional-scope): short summary), max 150 characters, imperative mood.
-2. A blank line, then a body that leads with the most impactful changes and why they were made, briefly covers secondary changes in descending order of importance, groups related changes across files rather than listing files, and focuses on WHY not just what.
+2. A blank line, then a body that leads with the most impactful changes and why they were made, then covers secondary changes in descending order of importance, groups related changes across files rather than listing files, and focuses on what changed and WHY.
 
 No markdown. No code blocks. No bullet points in output. No extra commentary.'
 
