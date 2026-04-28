@@ -76,7 +76,7 @@
   "org-checkbox.nvim": { "branch": "trunk", "commit": "d33464548b7c743c6ca12c3ac0712573e3964daa" },
   "org-list.nvim": { "branch": "master", "commit": "2d6f2985e0312daabb6d06725746f5b8c2e5a002" },
   "org-roam.nvim": { "branch": "main", "commit": "6c21c867b178a80fb4ad243c445545e5583d8232" },
-  "orgmode": { "branch": "master", "commit": "a214db3c8ed7eb68cb74924575b91ffc658e7d82" },
+  "orgmode": { "branch": "master", "commit": "2ed4742a68555d938919f8b2fe78e905b983a838" },
   "persistence.nvim": { "branch": "main", "commit": "b20b2a7887bd39c1a356980b45e03250f3dce49c" },
   "plenary.nvim": { "branch": "master", "commit": "74b06c6c75e4eeb3108ec01852001636d85a932b" },
   "render-markdown.nvim": { "branch": "main", "commit": "3f3eea97b80839f629c951ca660ffd125bfa5b34" },

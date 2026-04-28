@@ -2,6 +2,14 @@ return {
   "brenton-leighton/multiple-cursors.nvim",
   version = false,
   lazy = true,
+  opts = {
+    pre_hook = function()
+      vim.g.minipairs_disable = true
+    end,
+    post_hook = function()
+      vim.g.minipairs_disable = false
+    end,
+  },
   config = function(_, opts)
     vim.api.nvim_set_hl(0, "MultipleCursorsCursor", { bg = "#7dcfff", fg = "#000000" })
     vim.api.nvim_set_hl(0, "MultipleCursorsLockedCursor", { bg = "#faba47", fg = "#000000" })
