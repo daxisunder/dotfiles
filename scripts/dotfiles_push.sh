@@ -9,11 +9,12 @@ if [[ -f "$API_ENV" ]]; then
 fi
 
 GEMINI_API_KEY="${GEMINI_API_KEY:-}"
-GEMINI_MODEL="gemini-3-flash-preview"
+GEMINI_MODEL="gemini-2.5-flash"
 GEMINI_URL="https://generativelanguage.googleapis.com/v1beta/models/${GEMINI_MODEL}:generateContent"
 MAX_DIFF_CHARS=120000
 TIMEOUT=60
 
+# Debug toggle: set to "1" to log raw API responses
 DEBUG="${DEBUG:-0}"
 
 SYSTEM_PROMPT='You are a git commit message generator. You will receive a raw git diff.
@@ -30,7 +31,7 @@ Follow these steps internally — do NOT output them:
 
 Output format — two parts, nothing else:
 1. A subject line in Conventional Commits format (type(optional-scope): short summary), max 150 characters, imperative mood.
-2. A blank line, then a body that leads with the most impactful changes and why they were made, briefly covers secondary changes in descending order of importance, groups related changes across files rather than listing files, and focuses on WHY not just what.
+2. A blank line, then a body that leads with the most impactful changes and why they were made, then covers secondary changes in descending order of importance, groups related changes across files rather than listing files, and focuses on what changed and WHY.
 
 No markdown. No code blocks. No bullet points in output. No extra commentary.'
 
@@ -69,8 +70,7 @@ if [[ -z "$GEMINI_API_KEY" ]]; then
   fi
   COMMIT_MSG="chore: dotfiles update $(date '+%Y-%m-%d %H:%M')"
 else
-  # maxOutputTokens must cover thinking tokens + actual output.
-  # 2048 leaves room for ~150-token thinking overhead in Gemini 3 Flash.
+  # Gemini uses a top-level systemInstruction field, not a system role
   PAYLOAD=$(jq -n \
     --arg system "$SYSTEM_PROMPT" \
     --arg diff "$DIFF" \
@@ -86,7 +86,7 @@ else
       ],
       generationConfig: {
         temperature: 0.1,
-        maxOutputTokens: 2048
+        maxOutputTokens: 512
       },
       safetySettings: [
         { category: "HARM_CATEGORY_HARASSMENT", threshold: "BLOCK_NONE" },
@@ -103,6 +103,7 @@ else
     echo "[DEBUG] Payload size: $((${#PAYLOAD})) bytes" >&2
   fi
 
+  # Do not use -f (fail silently) so we can capture error JSON
   HTTP_CODE=$(curl -s --max-time "$TIMEOUT" \
     -o /tmp/gemini_response.json \
     -w "%{http_code}" \
@@ -113,6 +114,7 @@ else
 
   if [[ "$DEBUG" == "1" ]]; then
     echo "[DEBUG] HTTP status: $HTTP_CODE" >&2
+    echo "[DEBUG] Raw response:" >&2
     cat /tmp/gemini_response.json >&2
   fi
 
@@ -123,6 +125,7 @@ else
     fi
     COMMIT_MSG="chore: dotfiles update $(date '+%Y-%m-%d %H:%M')"
   else
+    # Check for empty candidates (safety block or other issue)
     CANDIDATES=$(jq '.candidates | length' /tmp/gemini_response.json)
     if [[ "$CANDIDATES" -eq 0 ]]; then
       if can_notify; then
@@ -131,15 +134,7 @@ else
       fi
       COMMIT_MSG="chore: dotfiles update $(date '+%Y-%m-%d %H:%M')"
     else
-      # Do NOT pipe through xargs; it mangles newlines and multiline bodies.
-      COMMIT_MSG=$(jq -r '.candidates[0].content.parts[0].text // empty' /tmp/gemini_response.json)
-
-      # Warn if the response hit the token ceiling
-      FINISH_REASON=$(jq -r '.candidates[0].finishReason // empty' /tmp/gemini_response.json)
-      if [[ "$FINISH_REASON" == "MAX_TOKENS" ]] && can_notify; then
-        notify-send -u normal -i github "Dotfiles" "Commit message was truncated by token limit."
-      fi
-
+      COMMIT_MSG=$(jq -r '.candidates[0].content.parts[0].text // empty' /tmp/gemini_response.json | xargs -0)
       if [[ -z "$COMMIT_MSG" ]]; then
         if can_notify; then
           notify-send -u normal -i github "Dotfiles" "Gemini returned empty text. Falling back to timestamped commit."
@@ -155,5 +150,5 @@ git pull --rebase origin main
 git push
 
 if can_notify; then
-  notify-send -i github "Dotfiles" "Pushed: $(echo "$COMMIT_MSG" | head -n 1)"
+  notify-send -i github "Dotfiles" "Pushed: $COMMIT_MSG"
 fi
