@@ -9,9 +9,9 @@ if [[ -f "$API_ENV" ]]; then
 fi
 
 GEMINI_API_KEY="${GEMINI_API_KEY:-}"
-GEMINI_MODEL="gemini-3.1-flash-lite-preview"
+GEMINI_MODEL="gemini-3-flash-preview"
 GEMINI_URL="https://generativelanguage.googleapis.com/v1beta/models/${GEMINI_MODEL}:generateContent"
-MAX_DIFF_CHARS=120000
+MAX_DIFF_CHARS=360000
 TIMEOUT=60
 
 # Debug toggle: set to "1" to log raw API responses

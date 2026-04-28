@@ -53,7 +53,7 @@ map("n", "<leader>uK", function()
       return true
     end,
   })
-end, { desc = "Toggle 'line-diagnostics'" })
+end, { desc = "Expand 'line-diagnostics'" })
 
 -- image-clip snacks integration
 map("n", "<leader>fi", function()
