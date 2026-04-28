@@ -8,32 +8,13 @@ if [[ -f "$API_ENV" ]]; then
   source "$API_ENV"
 fi
 
-GEMINI_API_KEY="${GEMINI_API_KEY:-}"
-GEMINI_MODEL="gemini-2.5-flash"
-GEMINI_URL="https://generativelanguage.googleapis.com/v1beta/models/${GEMINI_MODEL}:generateContent"
+GROQ_API_KEY="${GROQ_API_KEY:-}"
+GROQ_URL="https://api.groq.com/openai/v1/chat/completions"
+GROQ_MODEL="llama-3.3-70b-versatile"
 MAX_DIFF_CHARS=120000
 TIMEOUT=60
 
-# Debug toggle: set to "1" to log raw API responses
-DEBUG="${DEBUG:-0}"
-
-SYSTEM_PROMPT='You are a git commit message generator. You will receive a raw git diff.
-
-Follow these steps internally — do NOT output them:
-
-1. Parse all changed files from the diff. For each file, identify what changed (additions, deletions, modifications) and the category of change (logic/behavior, API/interface, config, deps, docs, tests, style/formatting).
-
-2. Rank changes by importance using this priority order: breaking changes or behavior-altering logic (highest), new features or capabilities, bug fixes, performance improvements, dependency updates, refactoring without behavior change, config/build/tooling changes, docs/tests/style/formatting (lowest).
-
-3. Determine the dominant commit types from the highest-ranked changes: revert > feat > fix > perf > deps > refactor > build > docs > test > style > chore.
-
-4. Write the commit message based on what matters most, not a file-by-file dump.
-
-Output format — two parts, nothing else:
-1. A subject line in Conventional Commits format (type(optional-scope): short summary), max 150 characters, imperative mood.
-2. A blank line, then a body that leads with the most impactful changes and why they were made, then covers secondary changes in descending order of importance, groups related changes across files rather than listing files, and focuses on what changed and WHY.
-
-No markdown. No code blocks. No bullet points in output. No extra commentary.'
+SYSTEM_PROMPT='You are a git commit message generator. You will receive a raw git diff.\n\nFollow these steps internally — do NOT output them:\n\n1. Parse all changed files from the diff. For each file, identify what changed (additions, deletions, modifications) and the category of change (logic/behavior, API/interface, config, deps, docs, tests, style/formatting).\n\n2. Rank changes by importance using this priority order: breaking changes or behavior-altering logic (highest), new features or capabilities, bug fixes, performance improvements, dependency updates, refactoring without behavior change, config/build/tooling changes, docs/tests/style/formatting (lowest).\n\n3. Determine the dominant commit types from the highest-ranked changes: revert > feat > fix > perf > deps > refactor > build > docs > test > style > chore.\n\n4. Write the commit message based on what matters most, not a file-by-file dump.\n\nOutput format — two parts, nothing else:\n1. A subject line in Conventional Commits format (type(optional-scope): short summary), max 150 characters, imperative mood.\n2. A blank line, then a body that leads with the most impactful changes and why they were made, briefly covers secondary changes in descending order of importance, groups related changes across files rather than listing files, and focuses on WHY not just what.\n\nNo markdown. No code blocks. No bullet points in output. No extra commentary.'
 
 can_notify() {
   [ -n "$DBUS_SESSION_BUS_ADDRESS" ]
@@ -64,84 +45,38 @@ if [[ ${#DIFF} -gt $MAX_DIFF_CHARS ]]; then
   DIFF="${DIFF:0:$MAX_DIFF_CHARS}"$'\n[diff truncated...]'
 fi
 
-if [[ -z "$GEMINI_API_KEY" ]]; then
+if [[ -z "$GROQ_API_KEY" ]]; then
   if can_notify; then
-    notify-send -u critical -i github "Dotfiles" "GEMINI_API_KEY not set. Falling back to timestamped commit."
+    notify-send -u critical -i github "Dotfiles" "GROQ_API_KEY not set. Falling back to timestamped commit."
   fi
   COMMIT_MSG="chore: dotfiles update $(date '+%Y-%m-%d %H:%M')"
 else
-  # Gemini uses a top-level systemInstruction field, not a system role
   PAYLOAD=$(jq -n \
+    --arg model "$GROQ_MODEL" \
     --arg system "$SYSTEM_PROMPT" \
     --arg diff "$DIFF" \
     '{
-      systemInstruction: {
-        parts: [{ text: $system }]
-      },
-      contents: [
-        {
-          role: "user",
-          parts: [{ text: $diff }]
-        }
-      ],
-      generationConfig: {
-        temperature: 0.1,
-        maxOutputTokens: 512
-      },
-      safetySettings: [
-        { category: "HARM_CATEGORY_HARASSMENT", threshold: "BLOCK_NONE" },
-        { category: "HARM_CATEGORY_HATE_SPEECH", threshold: "BLOCK_NONE" },
-        { category: "HARM_CATEGORY_SEXUALLY_EXPLICIT", threshold: "BLOCK_NONE" },
-        { category: "HARM_CATEGORY_DANGEROUS_CONTENT", threshold: "BLOCK_NONE" }
+      model: $model,
+      messages: [
+        { role: "system", content: $system },
+        { role: "user",   content: $diff   }
       ]
     }')
 
-  REQUEST_URL="${GEMINI_URL}?key=${GEMINI_API_KEY}"
-
-  if [[ "$DEBUG" == "1" ]]; then
-    echo "[DEBUG] Request URL: ${REQUEST_URL//${GEMINI_API_KEY}/***REDACTED***}" >&2
-    echo "[DEBUG] Payload size: $((${#PAYLOAD})) bytes" >&2
-  fi
-
-  # Do not use -f (fail silently) so we can capture error JSON
-  HTTP_CODE=$(curl -s --max-time "$TIMEOUT" \
-    -o /tmp/gemini_response.json \
-    -w "%{http_code}" \
+  RESPONSE=$(curl -sf --max-time "$TIMEOUT" \
     --request POST \
-    --url "$REQUEST_URL" \
+    --url "$GROQ_URL" \
+    --header "Authorization: Bearer ${GROQ_API_KEY}" \
     --header "Content-Type: application/json" \
-    --data "$PAYLOAD")
+    --data "$PAYLOAD") || true
 
-  if [[ "$DEBUG" == "1" ]]; then
-    echo "[DEBUG] HTTP status: $HTTP_CODE" >&2
-    echo "[DEBUG] Raw response:" >&2
-    cat /tmp/gemini_response.json >&2
-  fi
+  COMMIT_MSG=$(printf '%s' "$RESPONSE" | jq -r '.choices[0].message.content // empty' | xargs -0)
 
-  if [[ "$HTTP_CODE" -ne 200 ]]; then
+  if [[ -z "$COMMIT_MSG" ]]; then
     if can_notify; then
-      ERROR_MSG=$(jq -r '.error.message // "Unknown error"' /tmp/gemini_response.json 2>/dev/null || echo "HTTP $HTTP_CODE")
-      notify-send -u normal -i github "Dotfiles" "Gemini failed: $ERROR_MSG. Falling back."
+      notify-send -u normal -i github "Dotfiles" "Groq failed. Falling back to timestamped commit."
     fi
     COMMIT_MSG="chore: dotfiles update $(date '+%Y-%m-%d %H:%M')"
-  else
-    # Check for empty candidates (safety block or other issue)
-    CANDIDATES=$(jq '.candidates | length' /tmp/gemini_response.json)
-    if [[ "$CANDIDATES" -eq 0 ]]; then
-      if can_notify; then
-        PROMPT_BLOCK=$(jq -r '.promptFeedback.blockReason // "empty candidates"' /tmp/gemini_response.json)
-        notify-send -u normal -i github "Dotfiles" "Gemini returned no candidates ($PROMPT_BLOCK). Falling back."
-      fi
-      COMMIT_MSG="chore: dotfiles update $(date '+%Y-%m-%d %H:%M')"
-    else
-      COMMIT_MSG=$(jq -r '.candidates[0].content.parts[0].text // empty' /tmp/gemini_response.json | xargs -0)
-      if [[ -z "$COMMIT_MSG" ]]; then
-        if can_notify; then
-          notify-send -u normal -i github "Dotfiles" "Gemini returned empty text. Falling back to timestamped commit."
-        fi
-        COMMIT_MSG="chore: dotfiles update $(date '+%Y-%m-%d %H:%M')"
-      fi
-    fi
   fi
 fi
 
