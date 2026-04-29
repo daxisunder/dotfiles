@@ -102,7 +102,7 @@ get_pkg_count() {
 			case "$package_manager" in
 			xbps-install) xbps-query -l | wc -l ;;
 			apk) apk search | wc -l ;;
-			apt) if [ "$kernel" != "Darwin" ]; then 
+			apt) if [ "$kernel" != "Darwin" ]; then
 					echo $(($(apt list --installed 2>/dev/null | wc -l) - 1))
 				 else
 					echo 0
@@ -176,7 +176,7 @@ get_de_wm() {
 }
 
 cat << EOF
-                   
+
                    ${CBD}${c1}█${c2}█
             ${c3}█${c4}█${c5}█${c4}█${c6}█${c7}█${c8}█${c9}█${c10}█${c11}█${c12}█
       ${c13}█${c14}█  ${c15}█${c16}█${c17}█${c18}█${c19}█${c19}█${c20}█${c21}█${c22}█${c19}█${c19}█${c23}█${c24}█${c36}█${c25}█${c26}█${c27}█

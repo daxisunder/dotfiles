@@ -41,7 +41,7 @@ return {
             enable = true, -- parse Tailwind color names
             update_names = true, -- feed LSP colors back into name parser (requires both enable + lsp.enable)
             lsp = { -- accepts boolean, true is shortcut for { enable = true, disable_document_color = true }
-              enable = false, -- use Tailwind LSP documentColor
+              enable = true, -- use Tailwind LSP documentColor
               disable_document_color = true, -- auto-disable vim.lsp.document_color on attach
             },
           },
@@ -67,7 +67,7 @@ return {
             dark_fg = "#ffffff", -- text color on dark backgrounds
           },
           virtualtext = {
-            char = "■", -- character used for virtualtext
+            char = "", -- character used for virtualtext
             position = "eol", -- "eol"|"before"|"after"
             hl_mode = "foreground", -- "background"|"foreground"
           },
