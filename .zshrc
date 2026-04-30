@@ -131,6 +131,9 @@ setopt chaselinks              # Follow symbolic links when changing directories
 typeset -A ZSH_HIGHLIGHT_STYLES
 ZSH_HIGHLIGHT_STYLES[comment]="fg=#565f89"
 
+# Set auto-suggestions color (default fg=8 is too dark with kitty color8=#1a1b26)
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=#565f89'
+
 # Load completion engine
 autoload -Uz compinit
 for dump in ~/.config/zsh/zcompdump(N.mh+24); do
