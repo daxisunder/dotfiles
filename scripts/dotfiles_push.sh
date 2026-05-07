@@ -11,8 +11,8 @@ fi
 GEMINI_API_KEY="${GEMINI_API_KEY:-}"
 GEMINI_MODEL="gemini-3-flash-preview"
 GEMINI_URL="https://generativelanguage.googleapis.com/v1beta/models/${GEMINI_MODEL}:generateContent"
-MAX_DIFF_CHARS=360000
-TIMEOUT=90
+MAX_DIFF_CHARS=120000
+TIMEOUT=60
 
 DEBUG="${DEBUG:-0}"
 
@@ -32,7 +32,7 @@ Output format — two parts, nothing else:
 1. A subject line in Conventional Commits format (type(optional-scope): short summary), max 150 characters, imperative mood.
 2. A blank line, then a body that leads with the most impactful changes and why they were made, briefly covers secondary changes in descending order of importance, groups related changes across files rather than listing files, and focuses on WHY not just what.
 
-No markdown. No code blocks. No bullet points in output. No extra commentary. No blank lines in the commit message body.'
+No markdown. No code blocks. No bullet points in output. No extra commentary. No Blank lines except the required one between subject and body. If the diff is empty, respond with "chore: dotfiles update" and a body of "No changes since last push."'
 
 can_notify() {
   [ -n "$DBUS_SESSION_BUS_ADDRESS" ]
@@ -69,9 +69,13 @@ if [[ -z "$GEMINI_API_KEY" ]]; then
   fi
   COMMIT_MSG="chore: dotfiles update $(date '+%Y-%m-%d %H:%M')"
 else
+  # Write diff to temp file to avoid "Argument list too long" with jq --arg
+  DIFF_TMP=$(mktemp)
+  printf '%s' "$DIFF" >"$DIFF_TMP"
+
   PAYLOAD=$(jq -n \
     --arg system "$SYSTEM_PROMPT" \
-    --arg diff "$DIFF" \
+    --rawfile diff "$DIFF_TMP" \
     '{
       systemInstruction: {
         parts: [{ text: $system }]
@@ -93,6 +97,8 @@ else
         { category: "HARM_CATEGORY_DANGEROUS_CONTENT", threshold: "BLOCK_NONE" }
       ]
     }')
+
+  rm -f "$DIFF_TMP"
 
   REQUEST_URL="${GEMINI_URL}?key=${GEMINI_API_KEY}"
 
@@ -151,5 +157,5 @@ git pull --rebase origin main
 git push
 
 if can_notify; then
-  notify-send -i github "Dotfiles" "Pushed: $COMMIT_MSG"
+  notify-send -i github "Dotfiles" "Pushed: $(echo "$COMMIT_MSG" | head -n 1)"
 fi

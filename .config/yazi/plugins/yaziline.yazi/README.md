@@ -2,15 +2,37 @@
 
 Simple lualine-like status line for yazi.
 
-![angly](https://github.com/llanosrocas/yaziline.yazi/blob/master/.github/images/angly.png)
-![preview-fullscreen](https://github.com/llanosrocas/yaziline.yazi/blob/master/.github/images/preview-fullscreen.png)
+![angly](https://github.com/llanosrocas/yaziline.yazi/blob/main/.github/images/angly.png)
+![preview-fullscreen](https://github.com/llanosrocas/yaziline.yazi/blob/main/.github/images/preview-fullscreen.png)
 
 All supported features are listed [here](#features). More presets are available [here](#presets).
 
 ## Requirements
 
-- yazi version >= [917e1f5](https://github.com/sxyazi/yazi/commit/917e1f54a10445f2e25147c4b81a3c77d8233632)
+- yazi version >= [26.1.22](https://github.com/sxyazi/yazi/releases/tag/v26.1.22).
 - Font with symbol support. For example [Nerd Fonts](https://www.nerdfonts.com/).
+
+## Compatibility
+
+To keep the plugin up to date, there are two branches: `main` and `nightly`.
+The `main` branch follows major yazi releases, while `nightly` is linked to specific yazi commits or changes.
+
+This setup allows shipping stable versions on time, while giving early access to "cutting-edge" changes. See matrix below.
+
+<details close>
+<summary>Compatibility matrix</summary>
+
+|                                  yaziline                                  | yazi                                                                                      |
+| :------------------------------------------------------------------------: | ----------------------------------------------------------------------------------------- |
+| [v2.5.2](https://github.com/llanosrocas/yaziline.yazi/releases/tag/v2.5.2) | [v26.1.22](https://github.com/sxyazi/yazi/releases/tag/v26.1.22)                          |
+| [v2.5.2](https://github.com/llanosrocas/yaziline.yazi/releases/tag/v2.5.2) | [2f66561](https://github.com/sxyazi/yazi/commit/2f66561a8251f8788b2b0fd366af90555ecafc86) |
+| [v2.5.2](https://github.com/llanosrocas/yaziline.yazi/releases/tag/v2.5.2) | [6cfa92f](https://github.com/sxyazi/yazi/commit/6cfa92f11205d212155579b5b76d4cbabe723829) |
+| [v2.5.2](https://github.com/llanosrocas/yaziline.yazi/releases/tag/v2.5.2) | [917e1f5](https://github.com/sxyazi/yazi/commit/917e1f54a10445f2e25147c4b81a3c77d8233632) |
+| [v2.5.1](https://github.com/llanosrocas/yaziline.yazi/releases/tag/v2.5.1) | [917e1f5](https://github.com/sxyazi/yazi/commit/917e1f54a10445f2e25147c4b81a3c77d8233632) |
+| [v2.5.0](https://github.com/llanosrocas/yaziline.yazi/releases/tag/v2.5.0) | [v25.5.28](https://github.com/sxyazi/yazi/releases/tag/v25.5.28)                          |
+| [v2.4.0](https://github.com/llanosrocas/yaziline.yazi/releases/tag/v2.4.0) | [v25.4.8](https://github.com/sxyazi/yazi/releases/tag/v25.4.8)                            |
+
+</details>
 
 ## Installation
 
@@ -85,13 +107,13 @@ By default yaziline uses color values from your `theme.toml`:
 ### Presets
 
 - `angly`
-  ![angly](https://github.com/llanosrocas/yaziline.yazi/blob/master/.github/images/angly.png)
+  ![angly](https://github.com/llanosrocas/yaziline.yazi/blob/main/.github/images/angly.png)
 - `curvy`
-  ![curvy](https://github.com/llanosrocas/yaziline.yazi/blob/master/.github/images/curvy.png)
+  ![curvy](https://github.com/llanosrocas/yaziline.yazi/blob/main/.github/images/curvy.png)
 - `liney`
-  ![liney](https://github.com/llanosrocas/yaziline.yazi/blob/master/.github/images/liney.png)
+  ![liney](https://github.com/llanosrocas/yaziline.yazi/blob/main/.github/images/liney.png)
 - `empty`
-  ![empty](https://github.com/llanosrocas/yaziline.yazi/blob/master/.github/images/empty.png)
+  ![empty](https://github.com/llanosrocas/yaziline.yazi/blob/main/.github/images/empty.png)
 
 ### Selected and Yanked Counter
 
