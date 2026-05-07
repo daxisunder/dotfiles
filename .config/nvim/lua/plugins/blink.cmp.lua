@@ -31,6 +31,9 @@ return {
           end
           return cmp.show({ providers = { "snippets" } })
         end,
+        function() -- sidekick next edit suggestion
+          return require("sidekick").nes_jump_or_apply()
+        end,
         "fallback",
       },
       ["<S-Tab>"] = {
