@@ -5,7 +5,7 @@ return {
   config = function()
     require("llm").setup({
       api_token = nil, -- cf Install paragraph
-      model = "google/gemma-4-31B-it", -- the model ID, behavior depends on backend
+      model = "google/gemma-4-31B-it-assistant", -- the model ID, behavior depends on backend
       backend = "huggingface", -- backend ID, "huggingface" | "ollama" | "openai" | "tgi"
       url = nil, -- the http url of the backend
       tokens_to_clear = { "<|endoftext|>" }, -- tokens to remove from the model's output
