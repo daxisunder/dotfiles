@@ -40,7 +40,7 @@ return {
     lsp = {
       progress = {
         enabled = true,
-        view = "mini",
+        view = "notify",
       },
       message = {
         view = "notify",

@@ -5,6 +5,8 @@
 local map = vim.keymap.set
 local Snacks = require("snacks")
 
+map({ "n", "v" }, ";", ":", { desc = "Enter Command Mode", noremap = true, silent = true })
+
 -- restart session/neovim
 map("n", "<leader>qr", function()
   local session = vim.fn.stdpath("state") .. "/restart_session.vim"
