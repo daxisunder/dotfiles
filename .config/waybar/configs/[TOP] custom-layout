@@ -23,12 +23,12 @@
   "custom/niflveil",
   "custom/keyboard",
   "custom/separator#home",
-  "hyprland/window",
+  "hyprland/window"
   ],
 "modules-center": [
   "clock",
   "hyprland/workspaces#num",
-  "custom/weather",
+  "custom/weather"
   ],
 "modules-right": [
   "hyprland/submap",
@@ -37,6 +37,6 @@
   "pulseaudio",
   "pulseaudio/slider",
   "custom/swaync",
-  "custom/power",
-  ],
+  "custom/power"
+  ]
 }

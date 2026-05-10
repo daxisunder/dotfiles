@@ -169,6 +169,10 @@ window#waybar.empty #window {
   border: 2px solid #7dcfff;
 }
 
+#custom-swaync.dnd {
+  border-color: #ff9e64;
+}
+
 #custom-keyboard {
   border: 2px solid #455a64;
   border-radius: 20px;
