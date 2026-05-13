@@ -98,6 +98,9 @@ export CARGO_BUILD_JOBS=8
 # Kitty default terminal
 export TERM="xterm-kitty"
 
+# For xdg-nvfilechooser.nvim
+export XDG_NVFILECHOOSER_TERMINAL
+
 # History
 HISTFILE=~/.zsh_history
 HISTSIZE=1000000
@@ -503,3 +506,5 @@ source $HOME/.config/zfetch/zfetchrc
 
 # opencode
 export PATH=/home/daxis/.opencode/bin:$PATH
+
+. "$HOME/.local/share/../bin/env"
