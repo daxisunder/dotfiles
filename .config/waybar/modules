@@ -413,11 +413,11 @@
 	"on-click": "hyprctl switchxkblayout $SET_KB next"
 },
   "hyprland/submap": {
-    //That's neovim iccon, it just looks like that here
-    "format": "<span size='12000' foreground='#7dcfff'> </span>{}",
-    "max-length": 20,
-    "tooltip": false,
-    "on-click": "hyprctl dispatch submap reset"
+  //That's neovim icon, it just looks like that here
+  "format": "<span size='12000' foreground='#7dcfff'> </span>{}",
+  "max-length": 20,
+  "tooltip": false,
+  "on-click": "hyprctl dispatch submap reset"
   },
 "hyprland/window": {
 	"format": "{}",
@@ -704,21 +704,23 @@
 	"tooltip-format": "Left Click: Logout Menu\nRight Click: Change Blur"
 },
 "custom/swaync": {
-    "format": "{}",
-    "return-type": "json",
-    "exec-if": "which swaync-client",
-    "exec": "/home/daxis/.config/waybar/swaync-waybar.sh",
-    "on-click": "sleep 0.1 && swaync-client -t -sw",
-    "on-click-right": "swaync-client -d -sw"
+  "format": "{}",
+  "return-type": "json",
+  "exec-if": "which swaync-client",
+  "exec": "/home/daxis/.config/waybar/swaync-waybar.sh",
+  "on-click": "sleep 0.1 && swaync-client -t -sw",
+  "on-click-right": "swaync-client -d -sw",
+  "tooltip": true,
+  "tooltip-format": "Left Click: Open Notifications Center\nRight Click: Toggle DND"
 },
 "custom/updater": {
-    "format": "<span color='#f7768e'></span> <span color='#9fe044'>{}</span>",
-    "exec": "checkupdates | wc -l",
-    "exec-if": "[[ $(checkupdates | wc -l) ]]",
-    "interval": 15,
-    "on-click": "if command -v yay &> /dev/null; then kitty -T update yay -Syu --devel; else kitty -T update paru -Syu --devel; fi && notify-send 'The system has been updated'",
-    "tooltip": true,
-    "tooltip-format": "Left Click: Update System\nArch Linux Only"
+  "format": "<span color='#f7768e'></span> <span color='#9fe044'>{}</span>",
+  "exec": "checkupdates | wc -l",
+  "exec-if": "[[ $(checkupdates | wc -l) ]]",
+  "interval": 15,
+  "on-click": "if command -v yay &> /dev/null; then kitty -T update yay -Syu --devel; else kitty -T update paru -Syu --devel; fi && notify-send 'The system has been updated'",
+  "tooltip": true,
+  "tooltip-format": "Left Click: Update System\nYay or Paru must be installed!"
 },
 "custom/weather": {
   "format": "{}°C",
@@ -728,11 +730,11 @@
   "return-type": "json"
 },
 "custom/github": {
-    "format": "",
-    "tooltip": true,
-    "interval": 60,
-    "exec": "$HOME/.config/hypr/UserScripts/github.sh",
-    "on-click": "xdg-open https://github.com/notifications"
+  "format": "",
+  "tooltip": true,
+  "interval": 60,
+  "exec": "$HOME/.config/hypr/UserScripts/github.sh",
+  "on-click": "xdg-open https://github.com/notifications"
 },
 "custom/hyprWindowMode": {
   "exec": "~/.config/hypr/UserScripts/hyprWindowMode.sh",
@@ -782,6 +784,11 @@
 },
 "custom/separator#home": {
   "format": "~/",
+  "interval": "once",
+  "tooltip": false
+},
+"custom/separator#colon": {
+  "format": "::",
   "interval": "once",
   "tooltip": false
 }

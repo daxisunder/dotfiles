@@ -500,3 +500,6 @@ export FZF_NAVIGATOR_BINDINGS="
 
 # Auto-start "zombie-zfetch"
 source $HOME/.config/zfetch/zfetchrc
+
+# opencode
+export PATH=/home/daxis/.opencode/bin:$PATH
