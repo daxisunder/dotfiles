@@ -99,7 +99,8 @@ export CARGO_BUILD_JOBS=8
 export TERM="xterm-kitty"
 
 # For xdg-nvfilechooser.nvim
-export XDG_NVFILECHOOSER_TERMINAL
+# Doesn't work, needs more testing
+# export XDG_NVFILECHOOSER_TERMINAL="xterm-kitty"
 
 # History
 HISTFILE=~/.zsh_history
