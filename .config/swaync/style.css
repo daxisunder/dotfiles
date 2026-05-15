@@ -199,8 +199,8 @@
 
 .widget-dnd {
   background: @noti-bg-alt;
-  padding: 2px 6px;
-  margin: 5px;
+  padding: 2px 2px;
+  margin: 10px;
   border-radius: 6px;
   font-size: 0.5rem;
   color: @noti-border-color;
@@ -223,7 +223,7 @@
 }
 
 .widget-dnd > switch:checked slider {
-  background: @noti-bg;
+  background: transparent;
   border-radius: 6px;
 }
 
@@ -276,6 +276,7 @@
   margin: 1px;
   background: @noti-bg;
   border-radius: 6px;
+  border: 1px solid @noti-border-color;
   color: @text-color;
 }
 
@@ -285,20 +286,22 @@
 }
 
 .widget-menubar > box > .menu-button-bar > button {
-  border: none;
+  border: 1px solid @noti-border-color;
   background: transparent;
 }
 
 .topbar-buttons > button {
-  border: none;
+  border: 1px solid @noti-border-color;
   background: transparent;
 }
 
 .widget-volume {
   background: @noti-bg-alt;
-  padding: 2px;
-  margin: 10px 10px 5px 10px;
+  padding-left: 15px;
+  padding-right: 5px;
+  margin: 10px 10px 10px 10px;
   border-radius: 6px;
+  border: 1px solid @noti-border-color;
   font-size: x-large;
   color: @text-color;
 }
@@ -323,4 +326,21 @@
   border-radius: 6px;
   font-size: x-large;
   color: @text-color;
+}
+
+scrollbar {
+  background: transparent;
+  border: none;
+}
+
+scrollbar slider {
+  min-width: 0px;
+  min-height: 0px;
+  background: transparent;
+  border: none;
+}
+
+scrollbar button {
+  min-width: 0px;
+  min-height: 0px;
 }
