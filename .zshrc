@@ -32,6 +32,9 @@ export PATH="/var/lib/flatpak/exports/share:$PATH"
 # GitArbor TUI
 export PATH="$HOME/.gitarbor/bin:$PATH"
 
+# OpenHuman path
+export PATH="$HOME/Applications/openhuman_e76783d639bc72fe9d7d8ac279780b7f:$PATH"
+
 # Source api keys (has to be sourced before zsh-ai gemini provider)
 source $HOME/projects/dotfiles/api.env
 
