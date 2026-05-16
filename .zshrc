@@ -35,6 +35,9 @@ export PATH="$HOME/.gitarbor/bin:$PATH"
 # OpenHuman path
 export PATH="$HOME/Applications/openhuman_e76783d639bc72fe9d7d8ac279780b7f:$PATH"
 
+# Google depot_tools path
+export PATH="$HOME/depot_tools:$PATH"
+
 # Source api keys (has to be sourced before zsh-ai gemini provider)
 source $HOME/projects/dotfiles/api.env
 
