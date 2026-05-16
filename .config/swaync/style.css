@@ -2,12 +2,12 @@
 
 @import "../../.config/waybar/wallust/colors-waybar.css";
 
-@define-color noti-border-color @color6;
+@define-color noti-border-color rgba(125, 207, 255, 1);
 @define-color noti-bg rgba(0, 0, 0, 0.8);
-@define-color noti-bg-alt rgba(0, 0, 0, 0.8);
-@define-color noti-bg-hover @color0;
-@define-color text-color @foreground;
-@define-color text-color-alt @foreground;
+@define-color noti-bg-alt rgba(26, 27, 38, 0.8);
+@define-color noti-bg-hover rgba(0, 0, 0, 0.6);
+@define-color text-color rgba(192, 202, 245, 1);
+@define-color text-color-alt rgba(169, 177, 214, 1);
 @define-color text-color-disabled rgba(150, 150, 150, 0.8);
 
 * {

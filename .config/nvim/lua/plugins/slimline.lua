@@ -160,6 +160,7 @@ return {
           map_lsps = {
             ["asm_lsp"] = "ASM",
             ["bashls"] = "Bash",
+            ["basedpyright"] = "Python",
             ["basics_ls"] = "Basics",
             ["clangd"] = "Clang",
             ["copilot"] = "Copilot",
