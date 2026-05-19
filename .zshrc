@@ -112,13 +112,14 @@ export TERM="xterm-kitty"
 HISTFILE=~/.zsh_history
 HISTSIZE=1000000
 SAVEHIST=1000000
-setopt appendhistory
-setopt sharehistory
+setopt append_history
+setopt share_history
 setopt hist_ignore_space
 setopt hist_ignore_all_dups
 setopt hist_save_no_dups
 setopt hist_ignore_dups
 setopt hist_find_no_dups
+setopt hist_expire_dups_first
 
 # Set some cool ZSH options ('set -o' to see all options)
 setopt no_case_glob            # Case insensitive autocompletions
@@ -126,6 +127,7 @@ setopt no_case_match           # Case insensitive autocompletions
 setopt globdots                # Include dotfiles in globbing
 setopt globcomplete            # Enable globbing in completion
 setopt extended_glob           # Advanced globbing patterns
+setopt numeric_glob_sort       # Sort glob results numerically
 setopt auto_menu               # Automatically highlight first element of completion menu
 setopt menu_complete           # Use menu completion
 setopt list_packed             # The completion menu takes less space

@@ -42,6 +42,7 @@ return {
       { "<leader>Pg", group = "git", icon = { icon = "󰊢 ", color = "orange" } },
       { "<leader>PG", group = "grep", icon = { icon = " ", color = "orange" } },
       { "<leader>Ph", group = "hl/help/hist", icon = { icon = " ", color = "orange" } },
+      { "<localleader>f", group = "FFF", icon = { icon = "󰮗 ", color = "orange" } },
     },
   },
   keys = {
