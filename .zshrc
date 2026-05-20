@@ -35,6 +35,10 @@ export PATH="$HOME/.gitarbor/bin:$PATH"
 # OpenHuman path
 export PATH="$HOME/Applications/openhuman_e76783d639bc72fe9d7d8ac279780b7f:$PATH"
 
+# Opencode path
+export PATH=/home/daxis/.opencode/bin:$PATH
+. "$HOME/.local/share/../bin/env"
+
 # Google depot_tools path
 export PATH="$HOME/depot_tools:$PATH"
 
@@ -512,8 +516,3 @@ export FZF_NAVIGATOR_BINDINGS="
 
 # Auto-start "zombie-zfetch"
 source $HOME/.config/zfetch/zfetchrc
-
-# opencode
-export PATH=/home/daxis/.opencode/bin:$PATH
-
-. "$HOME/.local/share/../bin/env"
