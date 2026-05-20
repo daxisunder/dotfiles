@@ -33,7 +33,7 @@ window#waybar.empty #window {
 #clock,
 #cpu,
 #disk,
-#diskmedia,
+#diskhome,
 #idle_inhibitor,
 #keyboard-state,
 #memory,
@@ -318,7 +318,7 @@ window#waybar.empty #window {
   border-radius: 20px;
 }
 
-#diskmedia {
+#diskhome {
   font-size: 150%;
   padding-top: 0px;
   padding-bottom: 0px;
@@ -329,7 +329,7 @@ window#waybar.empty #window {
   border-radius: 0px 20px 20px 0px;
 }
 
-#diskmedia:hover {
+#diskhome:hover {
   color: #00ffff;
   padding-left: 10px;
   padding-right: 12px;
