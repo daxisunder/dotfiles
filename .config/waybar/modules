@@ -213,7 +213,7 @@
 		"memory",
     "temperature",
     "disk",
-    "diskhome"
+    "disk#home"
 	]
 },
 "group/mobo_drawer": {
@@ -228,7 +228,7 @@
 		"memory",
 		"temperature",
     "disk",
-    "diskhome"
+    "disk#home"
 	]
 },
 "group/laptop": {
@@ -398,10 +398,10 @@
 	//"tooltip": true,
 	"tooltip-format": "{used} used out of {total} on {path} ({percentage_used}%)"
 },
-"diskhome": {
+"disk#home": {
 	"interval": 30,
 	//"format": "󰋊",
-	"path": "/home/daxis/",
+	"path": "/home",
 	//"format-alt-click": "click",
 	"format": "<span color='#ffffff'>{percentage_used}%</span> <span color='#7dcfff'>󰋊</span>",
 	//"tooltip": true,

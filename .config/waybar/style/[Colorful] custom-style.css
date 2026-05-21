@@ -33,7 +33,7 @@ window#waybar.empty #window {
 #clock,
 #cpu,
 #disk,
-#diskhome,
+#disk\#home,
 #idle_inhibitor,
 #keyboard-state,
 #memory,
@@ -305,9 +305,8 @@ window#waybar.empty #window {
   padding-right: 9px;
   padding-bottom: 0px;
   border-top: 2px solid #455a64;
-  border-right: 2px solid #455a64;
   border-bottom: 2px solid #455a64;
-  border-radius: 0px 20px 20px 0px;
+  border-radius: 0px 0px 0px 0px;
 }
 
 #disk:hover {
@@ -318,7 +317,7 @@ window#waybar.empty #window {
   border-radius: 20px;
 }
 
-#diskhome {
+#disk.home {
   font-size: 150%;
   padding-top: 0px;
   padding-bottom: 0px;
@@ -329,7 +328,7 @@ window#waybar.empty #window {
   border-radius: 0px 20px 20px 0px;
 }
 
-#diskhome:hover {
+#disk.home:hover {
   color: #00ffff;
   padding-left: 10px;
   padding-right: 12px;
