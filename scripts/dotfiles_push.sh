@@ -101,7 +101,9 @@ else
     echo "[DEBUG] Payload size: $((${#PAYLOAD})) bytes" >&2
   fi
 
-  HTTP_CODE=$(curl -s --max-time "$TIMEOUT" \
+  HTTP_CODE=$(curl -s \
+    --connect-timeout 15 \
+    --max-time "$TIMEOUT" \
     -o /tmp/gemini_response.json \
     -w "%{http_code}" \
     --request POST \
