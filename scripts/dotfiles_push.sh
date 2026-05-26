@@ -11,8 +11,8 @@ fi
 GEMINI_API_KEY="${GEMINI_API_KEY:-}"
 GEMINI_MODEL="gemini-3-flash-preview"
 GEMINI_URL="https://generativelanguage.googleapis.com/v1beta/models/${GEMINI_MODEL}:generateContent"
-MAX_DIFF_CHARS=240000
-TIMEOUT=60
+MAX_DIFF_CHARS=320000
+TIMEOUT=180
 
 DEBUG="${DEBUG:-0}"
 
