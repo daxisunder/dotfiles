@@ -59,5 +59,10 @@ return {
       lsp_doc_border = true, -- add a border to hover docs and signature help
       inc_rename = true, -- use a popup for renaming
     },
+    -- tempoorary fix for llm_ls position encoding issue, should be removed once llm_ls is fixed
+    filter_options = {
+      filter = { find = "position_encoding param is required" },
+      opts = { skip = true },
+    },
   },
 }
