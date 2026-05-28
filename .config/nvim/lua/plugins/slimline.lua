@@ -148,8 +148,8 @@ return {
           hl = {
             error = "DiagnosticError",
             warn = "DiagnosticWarn",
-            hint = "DiagnosticHint",
             info = "DiagnosticInfo",
+            hint = "DiagnosticHint",
           },
         },
         filetype_lsp = {
@@ -175,6 +175,7 @@ return {
             ["hyprlang"] = "HyprLang",
             ["hyprls"] = "Hypr",
             ["jdtls"] = "Java",
+            ["jsonls"] = "JSON",
             ["julials"] = "Julia",
             ["llm-ls"] = "LLM",
             ["lua_ls"] = "Lua",

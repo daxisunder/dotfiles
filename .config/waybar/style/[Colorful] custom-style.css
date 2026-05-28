@@ -275,7 +275,7 @@ window#waybar.empty #window {
 
 #temperature {
   font-size: 150%;
-  padding-left: 4px;
+  padding-left: 2px;
   padding-right: 2px;
   padding-top: 0px;
   padding-bottom: 0px;
@@ -302,7 +302,7 @@ window#waybar.empty #window {
   font-size: 150%;
   padding-top: 0px;
   padding-left: 3px;
-  padding-right: 9px;
+  padding-right: 5px;
   padding-bottom: 0px;
   border-top: 2px solid #455a64;
   border-bottom: 2px solid #455a64;
@@ -311,7 +311,7 @@ window#waybar.empty #window {
 
 #disk:hover {
   padding-left: 7px;
-  padding-right: 9px;
+  padding-right: 10px;
   color: #00ffff;
   border: 2px solid #7dcfff;
   border-radius: 20px;
@@ -321,7 +321,8 @@ window#waybar.empty #window {
   font-size: 150%;
   padding-top: 0px;
   padding-bottom: 0px;
-  padding-right: 12px;
+  padding-left: 0px;
+  padding-right: 10px;
   border-top: 2px solid #455a64;
   border-right: 2px solid #455a64;
   border-bottom: 2px solid #455a64;
