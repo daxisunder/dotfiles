@@ -335,7 +335,7 @@ alias ysi='yay -Si'
 alias ysii='yay -Sii' # List reverse dependencies
 alias yrq='yay -Rsn $(yay -Qdtq)' # List & remove all unneeded dependencies
 alias ysc='yay -Sc' # Clean cached packages
-alias yi="yay -Slq|fzf -m --preview-window=right:75% --preview 'bat -p <(yay -Qi {1}|grep -e \"Install Reason\";echo \"\") <(yay -Sii {1}) <(yay -Fl {1}|awk \"{print \$2}\")'|xargs -ro yay -S"
+alias yi="yay -Slq|fzf -m --preview-window=right:75% --preview 'bat -p <(yay -Qi {1}|grep -e \"Install Reason\";echo \"\") <(yay`` -Sii {1}) <(yay -Ql {1}|awk \"{print \$2}\")'|xargs -ro yay -S"
 alias yu="yay -Qq|fzf -m --preview-window=right:75% --preview 'bat -p <(yay -Qi {1}|grep -e \"Install Reason\";echo \"\") <(yay`` -Sii {1}) <(yay -Ql {1}|awk \"{print \$2}\")'|xargs -ro yay -Rsn"
 alias psyu='sudo pacman -Syu && sudo flatpak update' # Update standard packages + flatpaks
 alias psyyu='sudo pacman -Syyu' # Update only standard packages and force refresh databases (useful when mirrors are out of sync)
