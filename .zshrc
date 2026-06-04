@@ -116,20 +116,19 @@ export TERM="xterm-kitty"
 HISTFILE=~/.zsh_history
 HISTSIZE=1000000
 SAVEHIST=1000000
-setopt append_history
-setopt share_history
-setopt hist_ignore_space
-setopt hist_ignore_all_dups
-setopt hist_save_no_dups
-setopt hist_ignore_dups
-setopt hist_find_no_dups
-setopt hist_expire_dups_first
+setopt append_history          # Append history instead of overwriting
+setopt share_history           # Share history across all sessions
+setopt hist_ignore_space       # Ignore commands that start with space
+setopt hist_ignore_all_dups    # Ignore all duplicate commands in history
+setopt hist_save_no_dups       # Do not save duplicate commands in history
+setopt hist_find_no_dups       # Do not display duplicate commands in history search results
+setopt hist_expire_dups_first  # Expire duplicate commands first when trimming history
 
 # Set some cool ZSH options ('set -o' to see all options)
 setopt no_case_glob            # Case insensitive autocompletions
 setopt no_case_match           # Case insensitive autocompletions
-setopt globdots                # Include dotfiles in globbing
-setopt globcomplete            # Enable globbing in completion
+setopt glob_dots               # Include dotfiles in globbing
+setopt glob_complete           # Enable globbing in completion
 setopt extended_glob           # Advanced globbing patterns
 setopt numeric_glob_sort       # Sort glob results numerically
 setopt auto_menu               # Automatically highlight first element of completion menu
@@ -138,10 +137,10 @@ setopt list_packed             # The completion menu takes less space
 setopt auto_list               # Automatically list choices on ambiguous completion
 setopt complete_in_word        # Complete from both ends of a word
 setopt correct                 # Auto-corrections
-setopt autocd                  # Change directory just by typing its name
+setopt auto_cd                 # Change directory just by typing its name
 setopt prompt_subst            # Enable command substitution in prompt
 setopt interactive_comments    # Allow comments in interactive shell
-setopt chaselinks              # Follow symbolic links when changing directories
+setopt chase_links             # Follow symbolic links when changing directories
 
 # Set comment color (zsh-syntax-highlighting)
 typeset -A ZSH_HIGHLIGHT_STYLES
