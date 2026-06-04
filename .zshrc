@@ -484,6 +484,15 @@ fancy-ctrl-z () {
 zle -N fancy-ctrl-z
 bindkey '^Z' fancy-ctrl-z
 
+# Unified mkdir + zoxide jump
+mkz() {
+    if [ -z "$1" ]; then
+        printf 'Usage: mkz <directory>\n' >&2
+        return 1
+    fi
+    mkdir -p -- "$1" && z -- "$1"
+}
+
 # Carapace integration (argument completion)
 export CARAPACE_BRIDGES='zsh,fish,bash,inshellisense' # optional
 zstyle ':completion:*' format $'\e[2;37mCompleting %d\e[m'
