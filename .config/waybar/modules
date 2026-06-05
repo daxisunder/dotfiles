@@ -79,130 +79,15 @@
 		"5": [],
 		"6": [],
 		"7": [],
-		"8": []
+		"8": [],
+    "9": [],
+    "10": []
 	},
 	"format": "{icon}",
 	"format-icons": {
             "active": "<span font='12'>󰮯</span>",
             "empty": "<span font='8'></span>",
             "default": "󰊠"
-	}
-},
-// Kanji / Japanese style
-"hyprland/workspaces#kanji": {
-	"disable-scroll": true,
-	"show-special": false,
-	"all-outputs": true,
-	"format": "{icon}",
-	"persistent-workspaces": {
-		"1": [],
-		"2": [],
-		"3": [],
-		"4": [],
-		"5": []
-	},
-	"format-icons": {
-		"1": "一",
-		"2": "二",
-		"3": "三",
-		"4": "四",
-		"5": "五",
-		"6": "六",
-		"7": "七",
-		"8": "八",
-		"9": "九",
-		"10": "十"
-	}
-},
-//  NUMBERS and ICONS style
-"hyprland/workspaces#4": {
-	//"format": "{name}",
-	"format": " {name} {icon} ",
-	//"format": " {icon} ",
-	"show-special": false,
-	"on-click": "activate",
-	"on-scroll-up": "hyprctl dispatch workspace e+1",
-	"on-scroll-down": "hyprctl dispatch workspace e-1",
-	"all-outputs": true,
-	"sort-by-number": true,
-	"format-icons": {
-		"1": " ",
-		"2": " ",
-		"3": " ",
-		"4": " ",
-		"5": " ",
-		"6": " ",
-		"7": "",
-		"8": " ",
-		"9": "",
-		"10": "10",
-		"focused": "",
-		"default": ""
-	}
-},
-// NUMBERS and ICONS style with window rewrite
-"hyprland/workspaces#rw": {
-	"disable-scroll": true,
-	"all-outputs": true,
-	"warp-on-scroll": false,
-	"sort-by-number": true,
-	"show-special": false,
-	"on-click": "activate",
-	"on-scroll-up": "hyprctl dispatch workspace e+1",
-	"on-scroll-down": "hyprctl dispatch workspace e-1",
-	"format": "{icon} {windows}",
-	"format-window-separator": " ",
-	"window-rewrite-default": " ",
-	"window-rewrite": {
-		"title<.*youtube.*>": " ",
-		"title<.*amazon.*>": " ",
-		"title<.*reddit.*>": " ",
-		"title<.*Picture-in-Picture.*>": " ",
-		"class<firefox>": " ",
-		"class<kitty>": " ",
-		"class<konsole>": " ",
-		"class<thunar>": "󰝰 ",
-		"class<discord>": " ",
-		"class<WebCord>": " ",
-		"class<subl>": "󰅳 ",
-		"class<celluloid>": " ",
-		"class<Cider>": "󰎆 ",
-		"class<code-oss>": "󰨞 ",
-		"class<codium|codium-url-handler|VSCodium>": "󰨞 ",
-		"class<codeblocks>": "󰅩 ",
-		"class<mousepad>": " ",
-		"class<libreoffice-writer>": " ",
-		"class<libreoffice-startcenter>": "󰏆 ",
-		"class<com.obsproject.Studio>": " "
-		}
-},
-// for Camilla or Spanish
-"hyprland/workspaces#cam": {
-	"active-only":false,
-	"all-outputs": true,
-	"format": "{icon}",
-	"show-special": false,
-	"on-click": "activate",
-	"on-scroll-up": "hyprctl dispatch workspace e+1",
-	"on-scroll-down": "hyprctl dispatch workspace e-1",
-	"persistent-workspaces":{
-		"1": [],
-		"2": [],
-		"3": [],
-		"4": [],
-		"5": []
-	},
-		"format-icons": {
-		"1": "Uno",
-		"2": "Due",
-		"3": "Tre",
-		"4": "Quattro",
-		"5": "Cinque",
-		"6": "Sei",
-		"7": "Sette",
-		"8": "Otto",
-		"9": "Nove",
-		"10": "Dieci"
 	}
 },
 // GROUP
@@ -231,13 +116,6 @@
     "disk#home"
 	]
 },
-"group/laptop": {
-	"orientation": "inherit",
-	"modules": [
-		"backlight",
-		"battery"
-	]
-},
 "group/audio": {
 	"orientation": "inherit",
 	"modules": [
@@ -257,65 +135,6 @@
 		"bluetooth"
 	]
 },
-"backlight": {
-	"interval": 2,
-	"align": 0,
-	"rotate": 0,
-	//"format": "{icon} {percent}%",
-	"format-icons": [
-		" ",
-		" ",
-		" ",
-		"󰃝 ",
-		"󰃞 ",
-		"󰃟 ",
-		"󰃠 "
-	],
-	"format": "{icon}",
-	//"format-icons": ["","","","","","","","","","","","","","",""],
-	"tooltip-format": "backlight {percent}%",
-	"icon-size": 10,
-	"on-click": "",
-	"on-click-middle": "",
-	"on-click-right": "",
-	"on-update": "",
-	"on-scroll-up": "~/.config/hypr/scripts/Brightness.sh --inc",
-	"on-scroll-down": "~/.config/hypr/scripts/Brightness.sh --dec",
-	"smooth-scrolling-threshold": 1
-},
-"backlight#2": {
-  "device": "intel_backlight",
-  "format": "{icon} {percent}%",
-  "format-icons": ["", ""]
-},
-"battery": {
-	//"interval": 5,
-	"align": 0,
-	"rotate": 0,
-	//"bat": "BAT1",
-	//"adapter": "ACAD",
-	"full-at": 100,
-	"design-capacity": false,
-	"states": {
-		"good": 95,
-		"warning": 30,
-		"critical": 15
-	},
-	"format": "{icon} {capacity}%",
-	"format-charging": " {capacity}%",
-	"format-plugged": "󱘖 {capacity}%",
-	"format-alt-click": "click",
-	"format-full": "{icon} Full",
-	"format-alt": "{icon} {time}",
-	"format-icons": [
-		"󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"
-	],
-	"format-time": "{H}h {M}min",
-	"tooltip": true,
-	"tooltip-format": "{timeTo} {power}w",
-	"on-click-middle": "~/.config/hypr/scripts/ChangeBlur.sh",
-	"on-click-right": "~/.config/hypr/scripts/Wlogout.sh"
-},
 "bluetooth": {
 	"format": "",
 	"format-disabled": "󰂳",
@@ -332,7 +151,7 @@
   //"format": "{:%I:%M %p}", // AM PM format
   "format": "{:%H:%M:%S}", // 24H
 	"format-alt": "{:%A, %B %d, %Y}",
-	"tooltip-format": "<span size='10pt' font='Sans'>{calendar}</span>",
+	"tooltip-format": "<span size='10pt' font='zai Courier Polski 1941'>{calendar}</span>",
 	"calendar": {
 		"mode"          : "year",
 		"mode-mon-col"  : 3,
@@ -340,7 +159,7 @@
 		"on-scroll"     : 1,
 		"on-click-right": "mode",
 		"format": {
-			"months":     "<span color='#ffffed'><b>{}</b></span>",
+			"months":     "<span color='#7dcfff'><b>{}</b></span>",
 			"days":       "<span color='#c0caf5'><b>{}</b></span>",
 			"weeks":      "<span color='#99ffdd'><b>W{}</b></span>",
 			"weekdays":   "<span color='#ffcc66'><b>{}</b></span>",
@@ -354,29 +173,6 @@
 		"on-scroll-up": "shift_up",
 		"on-scroll-down": "shift_down"
 	}
-},
-"clock#2": {
-    //"format": " {:%I:%M %p}", // AM PM format
-    "format": "  {:%H:%M}", // 24H
-    "format-alt": "{:%A  |  %H:%M  |  %e %B}",
-    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
-},
-"clock#3": {
-    //"format": "{:%I:%M %p - %d/%b}", //for AM/PM
-    "format": "{:%H:%M - %d/%b}", // 24H
-	"tooltip": false
-},
-"clock#4": {
-	"interval": 60,
-    //"format": "{:%B | %a %d, %Y | %I:%M %p}", // AM PM format
-    "format": "{:%B | %a %d, %Y | %H:%M}", // 24H
-	"format-alt": "{:%a %b %d, %G}",
-	"tooltip-format": "<big>{:%B %Y}</big>\n<tt><small>{calendar}</small></tt>"
-},
-"clock#5": {
-    //"format": "{:%A, %I:%M %P}", // AM PM format
-    "format": "{:%a %d | %H:%M}", // 24H
-	"format-alt": "{:%A, %d %B, %Y (%R)}"
 },
 "cpu": {
 	"format": "<span color='#ffffff'>{usage}%</span> <span color='#7dcfff'>󰍛</span>",
