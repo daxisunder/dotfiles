@@ -2,7 +2,6 @@ return {
   "saghen/blink.cmp",
   dependencies = {
     { "nvim-lua/plenary.nvim" },
-    -- { "Kaiser-Yang/blink-cmp-dictionary" },
     { "archie-judd/blink-cmp-words" },
     { "rafamadriz/friendly-snippets" },
     { "fang2hou/blink-copilot" },
@@ -14,7 +13,8 @@ return {
       version = not vim.g.lazyvim_blink_main and "*",
     },
   },
-  version = "1.*",
+  version = not vim.g.lazyvim_blink_main and "*",
+  build = vim.g.lazyvim_blink_main and "cargo build --release",
   lazy = true,
   event = "VimEnter",
   opts = {
@@ -30,9 +30,6 @@ return {
             return luasnip.jump(1)
           end
           return cmp.show({ providers = { "snippets" } })
-        end,
-        function() -- sidekick next edit suggestion
-          return require("sidekick").nes_jump_or_apply()
         end,
         "fallback",
       },
@@ -90,16 +87,6 @@ return {
       ["<A-8>"] = {
         function(cmp)
           cmp.accept({ index = 8 })
-        end,
-      },
-      ["<A-9>"] = {
-        function(cmp)
-          cmp.accept({ index = 9 })
-        end,
-      },
-      ["<A-0>"] = {
-        function(cmp)
-          cmp.accept({ index = 0 })
         end,
       },
     },
@@ -384,24 +371,6 @@ return {
             pointer_symbols = { "!", "&", "^" },
           },
         },
-        -- dictionary = {
-        --   module = "blink-cmp-dictionary",
-        --   name = "Dict",
-        --   -- Make sure this is at least 2.
-        --   -- 3 is recommended
-        --   min_keyword_length = 3,
-        --   opts = {
-        --     -- Don't specify files here, only  directories (with files inside)
-        --     dictionary_directories = { vim.fn.expand("/usr/share/wordnet") },
-        --     -- Specify files here (.txt, .dict, .add)
-        --     dictionary_files = {
-        --       vim.fn.expand("$HOME/.config/harper-ls/harper-core/words.txt"),
-        --       vim.fn.expand("$HOME/.config/harper-ls/harper-core/dictionary.dict"),
-        --       -- user dictionary
-        --       vim.fn.expand("$HOME/.config/harper-ls/dictionary.txt"),
-        --     },
-        --   },
-        -- },
         omni = {
           module = "blink.cmp.sources.complete_func",
           enabled = function()
