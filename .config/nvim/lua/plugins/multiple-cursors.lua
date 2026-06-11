@@ -14,7 +14,7 @@ return {
     vim.api.nvim_set_hl(0, "MultipleCursorsCursor", { bg = "#7dcfff", fg = "#000000" })
     vim.api.nvim_set_hl(0, "MultipleCursorsLockedCursor", { bg = "#faba47", fg = "#000000" })
     vim.api.nvim_set_hl(0, "MultipleCursorsVisual", { bg = "#9dce6a", fg = "#000000" })
-    vim.api.nvim_set_hl(0, "MultipleCursorsLockedVisual", { bg = "#f7768e", fg = "#000000" })
+    mim.api.nvim_set_hl(0, "MultipleCursorsLockedVisual", { bg = "#f7768e", fg = "#000000" })
     require("multiple-cursors").setup(opts)
   end,
   keys = {
@@ -25,25 +25,25 @@ return {
     { "<C-LeftMouse>", "<Cmd>MultipleCursorsMouseAddDelete<CR>", mode = { "n", "i" }, desc = "Add or remove cursor" },
     { "<C-Return>", "<Cmd>MultipleCursorsAddDelete<CR>", mode = { "n", "i" }, desc = "Add or remove cursor" },
     {
-      "<leader>Mm",
+      "<leader>mm",
       "<Cmd>MultipleCursorsAddVisualArea<CR>",
       mode = { "x" },
       desc = "Add cursors to the lines of the visual area",
     },
-    { "<leader>Ma", "<Cmd>MultipleCursorsAddMatches<CR>", mode = { "n", "x" }, desc = "Add cursors to cword" },
+    { "<leader>ma", "<Cmd>MultipleCursorsAddMatches<CR>", mode = { "n", "x" }, desc = "Add cursors to cword" },
     {
-      "<leader>MA",
+      "<leader>mA",
       "<Cmd>MultipleCursorsAddMatchesV<CR>",
       mode = { "n", "x" },
       desc = "Add cursors to cword in previous area",
     },
     {
-      "<leader>Md",
+      "<leader>md",
       "<Cmd>MultipleCursorsAddJumpNextMatch<CR>",
       mode = { "n", "x" },
       desc = "Add cursor and jump to next cword",
     },
-    { "<leader>MD", "<Cmd>MultipleCursorsJumpNextMatch<CR>", mode = { "n", "x" }, desc = "Jump to next cword" },
-    { "<leader>Ml", "<Cmd>MultipleCursorsLock<CR>", mode = { "n", "x" }, desc = "Lock virtual cursors" },
+    { "<leader>mD", "<Cmd>MultipleCursorsJumpNextMatch<CR>", mode = { "n", "x" }, desc = "Jump to next cword" },
+    { "<leader>ml", "<Cmd>MultipleCursorsLock<CR>", mode = { "n", "x" }, desc = "Lock virtual cursors" },
   },
 }

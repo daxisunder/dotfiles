@@ -10,42 +10,42 @@ return {
   keys = {
     -- example keymaps
     {
-      "<localleader>c",
+      "<leader>C",
       ":Convy<CR>",
       desc = "Convert (interactive selection)",
       mode = { "n", "v" },
       silent = true,
     },
     {
-      "<localleader>cd",
+      "<leader>Cd",
       ":Convy auto dec<CR>",
       desc = "Convert to decimal",
       mode = { "n", "v" },
       silent = true,
     },
     {
-      "<localleader>cc",
+      "<leader>Ch",
       ":Convy auto hex_color<CR>",
       desc = "Convert to HEX",
       mode = { "n", "v" },
       silent = true,
     },
     {
-      "<localleader>cr",
+      "<leader>Cl",
       ":Convy auto hsl<CR>",
       desc = "Convert to HSL",
       mode = { "n", "v" },
       silent = true,
     },
     {
-      "<localleader>cr",
+      "<leader>Cr",
       ":Convy auto rgb<CR>",
       desc = "Convert to RGB",
       mode = { "n", "v" },
       silent = true,
     },
     {
-      "<localleader>cs",
+      "<leader>Cs",
       ":ConvySeparator<CR>",
       desc = "Set conversion separator (visual selection)",
       mode = { "v" },
