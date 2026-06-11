@@ -10,6 +10,7 @@ fi
 
 GEMINI_API_KEY="${GEMINI_API_KEY:-}"
 GEMINI_MODEL="gemini-3-flash-preview"
+FALLBACK_GEMINI_MODEL="gemini-2.5-flash"
 GEMINI_URL="https://generativelanguage.googleapis.com/v1beta/models/${GEMINI_MODEL}:generateContent"
 MAX_DIFF_CHARS=320000
 TIMEOUT=180
@@ -94,32 +95,59 @@ else
       ]
     }')
 
-  REQUEST_URL="${GEMINI_URL}?key=${GEMINI_API_KEY}"
+  run_gemini_request() {
+    local model="$1"
+    local request_url="https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${GEMINI_API_KEY}"
 
-  if [[ "$DEBUG" == "1" ]]; then
-    echo "[DEBUG] Request URL: ${REQUEST_URL//${GEMINI_API_KEY}/***REDACTED***}" >&2
-    echo "[DEBUG] Payload size: $((${#PAYLOAD})) bytes" >&2
-  fi
+    if [[ "$DEBUG" == "1" ]]; then
+      echo "[DEBUG] Request URL: ${request_url//${GEMINI_API_KEY}/***REDACTED***}" >&2
+      echo "[DEBUG] Payload size: $((${#PAYLOAD})) bytes" >&2
+      echo "[DEBUG] Model: $model" >&2
+    fi
 
-  HTTP_CODE=$(curl -s \
-    --connect-timeout 15 \
-    --max-time "$TIMEOUT" \
-    -o /tmp/gemini_response.json \
-    -w "%{http_code}" \
-    --request POST \
-    --url "$REQUEST_URL" \
-    --header "Content-Type: application/json" \
-    --data "$PAYLOAD")
+    HTTP_CODE=$(curl -s \
+      --connect-timeout 15 \
+      --max-time "$TIMEOUT" \
+      -o /tmp/gemini_response.json \
+      -w "%{http_code}" \
+      --request POST \
+      --url "$request_url" \
+      --header "Content-Type: application/json" \
+      --data "$PAYLOAD")
 
-  if [[ "$DEBUG" == "1" ]]; then
-    echo "[DEBUG] HTTP status: $HTTP_CODE" >&2
-    cat /tmp/gemini_response.json >&2
+    if [[ "$DEBUG" == "1" ]]; then
+      echo "[DEBUG] HTTP status: $HTTP_CODE" >&2
+      cat /tmp/gemini_response.json >&2
+    fi
+  }
+
+  run_gemini_request "$GEMINI_MODEL"
+
+  PRIMARY_ERROR_MSG=""
+  USED_FALLBACK_MODEL=0
+
+  if [[ "$HTTP_CODE" -ne 200 ]]; then
+    PRIMARY_ERROR_MSG=$(jq -r '.error.message // "Unknown error"' /tmp/gemini_response.json 2>/dev/null || echo "HTTP $HTTP_CODE")
+
+    if [[ "${PRIMARY_ERROR_MSG,,}" == *"high demand"* ]]; then
+      USED_FALLBACK_MODEL=1
+
+      if can_notify; then
+        notify-send -u normal -i github "Dotfiles" "Gemini 3 is under high demand. Retrying with gemini-2.5-flash."
+      fi
+
+      run_gemini_request "$FALLBACK_GEMINI_MODEL"
+    fi
   fi
 
   if [[ "$HTTP_CODE" -ne 200 ]]; then
     if can_notify; then
-      ERROR_MSG=$(jq -r '.error.message // "Unknown error"' /tmp/gemini_response.json 2>/dev/null || echo "HTTP $HTTP_CODE")
-      notify-send -u normal -i github "Dotfiles" "Gemini failed: $ERROR_MSG. Falling back."
+      if [[ "$USED_FALLBACK_MODEL" -eq 1 ]]; then
+        ERROR_MSG=$(jq -r '.error.message // "Unknown error"' /tmp/gemini_response.json 2>/dev/null || echo "HTTP $HTTP_CODE")
+        notify-send -u normal -i github "Dotfiles" "Gemini fallback failed: $ERROR_MSG. Falling back."
+      else
+        notify-send -u normal -i github "Dotfiles" "Gemini failed: $PRIMARY_ERROR_MSG. Falling back."
+      fi
     fi
     COMMIT_MSG="chore: dotfiles update $(date '+%Y-%m-%d %H:%M')"
   else
