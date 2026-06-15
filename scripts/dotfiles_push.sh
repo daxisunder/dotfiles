@@ -132,7 +132,7 @@ else
       USED_FALLBACK_MODEL=1
 
       if can_notify; then
-        notify-send -u normal -i github "Dotfiles" "Gemini 3 is under high demand. Retrying with gemini-2.5-flash."
+        notify-send -u normal -i github "Dotfiles" "Gemini-3-flash failed: $ERROR_MSG. Retrying with gemini-2.5-flash."
       fi
 
       run_gemini_request "$FALLBACK_GEMINI_MODEL"
@@ -143,7 +143,7 @@ else
     if can_notify; then
       if [[ "$USED_FALLBACK_MODEL" -eq 1 ]]; then
         ERROR_MSG=$(jq -r '.error.message // "Unknown error"' /tmp/gemini_response.json 2>/dev/null || echo "HTTP $HTTP_CODE")
-        notify-send -u normal -i github "Dotfiles" "Gemini fallback failed: $ERROR_MSG. Falling back."
+        notify-send -u normal -i github "Dotfiles" "Gemini-2.5-flash failed: $ERROR_MSG. Falling back."
       else
         notify-send -u normal -i github "Dotfiles" "Gemini failed: $PRIMARY_ERROR_MSG. Falling back."
       fi
