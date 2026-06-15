@@ -175,7 +175,7 @@
 	}
 },
 "cpu": {
-	"format": "<span color='#ffffff'>{usage}%</span> <span color='#7dcfff'>󰍛</span>",
+	"format": "<span color='#c0caf5'>{usage}%</span> <span color='#7dcfff'>󰍛</span>",
 	"interval": 1,
 	"min-length": 5,
 	"format-alt-click": "click",
@@ -185,12 +185,37 @@
 	],
 	"on-click-right": "gnome-system-monitor"
 },
+"memory": {
+	"interval": 10,
+	"format": "<span color='#c0caf5'>{percentage}%</span> <span color='#7dcfff'>󰾆</span>",
+	"format-alt": "{used:0.1f}G 󰾆",
+	"format-alt-click": "click",
+	"tooltip": true,
+	"tooltip-format": "{used:0.1f}GB/{total:0.1f}G",
+	"on-click-right": "kitty --title btop sh -c 'btop'"
+},
+"temperature": {
+	"interval": 10,
+	"tooltip": true,
+	"hwmon-path": [
+		"/sys/class/hwmon/hwmon1/temp1_input",
+		"/sys/class/thermal/thermal_zone0/temp"
+	],
+	//"thermal-zone": 0,
+	"critical-threshold": 82,
+	"format": "<span color='#c0caf5'>{temperatureC}°C</span> <span color='#7dcfff'>{icon}</span>",
+	"format-critical": "{temperatureC}°C <span color='#f7768e'>{icon}</span>",
+	"format-icons": [
+		"󰈸"
+	],
+	"on-click-right": "kitty --title nvtop sh -c 'nvtop'"
+},
 "disk": {
 	"interval": 30,
 	//"format": "󰋊",
 	"path": "/",
 	//"format-alt-click": "click",
-	"format": "<span color='#ffffff'>{percentage_used}%</span> <span color='#7dcfff'>󰋊</span>",
+	"format": "<span color='#c0caf5'>{percentage_used}%</span> <span color='#7dcfff'>󰋊</span>",
 	//"tooltip": true,
 	"tooltip-format": "{used} used out of {total} on {path} ({percentage_used}%)"
 },
@@ -199,7 +224,7 @@
 	//"format": "󰋊",
 	"path": "/home",
 	//"format-alt-click": "click",
-	"format": "<span color='#ffffff'>{percentage_used}%</span> <span color='#7dcfff'>󰋊</span>",
+	"format": "<span color='#c0caf5'>{percentage_used}%</span> <span color='#7dcfff'>󰋊</span>",
 	//"tooltip": true,
 	"tooltip-format": "{used} used out of {total} on {path} ({percentage_used}%)"
 },
@@ -211,7 +236,6 @@
 	"on-click": "hyprctl switchxkblayout $SET_KB next"
 },
   "hyprland/submap": {
-  //That's neovim icon, it just looks like that here
   "format": "<span size='12000' foreground='#7dcfff'> </span>{}",
   "max-length": 20,
   "tooltip": false,
@@ -248,15 +272,6 @@
 		"locked": "",
 		"unlocked": ""
 	}
-},
-"memory": {
-	"interval": 10,
-	"format": "<span color='#ffffff'>{percentage}%</span> <span color='#7dcfff'>󰾆</span>",
-	"format-alt": "{used:0.1f}G 󰾆",
-	"format-alt-click": "click",
-	"tooltip": true,
-	"tooltip-format": "{used:0.1f}GB/{total:0.1f}G",
-	"on-click-right": "kitty --title btop sh -c 'btop'"
 },
 "mpris": {
 	"interval": 10,
@@ -386,22 +401,6 @@
 	"on-scroll-down": "~/.config/hypr/scripts/Volume.sh --mic-dec",
 	"tooltip-format": "{source_desc} | {source_volume}%",
 	"scroll-step": 5
-},
-"temperature": {
-	"interval": 10,
-	"tooltip": true,
-	"hwmon-path": [
-		"/sys/class/hwmon/hwmon1/temp1_input",
-		"/sys/class/thermal/thermal_zone0/temp"
-	],
-	//"thermal-zone": 0,
-	"critical-threshold": 82,
-	"format-critical": "{temperatureC}°C <span color='#f7768e'>{icon}</span>",
-	"format": "<span color='#ffffff'>{temperatureC}°C</span> <span color='#7dcfff'>{icon}</span>",
-	"format-icons": [
-		"󰈸"
-	],
-	"on-click-right": "kitty --title nvtop sh -c 'nvtop'"
 },
 "tray": {
 	"icon-size": 18,
