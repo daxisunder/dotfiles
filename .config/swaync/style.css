@@ -239,8 +239,8 @@
 .widget-mpris {
   color: @text-color;
   background: @noti-bg-alt;
-  padding: 3px 6px;
-  margin: 5px;
+  padding: 0px 0px;
+  margin: 10px 6px 10px 6px;
   border-radius: 6px;
 }
 
@@ -249,9 +249,10 @@
 }
 
 .widget-mpris-player {
-  padding: 3px 6px;
-  margin: 5px;
+  padding: 0px 0px;
+  margin: 10px 6px 10px 6px;
   border: 1px solid @noti-border-color;
+  border-radius: 6px;
 }
 
 .widget-mpris-title {
@@ -299,7 +300,7 @@
   background: @noti-bg-alt;
   padding-left: 15px;
   padding-right: 5px;
-  margin: 10px 10px 10px 10px;
+  margin: 10px 12px 10px 12px;
   border-radius: 6px;
   border: 1px solid @noti-border-color;
   font-size: x-large;
@@ -316,15 +317,6 @@
   padding: 4px 8px 8px;
   margin: 0 8px 8px;
   border-radius: 6px;
-  color: @text-color;
-}
-
-.widget-backlight {
-  background: @noti-bg-alt;
-  padding: 5px;
-  margin: 10px 10px 5px 10px;
-  border-radius: 6px;
-  font-size: x-large;
   color: @text-color;
 }
 

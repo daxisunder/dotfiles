@@ -34,7 +34,6 @@
     "buttons-grid",
     "mpris",
     "volume",
-    "backlight",
     "title",
     "notifications"
   ],
@@ -54,9 +53,6 @@
     "mpris": {},
     "volume": {
       "label": "󰕾"
-    },
-    "backlight": {
-      "label": "󰃟"
     },
     "buttons-grid": {
       "actions": [
