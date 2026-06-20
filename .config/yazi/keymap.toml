@@ -540,12 +540,6 @@ keymap = [
   { on = "f", run = "filter", desc = "Apply a filter for the help items" },
 ]
 
-# Input
-[[input.prepend_keymap]]
-on = "<Esc>"
-run = "close"
-desc = "Cancel input"
-
 # Mount
 [[mgr.prepend_keymap]]
 on = "M"
