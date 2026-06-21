@@ -126,6 +126,24 @@ desc = {}
 hovered = { bg = "#283457" }
 footer = { fg = "#c0caf5", bg = "#1a1b26" }
 
+[git]
+unknown_sign = "?"
+unknown = { fg = "#bb9af7", bold = true }
+modified_sign = ""
+modified = { fg = "#fff192", bold = true }
+added_sign = ""
+added = { fg = "#50fa7b", bold = true }
+untracked_sign = "X"
+untracked = { fg = "#8be9fd", bold = true }
+ignored_sign = ""
+ignored = { fg = "#ffffff", bold = true }
+updated_sign = "+"
+updated = { fg = "#c0caf5", bold = true }
+deleted_sign = ""
+deleted = { fg = "#f7768e", bold = true }
+clean_sign = ""
+clean = { fg = "#7dcfff", bold = true }
+
 [filetype]
 
 rules = [

@@ -18,13 +18,13 @@ keymap = [
   { on = "<Up>", run = "arrow -1", desc = "Move cursor up" },
   { on = "<Down>", run = "arrow 1", desc = "Move cursor down" },
 
-  { on = "<C-u>", run = "arrow -50%", desc = "Move cursor up half page" },
-  { on = "<C-d>", run = "arrow 50%", desc = "Move cursor down half page" },
-  { on = "<C-b>", run = "arrow -100%", desc = "Move cursor up one page" },
-  { on = "<C-f>", run = "arrow 100%", desc = "Move cursor down one page" },
+  { on = "<C-b>", run = "arrow -10%", desc = "Move cursor up a tenth of the page" },
+  { on = "<C-f>", run = "arrow 10%", desc = "Move cursor down a tenth of the page" },
+  { on = "<C-u>", run = "arrow -33%", desc = "Move cursor up a third of the page" },
+  { on = "<C-d>", run = "arrow 33%", desc = "Move cursor down a third of the page" },
 
-  { on = "<S-PageUp>", run = "arrow -50%", desc = "Move cursor up half page" },
-  { on = "<S-PageDown>", run = "arrow 50%", desc = "Move cursor down half page" },
+  { on = "<S-PageUp>", run = "arrow -50%", desc = "Move cursor up half a page" },
+  { on = "<S-PageDown>", run = "arrow 50%", desc = "Move cursor down half a page" },
   { on = "<PageUp>", run = "arrow -100%", desc = "Move cursor up one page" },
   { on = "<PageDown>", run = "arrow 100%", desc = "Move cursor down one page" },
 

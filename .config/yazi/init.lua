@@ -33,15 +33,8 @@ Status:children_add(function()
 	})
 end, 500, Status.RIGHT)
 
--- signs for git.yazi
-th.git = th.git or {}
-th.git.added_sign = "A"
-th.git.modified_sign = "M"
-th.git.deleted_sign = "D"
-th.git.untracked_sign = "U"
-th.git.ignored_sign = "I"
 require("git"):setup({
-	order = 500,
+	order = 2000,
 })
 
 require("recycle-bin"):setup()
