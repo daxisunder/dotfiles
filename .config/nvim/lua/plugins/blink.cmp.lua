@@ -235,7 +235,7 @@ return {
       implementation = "prefer_rust_with_warning",
     },
     snippets = {
-      preset = "luasnip", -- or luasnip, mini.snippets
+      preset = "luasnip", -- or default, mini.snippets
       -- Function to use when expanding LSP provided snippets
       expand = function(snippet)
         vim.snippet.expand(snippet)

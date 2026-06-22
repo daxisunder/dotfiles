@@ -8,6 +8,33 @@
 
 /* Change selected text color */
 ::selection {
-  background: #2a2b3d !important;
+  background: #292e42 !important;
   color: #a4daff !important;
+}
+
+/* Change the color of the search input field when focused on the about:addons page */
+@-moz-document url(about:addons) {
+  #input[type="search"]:focus {
+    outline: none !important;
+    border-color: transparent !important;
+
+    background:
+      linear-gradient(
+          var(--input-text-background-color),
+          var(--input-text-background-color)
+        )
+        padding-box,
+      linear-gradient(
+          to right,
+          #ff0055,
+          #ff5e00,
+          #ffcc00,
+          #33ff00,
+          #00ffd5,
+          #0066ff,
+          #7a00ff,
+          #ff00aa
+        )
+        border-box !important;
+  }
 }
