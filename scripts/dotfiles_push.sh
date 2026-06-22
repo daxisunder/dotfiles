@@ -12,7 +12,7 @@ GEMINI_API_KEY="${GEMINI_API_KEY:-}"
 GEMINI_MODEL="gemini-3-flash-preview"
 FALLBACK_GEMINI_MODEL="gemini-2.5-flash"
 MAX_DIFF_CHARS=320000
-TIMEOUT=180
+TIMEOUT=240
 
 DEBUG="${DEBUG:-0}"
 
@@ -105,8 +105,11 @@ else
     fi
 
     HTTP_CODE=$(curl -s \
-      --connect-timeout 15 \
+      --connect-timeout 30 \
       --max-time "$TIMEOUT" \
+      --retry 3 \
+      --retry-delay 5 \
+      --retry-all-errors \
       -o /tmp/gemini_response.json \
       -w "%{http_code}" \
       --request POST \
