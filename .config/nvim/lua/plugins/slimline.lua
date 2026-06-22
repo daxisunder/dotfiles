@@ -196,6 +196,7 @@ return {
             ["texlab"] = "LaTeX",
             ["textlsp"] = "Text",
             ["tsserver"] = "TS",
+            ["vtsls"] = "TS",
             ["wasm_language_tools"] = "WASM",
             ["yamlls"] = "YAML",
           },
