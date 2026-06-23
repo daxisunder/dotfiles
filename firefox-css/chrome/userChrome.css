@@ -147,6 +147,25 @@ label[anonid="entire-word-status"] {
   display: none !important;
 }
 
+/* Change input-field accent color */
+:root,
+panel,
+dialog,
+window {
+  --lwt-toolbarbutton-icon-fill-attention: #bb9af7 !important;
+  --button-primary-bgcolor: #bb9af7 !important;
+  --button-primary-hover-bgcolor: #bb9af7 !important;
+  --button-primary-active-bgcolor: #bb9af7 !important;
+  --in-content-primary-button-background: #bb9af7 !important;
+  --in-content-primary-button-background-hover: #bb9af7 !important;
+  --in-content-primary-button-background-active: #bb9af7 !important;
+  --input-border-color: #bb9af7 !important;
+  --uc-checkbox-checked-bgcolor: #bb9af7 !important;
+  --checkbox-checked-bgcolor: #bb9af7 !important;
+  --focus-outline-color: #bb9af7 !important;
+  --in-content-link-color: #bb9af7 !important;
+}
+
 /* Set the Trust Icon/Unified Shield colors (connection security)
 /* Green ✔ */
 .urlbar-input-container[pageproxystate="valid"]:has(
@@ -410,81 +429,8 @@ menupopup,
   border: 2px !important;
   font-size: 12pt !important;
 }
-/*Rainbow border for menu popups*/
-.menupopup-arrowscrollbox {
-  --panel-padding: 4px !important;
-  --panel-border-radius: 8px !important;
-  --panel-shadow-margin: 0px !important;
-  --panel-shadow: none !important;
-  --panel-border-color: transparent !important;
-  background:
-    linear-gradient(#000000, #000000) content-box,
-    linear-gradient(
-        45deg,
-        red 0%,
-        orange 16.66%,
-        yellow 33.33%,
-        green 50%,
-        blue 66.66%,
-        indigo 83.33%,
-        violet 100%
-      )
-      border-box !important;
-  border-radius: 8px !important;
-  padding: 3 !important;
-  border: 2px !important;
-  font-size: 12pt !important;
-}
-
-menupopup,
-panel,
-menulist {
-  --panel-padding: 4px !important;
-  --panel-border-radius: 8px !important;
-  --panel-shadow-margin: 0px !important;
-  --panel-shadow: none !important;
-  --panel-border-color: transparent !important;
-  background: linear-gradient(
-    45deg,
-    red 0%,
-    orange 16.66%,
-    yellow 33.33%,
-    green 50%,
-    blue 66.66%,
-    indigo 83.33%,
-    violet 100%
-  ) !important;
-  border-radius: 8px !important;
-  padding: 3 !important;
-  border: 2px !important;
-  font-size: 12pt !important;
-}
-
-menupopup,
-:is(menupopup, panel)[type="arrow"] {
-  --panel-padding: 4px !important;
-  --panel-border-radius: 8px !important;
-  --panel-shadow-margin: 4px !important;
-  --panel-shadow: none !important;
-  --panel-border-color: transparent !important;
-  background: linear-gradient(
-    45deg,
-    red 0%,
-    orange 16.66%,
-    yellow 33.33%,
-    green 50%,
-    blue 66.66%,
-    indigo 83.33%,
-    violet 100%
-  ) !important;
-  border-radius: 8px !important;
-  padding: 3 !important;
-  border: 2px !important;
-  font-size: 12pt !important;
-}
 
 /* A loading progress bar shown at the top of a tab */
-
 /* Hide the loading burst */
 #tabbrowser-tabs[orient="horizontal"] .tabbrowser-tab .tab-loading-burst {
   opacity: 0 !important;
@@ -514,12 +460,7 @@ menupopup,
   > .tab-background
   > .tab-context-line {
   opacity: 0 !important;
-  background-image: linear-gradient(
-    90deg,
-    #1fc7ff,
-    #2ecbff
-  ) !important; /* Vivid cyan */
-  /*background-image: linear-gradient(90deg, #9ab5b5, #b89aa9) !important;  /* Jungle Day */
+  background-image: linear-gradient(90deg, #1fc7ff, #2ecbff) !important;
 }
 
 /* A final color of the loading bar. Container tab */
@@ -533,8 +474,7 @@ menupopup,
     90deg,
     #1fc7ff 0%,
     var(--identity-tab-color) 75%
-  ) !important; /* Vivid cyan */
-  /*background-image: linear-gradient(90deg, #9ab5b5 0%, var(--identity-tab-color) 75%) !important;  /* Jungle Day */
+  ) !important;
 }
 
 #tabbrowser-tabs[orient="horizontal"]
@@ -556,54 +496,7 @@ menupopup,
   > .tab-background
   > .tab-context-line {
   opacity: 0 !important;
-  /*background-image: linear-gradient(90deg, #1ec9ff 0%, rgba(255, 51, 153, 1) 50%, rgb(255, 148, 0, 1) 100%) !important;  /* Blue + Red + Orange */
-  /*background-image: linear-gradient(90deg, #1edbff, #00A651, rgb(255, 148, 0, 1)) !important;  /* Blue + Green + Orange */
-  background-image: linear-gradient(
-    90deg,
-    #1edbff,
-    #ea00ff
-  ) !important; /* Blue + Magenta */
-  /*background-image: linear-gradient(90deg, #00c9ff 0%, #12d8fa 50%, #00f44e 100%) !important;  /* Blue + Blue + cyan lime green */
-  /*background-image: linear-gradient(90deg, #00c9ff 0%, #79fe86 100%) !important;  /* Kale Salad */
-  /*background-image: linear-gradient(90deg, #fdbb2d 0%, #22c1c3 100%) !important;  /* Retro Wagon */
-  /*background-image: linear-gradient(90deg, #fc466b 0%, #3f5efb 100%) !important;  /* Disco Club */
-  /*background-image: linear-gradient(90deg, #fc354c, #0abfbc) !important;  /* Miaka */
-  /*background-image: linear-gradient(90deg, #FEAC5E 0%, #C779D0 50%, #4BC0C8 100%) !important;  /* Atlas */
-  /*background-image: linear-gradient(90deg, #16A085, #F4D03F) !important;  /* Harmonic Energy */
-  /*background-image: linear-gradient(90deg, #fd8112, #0085ca) !important;  /* Blue Orange */
-  /*background-image: linear-gradient(90deg, #f7941e 0%, #72c6ef 50%, #00a651 100%) !important;  /* Radioactive Heat */
-  /*background-image: linear-gradient(90deg, #108dc7, #ef8e38) !important;  /* Pun Yeta */
-  /*background-image: linear-gradient(90deg, #4fb576, #44c489, #28a9ae, #28a2b7, #4c7788, #6c4f63, #432c39) !important;  /* Burning Spring */
-  /*background-image: linear-gradient(90deg, #40E0D0 0%, #FF8C00 50%, #FF0080 100%) !important;  /* Wedding Day Blues */
-  /*background-image: linear-gradient(90deg, #F36222 0%, #5CB644 50%, #007FC3 100%) !important;  /* Telko */
-  /*background-image: linear-gradient(90deg, #0250c5, #d43f8d) !important;  /* Night Party */
-  /*background-image: linear-gradient(90deg, #2CD8D5 0%, #C5C1FF 50%, #FFBAC3 100%) !important;  /* Sea Lord */
-  /*background-image: linear-gradient(90deg, #50cc7f, #f5d100) !important;  /* Millennium Pine */
-  /*background-image: linear-gradient(90deg, #616161, #9bc5c3) !important;  /* Mole Hall */
-  /*background-image: linear-gradient(90deg, #65bd60 0%, #5ac1a8 50%, #3ec6ed 100%) !important;  /* African Field */
-  /*background-image: linear-gradient(90deg, #2af598, #009efd) !important;  /* Itmeo Branding */
-  /*background-image: linear-gradient(90deg, #aa4b6b 0%, #6b6b83 50%, #3b8d99 100%) !important;  /* Memariani */
-  /*background-image: linear-gradient(90deg, #00F260, #0575E6) !important;  /* Rainbow Blue */
-  /*background-image: linear-gradient(90deg, #808080, #3fada8) !important;  /* IIIT Delhi */
-  /*background-image: linear-gradient(90deg, #24C6DC, #514A9D) !important;  /* Mantle */
-  /*background-image: linear-gradient(90deg, #C9FFBF, #FFAFBD) !important;  /* Virgin */
-  /*background-image: linear-gradient(90deg, #fbed96,#abecd6) !important;  /* Summer Breeze */
-  /*background-image: linear-gradient(90deg, #603813, #b29f94) !important;  /* Cool Brown */
-  /*background-image: linear-gradient(90deg, #BBD2C5, #536976) !important;  /* Petrol */
-  /*background-image: linear-gradient(90deg, #8baaaa, #ae8b9c) !important;  /* Jungle Day */
-  /*background-image: linear-gradient(90deg, #cc2b5e, #753a88) !important;  /* Purple Love */
-  /*background-image: linear-gradient(90deg, #9796f0, #fbc7d4) !important;  /* namnisar */
-  /*background-image: linear-gradient(90deg, #ff6e7f, #bfe9ff) !important;  /* Noon to Dusk */
-  /*background-image: linear-gradient(90deg, #2b5876, #4e4376) !important;  /* Sea Blue */
-  /*background-image: linear-gradient(90deg, #02AAB0, #00CDAC) !important;  /* Green Beach */
-  /*background-image: linear-gradient(90deg, #5f2c82, #49a09d) !important;  /* Calm Darya */
-  /*background-image: linear-gradient(90deg, #159957, #155799) !important;  /* Crystal Clear */
-  /*background-image: linear-gradient(90deg, #76b852, #8DC26F) !important;  /* Little Leaf */
-  /*background-color: #009deb !important;  /* Solid-color blue */
-  /*background-color: dimgray !important;  /* Solid-color dimgray */
-  /*background-color: darkolivegreen !important;  /* Solid-color darkolivegreen */
-  /*background-color: tan !important;  /* Solid-color tan */
-  /*background-color: #444444 !important;  /* Solid-color Very dark gray */
+  background-image: linear-gradient(90deg, #1edbff, #ea00ff) !important;
 }
 
 (prefers-color-scheme: dark) {
@@ -613,55 +506,7 @@ menupopup,
     > .tab-background
     > .tab-context-line {
     opacity: 0 !important;
-    /*background-image: linear-gradient(90deg, #1ec9ff 0%, rgba(255, 51, 153, 1) 50%, rgb(255, 148, 0, 1) 100%) !important;  /* Blue + Red + Orange */
-    /*background-image: linear-gradient(90deg, #1edbff, #00A651, rgb(255, 148, 0, 1)) !important;  /* Blue + Green + Orange */
-    background-image: linear-gradient(
-      90deg,
-      #1edbff,
-      #ea00ff
-    ) !important; /* Blue + Magenta */
-    /*background-image: linear-gradient(90deg, #1fb4ff 0%, #12d8fa 50%, #8dffbc 100%) !important;  /* Blue + Blue + cyan lime green */
-    /*background-image: linear-gradient(90deg, #00c9ff 0%, #92fe9d 100%) !important;  /* Kale Salad */
-    /*background-image: linear-gradient(90deg, #fdbb2d 0%, #22c1c3 100%) !important;  /* Retro Wagon */
-    /*background-image: linear-gradient(90deg, #fc466b 0%, #3f5efb 100%) !important;  /* Disco Club */
-    /*background-image: linear-gradient(90deg, #fc354c, #0abfbc) !important;  /* Miaka */
-    /*background-image: linear-gradient(90deg, #FEAC5E 0%, #C779D0 50%, #4BC0C8 100%) !important;  /* Atlas */
-    /*background-image: linear-gradient(90deg, #16A085, #F4D03F) !important;  /* Harmonic Energy */
-    /*background-image: linear-gradient(90deg, #fd8112, #0085ca) !important;  /* Blue Orange */
-    /*background-image: linear-gradient(90deg, #f7941e 0%, #72c6ef 50%, #00a651 100%) !important;  /* Radioactive Heat */
-    /*background-image: linear-gradient(90deg, #ff1e56 0%, #f9c942 50%, #1e90ff 100%) !important;  /* Beleko */
-    /*background-image: linear-gradient(90deg, #108dc7, #ef8e38) !important;  /* Pun Yeta */
-    /*background-image: linear-gradient(90deg, #4fb576, #44c489, #28a9ae, #28a2b7, #4c7788, #6c4f63, #432c39) !important;  /* Burning Spring */
-    /*background-image: linear-gradient(90deg, #40E0D0 0%, #FF8C00 50%, #FF0080 100%) !important;  /* Wedding Day Blues */
-    /*background-image: linear-gradient(90deg, #F36222 0%, #5CB644 50%, #007FC3 100%) !important;  /* Telko */
-    /*background-image: linear-gradient(90deg, #0250c5, #d43f8d) !important;  /* Night Party */
-    /*background-image: linear-gradient(90deg, #2CD8D5 0%, #C5C1FF 50%, #FFBAC3 100%) !important;  /* Sea Lord */
-    /*background-image: linear-gradient(90deg, #50cc7f, #f5d100) !important;  /* Millennium Pine */
-    /*background-image: linear-gradient(90deg, #616161, #9bc5c3) !important;  /* Mole Hall */
-    /*background-image: linear-gradient(90deg, #65bd60 0%, #5ac1a8 50%, #3ec6ed 100%) !important;  /* African Field */
-    /*background-image: linear-gradient(90deg, #2af598, #009efd) !important;  /* Itmeo Branding */
-    /*background-image: linear-gradient(90deg, #aa4b6b 0%, #6b6b83 50%, #3b8d99 100%) !important;  /* Memariani */
-    /*background-image: linear-gradient(90deg, #00F260, #0575E6) !important;  /* Rainbow Blue */
-    /*background-image: linear-gradient(90deg, #808080, #3fada8) !important;  /* IIIT Delhi */
-    /*background-image: linear-gradient(90deg, #24C6DC, #514A9D) !important;  /* Mantle */
-    /*background-image: linear-gradient(90deg, #C9FFBF, #FFAFBD) !important;  /* Virgin */
-    /*background-image: linear-gradient(90deg, #fbed96,#abecd6) !important;  /* Summer Breeze */
-    /*background-image: linear-gradient(90deg, #603813, #b29f94) !important;  /* Cool Brown */
-    /*background-image: linear-gradient(90deg, #BBD2C5, #536976) !important;  /* Petrol */
-    /*background-image: linear-gradient(90deg, #8baaaa, #ae8b9c) !important;  /* Jungle Day */
-    /*background-image: linear-gradient(90deg, #cc2b5e, #753a88) !important;  /* Purple Love */
-    /*background-image: linear-gradient(90deg, #9796f0, #fbc7d4) !important;  /* namnisar */
-    /*background-image: linear-gradient(90deg, #ff6e7f, #bfe9ff) !important;  /* Noon to Dusk */
-    /*background-image: linear-gradient(90deg, #2b5876, #4e4376) !important;  /* Sea Blue */
-    /*background-image: linear-gradient(90deg, #02AAB0, #00CDAC) !important;  /* Green Beach */
-    /*background-image: linear-gradient(90deg, #5f2c82, #49a09d) !important;  /* Calm Darya */
-    /*background-image: linear-gradient(90deg, #159957, #155799) !important;  /* Crystal Clear */
-    /*background-image: linear-gradient(90deg, #76b852, #8DC26F) !important;  /* Little Leaf */
-    /*background-color: #1ec9ff !important;  /* Solid-color blue */
-    /*background-color: dimgray !important;  /* Solid-color dimgray */
-    /*background-color: darkolivegreen !important;  /* Solid-color darkolivegreen */
-    /*background-color: tan !important;  /* Solid-color tan */
-    /*background-color: #444444 !important;  /* Solid-color Very dark gray */
+    background-image: linear-gradient(90deg, #1edbff, #ea00ff) !important;
   }
 }
 
@@ -692,9 +537,7 @@ scale {
   }
 }
 
-/******************************************************/
 /* A loading progress bar shown on the right side of a vertical tab */
-
 /* Hide the loading burst */
 #tabbrowser-tabs[orient="vertical"] .tabbrowser-tab .tab-loading-burst {
   opacity: 0 !important;
@@ -724,12 +567,7 @@ scale {
   > .tab-background
   > .tab-context-line {
   opacity: 0 !important;
-  background-image: linear-gradient(
-    180deg,
-    #1fc7ff,
-    #2ecbff
-  ) !important; /* Vivid cyan */
-  /*background-image: linear-gradient(180deg, #9ab5b5, #b89aa9) !important;  /* Jungle Day */
+  background-image: linear-gradient(180deg, #1fc7ff, #2ecbff) !important;
 }
 
 /* A final color of the loading bar. Container tab */
@@ -743,8 +581,7 @@ scale {
     180deg,
     #1fc7ff 0%,
     var(--identity-tab-color) 75%
-  ) !important; /* Vivid cyan */
-  /*background-image: linear-gradient(180deg, #9ab5b5 0%, var(--identity-tab-color) 75%) !important;  /* Jungle Day */
+  ) !important;
 }
 
 #tabbrowser-tabs[orient="vertical"]
@@ -766,55 +603,7 @@ scale {
   > .tab-background
   > .tab-context-line {
   opacity: 0 !important;
-  /*background-image: linear-gradient(180deg, #1edbff 0%, rgba(255, 51, 153, 1) 50%, rgb(255, 148, 0, 1) 100%) !important;  /* Blue + Red + Orange */
-  /*background-image: linear-gradient(180deg, #1edbff, #00A651, rgb(255, 148, 0, 1)) !important;  /* Blue + Green + Orange */
-  /*background-image: linear-gradient(180deg, #1edbff, #ea00ff) !important;  /* Blue + Magenta */
-  /*background-image: linear-gradient(180deg, #00c9ff 0%, #12d8fa 50%, #00f44e 100%) !important;  /* Blue + Blue + cyan lime green */
-  /*background-image: linear-gradient(180deg, #00c9ff 0%, #79fe86 100%) !important;  /* Kale Salad */
-  /*background-image: linear-gradient(180deg, #fdbb2d 0%, #22c1c3 100%) !important;  /* Retro Wagon */
-  /*background-image: linear-gradient(180deg, #fc466b 0%, #3f5efb 100%) !important;  /* Disco Club */
-  /*background-image: linear-gradient(180deg, #fc354c, #0abfbc) !important;  /* Miaka */
-  /*background-image: linear-gradient(180deg, #FEAC5E 0%, #C779D0 50%, #4BC0C8 100%) !important;  /* Atlas */
-  /*background-image: linear-gradient(180deg, #16A085, #F4D03F) !important;  /* Harmonic Energy */
-  /*background-image: linear-gradient(180deg, #fd8112, #0085ca) !important;  /* Blue Orange */
-  /*background-image: linear-gradient(180deg, #f7941e 0%, #72c6ef 50%, #00a651 100%) !important;  /* Radioactive Heat */
-  /*background-image: linear-gradient(180deg, #108dc7, #ef8e38) !important;  /* Pun Yeta */
-  /*background-image: linear-gradient(180deg, #e4afcb, #b8cbb8, #b8cbb8, #e2c58b, #c2ce9c, #7edbdc) !important;  /* Old Hat */
-  /*background-image: linear-gradient(180deg, #4fb576, #44c489, #28a9ae, #28a2b7, #4c7788, #6c4f63, #432c39) !important;  /* Burning Spring */
-  /*background-image: linear-gradient(180deg, #40E0D0 0%, #FF8C00 50%, #FF0080 100%) !important;  /* Wedding Day Blues */
-  /*background-image: linear-gradient(180deg, #F36222 0%, #5CB644 50%, #007FC3 100%) !important;  /* Telko */
-  /*background-image: linear-gradient(180deg, #0250c5, #d43f8d) !important;  /* Night Party */
-  /*background-image: linear-gradient(180deg, #2CD8D5 0%, #C5C1FF 50%, #FFBAC3 100%) !important;  /* Sea Lord */
-  /*background-image: linear-gradient(180deg, #50cc7f, #f5d100) !important;  /* Millennium Pine */
-  /*background-image: linear-gradient(180deg, #616161, #9bc5c3) !important;  /* Mole Hall */
-  /*background-image: linear-gradient(180deg, #65bd60 0%, #5ac1a8 50%, #3ec6ed 100%) !important;  /* African Field */
-  /*background-image: linear-gradient(180deg, #2af598, #009efd) !important;  /* Itmeo Branding */
-  /*background-image: linear-gradient(180deg, #aa4b6b 0%, #6b6b83 50%, #3b8d99 100%) !important;  /* Memariani */
-  /*background-image: linear-gradient(180deg, #00F260, #0575E6) !important;  /* Rainbow Blue */
-  /*background-image: linear-gradient(180deg, #808080, #3fada8) !important;  /* IIIT Delhi */
-  /*background-image: linear-gradient(180deg, #24C6DC, #514A9D) !important;  /* Mantle */
-  /*background-image: linear-gradient(180deg, #C9FFBF, #FFAFBD) !important;  /* Virgin */
-  /*background-image: linear-gradient(180deg, #fbed96,#abecd6) !important;  /* Summer Breeze */
-  /*background-image: linear-gradient(180deg, #603813, #b29f94) !important;  /* Cool Brown */
-  /*background-image: linear-gradient(180deg, #BBD2C5, #536976) !important;  /* Petrol */
-  /*background-image: linear-gradient(180deg, #8baaaa, #ae8b9c) !important;  /* Jungle Day */
-  /*background-image: linear-gradient(180deg, #cc2b5e, #753a88) !important;  /* Purple Love */
-  /*background-image: linear-gradient(180deg, #9796f0, #fbc7d4) !important;  /* namnisar */
-  /*background-image: linear-gradient(180deg, #ff6e7f, #bfe9ff) !important;  /* Noon to Dusk */
-  /*background-image: linear-gradient(180deg, #2b5876, #4e4376) !important;  /* Sea Blue */
-  background-image: linear-gradient(
-    180deg,
-    #02aab0,
-    #00cdac
-  ) !important; /* Green Beach */
-  /*background-image: linear-gradient(180deg, #5f2c82, #49a09d) !important;  /* Calm Darya */
-  /*background-image: linear-gradient(180deg, #159957, #155799) !important;  /* Crystal Clear */
-  /*background-image: linear-gradient(180deg, #76b852, #8DC26F) !important;  /* Little Leaf */
-  /*background-color: #009deb !important;  /* Solid-color blue */
-  /*background-color: dimgray !important;  /* Solid-color dimgray */
-  /*background-color: darkolivegreen !important;  /* Solid-color darkolivegreen */
-  /*background-color: tan !important;  /* Solid-color tan */
-  /*background-color: #444444 !important;  /* Solid-color Very dark gray */
+  background-image: linear-gradient(180deg, #02aab0, #00cdac) !important;
 }
 
 (prefers-color-scheme: dark) {
@@ -824,56 +613,7 @@ scale {
     > .tab-background
     > .tab-context-line {
     opacity: 0 !important;
-    /*background-image: linear-gradient(180deg, #1ec9ff 0%, rgba(255, 51, 153, 1) 50%, rgb(255, 148, 0, 1) 100%) !important;  /* Blue + Red + Orange */
-    /*background-image: linear-gradient(180deg, #1edbff, #00A651, rgb(255, 148, 0, 1)) !important;  /* Blue + Green + Orange */
-    /*background-image: linear-gradient(180deg, #1edbff, #ea00ff) !important;  /* Blue + Magenta */
-    /*background-image: linear-gradient(180deg, #1fb4ff 0%, #12d8fa 50%, #8dffbc 100%) !important;  /* Blue + Blue + cyan lime green */
-    /*background-image: linear-gradient(180deg, #00c9ff 0%, #92fe9d 100%) !important;  /* Kale Salad */
-    /*background-image: linear-gradient(180deg, #fdbb2d 0%, #22c1c3 100%) !important;  /* Retro Wagon */
-    /*background-image: linear-gradient(180deg, #fc466b 0%, #3f5efb 100%) !important;  /* Disco Club */
-    /*background-image: linear-gradient(180deg, #fc354c, #0abfbc) !important;  /* Miaka */
-    /*background-image: linear-gradient(180deg, #FEAC5E 0%, #C779D0 50%, #4BC0C8 100%) !important;  /* Atlas */
-    /*background-image: linear-gradient(180deg, #16A085, #F4D03F) !important;  /* Harmonic Energy */
-    /*background-image: linear-gradient(180deg, #fd8112, #0085ca) !important;  /* Blue Orange */
-    /*background-image: linear-gradient(180deg, #f7941e 0%, #72c6ef 50%, #00a651 100%) !important;  /* Radioactive Heat */
-    /*background-image: linear-gradient(180deg, #ff1e56 0%, #f9c942 50%, #1e90ff 100%) !important;  /* Beleko */
-    /*background-image: linear-gradient(180deg, #108dc7, #ef8e38) !important;  /* Pun Yeta */
-    /*background-image: linear-gradient(180deg, #e4afcb, #b8cbb8, #b8cbb8, #e2c58b, #c2ce9c, #7edbdc) !important;  /* Old Hat */
-    /*background-image: linear-gradient(180deg, #4fb576, #44c489, #28a9ae, #28a2b7, #4c7788, #6c4f63, #432c39) !important;  /* Burning Spring */
-    /*background-image: linear-gradient(180deg, #40E0D0 0%, #FF8C00 50%, #FF0080 100%) !important;  /* Wedding Day Blues */
-    /*background-image: linear-gradient(180deg, #F36222 0%, #5CB644 50%, #007FC3 100%) !important;  /* Telko */
-    /*background-image: linear-gradient(180deg, #0250c5, #d43f8d) !important;  /* Night Party */
-    /*background-image: linear-gradient(180deg, #2CD8D5 0%, #C5C1FF 50%, #FFBAC3 100%) !important;  /* Sea Lord */
-    /*background-image: linear-gradient(180deg, #50cc7f, #f5d100) !important;  /* Millennium Pine */
-    /*background-image: linear-gradient(180deg, #616161, #9bc5c3) !important;  /* Mole Hall */
-    /*background-image: linear-gradient(180deg, #65bd60 0%, #5ac1a8 50%, #3ec6ed 100%) !important;  /* African Field */
-    /*background-image: linear-gradient(180deg, #2af598, #009efd) !important;  /* Itmeo Branding */
-    /*background-image: linear-gradient(180deg, #aa4b6b 0%, #6b6b83 50%, #3b8d99 100%) !important;  /* Memariani */
-    /*background-image: linear-gradient(180deg, #00F260, #0575E6) !important;  /* Rainbow Blue */
-    /*background-image: linear-gradient(180deg, #808080, #3fada8) !important;  /* IIIT Delhi */
-    /*background-image: linear-gradient(180deg, #24C6DC, #514A9D) !important;  /* Mantle */
-    /*background-image: linear-gradient(180deg, #C9FFBF, #FFAFBD) !important;  /* Virgin */
-    /*background-image: linear-gradient(180deg, #fbed96,#abecd6) !important;  /* Summer Breeze */
-    /*background-image: linear-gradient(180deg, #603813, #b29f94) !important;  /* Cool Brown */
-    /*background-image: linear-gradient(180deg, #BBD2C5, #536976) !important;  /* Petrol */
-    /*background-image: linear-gradient(180deg, #8baaaa, #ae8b9c) !important;  /* Jungle Day */
-    /*background-image: linear-gradient(180deg, #cc2b5e, #753a88) !important;  /* Purple Love */
-    /*background-image: linear-gradient(180deg, #9796f0, #fbc7d4) !important;  /* namnisar */
-    /*background-image: linear-gradient(180deg, #ff6e7f, #bfe9ff) !important;  /* Noon to Dusk */
-    /*background-image: linear-gradient(180deg, #2b5876, #4e4376) !important;  /* Sea Blue */
-    background-image: linear-gradient(
-      180deg,
-      #02aab0,
-      #00cdac
-    ) !important; /* Green Beach */
-    /*background-image: linear-gradient(180deg, #5f2c82, #49a09d) !important;  /* Calm Darya */
-    /*background-image: linear-gradient(180deg, #159957, #155799) !important;  /* Crystal Clear */
-    /*background-image: linear-gradient(180deg, #76b852, #8DC26F) !important;  /* Little Leaf */
-    /*background-color: #1ec9ff !important;  /* Solid-color blue */
-    /*background-color: dimgray !important;  /* Solid-color dimgray */
-    /*background-color: darkolivegreen !important;  /* Solid-color darkolivegreen */
-    /*background-color: tan !important;  /* Solid-color tan */
-    /*background-color: #444444 !important;  /* Solid-color Very dark gray */
+    background-image: linear-gradient(180deg, #02aab0, #00cdac) !important;
   }
 }
 
@@ -904,7 +644,6 @@ u/keyframes v-scale {
   }
 }
 
-/********************************/
 /* Set the loading icon to an hourglass */
 .tabbrowser-tab .tab-throbber {
   content: url("data:image/svg+xml;base64,PCEtLSBUaGlzIFNvdXJjZSBDb2RlIEZvcm0gaXMgc3ViamVjdCB0byB0aGUgdGVybXMgb2YgdGhlIE1vemlsbGEgUHVibGljDQogICAtIExpY2Vuc2UsIHYuIDIuMC4gSWYgYSBjb3B5IG9mIHRoZSBNUEwgd2FzIG5vdCBkaXN0cmlidXRlZCB3aXRoIHRoaXMNCiAgIC0gZmlsZSwgWW91IGNhbiBvYnRhaW4gb25lIGF0IGh0dHA6Ly9tb3ppbGxhLm9yZy9NUEwvMi4wLy4gLS0+DQo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgdmlld0JveD0iMCAwIDE2IDE2IiB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIGZpbGw9ImNvbnRleHQtZmlsbCI+DQogIDxwYXRoIGQ9Ik0xNCAyLjVIMTIuNVY2QzEyLjUgNi4xOTg5MSAxMi40MjEgNi4zODk2OCAxMi4yODAzIDYuNTMwMzNMMTAuODEwNyA4TDEyLjI4MDMgOS40Njk2N0MxMi40MjEgOS42MTAzMiAxMi41IDkuODAxMDkgMTIuNSAxMFYxMy41SDE0VjE1SDJWMTMuNUgzLjVWMTBDMy41IDkuODAxMDkgMy41NzkwMiA5LjYxMDMyIDMuNzE5NjcgOS40Njk2N0w1LjE4OTM0IDhMMy43MTk2NyA2LjUzMDMzQzMuNTc5MDIgNi4zODk2OCAzLjUgNi4xOTg5MSAzLjUgNlYyLjVIMlYxSDE0VjIuNVpNNSAxMy41SDExVjEwLjMxMDdMOS4yMTk2NyA4LjUzMDMzQzguOTI2NzggOC4yMzc0NCA4LjkyNjc4IDcuNzYyNTYgOS4yMTk2NyA3LjQ2OTY3TDExIDUuNjg5MzRWMi41SDVWNS42ODkzNEw2Ljc4MDMzIDcuNDY5NjdDNy4wNzMyMiA3Ljc2MjU2IDcuMDczMjIgOC4yMzc0NCA2Ljc4MDMzIDguNTMwMzNMNSAxMC4zMTA3VjEzLjVaIi8+DQo8L3N2Zz4=") !important;
@@ -914,11 +653,6 @@ u/keyframes v-scale {
   fill: currentcolor !important;
   opacity: 0.4 !important;
 }
-
-/* Animated tab favicon */
-/*.tabbrowser-tab .tab-icon-image {
-   animation: .03s ease-in scale !important;
-}*/
 
 /* Stop animations for pop-up menus and panels */
 #identity-popup,
@@ -960,12 +694,7 @@ panel {
   > .tab-background
   > .tab-context-line {
   opacity: 0 !important;
-  background-image: linear-gradient(
-    90deg,
-    #1fc7ff,
-    #2ecbff
-  ) !important; /* Vivid cyan */
-  /*background-image: linear-gradient(90deg, #9ab5b5, #b89aa9) !important;  /* Jungle Day */
+  background-image: linear-gradient(90deg, #1fc7ff, #2ecbff) !important;
 }
 
 /* A final color of the loading bar. Container tab */
@@ -979,8 +708,7 @@ panel {
     90deg,
     #1fc7ff 0%,
     var(--identity-tab-color) 75%
-  ) !important; /* Vivid cyan */
-  /*background-image: linear-gradient(90deg, #9ab5b5 0%, var(--identity-tab-color) 75%) !important;  /* Jungle Day */
+  ) !important;
 }
 
 #tabbrowser-tabs[orient="horizontal"]
@@ -1002,54 +730,7 @@ panel {
   > .tab-background
   > .tab-context-line {
   opacity: 0 !important;
-  /*background-image: linear-gradient(90deg, #1ec9ff 0%, rgba(255, 51, 153, 1) 50%, rgb(255, 148, 0, 1) 100%) !important;  /* Blue + Red + Orange */
-  /*background-image: linear-gradient(90deg, #1edbff, #00A651, rgb(255, 148, 0, 1)) !important;  /* Blue + Green + Orange */
-  background-image: linear-gradient(
-    90deg,
-    #1edbff,
-    #ea00ff
-  ) !important; /* Blue + Magenta */
-  /*background-image: linear-gradient(90deg, #00c9ff 0%, #12d8fa 50%, #00f44e 100%) !important;  /* Blue + Blue + cyan lime green */
-  /*background-image: linear-gradient(90deg, #00c9ff 0%, #79fe86 100%) !important;  /* Kale Salad */
-  /*background-image: linear-gradient(90deg, #fdbb2d 0%, #22c1c3 100%) !important;  /* Retro Wagon */
-  /*background-image: linear-gradient(90deg, #fc466b 0%, #3f5efb 100%) !important;  /* Disco Club */
-  /*background-image: linear-gradient(90deg, #fc354c, #0abfbc) !important;  /* Miaka */
-  /*background-image: linear-gradient(90deg, #FEAC5E 0%, #C779D0 50%, #4BC0C8 100%) !important;  /* Atlas */
-  /*background-image: linear-gradient(90deg, #16A085, #F4D03F) !important;  /* Harmonic Energy */
-  /*background-image: linear-gradient(90deg, #fd8112, #0085ca) !important;  /* Blue Orange */
-  /*background-image: linear-gradient(90deg, #f7941e 0%, #72c6ef 50%, #00a651 100%) !important;  /* Radioactive Heat */
-  /*background-image: linear-gradient(90deg, #108dc7, #ef8e38) !important;  /* Pun Yeta */
-  /*background-image: linear-gradient(90deg, #4fb576, #44c489, #28a9ae, #28a2b7, #4c7788, #6c4f63, #432c39) !important;  /* Burning Spring */
-  /*background-image: linear-gradient(90deg, #40E0D0 0%, #FF8C00 50%, #FF0080 100%) !important;  /* Wedding Day Blues */
-  /*background-image: linear-gradient(90deg, #F36222 0%, #5CB644 50%, #007FC3 100%) !important;  /* Telko */
-  /*background-image: linear-gradient(90deg, #0250c5, #d43f8d) !important;  /* Night Party */
-  /*background-image: linear-gradient(90deg, #2CD8D5 0%, #C5C1FF 50%, #FFBAC3 100%) !important;  /* Sea Lord */
-  /*background-image: linear-gradient(90deg, #50cc7f, #f5d100) !important;  /* Millennium Pine */
-  /*background-image: linear-gradient(90deg, #616161, #9bc5c3) !important;  /* Mole Hall */
-  /*background-image: linear-gradient(90deg, #65bd60 0%, #5ac1a8 50%, #3ec6ed 100%) !important;  /* African Field */
-  /*background-image: linear-gradient(90deg, #2af598, #009efd) !important;  /* Itmeo Branding */
-  /*background-image: linear-gradient(90deg, #aa4b6b 0%, #6b6b83 50%, #3b8d99 100%) !important;  /* Memariani */
-  /*background-image: linear-gradient(90deg, #00F260, #0575E6) !important;  /* Rainbow Blue */
-  /*background-image: linear-gradient(90deg, #808080, #3fada8) !important;  /* IIIT Delhi */
-  /*background-image: linear-gradient(90deg, #24C6DC, #514A9D) !important;  /* Mantle */
-  /*background-image: linear-gradient(90deg, #C9FFBF, #FFAFBD) !important;  /* Virgin */
-  /*background-image: linear-gradient(90deg, #fbed96,#abecd6) !important;  /* Summer Breeze */
-  /*background-image: linear-gradient(90deg, #603813, #b29f94) !important;  /* Cool Brown */
-  /*background-image: linear-gradient(90deg, #BBD2C5, #536976) !important;  /* Petrol */
-  /*background-image: linear-gradient(90deg, #8baaaa, #ae8b9c) !important;  /* Jungle Day */
-  /*background-image: linear-gradient(90deg, #cc2b5e, #753a88) !important;  /* Purple Love */
-  /*background-image: linear-gradient(90deg, #9796f0, #fbc7d4) !important;  /* namnisar */
-  /*background-image: linear-gradient(90deg, #ff6e7f, #bfe9ff) !important;  /* Noon to Dusk */
-  /*background-image: linear-gradient(90deg, #2b5876, #4e4376) !important;  /* Sea Blue */
-  /*background-image: linear-gradient(90deg, #02AAB0, #00CDAC) !important;  /* Green Beach */
-  /*background-image: linear-gradient(90deg, #5f2c82, #49a09d) !important;  /* Calm Darya */
-  /*background-image: linear-gradient(90deg, #159957, #155799) !important;  /* Crystal Clear */
-  /*background-image: linear-gradient(90deg, #76b852, #8DC26F) !important;  /* Little Leaf */
-  /*background-color: #009deb !important;  /* Solid-color blue */
-  /*background-color: dimgray !important;  /* Solid-color dimgray */
-  /*background-color: darkolivegreen !important;  /* Solid-color darkolivegreen */
-  /*background-color: tan !important;  /* Solid-color tan */
-  /*background-color: #444444 !important;  /* Solid-color Very dark gray */
+  background-image: linear-gradient(90deg, #1edbff, #ea00ff) !important;
 }
 
 (prefers-color-scheme: dark) {
@@ -1059,55 +740,7 @@ panel {
     > .tab-background
     > .tab-context-line {
     opacity: 0 !important;
-    /*background-image: linear-gradient(90deg, #1ec9ff 0%, rgba(255, 51, 153, 1) 50%, rgb(255, 148, 0, 1) 100%) !important;  /* Blue + Red + Orange */
-    /*background-image: linear-gradient(90deg, #1edbff, #00A651, rgb(255, 148, 0, 1)) !important;  /* Blue + Green + Orange */
-    background-image: linear-gradient(
-      90deg,
-      #1edbff,
-      #ea00ff
-    ) !important; /* Blue + Magenta */
-    /*background-image: linear-gradient(90deg, #1fb4ff 0%, #12d8fa 50%, #8dffbc 100%) !important;  /* Blue + Blue + cyan lime green */
-    /*background-image: linear-gradient(90deg, #00c9ff 0%, #92fe9d 100%) !important;  /* Kale Salad */
-    /*background-image: linear-gradient(90deg, #fdbb2d 0%, #22c1c3 100%) !important;  /* Retro Wagon */
-    /*background-image: linear-gradient(90deg, #fc466b 0%, #3f5efb 100%) !important;  /* Disco Club */
-    /*background-image: linear-gradient(90deg, #fc354c, #0abfbc) !important;  /* Miaka */
-    /*background-image: linear-gradient(90deg, #FEAC5E 0%, #C779D0 50%, #4BC0C8 100%) !important;  /* Atlas */
-    /*background-image: linear-gradient(90deg, #16A085, #F4D03F) !important;  /* Harmonic Energy */
-    /*background-image: linear-gradient(90deg, #fd8112, #0085ca) !important;  /* Blue Orange */
-    /*background-image: linear-gradient(90deg, #f7941e 0%, #72c6ef 50%, #00a651 100%) !important;  /* Radioactive Heat */
-    /*background-image: linear-gradient(90deg, #ff1e56 0%, #f9c942 50%, #1e90ff 100%) !important;  /* Beleko */
-    /*background-image: linear-gradient(90deg, #108dc7, #ef8e38) !important;  /* Pun Yeta */
-    /*background-image: linear-gradient(90deg, #4fb576, #44c489, #28a9ae, #28a2b7, #4c7788, #6c4f63, #432c39) !important;  /* Burning Spring */
-    /*background-image: linear-gradient(90deg, #40E0D0 0%, #FF8C00 50%, #FF0080 100%) !important;  /* Wedding Day Blues */
-    /*background-image: linear-gradient(90deg, #F36222 0%, #5CB644 50%, #007FC3 100%) !important;  /* Telko */
-    /*background-image: linear-gradient(90deg, #0250c5, #d43f8d) !important;  /* Night Party */
-    /*background-image: linear-gradient(90deg, #2CD8D5 0%, #C5C1FF 50%, #FFBAC3 100%) !important;  /* Sea Lord */
-    /*background-image: linear-gradient(90deg, #50cc7f, #f5d100) !important;  /* Millennium Pine */
-    /*background-image: linear-gradient(90deg, #616161, #9bc5c3) !important;  /* Mole Hall */
-    /*background-image: linear-gradient(90deg, #65bd60 0%, #5ac1a8 50%, #3ec6ed 100%) !important;  /* African Field */
-    /*background-image: linear-gradient(90deg, #2af598, #009efd) !important;  /* Itmeo Branding */
-    /*background-image: linear-gradient(90deg, #aa4b6b 0%, #6b6b83 50%, #3b8d99 100%) !important;  /* Memariani */
-    /*background-image: linear-gradient(90deg, #00F260, #0575E6) !important;  /* Rainbow Blue */
-    /*background-image: linear-gradient(90deg, #808080, #3fada8) !important;  /* IIIT Delhi */
-    /*background-image: linear-gradient(90deg, #24C6DC, #514A9D) !important;  /* Mantle */
-    /*background-image: linear-gradient(90deg, #C9FFBF, #FFAFBD) !important;  /* Virgin */
-    /*background-image: linear-gradient(90deg, #fbed96,#abecd6) !important;  /* Summer Breeze */
-    /*background-image: linear-gradient(90deg, #603813, #b29f94) !important;  /* Cool Brown */
-    /*background-image: linear-gradient(90deg, #BBD2C5, #536976) !important;  /* Petrol */
-    /*background-image: linear-gradient(90deg, #8baaaa, #ae8b9c) !important;  /* Jungle Day */
-    /*background-image: linear-gradient(90deg, #cc2b5e, #753a88) !important;  /* Purple Love */
-    /*background-image: linear-gradient(90deg, #9796f0, #fbc7d4) !important;  /* namnisar */
-    /*background-image: linear-gradient(90deg, #ff6e7f, #bfe9ff) !important;  /* Noon to Dusk */
-    /*background-image: linear-gradient(90deg, #2b5876, #4e4376) !important;  /* Sea Blue */
-    /*background-image: linear-gradient(90deg, #02AAB0, #00CDAC) !important;  /* Green Beach */
-    /*background-image: linear-gradient(90deg, #5f2c82, #49a09d) !important;  /* Calm Darya */
-    /*background-image: linear-gradient(90deg, #159957, #155799) !important;  /* Crystal Clear */
-    /*background-image: linear-gradient(90deg, #76b852, #8DC26F) !important;  /* Little Leaf */
-    /*background-color: #1ec9ff !important;  /* Solid-color blue */
-    /*background-color: dimgray !important;  /* Solid-color dimgray */
-    /*background-color: darkolivegreen !important;  /* Solid-color darkolivegreen */
-    /*background-color: tan !important;  /* Solid-color tan */
-    /*background-color: #444444 !important;  /* Solid-color Very dark gray */
+    background-image: linear-gradient(90deg, #1edbff, #ea00ff) !important;
   }
 }
 
@@ -1138,9 +771,7 @@ scale {
   }
 }
 
-/******************************************************/
 /* A loading progress bar shown on the right side of a vertical tab */
-
 /* Hide the loading burst */
 #tabbrowser-tabs[orient="vertical"] .tabbrowser-tab .tab-loading-burst {
   opacity: 0 !important;
@@ -1170,12 +801,7 @@ scale {
   > .tab-background
   > .tab-context-line {
   opacity: 0 !important;
-  background-image: linear-gradient(
-    180deg,
-    #1fc7ff,
-    #2ecbff
-  ) !important; /* Vivid cyan */
-  /*background-image: linear-gradient(180deg, #9ab5b5, #b89aa9) !important;  /* Jungle Day */
+  background-image: linear-gradient(180deg, #1fc7ff, #2ecbff) !important;
 }
 
 /* A final color of the loading bar. Container tab */
@@ -1189,8 +815,7 @@ scale {
     180deg,
     #1fc7ff 0%,
     var(--identity-tab-color) 75%
-  ) !important; /* Vivid cyan */
-  /*background-image: linear-gradient(180deg, #9ab5b5 0%, var(--identity-tab-color) 75%) !important;  /* Jungle Day */
+  ) !important;
 }
 
 #tabbrowser-tabs[orient="vertical"]
@@ -1212,55 +837,7 @@ scale {
   > .tab-background
   > .tab-context-line {
   opacity: 0 !important;
-  /*background-image: linear-gradient(180deg, #1edbff 0%, rgba(255, 51, 153, 1) 50%, rgb(255, 148, 0, 1) 100%) !important;  /* Blue + Red + Orange */
-  /*background-image: linear-gradient(180deg, #1edbff, #00A651, rgb(255, 148, 0, 1)) !important;  /* Blue + Green + Orange */
-  /*background-image: linear-gradient(180deg, #1edbff, #ea00ff) !important;  /* Blue + Magenta */
-  /*background-image: linear-gradient(180deg, #00c9ff 0%, #12d8fa 50%, #00f44e 100%) !important;  /* Blue + Blue + cyan lime green */
-  /*background-image: linear-gradient(180deg, #00c9ff 0%, #79fe86 100%) !important;  /* Kale Salad */
-  /*background-image: linear-gradient(180deg, #fdbb2d 0%, #22c1c3 100%) !important;  /* Retro Wagon */
-  /*background-image: linear-gradient(180deg, #fc466b 0%, #3f5efb 100%) !important;  /* Disco Club */
-  /*background-image: linear-gradient(180deg, #fc354c, #0abfbc) !important;  /* Miaka */
-  /*background-image: linear-gradient(180deg, #FEAC5E 0%, #C779D0 50%, #4BC0C8 100%) !important;  /* Atlas */
-  /*background-image: linear-gradient(180deg, #16A085, #F4D03F) !important;  /* Harmonic Energy */
-  /*background-image: linear-gradient(180deg, #fd8112, #0085ca) !important;  /* Blue Orange */
-  /*background-image: linear-gradient(180deg, #f7941e 0%, #72c6ef 50%, #00a651 100%) !important;  /* Radioactive Heat */
-  /*background-image: linear-gradient(180deg, #108dc7, #ef8e38) !important;  /* Pun Yeta */
-  /*background-image: linear-gradient(180deg, #e4afcb, #b8cbb8, #b8cbb8, #e2c58b, #c2ce9c, #7edbdc) !important;  /* Old Hat */
-  /*background-image: linear-gradient(180deg, #4fb576, #44c489, #28a9ae, #28a2b7, #4c7788, #6c4f63, #432c39) !important;  /* Burning Spring */
-  /*background-image: linear-gradient(180deg, #40E0D0 0%, #FF8C00 50%, #FF0080 100%) !important;  /* Wedding Day Blues */
-  /*background-image: linear-gradient(180deg, #F36222 0%, #5CB644 50%, #007FC3 100%) !important;  /* Telko */
-  /*background-image: linear-gradient(180deg, #0250c5, #d43f8d) !important;  /* Night Party */
-  /*background-image: linear-gradient(180deg, #2CD8D5 0%, #C5C1FF 50%, #FFBAC3 100%) !important;  /* Sea Lord */
-  /*background-image: linear-gradient(180deg, #50cc7f, #f5d100) !important;  /* Millennium Pine */
-  /*background-image: linear-gradient(180deg, #616161, #9bc5c3) !important;  /* Mole Hall */
-  /*background-image: linear-gradient(180deg, #65bd60 0%, #5ac1a8 50%, #3ec6ed 100%) !important;  /* African Field */
-  /*background-image: linear-gradient(180deg, #2af598, #009efd) !important;  /* Itmeo Branding */
-  /*background-image: linear-gradient(180deg, #aa4b6b 0%, #6b6b83 50%, #3b8d99 100%) !important;  /* Memariani */
-  /*background-image: linear-gradient(180deg, #00F260, #0575E6) !important;  /* Rainbow Blue */
-  /*background-image: linear-gradient(180deg, #808080, #3fada8) !important;  /* IIIT Delhi */
-  /*background-image: linear-gradient(180deg, #24C6DC, #514A9D) !important;  /* Mantle */
-  /*background-image: linear-gradient(180deg, #C9FFBF, #FFAFBD) !important;  /* Virgin */
-  /*background-image: linear-gradient(180deg, #fbed96,#abecd6) !important;  /* Summer Breeze */
-  /*background-image: linear-gradient(180deg, #603813, #b29f94) !important;  /* Cool Brown */
-  /*background-image: linear-gradient(180deg, #BBD2C5, #536976) !important;  /* Petrol */
-  /*background-image: linear-gradient(180deg, #8baaaa, #ae8b9c) !important;  /* Jungle Day */
-  /*background-image: linear-gradient(180deg, #cc2b5e, #753a88) !important;  /* Purple Love */
-  /*background-image: linear-gradient(180deg, #9796f0, #fbc7d4) !important;  /* namnisar */
-  /*background-image: linear-gradient(180deg, #ff6e7f, #bfe9ff) !important;  /* Noon to Dusk */
-  /*background-image: linear-gradient(180deg, #2b5876, #4e4376) !important;  /* Sea Blue */
-  background-image: linear-gradient(
-    180deg,
-    #02aab0,
-    #00cdac
-  ) !important; /* Green Beach */
-  /*background-image: linear-gradient(180deg, #5f2c82, #49a09d) !important;  /* Calm Darya */
-  /*background-image: linear-gradient(180deg, #159957, #155799) !important;  /* Crystal Clear */
-  /*background-image: linear-gradient(180deg, #76b852, #8DC26F) !important;  /* Little Leaf */
-  /*background-color: #009deb !important;  /* Solid-color blue */
-  /*background-color: dimgray !important;  /* Solid-color dimgray */
-  /*background-color: darkolivegreen !important;  /* Solid-color darkolivegreen */
-  /*background-color: tan !important;  /* Solid-color tan */
-  /*background-color: #444444 !important;  /* Solid-color Very dark gray */
+  background-image: linear-gradient(180deg, #02aab0, #00cdac) !important;
 }
 
 (prefers-color-scheme: dark) {
@@ -1270,56 +847,7 @@ scale {
     > .tab-background
     > .tab-context-line {
     opacity: 0 !important;
-    /*background-image: linear-gradient(180deg, #1ec9ff 0%, rgba(255, 51, 153, 1) 50%, rgb(255, 148, 0, 1) 100%) !important;  /* Blue + Red + Orange */
-    /*background-image: linear-gradient(180deg, #1edbff, #00A651, rgb(255, 148, 0, 1)) !important;  /* Blue + Green + Orange */
-    /*background-image: linear-gradient(180deg, #1edbff, #ea00ff) !important;  /* Blue + Magenta */
-    /*background-image: linear-gradient(180deg, #1fb4ff 0%, #12d8fa 50%, #8dffbc 100%) !important;  /* Blue + Blue + cyan lime green */
-    /*background-image: linear-gradient(180deg, #00c9ff 0%, #92fe9d 100%) !important;  /* Kale Salad */
-    /*background-image: linear-gradient(180deg, #fdbb2d 0%, #22c1c3 100%) !important;  /* Retro Wagon */
-    /*background-image: linear-gradient(180deg, #fc466b 0%, #3f5efb 100%) !important;  /* Disco Club */
-    /*background-image: linear-gradient(180deg, #fc354c, #0abfbc) !important;  /* Miaka */
-    /*background-image: linear-gradient(180deg, #FEAC5E 0%, #C779D0 50%, #4BC0C8 100%) !important;  /* Atlas */
-    /*background-image: linear-gradient(180deg, #16A085, #F4D03F) !important;  /* Harmonic Energy */
-    /*background-image: linear-gradient(180deg, #fd8112, #0085ca) !important;  /* Blue Orange */
-    /*background-image: linear-gradient(180deg, #f7941e 0%, #72c6ef 50%, #00a651 100%) !important;  /* Radioactive Heat */
-    /*background-image: linear-gradient(180deg, #ff1e56 0%, #f9c942 50%, #1e90ff 100%) !important;  /* Beleko */
-    /*background-image: linear-gradient(180deg, #108dc7, #ef8e38) !important;  /* Pun Yeta */
-    /*background-image: linear-gradient(180deg, #e4afcb, #b8cbb8, #b8cbb8, #e2c58b, #c2ce9c, #7edbdc) !important;  /* Old Hat */
-    /*background-image: linear-gradient(180deg, #4fb576, #44c489, #28a9ae, #28a2b7, #4c7788, #6c4f63, #432c39) !important;  /* Burning Spring */
-    /*background-image: linear-gradient(180deg, #40E0D0 0%, #FF8C00 50%, #FF0080 100%) !important;  /* Wedding Day Blues */
-    /*background-image: linear-gradient(180deg, #F36222 0%, #5CB644 50%, #007FC3 100%) !important;  /* Telko */
-    /*background-image: linear-gradient(180deg, #0250c5, #d43f8d) !important;  /* Night Party */
-    /*background-image: linear-gradient(180deg, #2CD8D5 0%, #C5C1FF 50%, #FFBAC3 100%) !important;  /* Sea Lord */
-    /*background-image: linear-gradient(180deg, #50cc7f, #f5d100) !important;  /* Millennium Pine */
-    /*background-image: linear-gradient(180deg, #616161, #9bc5c3) !important;  /* Mole Hall */
-    /*background-image: linear-gradient(180deg, #65bd60 0%, #5ac1a8 50%, #3ec6ed 100%) !important;  /* African Field */
-    /*background-image: linear-gradient(180deg, #2af598, #009efd) !important;  /* Itmeo Branding */
-    /*background-image: linear-gradient(180deg, #aa4b6b 0%, #6b6b83 50%, #3b8d99 100%) !important;  /* Memariani */
-    /*background-image: linear-gradient(180deg, #00F260, #0575E6) !important;  /* Rainbow Blue */
-    /*background-image: linear-gradient(180deg, #808080, #3fada8) !important;  /* IIIT Delhi */
-    /*background-image: linear-gradient(180deg, #24C6DC, #514A9D) !important;  /* Mantle */
-    /*background-image: linear-gradient(180deg, #C9FFBF, #FFAFBD) !important;  /* Virgin */
-    /*background-image: linear-gradient(180deg, #fbed96,#abecd6) !important;  /* Summer Breeze */
-    /*background-image: linear-gradient(180deg, #603813, #b29f94) !important;  /* Cool Brown */
-    /*background-image: linear-gradient(180deg, #BBD2C5, #536976) !important;  /* Petrol */
-    /*background-image: linear-gradient(180deg, #8baaaa, #ae8b9c) !important;  /* Jungle Day */
-    /*background-image: linear-gradient(180deg, #cc2b5e, #753a88) !important;  /* Purple Love */
-    /*background-image: linear-gradient(180deg, #9796f0, #fbc7d4) !important;  /* namnisar */
-    /*background-image: linear-gradient(180deg, #ff6e7f, #bfe9ff) !important;  /* Noon to Dusk */
-    /*background-image: linear-gradient(180deg, #2b5876, #4e4376) !important;  /* Sea Blue */
-    background-image: linear-gradient(
-      180deg,
-      #02aab0,
-      #00cdac
-    ) !important; /* Green Beach */
-    /*background-image: linear-gradient(180deg, #5f2c82, #49a09d) !important;  /* Calm Darya */
-    /*background-image: linear-gradient(180deg, #159957, #155799) !important;  /* Crystal Clear */
-    /*background-image: linear-gradient(180deg, #76b852, #8DC26F) !important;  /* Little Leaf */
-    /*background-color: #1ec9ff !important;  /* Solid-color blue */
-    /*background-color: dimgray !important;  /* Solid-color dimgray */
-    /*background-color: darkolivegreen !important;  /* Solid-color darkolivegreen */
-    /*background-color: tan !important;  /* Solid-color tan */
-    /*background-color: #444444 !important;  /* Solid-color Very dark gray */
+    background-image: linear-gradient(180deg, #02aab0, #00cdac) !important;
   }
 }
 
@@ -1350,7 +878,6 @@ u/keyframes v-scale {
   }
 }
 
-/********************************/
 /* Set the loading icon to an hourglass */
 .tabbrowser-tab .tab-throbber {
   content: url("data:image/svg+xml;base64,PCEtLSBUaGlzIFNvdXJjZSBDb2RlIEZvcm0gaXMgc3ViamVjdCB0byB0aGUgdGVybXMgb2YgdGhlIE1vemlsbGEgUHVibGljDQogICAtIExpY2Vuc2UsIHYuIDIuMC4gSWYgYSBjb3B5IG9mIHRoZSBNUEwgd2FzIG5vdCBkaXN0cmlidXRlZCB3aXRoIHRoaXMNCiAgIC0gZmlsZSwgWW91IGNhbiBvYnRhaW4gb25lIGF0IGh0dHA6Ly9tb3ppbGxhLm9yZy9NUEwvMi4wLy4gLS0+DQo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgdmlld0JveD0iMCAwIDE2IDE2IiB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIGZpbGw9ImNvbnRleHQtZmlsbCI+DQogIDxwYXRoIGQ9Ik0xNCAyLjVIMTIuNVY2QzEyLjUgNi4xOTg5MSAxMi40MjEgNi4zODk2OCAxMi4yODAzIDYuNTMwMzNMMTAuODEwNyA4TDEyLjI4MDMgOS40Njk2N0MxMi40MjEgOS42MTAzMiAxMi41IDkuODAxMDkgMTIuNSAxMFYxMy41SDE0VjE1SDJWMTMuNUgzLjVWMTBDMy41IDkuODAxMDkgMy41NzkwMiA5LjYxMDMyIDMuNzE5NjcgOS40Njk2N0w1LjE4OTM0IDhMMy43MTk2NyA2LjUzMDMzQzMuNTc5MDIgNi4zODk2OCAzLjUgNi4xOTg5MSAzLjUgNlYyLjVIMlYxSDE0VjIuNVpNNSAxMy41SDExVjEwLjMxMDdMOS4yMTk2NyA4LjUzMDMzQzguOTI2NzggOC4yMzc0NCA4LjkyNjc4IDcuNzYyNTYgOS4yMTk2NyA3LjQ2OTY3TDExIDUuNjg5MzRWMi41SDVWNS42ODkzNEw2Ljc4MDMzIDcuNDY5NjdDNy4wNzMyMiA3Ljc2MjU2IDcuMDczMjIgOC4yMzc0NCA2Ljc4MDMzIDguNTMwMzNMNSAxMC4zMTA3VjEzLjVaIi8+DQo8L3N2Zz4=") !important;
