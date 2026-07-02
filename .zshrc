@@ -504,17 +504,6 @@ source /home/daxis/.config/broot/launcher/bash/br
 # Television integration
 eval "$(tv init zsh)"
 
-# FZF-navigator
-source ~/.config/fzf-navigator.sh >> ~/.${SHELL##*/}rc
-export FZF_NAVIGATOR_HIDE_HELP=1
-export FZF_NAVIGATOR_SHOW_HIDDEN=1
-export FZF_NAVIGATOR_BINDINGS="
-  ctrl-h:toggle_hidden_files, \
-  ctrl-d:toggle_file_details, \
-  alt-b:go_back, alt-f:go_forward, \
-  ~:go_home, \
-  alt-p:go_to_parent"
-
 # Display Pokemon-colorscripts
 # Project page: https://gitlab.com/phoneybadger/pokemon-colorscripts#on-other-distros-and-macos
 #pokemon-colorscripts --no-title -s -r
