@@ -279,6 +279,7 @@ plugins=(
     auto-notify
     colored-man-pages
     fancy-ctrl-z
+    fzf-tab
     # git
     safe-paste
     # shellfirm
@@ -398,14 +399,14 @@ export FZF_DEFAULT_OPTS=" \
   --color=fg:#c0caf5 \
   --color=gutter:#16161e \
   --color=header:#ff9e64 \
-  --color=hl+:#2ac3de \
-  --color=hl:#2ac3de \
+  --color=hl+:#ff899d \
+  --color=hl:#9fe044 \
   --color=info:#545c7e \
   --color=marker:#ff007c \
   --color=pointer:#ff007c \
   --color=prompt:#2ac3de \
   --color=query:#c0caf5:regular \
-  --color=scrollbar:#1a1b26 \
+  --color=scrollbar:#000000 \
   --color=separator:#ff9e64 \
   --color=spinner:#ff007c \
 "
@@ -425,6 +426,15 @@ export FZF_CTRL_R_OPTS="
   --bind 'ctrl-y:execute-silent(echo -n {2..} | pbcopy)+abort'
   --color header:italic
   --header 'Press CTRL-Y to copy command into clipboard'"
+
+# Fzf-Tab configuration
+zstyle ':completion:*:git-checkout:*' sort false
+zstyle ':completion:*:descriptions' format '[%d]'
+zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
+zstyle ':completion:*' menu no
+zstyle ':fzf-tab:complete:cd:*' fzf-preview 'eza -1 --color=always $realpath'
+zstyle ':fzf-tab:*' use-fzf-default-opts yes
+zstyle ':fzf-tab:*' switch-group '<' '>'
 
 # Zellij integration
 # eval "$(zellij setup --generate-auto-start zsh)"
