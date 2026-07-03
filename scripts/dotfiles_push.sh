@@ -135,7 +135,7 @@ else
       USED_FALLBACK_MODEL=1
 
       if can_notify; then
-        notify-send -u normal -i github "Dotfiles" "Gemini-3-flash failed: $PRIMARY_ERROR_MSG. Retrying with gemini-2.5-flash."
+        notify-send -u normal -i github "Dotfiles" "Gemini-3.5-flash failed: $PRIMARY_ERROR_MSG. Retrying with gemini-2.5-flash."
       fi
 
       run_gemini_request "$FALLBACK_GEMINI_MODEL"
