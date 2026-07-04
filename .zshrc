@@ -279,7 +279,7 @@ plugins=(
     auto-notify
     colored-man-pages
     fancy-ctrl-z
-    fzf-tab
+    # fzf-tab
     # git
     safe-paste
     # shellfirm
@@ -287,7 +287,7 @@ plugins=(
     vi-mode
     you-should-use
     zoxide
-    zsh-ai
+    # zsh-ai
     zsh-autopair
     zsh-autosuggestions
     # zsh-expand
