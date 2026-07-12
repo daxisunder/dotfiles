@@ -140,7 +140,7 @@ return {
             ERROR = " ",
             WARN = " ",
             INFO = " ",
-            HINT = " ",
+            HINT = " ",
           },
           severity = {
             min = vim.diagnostic.severity.HINT,
