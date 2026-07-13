@@ -162,7 +162,6 @@ gui:
   switchToFilesAfterStashApply: true
   # If true, when using the panel jump keys (default 1 through 5) and target panel is already active, go to next tab instead
   switchTabsWithPanelJumpKeys: false
-
 # Config relating to git
 git:
   # See https://github.com/jesseduffield/lazygit/blob/master/docs/Custom_Pagers.md
@@ -173,11 +172,11 @@ git:
       # diff-so-fancy
       # delta --dark --paging=never
       # ydiff -p cat -s --wrap --width={{columnWidth}}
-      pager: ydiff -p cat -s --wrap --width={{columnWidth}}
+      pager: diff-so-fancy
       # If true, Lazygit will use whatever pager is specified in `$GIT_PAGER`, `$PAGER`, or your *git config*. If the pager ends with something like ` | less` we will strip that part out, because less doesn't play nice with our rendering approach. If the custom pager uses less under the hood, that will also break rendering (hence the `--paging=never` flag for the `delta` pager).
       useConfig: false
       # e.g. 'difft --color=always'
-      externalDiffCommand: "difft --color=always"
+      # externalDiffCommand: "difft --color=always"
   # Config relating to committing
   commit:
     # If true, pass '--signoff' flag when committing
@@ -248,14 +247,12 @@ git:
   truncateCopiedCommitHashesTo: 12
   allBranchesLogCmds:
     - git log --graph --all --color=always --abbrev-commit --decorate --date=relative  --pretty=medium
-
 # Periodic update checks
 update:
   # One of: 'prompt' (default) | 'background' | 'never'
   method: prompt
   # Period in days between update checks
   days: 14
-
 # Background refreshes
 refresher:
   # File/submodule refresh interval in seconds.
@@ -264,13 +261,10 @@ refresher:
   # Re-fetch interval in seconds.
   # Auto-fetch can be disabled via option 'git.autoFetch'.
   fetchInterval: 60
-
 # If true, show a confirmation popup before quitting Lazygit
 confirmOnQuit: false
-
 # If true, exit Lazygit when the user presses escape in a context where there is nothing to cancel/close
 quitOnTopLevelReturn: false
-
 # Config relating to things outside of Lazygit like how files are opened, copying to clipboard, etc
 os:
   # Command for editing a file. Should contain "{{filename}}".
@@ -311,20 +305,16 @@ os:
   # ReadFromClipboardCmd is the command for reading the clipboard.
   # See https://github.com/jesseduffield/lazygit/blob/master/docs/Config.md#custom-command-for-copying-to-and-pasting-from-clipboard
   readFromClipboardCmd: ""
-
 # If true, don't display introductory popups upon opening Lazygit.
 disableStartupPopups: false
-
 # What to do when opening Lazygit outside of a git repo.
 # - 'prompt': (default) ask whether to initialize a new repo or open in the most recent repo
 # - 'create': initialize a new repo
 # - 'skip': open most recent repo
 # - 'quit': exit Lazygit
 notARepository: prompt
-
 # If true, display a confirmation when subprocess terminates. This allows you to view the output of the subprocess before returning to Lazygit.
 promptToReturnFromSubprocess: true
-
 # Keybindings
 keybinding:
   universal:
@@ -404,6 +394,7 @@ keybinding:
     increaseRenameSimilarityThreshold: )
     decreaseRenameSimilarityThreshold: (
     openDiffTool: <c-t>
+    newWorktree: w
   status:
     checkForUpdate: u
     recentRepos: <enter>
@@ -442,8 +433,6 @@ keybinding:
     setUpstream: u
     fetchRemote: f
     sortOrder: s
-  worktrees:
-    viewWorktreeOptions: w
   commits:
     squashDown: s
     renameCommit: r

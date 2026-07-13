@@ -3,9 +3,9 @@
 
 # If you come from bash you might have to change your $PATH.
 export PATH="$HOME/bin:$PATH"
-export PATH="$HOME/.local/bin/:$PATH"
-export PATH="/usr/local/bin:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
 export PATH="/usr/bin:$PATH"
+export PATH="/usr/local/bin:$PATH"
 
 # XDG Base Directory specification
 export XDG_CONFIG_HOME="$HOME/.config"
@@ -20,8 +20,8 @@ export PATH="$HOME/.cargo/bin:$PATH"
 export PATH="$HOME/.local/share/gem/ruby/3.3.0/bin:$PATH"
 
 # Go path
-export GOPATH=$HOME/go
-export PATH=$PATH:$GOPATH/bin
+export GOPATH="$HOME/go"
+export PATH="$GOPATH/bin:$PATH"
 
 # Emacs path
 export PATH="$HOME/.config/emacs/bin:$PATH"
@@ -36,11 +36,8 @@ export PATH="$HOME/.gitarbor/bin:$PATH"
 export PATH="$HOME/Applications/openhuman_e76783d639bc72fe9d7d8ac279780b7f:$PATH"
 
 # Opencode path
-export PATH=/home/daxis/.opencode/bin:$PATH
-. "$HOME/.local/share/../bin/env"
-
-# Google depot_tools path
-export PATH="$HOME/depot_tools:$PATH"
+export PATH="$HOME/.opencode/bin:$PATH"
+. "$HOME/.local/bin/env"
 
 # Source api keys (has to be sourced before zsh-ai gemini provider)
 source $HOME/projects/dotfiles/api.env
