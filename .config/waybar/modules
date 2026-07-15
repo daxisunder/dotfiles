@@ -504,7 +504,7 @@
   "format": "{}",
   "return-type": "json",
   "exec-if": "which swaync-client",
-  "exec": "/home/daxis/.config/waybar/swaync-waybar.sh",
+  "exec": "/home/daxis/.config/waybar/scripts/swaync/swaync-waybar.sh",
   "on-click": "sleep 0.1 && swaync-client -t -sw",
   "on-click-right": "swaync-client -d -sw",
   "tooltip": true,
@@ -520,12 +520,27 @@
   "tooltip-format": "Left Click: Update System\nYay or Paru must be installed!"
 },
 "custom/weather": {
-  "format": "{}°C",
-  "tooltip": true,
-  "interval": 60,
-  "exec": "wttrbar --location banjaluka",
-  "return-type": "json"
+    "exec": "/usr/bin/waybar-weather",
+    "restart-interval": 60,
+    "return-type": "json",
+    "hide-empty-text": true,
+    "on-click": "pkill -USR1 waybar-weather"
 },
+// "custom/weather": {
+//   "format": "{}°C",
+//   "tooltip": true,
+//   "interval": 60,
+//   "exec": "wttrbar --location banjaluka",
+//   "return-type": "json"
+// },
+// "custom/weather": {
+//     "format": "{}",
+//     "tooltip": true,
+//     "return-type": "json",
+//     "exec": "/home/daxis/.config/waybar/scripts/weather/get_weather.rb",
+//     "on-click": "/home/daxis/.config/waybar/scripts/weather/get_weather.rb --next", // Cycle views
+//     "interval": 900 // Every 15 minutes
+// },
 "custom/github": {
   "format": "",
   "tooltip": true,
