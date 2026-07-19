@@ -274,7 +274,6 @@ function ex {
 # Check plugin commands here: https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/<plugin-name>
 plugins=(
     auto-notify
-    colored-man-pages
     fancy-ctrl-z
     # fzf-tab
     # git
@@ -375,11 +374,6 @@ alias rww='rm /tmp/wttrbar-*.json && wttrbar --location banjaluka >/dev/null 2>&
 # Colorize --help output with bat
 help() {
     "$@" --help 2>&1 | bat -plhelp
-}
-
-# Colorize manpages with bat (pager = less)
-mann() {
-  man $1 | col -bx | bat -plman
 }
 
 # FZF integration + key bindings (CTRL R for fuzzy history finder)
