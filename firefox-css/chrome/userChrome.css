@@ -83,25 +83,6 @@ label[anonid="entire-word-status"] {
   display: none !important;
 }
 
-/* Change input-field accent color */
-:root,
-panel,
-dialog,
-window {
-  --lwt-toolbarbutton-icon-fill-attention: #bb9af7 !important;
-  --button-primary-bgcolor: #bb9af7 !important;
-  --button-primary-hover-bgcolor: #bb9af7 !important;
-  --button-primary-active-bgcolor: #bb9af7 !important;
-  --in-content-primary-button-background: #bb9af7 !important;
-  --in-content-primary-button-background-hover: #bb9af7 !important;
-  --in-content-primary-button-background-active: #bb9af7 !important;
-  --input-border-color: #bb9af7 !important;
-  --uc-checkbox-checked-bgcolor: #bb9af7 !important;
-  --checkbox-checked-bgcolor: #bb9af7 !important;
-  --focus-outline-color: #bb9af7 !important;
-  --in-content-link-color: #bb9af7 !important;
-}
-
 /* Set the Trust Icon/Unified Shield colors (connection security)
 /* Green ✔ */
 .urlbar-input-container[pageproxystate="valid"]:has(

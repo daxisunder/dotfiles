@@ -11,12 +11,3 @@
   background: #292e42 !important;
   color: #a4daff !important;
 }
-
-/* Change input-field accent color */
-@-moz-document regexp("chrome:\/\/(?!devtools).*"), regexp("about:(?!blank).*"), url("about:blank") {
-  * {
-    --color-accent-primary: #bb9af7 !important;
-    --color-accent-primary-hover: #bb9af7 !important;
-    --color-accent-primary-active: #bb9af7 !important;
-  }
-}
