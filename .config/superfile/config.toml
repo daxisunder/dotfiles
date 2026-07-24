@@ -74,7 +74,7 @@ file_preview_width = 0
 enable_file_preview_border = true
 #
 # Whether to use the builtin syntax highlighting with chroma or use bat. Values: "" for builtin chroma, "bat" for bat
-code_previewer = 'bat'
+code_previewer = ''
 #
 # The length of the sidebar(excluding borders). If you don't find to display the sidebar, you can input 0 directly. If you want to display the value, please place it in the range of 5-20.
 sidebar_width = 20

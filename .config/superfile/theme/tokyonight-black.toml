@@ -1,67 +1,62 @@
-# Tokyonight
-# Theme create by: https://github.com/pearcidar
-# Update by(sort by time):
-#
-# Thanks for all contributor!!
-
-# If you want to make border display just set it same as sidebar background color
+# Tokyonight-Black
+# Theme create by: https://github.com/daxisunder
 
 # Code syntax highlight theme (you can go to https://github.com/alecthomas/chroma/blob/master/styles to find one you like)
-code_syntax_highlight = "tokyonight-black"
+code_syntax_highlight = "catppuccin-mocha"
 
-# ========= Border =========
-file_panel_border = "#1a1b26"
-sidebar_border = "#1a1b26"
-footer_border = "#1a1b26"
-
-# ========= Border Active =========
-file_panel_border_active = "#c7a9ff"
-sidebar_border_active = "#f7768e"
-footer_border_active = "#73daca"
-modal_border_active = "#73daca"
-
-# ========= Background (bg) =========
+# ========= Background (bg) ========= #
 full_screen_bg = "#000000"
 file_panel_bg = "#000000"
 sidebar_bg = "#000000"
 footer_bg = "#000000"
 modal_bg = "#000000"
 
-# ========= Foreground (fg) =========
+# ========= Foreground (fg) ========= #
 full_screen_fg = "#c0caf5"
 file_panel_fg = "#c0caf5"
 sidebar_fg = "#c0caf5"
 footer_fg = "#c0caf5"
 modal_fg = "#c0caf5"
 
-# ========= Special Color =========
+# ========= Border ========= #
+file_panel_border = "#1a1b26"
+sidebar_border = "#1a1b26"
+footer_border = "#1a1b26"
+
+# ========= Border Active ========= #
+file_panel_border_active = "#c7a9ff"
+sidebar_border_active = "#f7768e"
+footer_border_active = "#73daca"
+modal_border_active = "#73daca"
+
+# ========= Special Color ========= #
 cursor = "#ff9e64"
 correct = "#9ece6a"
 error = "#f7768e"
 hint = "#7dcfff"
 cancel = "#ff9e64"
-# Gradient color can only have two color!
+
+# ========= Gradient Color ========= #
 gradient_color = ["#7aa2f7", "#bb9af7"]
 
-# ========= File Panel Special Items =========
+# ========= File Panel Special Items ========= #
 file_panel_top_directory_icon = "#73daca"
 file_panel_top_path = "#7aa2f7"
 file_panel_item_selected_fg = "#2ac3de"
 file_panel_item_selected_bg = "#1a1b26"
 
-# ========= Sidebar Special Items =========
+# ========= Sidebar Special Items ========= #
 sidebar_title = "#73daca"
 sidebar_item_selected_fg = "#7dcfff"
 sidebar_item_selected_bg = "#1a1b26"
 sidebar_divider = "#565f89"
 
-# ========= Modal Special Items =========
+# ========= Modal Special Items ========= #
 modal_cancel_fg = "#24283b"
 modal_cancel_bg = "#e0af68"
-
 modal_confirm_fg = "#24283b"
 modal_confirm_bg = "#9ece6a"
 
-# ========= Help Menu =========
+# ========= Help Menu ========= #
 help_menu_hotkey = "#7dcfff"
 help_menu_title = "#73daca"
