@@ -38,8 +38,6 @@ return {
         }
       end,
       on_highlights = function(hl, c)
-        c.bg = "#000000"
-        c.bg_dark1 = "#1a1b26"
         hl.BlinkCmpDocBorder = {
           bg = c.bg,
           fg = c.bg_dark1,
@@ -63,6 +61,10 @@ return {
         }
         hl.CursorLine = {
           bg = c.bg_dark1,
+        }
+        hl.FlashLabel = {
+          bg = c.green,
+          fg = c.bg,
         }
         hl.FloatBorder = {
           bg = c.bg,
