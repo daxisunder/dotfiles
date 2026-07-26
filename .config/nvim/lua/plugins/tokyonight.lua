@@ -13,7 +13,7 @@ return {
         c.bg_float = "#000000"
         c.bg_popup = "#000000"
         c.bg_sidebar = "#000000"
-        c.bg_statusline = "#1a1b26"
+        c.bg_statusline = "#000000"
         c.bg_visual = "#1a1b26"
         c.black = "#000000"
         c.border = "#1a1b26"
