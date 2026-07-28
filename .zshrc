@@ -144,7 +144,7 @@ typeset -A ZSH_HIGHLIGHT_STYLES
 ZSH_HIGHLIGHT_STYLES[comment]="fg=#565f89"
 
 # Set auto-suggestions color (default fg=8 is too dark with kitty color8=#1a1b26)
-ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=#565f89'
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#565f89"
 
 # Load completion engine
 autoload -Uz compinit
@@ -285,7 +285,7 @@ plugins=(
     zoxide
     # zsh-ai
     zsh-autopair
-    zsh-autosuggestions
+    # zsh-autosuggestions
     # zsh-expand
     zsh-syntax-highlighting
     zsh-system-clipboard
@@ -511,6 +511,9 @@ eval "$(tv init zsh)"
 
 # Display colorscripts
 #colorscript -r
+
+# Iris Autocomplete
+eval "$(iris init zsh)"
 
 # Auto-start "zombie-zfetch"
 source $HOME/.config/zfetch/zfetchrc
