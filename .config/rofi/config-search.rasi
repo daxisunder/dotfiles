@@ -1,6 +1,6 @@
 /* Rofi Config for Google Search) */
 
-@import "~/.config/rofi/config.rasi" 
+@import "~/.config/rofi/config.rasi"
 
 /* ---- Window ---- */
 window {
@@ -20,8 +20,8 @@ mainbox {
     children: [ "entry"];
 }
 
-/* ---- Entry ---- */ 
+/* ---- Entry ---- */
 entry {
-	placeholder: "🔎 Google Search";
+	placeholder: " 🔎 Google Search";
 }
 
