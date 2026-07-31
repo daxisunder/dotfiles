@@ -1,0 +1,12 @@
+- name: IRIS
+  status: inactive
+  added: "2026-07-31"
+  github: github.com/versenilvis/IRIS
+- name: portview
+  status: inactive
+  added: "2026-07-31"
+  github: github.com/Mapika/portview
+- name: keepkit
+  status: inactive
+  added: "2026-07-31"
+  github: github.com/stanlyzoolo/keepkit

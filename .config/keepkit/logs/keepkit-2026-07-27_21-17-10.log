@@ -1,0 +1,2 @@
+keepkit v0.1.0 linux/amd64 tools=0 token=none
+2026-07-27T21:17:10.609+02:00 ERROR version.InstalledVersion: go: go --version: exit status 2; go -V: exit status 2

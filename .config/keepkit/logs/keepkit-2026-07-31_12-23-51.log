@@ -1,0 +1,4 @@
+keepkit v0.2.0 linux/amd64 tools=1 token=none
+2026-07-31T12:23:51.834+02:00 ERROR version.InstalledVersion: iris: iris --version: exit status 1; iris -V: exit status 1
+2026-07-31T12:24:21.686+02:00 ERROR version.InstalledVersion: iris: iris --version: exit status 1; iris -V: exit status 1
+2026-07-31T12:24:27.330+02:00 ERROR version.InstalledVersion: iris: iris --version: exit status 1; iris -V: exit status 1
