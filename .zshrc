@@ -285,7 +285,7 @@ plugins=(
     zoxide
     # zsh-ai
     zsh-autopair
-    # zsh-autosuggestions
+    zsh-autosuggestions
     # zsh-expand
     zsh-syntax-highlighting
     zsh-system-clipboard
@@ -513,7 +513,7 @@ eval "$(tv init zsh)"
 #colorscript -r
 
 # Iris Autocomplete
-eval "$(iris init zsh)"
+# eval "$(iris init zsh)"
 
 # Auto-start "zombie-zfetch"
 source $HOME/.config/zfetch/zfetchrc

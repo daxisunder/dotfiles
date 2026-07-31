@@ -1,0 +1,72 @@
+# ~/.config/iris/config.toml
+# iris configuration file
+
+[core]
+# schema version
+# do not edit this field manually
+version = 1
+
+# override shell: "bash", "zsh", "fish", keep empty for auto detection
+shell = ""
+
+# run the selected shell as a login shell
+shell-login = false
+
+# startup mode: "last", "spec", "history"
+# "last" = remember last mode used
+mode = "last"
+
+# enable debug logging
+debug = false
+
+# automatically expand aliases on space
+expand-alias = true
+
+# automatically execute command after accepting suggestion
+auto-execute = false
+
+[ui]
+# visual style: "modern" (icons, category pills, shortcut footer) or "classic" (minimalist, centered number, no icons)
+style = "modern"
+
+# enable Nerd Fonts icons in overlay menu
+nerd-fonts = true
+
+# show hidden files with dot prefix
+hidden-files = false
+
+# enable inline ghost text
+ghost-text = true
+
+# maximum suggestions to display
+max-suggestions = 100
+
+# maximum height of the overlay
+max-height = 15
+
+# maximum width of the overlay (0 = responsive to terminal)
+max-width = 0
+
+[git]
+# hide current branch in checkout/switch list
+filter-active-branch = true
+
+# merge remote and local branches with same name
+deduplicate-branches = true
+
+[updater]
+# check for updates on startup
+check-on-startup = true
+
+# update channel: "stable", "nightly"
+channel = "stable"
+
+# interval between update checks, e.g. "24h", "6h", "30m"
+check-interval = "24h"
+
+[keybindings]
+toggle-mode = "ctrl+m"
+toggle-menu = "shift+tab"
+select = "tab"
+navigate-up = "up"
+navigate-down = "down"
