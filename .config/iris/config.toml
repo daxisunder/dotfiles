@@ -1,16 +1,16 @@
 [core]
 version = 1
-shell = "zsh"        # "zsh", "bash", "fish", or empty for auto-detection
-shell-login = false  # run the selected shell as a login shell; can also be enabled with iris --shell-login
-mode = "last"        # "last", "spec", or "history"
+shell = "zsh"
+shell-login = false
+mode = "last"
 debug = false
 expand-alias = true
 auto-execute = false
 
 [ui]
-style = "modern"      # "modern" or "classic"
+style = "modern"
 ghost-text = true
-hidden-files = false
+hidden-files = true
 max-suggestions = 100
 max-height = 25
 max-width = 0
@@ -29,18 +29,17 @@ deduplicate-branches = true
 
 [updater]
 check-on-startup = true
-channel = "stable"      # "stable" or "nightly"
+channel = "stable"
 check-interval = "24h"
 
 [ai]
-enabled = true
-provider = "groq" # "groq" or "ollama"
+enabled = false
+provider = "groq"
 debounce_ms = 400
 
-# please use free subscription, that is enough for your daily usage
 [ai.providers.groq]
 endpoint = "https://api.groq.com/openai/v1/chat/completions"
-api_key_env = "GROQ_API_KEY"                                 # or set api_key directly
+api_key_env = "GROQ_API_KEY"
 model = "llama-3.3-70b-versatile"
 timeout_ms = 3000
 

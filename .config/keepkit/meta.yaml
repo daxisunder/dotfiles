@@ -1,12 +1,19 @@
 - name: IRIS
-  status: inactive
+  status: active
   added: "2026-07-31"
   github: github.com/versenilvis/IRIS
 - name: portview
-  status: inactive
+  status: active
   added: "2026-07-31"
   github: github.com/Mapika/portview
 - name: keepkit
-  status: inactive
+  status: active
   added: "2026-07-31"
   github: github.com/stanlyzoolo/keepkit
+- name: patent
+  status: active
+  added: "2026-08-02"
+  github: github.com/rl4dd/patent
+- name: netwatch
+  status: active
+  added: "2026-08-02"

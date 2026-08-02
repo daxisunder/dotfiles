@@ -1,0 +1,5 @@
+keepkit v0.2.0 linux/amd64 tools=3 token=none
+2026-08-02T14:03:12.960+02:00 ERROR model.fetchHelpCmd: IRIS [--help]: no output: exec: "IRIS": executable file not found in $PATH
+2026-08-02T14:03:15.914+02:00 ERROR model.fetchHelpCmd: IRIS [man]: no output: exit status 16
+2026-08-02T14:03:24.475+02:00 ERROR model.fetchHelpCmd: keepkit [man]: no output: exit status 16
+2026-08-02T14:03:26.931+02:00 ERROR model.fetchHelpCmd: portview [man]: no output: exit status 16
