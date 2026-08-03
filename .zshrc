@@ -285,7 +285,7 @@ plugins=(
     zoxide
     # zsh-ai
     zsh-autopair
-    # zsh-autosuggestions
+    zsh-autosuggestions
     # zsh-expand
     zsh-syntax-highlighting
     zsh-system-clipboard

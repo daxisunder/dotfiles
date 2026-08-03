@@ -19,7 +19,7 @@ nerd-fonts = true
 [keybindings]
 toggle-mode = "ctrl+r"
 toggle-menu = "ctrl+space"
-select = "tab"
+select = "ctrl+y"
 navigate-up = "ctrl+k"
 navigate-down = "ctrl+j"
 
