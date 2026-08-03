@@ -22,6 +22,7 @@ toggle-menu = "ctrl+space"
 select = "ctrl+y"
 navigate-up = "ctrl+k"
 navigate-down = "ctrl+j"
+navigate-right = "right"
 
 [git]
 filter-active-branch = true

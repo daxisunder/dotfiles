@@ -285,8 +285,8 @@ plugins=(
     zoxide
     # zsh-ai
     zsh-autopair
-    zsh-autosuggestions
-    # zsh-expand
+    # zsh-autosuggestions
+    zsh-expand
     zsh-syntax-highlighting
     zsh-system-clipboard
     zsh-vi-man
@@ -371,11 +371,6 @@ alias zsh='nvim .zshrc'
 alias nls='nuls -lag'
 alias rww='rm /tmp/wttrbar-*.json && wttrbar --location banjaluka >/dev/null 2>&1 && ~/.config/hypr/scripts/Refresh.sh >/dev/null 2>&1' # Refresh wttrbar weather widget and waybar
 
-# Colorize --help output with bat
-help() {
-    "$@" --help 2>&1 | bat -plhelp
-}
-
 # FZF integration + key bindings (CTRL R for fuzzy history finder)
 source <(fzf --zsh)
 
@@ -426,6 +421,11 @@ zstyle ':completion:*' menu no
 zstyle ':fzf-tab:complete:cd:*' fzf-preview 'eza -1 --color=always $realpath'
 zstyle ':fzf-tab:*' use-fzf-default-opts yes
 zstyle ':fzf-tab:*' switch-group '<' '>'
+
+# Colorize --help output with bat
+help() {
+    "$@" --help 2>&1 | bat -plhelp
+}
 
 # Zellij integration
 # eval "$(zellij setup --generate-auto-start zsh)"
@@ -512,7 +512,7 @@ eval "$(tv init zsh)"
 # Display colorscripts
 #colorscript -r
 
-# Iris Autocomplete
+# Iris auto-complete
 eval "$(iris init zsh)"
 
 # Auto-start "zombie-zfetch"
