@@ -274,6 +274,7 @@ function ex {
 # Check plugin commands here: https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/<plugin-name>
 plugins=(
     auto-notify
+    # fancy-ctrl-z
     # fzf-tab
     # git
     safe-paste
@@ -471,7 +472,7 @@ spf() {
     }
 }
 
-# Fancy-ctrl-z integration
+# Fancy-ctrl-z integration (doesn't work if set before sourcing OMZ)
 fancy-ctrl-z () {
   if [[ $#BUFFER -eq 0 ]]; then
     BUFFER="fg"
