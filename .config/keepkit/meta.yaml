@@ -12,8 +12,9 @@
   github: github.com/stanlyzoolo/keepkit
 - name: patent
   status: active
-  added: "2026-08-02"
-  github: github.com/rl4dd/patent
+  added: "2026-08-05"
+  github: github.com/r14dd/patent
 - name: netwatch
   status: active
-  added: "2026-08-02"
+  added: "2026-08-05"
+  github: github.com/matthart1983/netwatch
