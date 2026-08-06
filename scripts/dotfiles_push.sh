@@ -69,9 +69,14 @@ if [[ -z "$GEMINI_API_KEY" ]]; then
   fi
   COMMIT_MSG="chore: dotfiles update $(date '+%Y-%m-%d %H:%M')"
 else
-  PAYLOAD=$(jq -n \
+  # Write diff and payload to temp files to avoid "Argument list too long"
+  DIFF_TMP=$(mktemp)
+  PAYLOAD_TMP=$(mktemp)
+  printf '%s' "$DIFF" >"$DIFF_TMP"
+
+  jq -n \
     --arg system "$SYSTEM_PROMPT" \
-    --arg diff "$DIFF" \
+    --rawfile diff "$DIFF_TMP" \
     '{
       systemInstruction: {
         parts: [{ text: $system }]
@@ -92,7 +97,9 @@ else
         { category: "HARM_CATEGORY_SEXUALLY_EXPLICIT", threshold: "BLOCK_NONE" },
         { category: "HARM_CATEGORY_DANGEROUS_CONTENT", threshold: "BLOCK_NONE" }
       ]
-    }')
+    }' >"$PAYLOAD_TMP"
+
+  rm -f "$DIFF_TMP"
 
   run_gemini_request() {
     local model="$1"
@@ -100,7 +107,8 @@ else
 
     if [[ "$DEBUG" == "1" ]]; then
       echo "[DEBUG] Request URL: ${request_url//${GEMINI_API_KEY}/***REDACTED***}" >&2
-      echo "[DEBUG] Payload size: $((${#PAYLOAD})) bytes" >&2
+      echo "[DEBUG] Payload file: $PAYLOAD_TMP" >&2
+      echo "[DEBUG] Payload size: $(wc -c <"$PAYLOAD_TMP") bytes" >&2
       echo "[DEBUG] Model: $model" >&2
     fi
 
@@ -115,7 +123,7 @@ else
       --request POST \
       --url "$request_url" \
       --header "Content-Type: application/json" \
-      --data "$PAYLOAD")
+      --data-binary @"$PAYLOAD_TMP")
 
     if [[ "$DEBUG" == "1" ]]; then
       echo "[DEBUG] HTTP status: $HTTP_CODE" >&2
@@ -177,6 +185,8 @@ else
     fi
   fi
 fi
+
+[[ -n "${PAYLOAD_TMP:-}" ]] && rm -f "$PAYLOAD_TMP"
 
 git commit -m "$COMMIT_MSG"
 git pull --rebase origin main
