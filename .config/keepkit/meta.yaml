@@ -18,3 +18,7 @@
   status: active
   added: "2026-08-05"
   github: github.com/matthart1983/netwatch
+- name: tuistore
+  status: active
+  added: "2026-08-06"
+  github: github.com/Gheat1/tuistore

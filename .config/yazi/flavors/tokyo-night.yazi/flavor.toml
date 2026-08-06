@@ -19,7 +19,7 @@ count_cut = { fg = "#f7768e", bg = "#f7768e" }
 count_selected = { fg = "#7aa2f7", bg = "#7aa2f7" }
 
 border_symbol = "│"
-border_style = { fg = "#1a1b26" }
+border_style = { fg = "#292e42" }
 
 syntect_theme = ""
 

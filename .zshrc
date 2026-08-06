@@ -139,33 +139,26 @@ setopt prompt_subst            # Enable command substitution in prompt
 setopt interactive_comments    # Allow comments in interactive shell
 setopt chase_links             # Follow symbolic links when changing directories
 
-# Set comment color (zsh-syntax-highlighting)
-typeset -A ZSH_HIGHLIGHT_STYLES
-ZSH_HIGHLIGHT_STYLES[comment]="fg=#565f89"
-
-# Set auto-suggestions color (default fg=8 is too dark with kitty color8=#1a1b26)
-ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#565f89"
-
 # Load completion engine
-autoload -Uz compinit
-for dump in ~/.config/zsh/zcompdump(N.mh+24); do
-  compinit -d ~/.config/zsh/zcompdump
-done
-compinit -C -d ~/.config/zsh/zcompdump
-autoload -Uz add-zsh-hook
-autoload -Uz vcs_info
-precmd () { vcs_info }
-_comp_options+=(globdots)
-zstyle ':completion:*' verbose true
-zstyle ':completion:*:*:*:*:*' menu select
-zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS} 'ma=0\;33'
-zstyle ':completion:*' matcher-list \
-    'm:{a-zA-Z}={A-Za-z}' \
-    '+r:|[._-]=* r:|=*' \
-    '+l:|=*'
-zstyle ':completion:*:warnings' format "%B%F{red}No matches for:%f %F{magenta}%d%b"
-zstyle ':completion:*:descriptions' format '%F{yellow}[-- %d --]%f'
-zstyle ':vcs_info:*' formats ' %B%s-[%F{magenta}%f %F{yellow}%b%f]-'
+# autoload -Uz compinit
+# for dump in ~/.config/zsh/zcompdump(N.mh+24); do
+#   compinit -d ~/.config/zsh/zcompdump
+# done
+# compinit -C -d ~/.config/zsh/zcompdump
+# autoload -Uz add-zsh-hook
+# autoload -Uz vcs_info
+# precmd () { vcs_info }
+# _comp_options+=(globdots)
+# zstyle ':completion:*' verbose true
+# zstyle ':completion:*:*:*:*:*' menu select
+# zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS} 'ma=0\;33'
+# zstyle ':completion:*' matcher-list \
+#     'm:{a-zA-Z}={A-Za-z}' \
+#     '+r:|[._-]=* r:|=*' \
+#     '+l:|=*'
+# zstyle ':completion:*:warnings' format "%B%F{red}No matches for:%f %F{magenta}%d%b"
+# zstyle ':completion:*:descriptions' format '%F{yellow}[-- %d --]%f'
+# zstyle ':vcs_info:*' formats ' %B%s-[%F{magenta}%f %F{yellow}%b%f]-'
 
 # Set waiting dots
 expand-or-complete-with-dots() {
@@ -177,99 +170,33 @@ zle -N expand-or-complete-with-dots
 bindkey "^I" expand-or-complete-with-dots
 
 # Set command not found handler (fetch pacman files database first with pacman -Fy)
-function command_not_found_handler {
-    local purple=$'\e[1;35m' bright=$'\e[0;1m' green=$'\e[1;32m' reset=$'\e[0m'
-    printf 'zsh: Command not found!: %s\n' "$1"
-    local entries=(
-        ${(f)"$(pacman -F --machinereadable -- "/usr/bin/$1")"}
-    )
-    if (( ${#entries[@]} )); then
-        printf "${bright}%s${reset} may be found in the following packages:\n" "$1"
-        local pkg=""
-        for entry in "${entries[@]}"; do
-            local fields=(${(0)entry})
-            if [[ "$pkg" != "${fields[2]}" ]]; then
-                printf "${purple}%s/${bright}%s ${green}%s${reset}\n" \
-                    "${fields[1]}" "${fields[2]}" "${fields[3]}"
-                printf '    /%s\n' "${fields[4]}"
-                printf '    → Install with: %s\n' "${green}sudo pacman -S ${fields[2]}${reset}"
-                printf '    → Install with: %s\n' "${green}yay -S ${fields[2]}${reset}"
-                pkg="${fields[2]}"
-            fi
-        done
-    else
-        printf "${bright}No package provides '/usr/bin/$1'.${reset}\n"
-        printf "You may want to search the AUR manually:\n"
-        printf "    → %syay -Ss $1%s\n" "$green" "$reset"
-    fi
-    return 127
-}
-
-# Edit command with $EDITOR
-autoload -z edit-command-line
-zle -N edit-command-line
-bindkey '^X' edit-command-line
-
-# Clear backbuffer/screen with CTRL L
-function clear-screen-and-scrollback() {
-    printf '\x1Bc'
-    zle clear-screen
-}
-zle -N clear-screen-and-scrollback
-bindkey '^L' clear-screen-and-scrollback
-
-# zsh-vi-man
-ZVM_MAN_PAGER='nvim'
-
-# Archive extraction (usage: ex <file>)
-# Github: https://github.com/xvoland/Extract/blob/master/extract.sh
-function ex {
-    if [ $# -eq 0 ]; then
-        # display usage if no parameters given
-        echo "Usage: ex <path/file_name>.<zip|rar|bz2|gz|tar|tbz2|tgz|Z|7z|xz|ex|tar.bz2|tar.gz|tar.xz|.zlib|.cso|.zst>"
-        echo "       ex <path/file_name_1.ext> [path/file_name_2.ext] [path/file_name_3.ext]"
-    fi
-    for n in "$@"; do
-        if [ ! -f "$n" ]; then
-          echo "'$n' - file doesn't exist"
-          return 1
-        fi
-        case "${n%,}" in
-          *.cbt|*.tar.bz2|*.tar.gz|*.tar.xz|*.tbz2|*.tgz|*.txz|*.tar)
-              tar --auto-compress -xvf "$n" ;;
-          *.lzma)      unlzma "$n" ;;
-          *.lz4)       lz4 -d "$n" ;;
-          *.appimage)  ./"$n" --appimage-extract ;;
-          *.tar.lz4)   tar --use-compress-program=lz4 -xvf "$n" ;;
-          *.tar.br)    tar --use-compress-program=pbzip2 -xvf "$n" ;;
-          *.bz2)       bunzip2 "$n" ;;
-          *.cbr|*.rar) unrar x -ad "$n" ;;
-          *.gz)        gunzip "$n" ;;
-          *.cbz|*.epub|*.zip) unzip "$n" ;;
-          *.z)         uncompress "$n" ;;
-          *.7z|*.apk|*.arj|*.cab|*.cb7|*.chm|*.deb|*.iso|*.lzh|*.msi|*.pkg|*.rpm|*.udf|*.wim|*.xar|*.vhd)
-              7z x "$n" ;;
-          *.xz)        unxz "$n" ;;
-          *.exe)       cabextract "$n" ;;
-          *.cpio)      cpio -id < "$n" ;;
-          *.cba|*.ace) unace x "$n" ;;
-          *.zpaq)      zpaq x "$n" ;;
-          *.arc)       arc e "$n" ;;
-          *.cso)       ciso 0 "$n" "$n.iso" && extract "$n.iso" && rm -f "$n" ;;
-          *.zlib)      zlib-flate -uncompress < "$n" > "${n%.*zlib}" && rm -f "$n" ;;
-          *.dmg)
-              mnt_dir=$(mktemp -d)
-              hdiutil mount "$n" -mountpoint "$mnt_dir"
-              echo "Mounted at: $mnt_dir" ;;
-          *.tar.zst)   tar -I zstd -xvf "$n" ;;
-          *.zst)       zstd -d "$n" ;;
-          *)
-              echo "ex: '$n' - unknown archive method"
-              return 1
-              ;;
-        esac
-    done
-}
+# function command_not_found_handler {
+#     local purple=$'\e[1;35m' bright=$'\e[0;1m' green=$'\e[1;32m' reset=$'\e[0m'
+#     printf 'zsh: Command not found!: %s\n' "$1"
+#     local entries=(
+#         ${(f)"$(pacman -F --machinereadable -- "/usr/bin/$1")"}
+#     )
+#     if (( ${#entries[@]} )); then
+#         printf "${bright}%s${reset} may be found in the following packages:\n" "$1"
+#         local pkg=""
+#         for entry in "${entries[@]}"; do
+#             local fields=(${(0)entry})
+#             if [[ "$pkg" != "${fields[2]}" ]]; then
+#                 printf "${purple}%s/${bright}%s ${green}%s${reset}\n" \
+#                     "${fields[1]}" "${fields[2]}" "${fields[3]}"
+#                 printf '    /%s\n' "${fields[4]}"
+#                 printf '    → Install with: %s\n' "${green}sudo pacman -S ${fields[2]}${reset}"
+#                 printf '    → Install with: %s\n' "${green}yay -S ${fields[2]}${reset}"
+#                 pkg="${fields[2]}"
+#             fi
+#         done
+#     else
+#         printf "${bright}No package provides '/usr/bin/$1'.${reset}\n"
+#         printf "You may want to search the AUR manually:\n"
+#         printf "    → %syay -Ss $1%s\n" "$green" "$reset"
+#     fi
+#     return 127
+# }
 
 # Check plugin commands here: https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/<plugin-name>
 plugins=(
@@ -284,7 +211,7 @@ plugins=(
     zoxide
     # zsh-ai
     zsh-autopair
-    # zsh-autosuggestions
+    zsh-autosuggestions
     # zsh-expand
     zsh-syntax-highlighting
     zsh-system-clipboard
@@ -369,6 +296,79 @@ alias gstat='$HOME/projects/dotfiles/scripts/Show-GitStatusBash.sh'
 alias zsh='nvim .zshrc'
 alias nls='nuls -lag'
 alias rww='rm /tmp/wttrbar-*.json && wttrbar --location banjaluka >/dev/null 2>&1 && ~/.config/hypr/scripts/Refresh.sh >/dev/null 2>&1' # Refresh wttrbar weather widget and waybar
+
+# Set comment color (zsh-syntax-highlighting)
+typeset -A ZSH_HIGHLIGHT_STYLES
+ZSH_HIGHLIGHT_STYLES[comment]="fg=#565f89"
+
+# Set auto-suggestions color (default fg=8 is too dark with kitty color8=#1a1b26)
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#565f89"
+
+# Edit command with $EDITOR
+autoload -z edit-command-line
+zle -N edit-command-line
+bindkey '^X' edit-command-line
+
+# Clear backbuffer/screen with CTRL L
+function clear-screen-and-scrollback() {
+    printf '\x1Bc'
+    zle clear-screen
+}
+zle -N clear-screen-and-scrollback
+bindkey '^L' clear-screen-and-scrollback
+
+# zsh-vi-man
+ZVM_MAN_PAGER='nvim'
+
+# Archive extraction (usage: ex <file>)
+# Github: https://github.com/xvoland/Extract/blob/master/extract.sh
+function ex {
+    if [ $# -eq 0 ]; then
+        # display usage if no parameters given
+        echo "Usage: ex <path/file_name>.<zip|rar|bz2|gz|tar|tbz2|tgz|Z|7z|xz|ex|tar.bz2|tar.gz|tar.xz|.zlib|.cso|.zst>"
+        echo "       ex <path/file_name_1.ext> [path/file_name_2.ext] [path/file_name_3.ext]"
+    fi
+    for n in "$@"; do
+        if [ ! -f "$n" ]; then
+          echo "'$n' - file doesn't exist"
+          return 1
+        fi
+        case "${n%,}" in
+          *.cbt|*.tar.bz2|*.tar.gz|*.tar.xz|*.tbz2|*.tgz|*.txz|*.tar)
+              tar --auto-compress -xvf "$n" ;;
+          *.lzma)      unlzma "$n" ;;
+          *.lz4)       lz4 -d "$n" ;;
+          *.appimage)  ./"$n" --appimage-extract ;;
+          *.tar.lz4)   tar --use-compress-program=lz4 -xvf "$n" ;;
+          *.tar.br)    tar --use-compress-program=pbzip2 -xvf "$n" ;;
+          *.bz2)       bunzip2 "$n" ;;
+          *.cbr|*.rar) unrar x -ad "$n" ;;
+          *.gz)        gunzip "$n" ;;
+          *.cbz|*.epub|*.zip) unzip "$n" ;;
+          *.z)         uncompress "$n" ;;
+          *.7z|*.apk|*.arj|*.cab|*.cb7|*.chm|*.deb|*.iso|*.lzh|*.msi|*.pkg|*.rpm|*.udf|*.wim|*.xar|*.vhd)
+              7z x "$n" ;;
+          *.xz)        unxz "$n" ;;
+          *.exe)       cabextract "$n" ;;
+          *.cpio)      cpio -id < "$n" ;;
+          *.cba|*.ace) unace x "$n" ;;
+          *.zpaq)      zpaq x "$n" ;;
+          *.arc)       arc e "$n" ;;
+          *.cso)       ciso 0 "$n" "$n.iso" && extract "$n.iso" && rm -f "$n" ;;
+          *.zlib)      zlib-flate -uncompress < "$n" > "${n%.*zlib}" && rm -f "$n" ;;
+          *.dmg)
+              mnt_dir=$(mktemp -d)
+              hdiutil mount "$n" -mountpoint "$mnt_dir"
+              echo "Mounted at: $mnt_dir" ;;
+          *.tar.zst)   tar -I zstd -xvf "$n" ;;
+          *.zst)       zstd -d "$n" ;;
+          *)
+              echo "ex: '$n' - unknown archive method"
+              return 1
+              ;;
+        esac
+    done
+}
 
 # FZF integration + key bindings (CTRL R for fuzzy history finder)
 source <(fzf --zsh)

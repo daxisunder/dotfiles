@@ -9,7 +9,7 @@ auto-execute = false
 
 [ui]
 style = "modern"
-ghost-text = true
+ghost-text = false
 hidden-files = true
 max-suggestions = 100
 max-height = 25
@@ -22,7 +22,8 @@ toggle-menu = "ctrl+space"
 select = "ctrl+y"
 navigate-up = "ctrl+k"
 navigate-down = "ctrl+j"
-navigate-right = "right"
+navigate-right = "ctrl+right"
+navigate-left = "ctrl+left"
 
 [git]
 filter-active-branch = true
@@ -34,9 +35,9 @@ channel = "stable"
 check-interval = "24h"
 
 [ai]
-enabled = false
+enabled = true
 provider = "groq"
-debounce_ms = 400
+debounce_ms = 200
 
 [ai.providers.groq]
 endpoint = "https://api.groq.com/openai/v1/chat/completions"
