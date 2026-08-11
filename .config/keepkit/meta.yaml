@@ -22,3 +22,7 @@
   status: active
   added: "2026-08-06"
   github: github.com/Gheat1/tuistore
+- name: river
+  status: active
+  added: "2026-08-11"
+  github: github.com/freenet/river

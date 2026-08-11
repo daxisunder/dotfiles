@@ -6,8 +6,9 @@ mode = "last"
 debug = false
 expand-alias = true
 auto-execute = false
-atuin-history = 1
+atuin-history = 0
 atuin-db-path = ""
+cobra-probe-enabled = true
 
 [ui]
 style = "modern"
@@ -19,13 +20,12 @@ max-width = 0
 nerd-fonts = true
 
 [keybindings]
-toggle-mode = "ctrl+r"
+toggle-mode = "ctrl+t"
 toggle-menu = "ctrl+space"
 select = "ctrl+y"
 navigate-up = "ctrl+k"
 navigate-down = "ctrl+j"
 navigate-right = "ctrl+right"
-navigate-left = "ctrl+left"
 
 [git]
 filter-active-branch = true
