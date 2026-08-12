@@ -26,3 +26,27 @@
   status: active
   added: "2026-08-11"
   github: github.com/freenet/river
+- name: late-sh
+  status: active
+  added: "2026-08-12"
+  github: github.com/mpiorowski/late-sh
+- name: Ligaturizer
+  status: active
+  added: "2026-08-12"
+  github: github.com/ToxicFrog/Ligaturizer
+- name: hyprls
+  status: active
+  added: "2026-08-12"
+  github: github.com/hyprland-community/hyprls
+- name: Kiro
+  status: active
+  added: "2026-08-12"
+  github: github.com/kirodotdev/Kiro
+- name: TakaTime
+  status: active
+  added: "2026-08-12"
+  github: github.com/Rtarun3606k/TakaTime
+- name: desktop-wakatime
+  status: trying
+  added: "2026-08-12"
+  github: github.com/wakatime/desktop-wakatime

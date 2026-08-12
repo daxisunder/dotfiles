@@ -160,15 +160,6 @@ setopt chase_links             # Follow symbolic links when changing directories
 # zstyle ':completion:*:descriptions' format '%F{yellow}[-- %d --]%f'
 # zstyle ':vcs_info:*' formats ' %B%s-[%F{magenta}%f %F{yellow}%b%f]-'
 
-# Set waiting dots
-expand-or-complete-with-dots() {
-  echo -n "\e[31m…\e[0m"
-  zle expand-or-complete
-  zle redisplay
-}
-zle -N expand-or-complete-with-dots
-bindkey "^I" expand-or-complete-with-dots
-
 # Set command not found handler (fetch pacman files database first with pacman -Fy)
 # function command_not_found_handler {
 #     local purple=$'\e[1;35m' bright=$'\e[0;1m' green=$'\e[1;32m' reset=$'\e[0m'
@@ -197,6 +188,19 @@ bindkey "^I" expand-or-complete-with-dots
 #     fi
 #     return 127
 # }
+
+# Set waiting dots
+expand-or-complete-with-dots() {
+  echo -n "\e[31m…\e[0m"
+  zle expand-or-complete
+  zle redisplay
+}
+zle -N expand-or-complete-with-dots
+bindkey "^I" expand-or-complete-with-dots
+
+# To avoid issues with redundant .zcompdump cache generation, do not load zsh-completions as a standard plugin.
+fpath+=${ZSH_CUSTOM:-${ZSH:-~/.oh-my-zsh}/custom}/plugins/zsh-completions/src
+autoload -U compinit && compinit
 
 # Check plugin commands here: https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/<plugin-name>
 plugins=(
