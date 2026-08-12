@@ -8,9 +8,16 @@ bpf_filter = ""
 geoip_db = ""
 geoip_asn_db = ""
 insights_enabled = true
-insights_model = "dolphin-phi"
-insights_endpoint = "local"
-theme = "dark"
+insights_model = "gemini-2.5-flash"
+insights_endpoint = "https://generativelanguage.googleapis.com/v1beta"
+theme = "terminal"
+view = "full"
+graph_style = "bars"
+graph_fade = false
+sandbox = "on"
+tls_keylog_path = ""
+egress_violation_cooldown_secs = 300
+groups_start_collapsed = true
 
 [alerts]
 bandwidth_threshold = 100000000
