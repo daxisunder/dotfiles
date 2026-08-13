@@ -169,6 +169,7 @@ It should only modify the values of Spacemacs settings."
    ;; number is the project limit and the second the limit on the recent files
    ;; within a project.
    dotspacemacs-startup-lists '((recents . 5)
+                                (recents-by-project . (3 .  3))
                                 (projects . 7)
                                 (agenda)
                                 (todos))
@@ -213,7 +214,7 @@ It should only modify the values of Spacemacs settings."
    ;; package can be defined with `:package', or a theme can be defined with
    ;; `:location' to download the theme package, refer the themes section in
    ;; DOCUMENTATION.org for the full theme specifications.
-   dotspacemacs-themes '(tokyo)
+   dotspacemacs-themes '(modus-vivendi)
 
    ;; Set the theme for the Spaceline. Supported themes are `spacemacs',
    ;; `all-the-icons', `custom', `doom', `vim-powerline' and `vanilla'. The
@@ -222,7 +223,7 @@ It should only modify the values of Spacemacs settings."
    ;; refer to the DOCUMENTATION.org for more info on how to create your own
    ;; spaceline theme. Value can be a symbol or list with additional properties.
    ;; (default '(spacemacs :separator wave :separator-scale 1.5))
-   dotspacemacs-mode-line-theme '(spacemacs)
+   dotspacemacs-mode-line-theme '(doom)
 
    ;; If non-nil the cursor color matches the state color in GUI Emacs.
    ;; (default t)
