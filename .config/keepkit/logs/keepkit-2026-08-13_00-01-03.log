@@ -1,0 +1,2 @@
+keepkit v0.3.0 linux/amd64 tools=13 token=none
+2026-08-13T00:01:03.555+02:00 ERROR version.InstalledVersion: desktop-wakatime: desktop-wakatime --version: exit status 1; desktop-wakatime -V: exit status 1
