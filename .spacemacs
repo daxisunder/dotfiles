@@ -39,7 +39,7 @@ This function should only modify configuration layer settings."
      ;; `M-m f e R' (Emacs style) to install them.
      ;; ----------------------------------------------------------------
      auto-completion
-     ;; better-defaults
+     better-defaults
      emacs-lisp
      git
      helm
@@ -64,9 +64,7 @@ This function should only modify configuration layer settings."
    ;; `dotspacemacs/user-config'. To use a local version of a package, use the
    ;; `:location' property: '(your-package :location "~/path/to/your-package/")
    ;; Also include the dependencies as they will not be resolved automatically.
-   dotspacemacs-additional-packages '(
-                                      (tokyo-theme :location (recipe :fetcher github :repo "daxisunder/tokyo-theme.el"))
-                                      )
+   dotspacemacs-additional-packages '()
 
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
@@ -186,7 +184,7 @@ It should only modify the values of Spacemacs settings."
    ;; If non-nil, show file icons for entries and headings on Spacemacs home buffer.
    ;; This has no effect in terminal or if "nerd-icons" package or the font
    ;; is not installed. (default nil)
-   dotspacemacs-startup-buffer-show-icons nil
+   dotspacemacs-startup-buffer-show-icons t
 
    ;; Default major mode for a new empty buffer. Possible values are mode
    ;; names such as `text-mode'; and `nil' to use Fundamental mode.
@@ -428,7 +426,15 @@ It should only modify the values of Spacemacs settings."
    ;;   :size-limit-kb 1000)
    ;; When used in a plist, `visual' takes precedence over `relative'.
    ;; (default nil)
-   dotspacemacs-line-numbers `relative
+   dotspacemacs-line-numbers `(:relative t
+                                         :visual nil
+                                         :disabled-for-modes dired-mode
+                                         doc-view-mode
+                                         markdown-mode
+                                         org-mode
+                                         pdf-view-mode
+                                         text-mode
+                                         :size-limit-kb 1000)
 
    ;; Code folding method. Possible values are `evil', `origami' and `vimish'.
    ;; (default 'evil)
@@ -437,7 +443,7 @@ It should only modify the values of Spacemacs settings."
    ;; If non-nil and `dotspacemacs-activate-smartparens-mode' is also non-nil,
    ;; `smartparens-strict-mode' will be enabled in programming modes.
    ;; (default nil)
-   dotspacemacs-smartparens-strict-mode nil
+   dotspacemacs-smartparens-strict-mode t
 
    ;; If non-nil smartparens-mode will be enabled in programming modes.
    ;; (default t)
@@ -446,7 +452,7 @@ It should only modify the values of Spacemacs settings."
    ;; If non-nil pressing the closing parenthesis `)' key in insert mode passes
    ;; over any automatically added closing parenthesis, bracket, quote, etc...
    ;; This can be temporary disabled by pressing `C-q' before `)'. (default nil)
-   dotspacemacs-smart-closing-parenthesis nil
+   dotspacemacs-smart-closing-parenthesis t
 
    ;; Select a scope to highlight delimiters. Possible values are `any',
    ;; `current', `all' or `nil'. Default is `all' (highlight any scope and
@@ -455,7 +461,7 @@ It should only modify the values of Spacemacs settings."
 
    ;; If non-nil, start an Emacs server if one is not already running.
    ;; (default nil)
-   dotspacemacs-enable-server nil
+   dotspacemacs-enable-server t
 
    ;; Set the emacs server socket location.
    ;; If nil, uses whatever the Emacs default is, otherwise a directory path
@@ -466,7 +472,7 @@ It should only modify the values of Spacemacs settings."
 
    ;; If non-nil, advise quit functions to keep server open when quitting.
    ;; (default nil)
-   dotspacemacs-persistent-server nil
+   dotspacemacs-persistent-server t
 
    ;; List of search tool executable names. Spacemacs uses the first installed
    ;; tool of the list. Supported tools are `rg', `ag', `ack' and `grep'.
@@ -518,7 +524,7 @@ It should only modify the values of Spacemacs settings."
    ;; which major modes have whitespace cleanup enabled or disabled
    ;; by default.
    ;; (default nil)
-   dotspacemacs-whitespace-cleanup nil
+   dotspacemacs-whitespace-cleanup `trailing
 
    ;; If non-nil activate `clean-aindent-mode' which tries to correct
    ;; virtual indentation of simple modes. This can interfere with mode specific
@@ -544,7 +550,7 @@ It should only modify the values of Spacemacs settings."
    ;; Run `spacemacs/prettify-org-buffer' when
    ;; visiting README.org files of Spacemacs.
    ;; (default nil)
-   dotspacemacs-pretty-docs nil
+   dotspacemacs-pretty-docs t
 
    ;; If nil the home buffer shows the full path of agenda items
    ;; and todos. If non-nil only the file name is shown.
@@ -576,16 +582,21 @@ This function is called at the very end of Spacemacs startup, after layer
 configuration.
 Put your configuration code here, except for variables that should be set
 before packages are loaded."
-  (set-face-attribute 'font-lock-comment-face nil :foreground "#5E5262")
-  (set-face-attribute 'font-lock-comment-delimiter-face nil :foreground "#5E5262")
-  (set-face-attribute 'font-lock-comment-face nil :background "#000000")
-  (set-face-attribute 'font-lock-comment-delimiter-face nil :background "#000000")
+  (set-face-attribute 'font-lock-comment-face nil
+                      :foreground "#464f71")
+  (set-face-attribute 'font-lock-comment-delimiter-face nil
+                      :foreground "#464f71")
+  (set-face-attribute 'font-lock-comment-face nil
+                      :background "#000000")
+  (set-face-attribute 'font-lock-comment-delimiter-face nil
+                      :background "#000000")
   (set-face-attribute 'default nil
                       :background "#000000")
   (set-face-attribute 'line-number nil
                       :background "#000000")
   (set-face-attribute 'line-number-current-line nil
                       :background "#000000")
+  (set-face-attribute 'fringe nil :background "#000000")
   )
 
 
@@ -631,7 +642,7 @@ This function is called at the very end of Spacemacs initialization."
                 hungry-delete hybrid-mode indent-guide info+ inspector link-hint
                 llama log4e lorem-ipsum lsp-mode lsp-origami lsp-treemacs lsp-ui
                 macrostep magit magit-section markdown-mode markdown-toc
-                multi-line multi-term multi-vterm nameless nerd-icons
+                multi-line multi-term multi-vterm mwim nameless nerd-icons
                 open-junk-file org org-category-capture org-cliplink org-contrib
                 org-download org-mime org-pomodoro org-present org-project-capture
                 org-projectile org-rich-yank org-superstar orgit orgit-forge
@@ -643,8 +654,8 @@ This function is called at the very end of Spacemacs initialization."
                 string-inflection symbol-overlay symon term-cursor terminal-here
                 toc-org tokyo-night transient treemacs-evil treemacs-icons-dired
                 treemacs-magit treemacs-persp treemacs-projectile treepy
-                undo-fu-session uuidgen vi-tilde-fringe volatile-highlights vterm
-                vundo wakatime-mode wgrep winum with-editor writeroom-mode
+                undo-fu-session unfill uuidgen vi-tilde-fringe volatile-highlights
+                vterm vundo wakatime-mode wgrep winum with-editor writeroom-mode
                 ws-butler yaml yasnippet yasnippet-snippets))
    '(spacemacs-layouts-restricted-functions
      '(switch-to-prev-buffer switch-to-next-buffer
