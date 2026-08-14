@@ -47,6 +47,10 @@
   added: "2026-08-12"
   github: github.com/Rtarun3606k/TakaTime
 - name: desktop-wakatime
-  status: trying
+  status: active
   added: "2026-08-12"
   github: github.com/wakatime/desktop-wakatime
+- name: terminal-browser
+  status: trying
+  added: "2026-08-14"
+  github: github.com/zenbu-labs/terminal-browser

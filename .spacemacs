@@ -234,8 +234,8 @@ It should only modify the values of Spacemacs settings."
    ;; fixed-pitch faces. The `:size' can be specified as
    ;; a non-negative integer (pixel size), or a floating-point (point size).
    ;; Point size is recommended, because it's device independent. (default 10.0)
-   dotspacemacs-default-font '("zai Courier Polski 1941"
-                               :size 10.0
+   dotspacemacs-default-font '("Fira Code"
+                               :size 12.0
                                :weight normal
                                :width normal)
    ;; Default icons font, it can be `all-the-icons' or `nerd-icons'.
@@ -309,7 +309,7 @@ It should only modify the values of Spacemacs settings."
 
    ;; Which-key delay in seconds. The which-key buffer is the popup listing
    ;; the commands bound to the current keystroke sequence. (default 0.4)
-   dotspacemacs-which-key-delay 0.4
+   dotspacemacs-which-key-delay 0.2
 
    ;; Which-key frame position. Possible values are `right', `bottom' and
    ;; `right-then-bottom'. right-then-bottom tries to display the frame to the
@@ -334,7 +334,7 @@ It should only modify the values of Spacemacs settings."
    ;; Set the option to t in order to enable cycling for all current and
    ;; future cycling commands. Alternatively, choose a subset of the currently
    ;; supported commands: '(alternate-buffer alternate-window). (default nil)
-   dotspacemacs-enable-cycling nil
+   dotspacemacs-enable-cycling t
 
    ;; Whether side windows (such as those created by treemacs or neotree)
    ;; are kept or minimized by `spacemacs/toggle-maximize-window' (SPC w m).
@@ -373,7 +373,7 @@ It should only modify the values of Spacemacs settings."
    ;; If non-nil the frame is undecorated when Emacs starts up. Combine this
    ;; variable with `dotspacemacs-maximized-at-startup' to obtain fullscreen
    ;; without external boxes. Also disables the internal border. (default nil)
-   dotspacemacs-undecorated-at-startup nil
+   dotspacemacs-undecorated-at-startup t
 
    ;; A value from the range (0..100), in increasing opacity, which describes
    ;; the transparency level of a frame when it's active or selected.
