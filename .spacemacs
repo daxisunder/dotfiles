@@ -214,7 +214,7 @@ It should only modify the values of Spacemacs settings."
    ;; package can be defined with `:package', or a theme can be defined with
    ;; `:location' to download the theme package, refer the themes section in
    ;; DOCUMENTATION.org for the full theme specifications.
-   dotspacemacs-themes '(modus-vivendi)
+   dotspacemacs-themes '(tokyo)
 
    ;; Set the theme for the Spaceline. Supported themes are `spacemacs',
    ;; `all-the-icons', `custom', `doom', `vim-powerline' and `vanilla'. The
@@ -234,7 +234,7 @@ It should only modify the values of Spacemacs settings."
    ;; fixed-pitch faces. The `:size' can be specified as
    ;; a non-negative integer (pixel size), or a floating-point (point size).
    ;; Point size is recommended, because it's device independent. (default 10.0)
-   dotspacemacs-default-font '("Sans"
+   dotspacemacs-default-font '("zai Courier Polski 1941"
                                :size 10.0
                                :weight normal
                                :width normal)
@@ -576,7 +576,18 @@ This function is called at the very end of Spacemacs startup, after layer
 configuration.
 Put your configuration code here, except for variables that should be set
 before packages are loaded."
+  (set-face-attribute 'font-lock-comment-face nil :foreground "#5E5262")
+  (set-face-attribute 'font-lock-comment-delimiter-face nil :foreground "#5E5262")
+  (set-face-attribute 'font-lock-comment-face nil :background "#000000")
+  (set-face-attribute 'font-lock-comment-delimiter-face nil :background "#000000")
+  (set-face-attribute 'default nil
+                      :background "#000000")
+  (set-face-attribute 'line-number nil
+                      :background "#000000")
+  (set-face-attribute 'line-number-current-line nil
+                      :background "#000000")
   )
+
 
 
 ;; Do not write anything past this comment. This is where Emacs will
@@ -591,6 +602,9 @@ This function is called at the very end of Spacemacs initialization."
    ;; If you edit it by hand, you could mess it up, so be careful.
    ;; Your init file should contain only one such instance.
    ;; If there is more than one, they won't work right.
+   '(evil-undo-system 'undo-redo)
+   '(evil-want-Y-yank-to-eol nil)
+   '(global-wakatime-mode t)
    '(package-selected-packages
      '(ace-link aggressive-indent alert all-the-icons auto-compile
                 auto-highlight-symbol auto-yasnippet avy-jump-helm-line
@@ -627,11 +641,18 @@ This function is called at the very end of Spacemacs initialization."
                 space-doc spaceline spacemacs-purpose-popwin
                 spacemacs-whitespace-cleanup string-edit-at-point
                 string-inflection symbol-overlay symon term-cursor terminal-here
-                toc-org transient treemacs-evil treemacs-icons-dired
+                toc-org tokyo-night transient treemacs-evil treemacs-icons-dired
                 treemacs-magit treemacs-persp treemacs-projectile treepy
                 undo-fu-session uuidgen vi-tilde-fringe volatile-highlights vterm
-                vundo wgrep winum with-editor writeroom-mode ws-butler yaml
-                yasnippet yasnippet-snippets)))
+                vundo wakatime-mode wgrep winum with-editor writeroom-mode
+                ws-butler yaml yasnippet yasnippet-snippets))
+   '(spacemacs-layouts-restricted-functions
+     '(switch-to-prev-buffer switch-to-next-buffer
+                             spacemacs/window-split-double-columns
+                             spacemacs/window-split-triple-columns
+                             spacemacs/window-split-grid))
+   '(wakatime-api-key "")
+   '(wakatime-cli-path ""))
   (custom-set-faces
    ;; custom-set-faces was added by Custom.
    ;; If you edit it by hand, you could mess it up, so be careful.
