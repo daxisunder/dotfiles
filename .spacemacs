@@ -166,9 +166,10 @@ It should only modify the values of Spacemacs settings."
    ;; pair of numbers, e.g. `(recents-by-project . (7 .  5))', where the first
    ;; number is the project limit and the second the limit on the recent files
    ;; within a project.
-   dotspacemacs-startup-lists '((recents . 5)
-                                (recents-by-project . (3 .  3))
+   dotspacemacs-startup-lists '((recents . 7)
+                                (recents-by-project . (5 .  5))
                                 (projects . 7)
+                                (bookmarks . 7)
                                 (agenda)
                                 (todos))
 
@@ -613,64 +614,49 @@ This function is called at the very end of Spacemacs initialization."
    ;; If you edit it by hand, you could mess it up, so be careful.
    ;; Your init file should contain only one such instance.
    ;; If there is more than one, they won't work right.
-   '(evil-undo-system 'undo-redo)
-   '(evil-want-Y-yank-to-eol nil)
-   '(global-wakatime-mode t)
    '(package-selected-packages
-     '(ace-link aggressive-indent alert all-the-icons auto-compile
-                auto-highlight-symbol auto-yasnippet avy-jump-helm-line
-                browse-at-remote centered-cursor-mode clean-aindent-mode closql
-                column-enforce-mode company define-word devdocs diminish
-                dired-quick-sort disable-mouse doom-modeline doom-themes
-                dotenv-mode drag-stuff dumb-jump eat edit-indirect elisp-def
-                elisp-demos elisp-slime-nav emacsql emr esh-help
-                eshell-prompt-extras eshell-z eval-sexp-fu evil-anzu evil-args
-                evil-cleverparens evil-collection evil-easymotion evil-escape
-                evil-evilified-state evil-exchange evil-goggles evil-iedit-state
-                evil-indent-plus evil-lion evil-lisp-state evil-matchit evil-mc
-                evil-nerd-commenter evil-numbers evil-org evil-surround
-                evil-textobj-line evil-tutor evil-unimpaired evil-visual-mark-mode
-                evil-visualstar expand-region eyebrowse fancy-battery flycheck
-                flycheck-elsa flycheck-package flycheck-pos-tip flyspell-correct
-                flyspell-correct-helm forge gh-md ghub git-link git-messenger
-                git-modes git-timemachine gitignore-templates gntp gnuplot
-                golden-ratio google-translate helm-ag helm-c-yasnippet helm-comint
-                helm-company helm-descbinds helm-ls-git helm-lsp helm-make
-                helm-mode-manager helm-org helm-org-rifle helm-projectile
-                helm-purpose helm-swoop helm-xref hide-comnt highlight-indentation
-                highlight-numbers highlight-parentheses hl-todo holy-mode htmlize
-                hungry-delete hybrid-mode indent-guide info+ inspector link-hint
-                llama log4e lorem-ipsum lsp-mode lsp-origami lsp-treemacs lsp-ui
-                macrostep magit magit-section markdown-mode markdown-toc
-                multi-line multi-term multi-vterm mwim nameless nerd-icons
-                open-junk-file org org-category-capture org-cliplink org-contrib
-                org-download org-mime org-pomodoro org-present org-project-capture
-                org-projectile org-rich-yank org-superstar orgit orgit-forge
-                origami overseer package-lint page-break-lines paradox
-                password-generator pcre2el popwin pos-tip quickrun
-                rainbow-delimiters restart-emacs shell-pop shrink-path smeargle
+     '(ace-link aggressive-indent all-the-icons auto-compile auto-highlight-symbol
+                auto-yasnippet avy-jump-helm-line browse-at-remote
+                centered-cursor-mode clean-aindent-mode code-review
+                column-enforce-mode define-word devdocs diff-hl diminish
+                dired-quick-sort disable-mouse doom-modeline dotenv-mode
+                drag-stuff dumb-jump eat edit-indirect elisp-def elisp-demos
+                elisp-slime-nav emr esh-help eshell-prompt-extras eshell-z
+                eval-sexp-fu evil-anzu evil-args evil-cleverparens evil-collection
+                evil-easymotion evil-escape evil-evilified-state evil-exchange
+                evil-goggles evil-iedit-state evil-indent-plus evil-lion
+                evil-lisp-state evil-matchit evil-mc evil-nerd-commenter
+                evil-numbers evil-org evil-surround evil-textobj-line evil-tutor
+                evil-unimpaired evil-visual-mark-mode evil-visualstar
+                expand-region eyebrowse fancy-battery flycheck-elsa
+                flycheck-package flycheck-pos-tip flyspell-correct-helm gh-md
+                git-link git-messenger git-modes git-timemachine
+                gitignore-templates gnuplot golden-ratio google-translate helm-ag
+                helm-c-yasnippet helm-comint helm-company helm-descbinds
+                helm-ls-git helm-lsp helm-make helm-mode-manager helm-org
+                helm-org-rifle helm-projectile helm-purpose helm-swoop helm-xref
+                hide-comnt highlight-indentation highlight-numbers
+                highlight-parentheses hl-todo holy-mode htmlize hungry-delete
+                hybrid-mode indent-guide info+ inspector link-hint lorem-ipsum
+                lsp-origami lsp-treemacs lsp-ui macrostep markdown-toc multi-line
+                multi-term multi-vterm mwim nameless open-junk-file org-cliplink
+                org-contrib org-download org-mime org-pomodoro org-present
+                org-projectile org-rich-yank org-superstar orgit-forge overseer
+                page-break-lines paradox password-generator pcre2el popwin
+                quickrun rainbow-delimiters restart-emacs shell-pop smeargle
                 space-doc spaceline spacemacs-purpose-popwin
                 spacemacs-whitespace-cleanup string-edit-at-point
                 string-inflection symbol-overlay symon term-cursor terminal-here
-                toc-org tokyo-night transient treemacs-evil treemacs-icons-dired
-                treemacs-magit treemacs-persp treemacs-projectile treepy
-                undo-fu-session unfill uuidgen vi-tilde-fringe volatile-highlights
-                vterm vundo wakatime-mode wgrep winum with-editor writeroom-mode
-                ws-butler yaml yasnippet yasnippet-snippets))
-   '(spacemacs-layouts-restricted-functions
-     '(switch-to-prev-buffer switch-to-next-buffer
-                             spacemacs/window-split-double-columns
-                             spacemacs/window-split-triple-columns
-                             spacemacs/window-split-grid))
-   '(wakatime-api-key "")
-   '(wakatime-cli-path ""))
+                toc-org tokyo-night tokyo-theme transient-cycles treemacs-evil
+                treemacs-icons-dired treemacs-magit treemacs-persp
+                treemacs-projectile undo-fu-session unfill vi-tilde-fringe
+                volatile-highlights vundo wgrep winum writeroom-mode ws-butler
+                yasnippet-snippets)))
   (custom-set-faces
    ;; custom-set-faces was added by Custom.
    ;; If you edit it by hand, you could mess it up, so be careful.
    ;; Your init file should contain only one such instance.
    ;; If there is more than one, they won't work right.
-   '(evil-mc-cursor-bar-face ((t (:background "light gray" :height 1))))
-   '(highlight ((t (:background "#1a1b26"))))
-   '(mode-line ((t (:background "black" :foreground "light gray" :box (:line-width (1 . -1) :style released-button)))))
-   '(mode-line-inactive ((t (:inherit mode-line :background "black" :foreground "grey80" :box (:line-width (1 . -1) :color "grey40") :weight light)))))
+   '(hl-line ((t (:inherit highlight :extend t :background "#292e42"))))
+   '(mode-line ((t (:background "black" :foreground "light gray" :box (:line-width (1 . -1) :style released-button))))))
   )
