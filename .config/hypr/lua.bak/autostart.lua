@@ -24,10 +24,11 @@ hl.on("hyprland.start", function()
 	-- hl.exec_cmd("blueman-applet")
 	hl.exec_cmd("swaync")
 	hl.exec_cmd("firefox")
-	hl.exec_cmd("udiskie")
+	hl.exec_cmd("sleep 5 && udiskie")
 	hl.exec_cmd("dropbox start -i")
-	hl.exec_cmd("protonvpn-app")
+	hl.exec_cmd("sleep 5 && protonvpn-app")
 	-- hl.exec_cmd("signal-desktop")
+	hl.exec_cmd("sleep 5 && desktop-wakatime-x11")
 
 	-- clipboard manager
 	hl.exec_cmd("wl-paste --type text --watch cliphist store")
@@ -43,11 +44,8 @@ hl.on("hyprland.start", function()
 	hl.exec_cmd(scriptsDir .. "/PortalHyprland.sh")
 
 	-- interactive-wallpaper (needs more testing)
-	hl.exec_cmd(home .. "/projects/interactive-wallpaper/shader-desk/build/interactive-wallpaper")
-	hl.exec_cmd(
-		home
-			.. "/projects/interactive-wallpaper/shader-desk/build/evdev-pointer-daemon --socket /tmp/evdev-pointer.sock"
-	)
+	-- hl.exec_cmd(home .. "/projects/interactive-wallpaper/shader-desk/build/interactive-wallpaper")
+	-- hl.exec_cmd(home .. "/projects/interactive-wallpaper/shader-desk/build/evdev-pointer-daemon --socket /tmp/evdev-pointer.sock")
 
 	-- start plugins on hyprland start (if you have any plugins, add them here)
 	hl.exec_cmd("hyprpm reload -n")
