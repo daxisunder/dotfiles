@@ -53,8 +53,10 @@ This function should only modify configuration layer settings."
      spell-checking
      syntax-checking
      version-control
-     treemacs)
-
+     wakatime
+     (ranger
+      :variables
+      ranger-show-preview t))
 
    ;; List of additional packages that will be installed without being wrapped
    ;; in a layer (generally the packages are installed only and should still be
@@ -233,10 +235,11 @@ It should only modify the values of Spacemacs settings."
    ;; fixed-pitch faces. The `:size' can be specified as
    ;; a non-negative integer (pixel size), or a floating-point (point size).
    ;; Point size is recommended, because it's device independent. (default 10.0)
-   dotspacemacs-default-font '("Fira Code"
+   dotspacemacs-default-font '("JetBrains Mono Nerd Font"
                                :size 12.0
                                :weight normal
                                :width normal)
+
    ;; Default icons font, it can be `all-the-icons' or `nerd-icons'.
    dotspacemacs-default-icons-font 'nerd-icons
 
@@ -427,7 +430,7 @@ It should only modify the values of Spacemacs settings."
    ;;   :size-limit-kb 1000)
    ;; When used in a plist, `visual' takes precedence over `relative'.
    ;; (default nil)
-   dotspacemacs-line-numbers `(:relative t
+   dotspacemacs-line-numbers '(:relative nil
                                          :visual nil
                                          :disabled-for-modes dired-mode
                                          doc-view-mode
@@ -583,6 +586,9 @@ This function is called at the very end of Spacemacs startup, after layer
 configuration.
 Put your configuration code here, except for variables that should be set
 before packages are loaded."
+  (setq wakatime-api-key "REDACTED_WAKATIME_KEY")
+  (setq wakatime-cli-path "/home/daxis/.wakatime/wakatime-cli")
+  (global-wakatime-mode 1)
   (set-face-attribute 'font-lock-comment-face nil
                       :foreground "#464f71")
   (set-face-attribute 'font-lock-comment-delimiter-face nil
@@ -614,6 +620,8 @@ This function is called at the very end of Spacemacs initialization."
    ;; If you edit it by hand, you could mess it up, so be careful.
    ;; Your init file should contain only one such instance.
    ;; If there is more than one, they won't work right.
+   '(evil-undo-system 'undo-redo)
+   '(evil-want-Y-yank-to-eol nil)
    '(package-selected-packages
      '(ace-link aggressive-indent all-the-icons auto-compile auto-highlight-symbol
                 auto-yasnippet avy-jump-helm-line browse-at-remote
@@ -638,20 +646,23 @@ This function is called at the very end of Spacemacs initialization."
                 hide-comnt highlight-indentation highlight-numbers
                 highlight-parentheses hl-todo holy-mode htmlize hungry-delete
                 hybrid-mode indent-guide info+ inspector link-hint lorem-ipsum
-                lsp-origami lsp-treemacs lsp-ui macrostep markdown-toc multi-line
-                multi-term multi-vterm mwim nameless open-junk-file org-cliplink
-                org-contrib org-download org-mime org-pomodoro org-present
-                org-projectile org-rich-yank org-superstar orgit-forge overseer
-                page-break-lines paradox password-generator pcre2el popwin
-                quickrun rainbow-delimiters restart-emacs shell-pop smeargle
-                space-doc spaceline spacemacs-purpose-popwin
+                lsp-origami lsp-treemacs lsp-ui lua-mode macrostep magit
+                magit-delta magit-gh magit-stats major-mode-icons markdown-toc
+                multi-line multi-term multi-vterm mwim nameless open-junk-file
+                org-cliplink org-contrib org-download org-mime org-pomodoro
+                org-present org-projectile org-rich-yank org-superstar orgit-forge
+                overseer page-break-lines paradox password-generator pcre2el
+                popwin quickrun rainbow-delimiters ranger restart-emacs shell-pop
+                smeargle space-doc spaceline spacemacs-purpose-popwin
                 spacemacs-whitespace-cleanup string-edit-at-point
                 string-inflection symbol-overlay symon term-cursor terminal-here
-                toc-org tokyo-night tokyo-theme transient-cycles treemacs-evil
+                toc-org tokyo-night tokyo-theme transient-cycles tree-sitter
+                tree-sitter-indent tree-sitter-langs treemacs-evil
                 treemacs-icons-dired treemacs-magit treemacs-persp
-                treemacs-projectile undo-fu-session unfill vi-tilde-fringe
-                volatile-highlights vundo wgrep winum writeroom-mode ws-butler
-                yasnippet-snippets)))
+                treemacs-projectile undo-fu-session unfill vertico
+                vertico-posframe vi-tilde-fringe volatile-highlights vterm
+                vterm-toggle vundo wakatime-mode wgrep winum writeroom-mode
+                ws-butler yasnippet-snippets)))
   (custom-set-faces
    ;; custom-set-faces was added by Custom.
    ;; If you edit it by hand, you could mess it up, so be careful.
