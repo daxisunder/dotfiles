@@ -1,0 +1,11 @@
+keepkit v0.3.0 linux/amd64 tools=15 token=none
+2026-08-16T17:58:15.464+02:00 ERROR version.classifyStatus: /repos/Mapika/portview/readme http=403 remaining=0: rate limited
+2026-08-16T17:58:16.070+02:00 ERROR version.classifyStatus: /repos/stanlyzoolo/keepkit/readme http=403 remaining=0: rate limited
+2026-08-16T17:58:16.176+02:00 ERROR version.classifyStatus: /repos/r14dd/patent/readme http=403 remaining=0: rate limited
+2026-08-16T17:58:16.256+02:00 ERROR version.classifyStatus: /repos/Gheat1/tuistore/readme http=403 remaining=0: rate limited
+2026-08-16T17:58:16.268+02:00 ERROR version.classifyStatus: /repos/freenet/river/readme http=403 remaining=0: rate limited
+2026-08-16T17:58:16.380+02:00 ERROR version.classifyStatus: /repos/mpiorowski/late-sh/readme http=403 remaining=0: rate limited
+2026-08-16T17:58:16.660+02:00 ERROR version.classifyStatus: /repos/ToxicFrog/Ligaturizer/readme http=403 remaining=0: rate limited
+2026-08-16T17:58:16.887+02:00 ERROR version.classifyStatus: /repos/hyprland-community/hyprls/readme http=403 remaining=0: rate limited
+2026-08-16T17:58:17.099+02:00 ERROR version.classifyStatus: /repos/kirodotdev/Kiro/releases/latest http=403 remaining=0: rate limited
+2026-08-16T17:58:17.099+02:00 ERROR version.classifyStatus: /repos/kirodotdev/Kiro/readme http=403 remaining=0: rate limited

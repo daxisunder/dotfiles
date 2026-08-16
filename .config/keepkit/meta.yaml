@@ -54,3 +54,7 @@
   status: trying
   added: "2026-08-14"
   github: github.com/zenbu-labs/terminal-browser
+- name: golazo
+  status: active
+  added: "2026-08-16"
+  github: github.com/0xjuanma/golazo

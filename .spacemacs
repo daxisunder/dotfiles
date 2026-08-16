@@ -32,7 +32,7 @@ This function should only modify configuration layer settings."
 
    ;; List of configuration layers to load.
    dotspacemacs-configuration-layers
-   '(
+   '(lua
      ;; ----------------------------------------------------------------
      ;; Example of useful layers you may want to use right away.
      ;; Uncomment some layer names and press `SPC f e R' (Vim style) or
@@ -625,8 +625,8 @@ This function is called at the very end of Spacemacs initialization."
      '(ace-link aggressive-indent all-the-icons auto-compile auto-highlight-symbol
                 auto-yasnippet avy-jump-helm-line browse-at-remote
                 centered-cursor-mode clean-aindent-mode code-review
-                column-enforce-mode define-word devdocs diff-hl diminish
-                dired-quick-sort disable-mouse doom-modeline dotenv-mode
+                column-enforce-mode company-lua define-word devdocs diff-hl
+                diminish dired-quick-sort disable-mouse doom-modeline dotenv-mode
                 drag-stuff dumb-jump eat edit-indirect elisp-def elisp-demos
                 elisp-slime-nav emr esh-help eshell-prompt-extras eshell-z
                 eval-sexp-fu evil-anzu evil-args evil-cleverparens evil-collection
@@ -636,8 +636,8 @@ This function is called at the very end of Spacemacs initialization."
                 evil-numbers evil-org evil-surround evil-textobj-line evil-tutor
                 evil-unimpaired evil-visual-mark-mode evil-visualstar
                 expand-region eyebrowse fancy-battery flycheck-elsa
-                flycheck-package flycheck-pos-tip flyspell-correct-helm gh-md
-                git-link git-messenger git-modes git-timemachine
+                flycheck-package flycheck-pos-tip flyspell-correct-helm ggtags
+                gh-md git-link git-messenger git-modes git-timemachine
                 gitignore-templates gnuplot golden-ratio google-translate helm-ag
                 helm-c-yasnippet helm-comint helm-company helm-descbinds
                 helm-ls-git helm-lsp helm-make helm-mode-manager helm-org
@@ -668,5 +668,5 @@ This function is called at the very end of Spacemacs initialization."
    ;; Your init file should contain only one such instance.
    ;; If there is more than one, they won't work right.
    '(hl-line ((t (:inherit highlight :extend t :background "#292e42"))))
-   '(mode-line ((t (:background "black" :foreground "light gray" :box (:line-width (1 . -1) :style released-button))))))
+   '(mode-line ((t (:background "black" :foreground "#c0caf5" :box (:line-width (1 . -1) :style released-button))))))
   )
