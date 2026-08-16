@@ -602,7 +602,8 @@ before packages are loaded."
                       :background "#000000")
   (set-face-attribute 'line-number-current-line nil
                       :background "#000000")
-  (set-face-attribute 'fringe nil :background "#000000")
+  (set-face-attribute 'fringe nil
+                      :background "#000000")
   )
 
 
@@ -622,7 +623,8 @@ This function is called at the very end of Spacemacs initialization."
    '(evil-undo-system 'undo-redo)
    '(evil-want-Y-yank-to-eol nil)
    '(package-selected-packages
-     '(ace-link aggressive-indent all-the-icons auto-compile auto-highlight-symbol
+     '(ace-link aggressive-indent all-the-icons all-the-icons-dired
+                all-the-icons-nerd-fonts auto-compile auto-highlight-symbol
                 auto-yasnippet avy-jump-helm-line browse-at-remote
                 centered-cursor-mode clean-aindent-mode code-review
                 column-enforce-mode company-lua define-word devdocs diff-hl
@@ -647,17 +649,17 @@ This function is called at the very end of Spacemacs initialization."
                 hybrid-mode indent-guide info+ inspector link-hint lorem-ipsum
                 lsp-origami lsp-treemacs lsp-ui lua-mode macrostep magit
                 magit-delta magit-gh magit-stats major-mode-icons markdown-toc
-                multi-line multi-term multi-vterm mwim nameless open-junk-file
-                org-cliplink org-contrib org-download org-mime org-pomodoro
-                org-present org-projectile org-rich-yank org-superstar orgit-forge
-                overseer page-break-lines paradox password-generator pcre2el
-                popwin quickrun rainbow-delimiters ranger restart-emacs shell-pop
-                smeargle space-doc spaceline spacemacs-purpose-popwin
-                spacemacs-whitespace-cleanup string-edit-at-point
-                string-inflection symbol-overlay symon term-cursor terminal-here
-                toc-org tokyo-night tokyo-theme transient-cycles tree-sitter
-                tree-sitter-indent tree-sitter-langs treemacs-evil
-                treemacs-icons-dired treemacs-magit treemacs-persp
+                mode-icons multi-line multi-term multi-vterm mwim nameless
+                open-junk-file org-cliplink org-contrib org-download org-mime
+                org-pomodoro org-present org-projectile org-rich-yank
+                org-superstar orgit-forge overseer page-break-lines paradox
+                password-generator pcre2el popwin quickrun rainbow-delimiters
+                ranger restart-emacs shell-pop smeargle space-doc spaceline
+                spacemacs-purpose-popwin spacemacs-whitespace-cleanup
+                string-edit-at-point string-inflection symbol-overlay symon
+                term-cursor terminal-here toc-org tokyo-night tokyo-theme
+                transient-cycles tree-sitter tree-sitter-indent tree-sitter-langs
+                treemacs-evil treemacs-icons-dired treemacs-magit treemacs-persp
                 treemacs-projectile undo-fu-session unfill vertico
                 vertico-posframe vi-tilde-fringe volatile-highlights vterm
                 vterm-toggle vundo wakatime-mode wgrep winum writeroom-mode
