@@ -32,13 +32,16 @@ This function should only modify configuration layer settings."
 
    ;; List of configuration layers to load.
    dotspacemacs-configuration-layers
-   '(lua
+   '(rust
+     lua
      ;; ----------------------------------------------------------------
      ;; Example of useful layers you may want to use right away.
      ;; Uncomment some layer names and press `SPC f e R' (Vim style) or
      ;; `M-m f e R' (Emacs style) to install them.
      ;; ----------------------------------------------------------------
-     auto-completion
+     (auto-completion
+      :variables
+      auto-completion-use-company-box t)
      better-defaults
      emacs-lisp
      git
@@ -380,17 +383,17 @@ It should only modify the values of Spacemacs settings."
    ;; A value from the range (0..100), in increasing opacity, which describes
    ;; the transparency level of a frame when it's active or selected.
    ;; Transparency can be toggled through `toggle-transparency'. (default 90)
-   dotspacemacs-active-transparency 80
+   dotspacemacs-active-transparency 100
 
    ;; A value from the range (0..100), in increasing opacity, which describes
    ;; the transparency level of a frame when it's inactive or deselected.
    ;; Transparency can be toggled through `toggle-transparency'. (default 90)
-   dotspacemacs-inactive-transparency 70
+   dotspacemacs-inactive-transparency 80
 
    ;; A value from the range (0..100), in increasing opacity, which describes the
    ;; transparency level of a frame background when it's active or selected. Transparency
    ;; can be toggled through `toggle-background-transparency'. (default 90)
-   dotspacemacs-background-transparency 80
+   dotspacemacs-background-transparency 90
 
    ;; If non-nil show the titles of transient states. (default t)
    dotspacemacs-show-transient-state-title t
@@ -430,8 +433,8 @@ It should only modify the values of Spacemacs settings."
    ;;   :size-limit-kb 1000)
    ;; When used in a plist, `visual' takes precedence over `relative'.
    ;; (default nil)
-   dotspacemacs-line-numbers '(:relative nil
-                                         :visual nil
+   dotspacemacs-line-numbers '(:relative t
+                                         :visual t
                                          :disabled-for-modes dired-mode
                                          doc-view-mode
                                          markdown-mode
@@ -586,27 +589,70 @@ This function is called at the very end of Spacemacs startup, after layer
 configuration.
 Put your configuration code here, except for variables that should be set
 before packages are loaded."
-  (setq wakatime-cli-path "/home/daxis/.wakatime/wakatime-cli")
-  (global-wakatime-mode 1)
-  (set-face-attribute 'font-lock-comment-face nil
-                      :foreground "#464f71")
-  (set-face-attribute 'font-lock-comment-delimiter-face nil
-                      :foreground "#464f71")
-  (set-face-attribute 'font-lock-comment-face nil
-                      :background "#000000")
-  (set-face-attribute 'font-lock-comment-delimiter-face nil
-                      :background "#000000")
+  ;; set background transparency
+  (defun my-set-frame-transparency (&optional frame)
+    (with-selected-frame (or frame (selected-frame))
+      (set-frame-parameter
+       nil 'alpha-background
+       dotspacemacs-background-transparency)))
+  (add-hook 'after-make-frame-functions
+            #'my-set-frame-transparency)
+  (add-hook 'server-after-make-frame-hook
+            #'my-set-frame-transparency)
+  (my-set-frame-transparency)
+  ;; change backgrounds color
   (set-face-attribute 'default nil
                       :background "#000000")
   (set-face-attribute 'line-number nil
                       :background "#000000")
   (set-face-attribute 'line-number-current-line nil
+                      :foreground "#9ece6a")
+  (set-face-attribute 'line-number-current-line nil
                       :background "#000000")
   (set-face-attribute 'fringe nil
                       :background "#000000")
+  ;; change completion popup background
+  (with-eval-after-load 'company
+    (setq company-frame-parameters
+          '((internal-border-width . 2)
+            (child-frame-border-width . 2)
+            (left-fringe . 10)
+            (right-fringe . 10)
+            (vertical-scroll-bars . nil)
+            (horizontal-scroll-bars . nil)))
+    (set-face-attribute 'company-tooltip nil
+                        :background "#000000")
+    (set-face-attribute 'company-tooltip-selection nil
+                        :background "#1a1b26"))
+  (with-eval-after-load 'company-box
+    (setq company-box-frame-parameters
+          '((internal-border-width . 2)
+            (child-frame-border-width . 2)
+            (left-fringe . 10)
+            (right-fringe . 10)
+            (vertical-scroll-bars . nil)
+            (horizontal-scroll-bars . nil)))
+    (set-face-attribute 'company-box-background nil
+                        :background "#000000")
+    (set-face-attribute 'company-box-selection nil
+                        :background "#1a1b26")
+    (set-face-attribute 'internal-border nil
+                        :background "#292e42")
+    (set-face-attribute 'child-frame-border nil
+                        :background "#292e42"))
+  ;; change comments color
+  (set-face-attribute 'font-lock-comment-face nil
+                      :foreground "#464f71")
+  (set-face-attribute 'font-lock-comment-delimiter-face nil
+                      :foreground "#464f71")
+  (set-face-attribute 'font-lock-comment-face nil
+                      :background "#000000")
+  (set-face-attribute 'font-lock-comment-delimiter-face nil
+                      :background "#000000")
+  ;; wakatime integration
+  (setq wakatime-cli-path "/home/daxis/.wakatime/wakatime-cli")
+  (global-wakatime-mode 1)
   )
-
-
 
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
@@ -625,45 +671,46 @@ This function is called at the very end of Spacemacs initialization."
    '(package-selected-packages
      '(ace-link aggressive-indent all-the-icons all-the-icons-dired
                 all-the-icons-nerd-fonts auto-compile auto-highlight-symbol
-                auto-yasnippet avy-jump-helm-line browse-at-remote
+                auto-yasnippet avy-jump-helm-line browse-at-remote bui
                 centered-cursor-mode clean-aindent-mode code-review
-                column-enforce-mode company-lua define-word devdocs diff-hl
-                diminish dired-quick-sort disable-mouse doom-modeline dotenv-mode
-                drag-stuff dumb-jump eat edit-indirect elisp-def elisp-demos
-                elisp-slime-nav emr esh-help eshell-prompt-extras eshell-z
-                eval-sexp-fu evil-anzu evil-args evil-cleverparens evil-collection
-                evil-easymotion evil-escape evil-evilified-state evil-exchange
-                evil-goggles evil-iedit-state evil-indent-plus evil-lion
-                evil-lisp-state evil-matchit evil-mc evil-nerd-commenter
-                evil-numbers evil-org evil-surround evil-textobj-line evil-tutor
-                evil-unimpaired evil-visual-mark-mode evil-visualstar
-                expand-region eyebrowse fancy-battery flycheck-elsa
-                flycheck-package flycheck-pos-tip flyspell-correct-helm ggtags
-                gh-md git-link git-messenger git-modes git-timemachine
-                gitignore-templates gnuplot golden-ratio google-translate helm-ag
-                helm-c-yasnippet helm-comint helm-company helm-descbinds
-                helm-ls-git helm-lsp helm-make helm-mode-manager helm-org
-                helm-org-rifle helm-projectile helm-purpose helm-swoop helm-xref
-                hide-comnt highlight-indentation highlight-numbers
-                highlight-parentheses hl-todo holy-mode htmlize hungry-delete
-                hybrid-mode indent-guide info+ inspector link-hint lorem-ipsum
-                lsp-origami lsp-treemacs lsp-ui lua-mode macrostep magit
-                magit-delta magit-gh magit-stats major-mode-icons markdown-toc
-                mode-icons multi-line multi-term multi-vterm mwim nameless
-                open-junk-file org-cliplink org-contrib org-download org-mime
-                org-pomodoro org-present org-projectile org-rich-yank
-                org-superstar orgit-forge overseer page-break-lines paradox
-                password-generator pcre2el popwin quickrun rainbow-delimiters
-                ranger restart-emacs shell-pop smeargle space-doc spaceline
-                spacemacs-purpose-popwin spacemacs-whitespace-cleanup
-                string-edit-at-point string-inflection symbol-overlay symon
-                term-cursor terminal-here toc-org tokyo-night tokyo-theme
-                transient-cycles tree-sitter tree-sitter-indent tree-sitter-langs
-                treemacs-evil treemacs-icons-dired treemacs-magit treemacs-persp
+                column-enforce-mode company-box company-lua dap-mode define-word
+                devdocs diff-hl diminish dired-quick-sort disable-mouse
+                doom-modeline dotenv-mode drag-stuff dumb-jump eat edit-indirect
+                elisp-def elisp-demos elisp-slime-nav emr esh-help
+                eshell-prompt-extras eshell-z eval-sexp-fu evil-anzu evil-args
+                evil-cleverparens evil-collection evil-easymotion evil-escape
+                evil-evilified-state evil-exchange evil-goggles evil-iedit-state
+                evil-indent-plus evil-lion evil-lisp-state evil-matchit evil-mc
+                evil-nerd-commenter evil-numbers evil-org evil-surround
+                evil-textobj-line evil-tutor evil-unimpaired evil-visual-mark-mode
+                evil-visualstar expand-region eyebrowse fancy-battery
+                flycheck-elsa flycheck-package flycheck-pos-tip
+                flyspell-correct-helm ggtags gh-md git-link git-messenger
+                git-modes git-timemachine gitignore-templates gnuplot golden-ratio
+                google-translate helm-ag helm-c-yasnippet helm-comint helm-company
+                helm-descbinds helm-ls-git helm-lsp helm-make helm-mode-manager
+                helm-org helm-org-rifle helm-projectile helm-purpose helm-swoop
+                helm-xref hide-comnt highlight-indentation highlight-numbers
+                highlight-parentheses hl-indent-scope hl-todo holy-mode htmlize
+                hungry-delete hybrid-mode indent-bars indent-guide info+ inspector
+                link-hint lorem-ipsum lsp-docker lsp-origami lsp-treemacs lsp-ui
+                lua-mode macrostep magit magit-delta magit-gh magit-stats
+                major-mode-icons markdown-toc mode-icons multi-line multi-term
+                multi-vterm mwim nameless open-junk-file org-cliplink org-contrib
+                org-download org-mime org-pomodoro org-present org-projectile
+                org-rich-yank org-superstar orgit-forge overseer page-break-lines
+                paradox password-generator pcre2el popwin quickrun
+                rainbow-delimiters ranger restart-emacs ron-mode rust-mode rustic
+                shell-pop smeargle space-doc spaceline spacemacs-purpose-popwin
+                spacemacs-whitespace-cleanup string-edit-at-point
+                string-inflection symbol-overlay symon term-cursor terminal-here
+                toc-org tokyo-night tokyo-theme transient-cycles tree-sitter
+                tree-sitter-indent tree-sitter-langs treemacs-evil
+                treemacs-icons-dired treemacs-magit treemacs-persp
                 treemacs-projectile undo-fu-session unfill vertico
                 vertico-posframe vi-tilde-fringe volatile-highlights vterm
                 vterm-toggle vundo wakatime-mode wgrep winum writeroom-mode
-                ws-butler yasnippet-snippets)))
+                ws-butler xterm-color yasnippet-snippets)))
   (custom-set-faces
    ;; custom-set-faces was added by Custom.
    ;; If you edit it by hand, you could mess it up, so be careful.
