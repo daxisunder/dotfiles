@@ -589,6 +589,18 @@ This function is called at the very end of Spacemacs startup, after layer
 configuration.
 Put your configuration code here, except for variables that should be set
 before packages are loaded."
+  ;; change mode indicator
+  (setq doom-modeline-modal-icon nil)
+  (setq evil-normal-state-tag "NORMAL"
+        evil-insert-state-tag "INSERT"
+        evil-visual-state-tag "VISUAL"
+        evil-replace-state-tag "REPLACE"
+        evil-operator-state-tag "OPERATOR"
+        evil-motion-state-tag "MOTION"
+        evil-emacs-state-tag "EMACS")
+  ;; remove mode-line border
+  (set-face-attribute 'doom-modeline nil :box 'unspecified)
+  (set-face-attribute 'doom-modeline-bar nil :box 'unspecified)
   ;; set background transparency
   (defun my-set-frame-transparency (&optional frame)
     (with-selected-frame (or frame (selected-frame))
