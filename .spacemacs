@@ -599,8 +599,17 @@ before packages are loaded."
         evil-motion-state-tag "MOTION"
         evil-emacs-state-tag "EMACS")
   ;; remove mode-line border
-  (set-face-attribute 'doom-modeline nil :box 'unspecified)
-  (set-face-attribute 'doom-modeline-bar nil :box 'unspecified)
+  (defun my-remove-mode-line-border (&rest _)
+    (set-face-attribute 'mode-line nil
+                        :box 'unspecified
+                        :background "#1a1b26")
+    (set-face-attribute 'mode-line-inactive nil
+                        :box 'unspecified
+                        :background "#1a1b26"))
+  (add-hook 'after-load-theme-hook #'my-remove-mode-line-border)
+  (my-remove-mode-line-border)
+  ;; remove mode-line bar
+  (setq doom-modeline-bar-width 0)
   ;; set background transparency
   (defun my-set-frame-transparency (&optional frame)
     (with-selected-frame (or frame (selected-frame))
