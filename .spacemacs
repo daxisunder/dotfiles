@@ -39,7 +39,8 @@ This function should only modify configuration layer settings."
    ;; ----------------------------------------------------------------
    '((rust :variables
            rust-backend 'lsp)
-     lua
+     (lua :variables
+          lua-backend 'lsp)
      (c-c++ :variables
             c-c++-backend 'lsp)
      (python :variables
