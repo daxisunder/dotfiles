@@ -58,3 +58,7 @@
   status: active
   added: "2026-08-16"
   github: github.com/0xjuanma/golazo
+- name: lsoff
+  status: active
+  added: "2026-08-20"
+  github: github.com/yutat23/lsoff

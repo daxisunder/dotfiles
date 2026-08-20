@@ -32,13 +32,18 @@ This function should only modify configuration layer settings."
 
    ;; List of configuration layers to load.
    dotspacemacs-configuration-layers
-   '(rust
+   ;; ----------------------------------------------------------------
+   ;; Example of useful layers you may want to use right away.
+   ;; Uncomment some layer names and press `SPC f e R' (Vim style) or
+   ;; `M-m f e R' (Emacs style) to install them.
+   ;; ----------------------------------------------------------------
+   '((rust :variables
+           rust-backend 'lsp)
      lua
-     ;; ----------------------------------------------------------------
-     ;; Example of useful layers you may want to use right away.
-     ;; Uncomment some layer names and press `SPC f e R' (Vim style) or
-     ;; `M-m f e R' (Emacs style) to install them.
-     ;; ----------------------------------------------------------------
+     (c-c++ :variables
+            c-c++-backend 'lsp)
+     (python :variables
+             python-backend 'lsp)
      (auto-completion
       :variables
       auto-completion-use-company-box t)
@@ -46,13 +51,20 @@ This function should only modify configuration layer settings."
      emacs-lisp
      git
      helm
-     lsp
+     (lsp :variables
+          lsp-use-lsp-ui t
+          lsp-ui-doc-enable t
+          lsp-ui-doc-show-with-mouse t
+          lsp-ui-doc-show-with-cursor t
+          lsp-ui-doc-delay 0.5
+          lsp-ui-doc-position 'at-point)
      markdown
      multiple-cursors
      org
      (shell :variables
             shell-default-height 30
-            shell-default-position 'bottom)
+            shell-default-position 'bottom
+            shell-backend 'lsp)
      spell-checking
      syntax-checking
      version-control
@@ -694,20 +706,21 @@ This function is called at the very end of Spacemacs initialization."
                 all-the-icons-nerd-fonts auto-compile auto-highlight-symbol
                 auto-yasnippet avy-jump-helm-line browse-at-remote bui
                 centered-cursor-mode clean-aindent-mode code-review
-                column-enforce-mode company-box company-lua dap-mode define-word
-                devdocs diff-hl diminish dired-quick-sort disable-mouse
-                doom-modeline dotenv-mode drag-stuff dumb-jump eat edit-indirect
-                elisp-def elisp-demos elisp-slime-nav emr esh-help
-                eshell-prompt-extras eshell-z eval-sexp-fu evil-anzu evil-args
-                evil-cleverparens evil-collection evil-easymotion evil-escape
-                evil-evilified-state evil-exchange evil-goggles evil-iedit-state
-                evil-indent-plus evil-lion evil-lisp-state evil-matchit evil-mc
-                evil-nerd-commenter evil-numbers evil-org evil-surround
-                evil-textobj-line evil-tutor evil-unimpaired evil-visual-mark-mode
-                evil-visualstar expand-region eyebrowse fancy-battery
-                flycheck-elsa flycheck-package flycheck-pos-tip
-                flyspell-correct-helm ggtags gh-md git-link git-messenger
-                git-modes git-timemachine gitignore-templates gnuplot golden-ratio
+                column-enforce-mode company-box company-c-headers company-lua
+                cpp-auto-include dap-mode define-word devdocs diff-hl diminish
+                dired-quick-sort disable-mouse disaster doom-modeline dotenv-mode
+                drag-stuff dumb-jump eat edit-indirect elisp-def elisp-demos
+                elisp-slime-nav emr esh-help eshell-prompt-extras eshell-z
+                eval-sexp-fu evil-anzu evil-args evil-cleverparens evil-collection
+                evil-easymotion evil-escape evil-evilified-state evil-exchange
+                evil-goggles evil-iedit-state evil-indent-plus evil-lion
+                evil-lisp-state evil-matchit evil-mc evil-nerd-commenter
+                evil-numbers evil-org evil-surround evil-textobj-line evil-tutor
+                evil-unimpaired evil-visual-mark-mode evil-visualstar
+                expand-region eyebrowse fancy-battery flycheck-elsa
+                flycheck-package flycheck-pos-tip flyspell-correct-helm ggtags
+                gh-md git-link git-messenger git-modes git-timemachine
+                gitignore-templates gnuplot golden-ratio google-c-style
                 google-translate helm-ag helm-c-yasnippet helm-comint helm-company
                 helm-descbinds helm-ls-git helm-lsp helm-make helm-mode-manager
                 helm-org helm-org-rifle helm-projectile helm-purpose helm-swoop
