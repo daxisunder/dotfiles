@@ -1,3 +1,0 @@
-keepkit v0.2.0 linux/amd64 tools=4 token=none
-2026-08-02T15:24:36.244+02:00 ERROR model.fetchHelpCmd: patent [man]: no output: exit status 16
-2026-08-02T15:25:10.634+02:00 ERROR model.fetchHelpCmd: netwatch [man]: no output: exit status 16

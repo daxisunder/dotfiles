@@ -1,13 +1,13 @@
 # ignore api.env file
-api.env
+/api.env
 # ignore .spacemacs.env file (there's some API keys in there)
-.spacemacs.env
+/.spacemacs.env
 # ignore musikcube shit
-.config/musikcube/1/
-.config/musickube/cache/
-.config/musikcube/log.txt
-.config/musikcube/stderr.txt
-.config/musikcube/session.json
+/.config/musikcube/1/
+/.config/musikcube/cache/
+/.config/musikcube/log.txt
+/.config/musikcube/stderr.txt
+/.config/musikcube/session.json
 # ignore keepkit shit
-.config/keepkit/logs/
-.config/keepkit/cache.json
+/.config/keepkit/logs/
+/.config/keepkit/cache.json
