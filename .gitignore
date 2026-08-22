@@ -4,6 +4,10 @@ api.env
 .spacemacs.env
 # ignore musikcube shit
 .config/musikcube/1/
+.config/musickube/cache/
 .config/musikcube/log.txt
 .config/musikcube/stderr.txt
 .config/musikcube/session.json
+# ignore keepkit shit
+.config/keepkit/logs/
+.config/keepkit/cache.json
