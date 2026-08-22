@@ -1,0 +1,2 @@
+keepkit v0.3.0 linux/amd64 tools=16 token=none
+2026-08-22T01:51:00.256+02:00 ERROR version.classifyStatus: /repos/zenbu-labs/terminal-browser/readme http=403 remaining=0: rate limited

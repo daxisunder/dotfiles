@@ -1,5 +1,7 @@
 # ignore api.env file
 api.env
+# ignore .spacemacs.env file (there's some API keys in there)
+.spacemacs.env
 # ignore musikcube shit
 .config/musikcube/1/
 .config/musikcube/log.txt
