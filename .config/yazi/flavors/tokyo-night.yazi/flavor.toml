@@ -60,8 +60,9 @@ progress_normal = { fg = "#1a1b26" }
 progress_error = { fg = "#f7768e" }
 
 [which]
+border = { fg = "#292e42" }
 cols = 3
-mask = { bg = "#16161e" }
+mask = { bg = "#000000" }
 cand = { fg = "#7dcfff" }
 rest = { fg = "#7aa2f7" }
 desc = { fg = "#bb9af7" }
