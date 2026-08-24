@@ -66,3 +66,11 @@
   status: active
   added: "2026-08-22"
   github: github.com/Zorig/valveFM
+- name: syswatch
+  status: active
+  added: "2026-08-24"
+  github: github.com/matthart1983/syswatch
+- name: diskwatch
+  status: active
+  added: "2026-08-24"
+  github: github.com/matthart1983/diskwatch
