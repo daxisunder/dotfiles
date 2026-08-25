@@ -11,6 +11,7 @@
 # ignore keepkit shit
 /.config/keepkit/logs/
 /.config/keepkit/cache.json
+/.config/keepkit/token
 # ignore project-manim
 /project-manim/
 # ignore display3d
