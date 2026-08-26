@@ -1,0 +1,6 @@
+theme = "dark"
+graph_style = "dots"
+graph_fade = false
+view = "full"
+default_tab = "overview"
+tick_ms = 1000

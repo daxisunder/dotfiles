@@ -9,7 +9,7 @@
   user = daxisunder
 
 [core]
-  pager = delta --side-by-side -w ${FZF_PREVIEW_COLUMNS:-$COLUMNS}
+  pager = delta -w ${FZF_PREVIEW_COLUMNS:-$COLUMNS}
   ignoreCase = true
 
 [apply]
@@ -39,7 +39,7 @@
 
 [delta]
   dark = true
-  features = arctic-fox,decorations,side-by-side
+  features = arctic-fox,decorations
   hyperlinks = true
   line-numbers = true
   navigate = true
@@ -51,7 +51,8 @@
   tool = nvimdiff
 
 [merge]
-    conflictStyle = zdiff3
+  summary = true
+  conflictStyle = zdiff3
 
 [mergetool "nvimdiff"]
 	layout = LOCAL,BASE@,REMOTE
@@ -64,3 +65,6 @@
 
 [credential "https://gist.github.com"]
 	helper = !/usr/bin/gh auth git-credential
+
+[credential]
+	helper = store
