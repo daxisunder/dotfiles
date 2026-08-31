@@ -431,7 +431,7 @@ help() {
 }
 
 # Zellij integration
-# eval "$(zellij setup --generate-auto-start zsh)"
+eval "$(zellij setup --generate-auto-start zsh)"
 
 # Atuin integration (pretty history)
 . "$HOME/.atuin/bin/env"
