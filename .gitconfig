@@ -4,6 +4,7 @@
 [user]
 	email = no-prophet@proton.me
 	name = daxisunder
+	signingkey = 23F3F6B503FE2EB3FD09B6B95F4D72AEEA52C403
 
 [github]
   user = daxisunder
@@ -68,3 +69,7 @@
 
 [credential]
 	helper = store
+[commit]
+	gpgsign = true
+[tag]
+	gpgSign = true
