@@ -9,6 +9,7 @@ auto-execute = false
 atuin-history = 2
 atuin-db-path = ""
 cobra-probe-enabled = true
+navigate-closed = "shell"
 
 [ui]
 style = "modern"
@@ -23,9 +24,9 @@ nerd-fonts = true
 toggle-mode = "ctrl+t"
 toggle-menu = "ctrl+space"
 select = "ctrl+y"
-navigate-up = "ctrl+k"
-navigate-down = "ctrl+j"
-navigate-right = "ctrl+right"
+navigate-up = "up"
+navigate-down = "down"
+navigate-right = "right"
 
 [git]
 filter-active-branch = true
