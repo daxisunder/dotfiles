@@ -61,6 +61,12 @@
 [pull]
 	rebase = false
 
+[commit]
+	gpgsign = true
+
+[tag]
+	gpgSign = true
+
 [credential "https://github.com"]
 	helper = !/usr/bin/gh auth git-credential
 
@@ -69,7 +75,3 @@
 
 [credential]
 	helper = store
-[commit]
-	gpgsign = true
-[tag]
-	gpgSign = true
