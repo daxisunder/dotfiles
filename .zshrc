@@ -490,7 +490,7 @@ bindkey '^Z' fancy-ctrl-z
 
 # Unified mkdir + zoxide jump
 mkz() {
-    if [ -z "$1" ]; then
+    if [ "$#" -ne 1 ]; then
         printf 'Usage: mkz <directory>\n' >&2
         return 1
     fi
