@@ -12,6 +12,8 @@
 /.config/keepkit/logs/
 /.config/keepkit/cache.json
 /.config/keepkit/token
+# ignore bitwarden
+/.config/Bitwarden/
 # ignore project-manim
 /project-manim/
 # ignore display3d
