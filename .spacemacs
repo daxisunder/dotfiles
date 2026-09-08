@@ -700,38 +700,42 @@ This function is called at the very end of Spacemacs initialization."
    ;; If you edit it by hand, you could mess it up, so be careful.
    ;; Your init file should contain only one such instance.
    ;; If there is more than one, they won't work right.
+   '(custom-enabled-themes '(sanityinc-tomorrow-night))
+   '(custom-safe-themes
+     '("6fc9e40b4375d9d8d0d9521505849ab4d04220ed470db0b78b700230da0a86c1" default))
    '(evil-undo-system 'undo-redo)
    '(evil-want-Y-yank-to-eol nil)
    '(package-selected-packages
      '(ace-link aggressive-indent all-the-icons all-the-icons-dired
                 all-the-icons-nerd-fonts auto-compile auto-highlight-symbol
                 auto-yasnippet avy-jump-helm-line browse-at-remote bui
-                centered-cursor-mode clean-aindent-mode code-review
-                column-enforce-mode company-box company-c-headers company-lua
-                cpp-auto-include dap-mode define-word devdocs diff-hl diminish
-                dired-quick-sort disable-mouse disaster doom-modeline dotenv-mode
-                drag-stuff dumb-jump eat edit-indirect elisp-def elisp-demos
-                elisp-slime-nav emr esh-help eshell-prompt-extras eshell-z
-                eval-sexp-fu evil-anzu evil-args evil-cleverparens evil-collection
-                evil-easymotion evil-escape evil-evilified-state evil-exchange
-                evil-goggles evil-iedit-state evil-indent-plus evil-lion
-                evil-lisp-state evil-matchit evil-mc evil-nerd-commenter
-                evil-numbers evil-org evil-surround evil-textobj-line evil-tutor
-                evil-unimpaired evil-visual-mark-mode evil-visualstar
-                expand-region eyebrowse fancy-battery flycheck-elsa
-                flycheck-package flycheck-pos-tip flyspell-correct-helm ggtags
-                gh-md git-link git-messenger git-modes git-timemachine
-                gitignore-templates gnuplot golden-ratio google-c-style
-                google-translate helm-ag helm-c-yasnippet helm-comint helm-company
-                helm-descbinds helm-ls-git helm-lsp helm-make helm-mode-manager
-                helm-org helm-org-rifle helm-projectile helm-purpose helm-swoop
-                helm-xref hide-comnt highlight-indentation highlight-numbers
-                highlight-parentheses hl-indent-scope hl-todo holy-mode htmlize
-                hungry-delete hybrid-mode indent-bars indent-guide info+ inspector
-                link-hint lorem-ipsum lsp-docker lsp-origami lsp-treemacs lsp-ui
-                lua-mode macrostep magit magit-delta magit-gh magit-stats
-                major-mode-icons markdown-toc mode-icons multi-line multi-term
-                multi-vterm mwim nameless open-junk-file org-cliplink org-contrib
+                catppuccin-theme centered-cursor-mode clean-aindent-mode
+                code-review color-theme-sanityinc-tomorrow column-enforce-mode
+                company-box company-c-headers company-lua cpp-auto-include
+                dap-mode define-word devdocs diff-hl diminish dired-quick-sort
+                disable-mouse disaster doom-modeline dotenv-mode drag-stuff
+                dumb-jump eat edit-indirect elisp-def elisp-demos elisp-slime-nav
+                emr esh-help eshell-prompt-extras eshell-z eval-sexp-fu evil-anzu
+                evil-args evil-cleverparens evil-collection evil-easymotion
+                evil-escape evil-evilified-state evil-exchange evil-goggles
+                evil-iedit-state evil-indent-plus evil-lion evil-lisp-state
+                evil-matchit evil-mc evil-nerd-commenter evil-numbers evil-org
+                evil-surround evil-textobj-line evil-tutor evil-unimpaired
+                evil-visual-mark-mode evil-visualstar expand-region eyebrowse
+                fancy-battery flycheck-elsa flycheck-package flycheck-pos-tip
+                flyspell-correct-helm ggtags gh-md git-link git-messenger
+                git-modes git-timemachine gitignore-templates gnuplot golden-ratio
+                google-c-style google-translate helm-ag helm-c-yasnippet
+                helm-comint helm-company helm-descbinds helm-ls-git helm-lsp
+                helm-make helm-mode-manager helm-org helm-org-rifle
+                helm-projectile helm-purpose helm-swoop helm-xref hide-comnt
+                highlight-indentation highlight-numbers highlight-parentheses
+                hl-indent-scope hl-todo holy-mode htmlize hungry-delete
+                hybrid-mode indent-bars indent-guide info+ inspector link-hint
+                lorem-ipsum lsp-docker lsp-origami lsp-treemacs lsp-ui lua-mode
+                macrostep magit magit-delta magit-gh magit-stats major-mode-icons
+                markdown-toc mode-icons multi-line multi-term multi-vterm mwim
+                nameless nord-theme open-junk-file org-cliplink org-contrib
                 org-download org-mime org-pomodoro org-present org-projectile
                 org-rich-yank org-superstar orgit-forge overseer page-break-lines
                 paradox password-generator pcre2el popwin quickrun
