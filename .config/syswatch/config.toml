@@ -1,4 +1,4 @@
-theme = "dark"
+theme = "terminal"
 graph_style = "dots"
 graph_fade = false
 view = "full"

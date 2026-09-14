@@ -1,0 +1,18 @@
+[process.iris]
+allow_sni = []
+allow_asn = []
+allow_ip = ["104.18.38.236", "172.64.149.20"]
+allow_ports = [443]
+# netwatch egress policy (observe → promote → warn).
+# Generated from the observed baseline; review before trusting.
+# The linter WARNS on drift — it never blocks.
+#
+# strict = true treats this policy as complete: any process
+# WITHOUT a rule below is then reported as undeclared. Off by
+# default. Turn it on once you believe the list is complete —
+# it is what lets the linter see a binary nobody declared.
+#
+# Promotion never writes allow_asn from an observation: an AS
+# entry admits every host that AS operates. Widen by hand if
+# you mean it.
+
