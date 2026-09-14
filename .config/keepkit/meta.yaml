@@ -74,3 +74,7 @@
   status: active
   added: "2026-08-24"
   github: github.com/matthart1983/diskwatch
+- name: mew
+  status: active
+  added: "2026-09-14"
+  github: github.com/programmersd21/mew
