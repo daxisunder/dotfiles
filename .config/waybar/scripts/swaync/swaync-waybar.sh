@@ -10,12 +10,12 @@ swaync-client -swb | while read -r line; do
     icon_color="#ff9e64"
     ;;
   "dnd-notification" | "dnd-inhibited-notification")
-    icon="󰗖<span foreground='#ff6c6b'><sup></sup></span>"
-    icon_color="#ff9e64"
+    icon="󰀨"
+    icon_color="#ff6c6b"
     ;;
   "notification" | "inhibited-notification")
-    icon="󰗖<span foreground='#ff6c6b'><sup></sup></span>"
-    icon_color="#8db0ff"
+    icon="󰗖"
+    icon_color="#ff9e64"
     ;;
   *)
     icon="󰗖"
