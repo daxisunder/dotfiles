@@ -301,6 +301,9 @@ alias zsh='nvim .zshrc'
 alias nls='nuls -lag'
 alias rww='rm /tmp/wttrbar-*.json && wttrbar --location banjaluka >/dev/null 2>&1 && ~/.config/hypr/scripts/Refresh.sh >/dev/null 2>&1' # Refresh wttrbar weather widget and waybar
 
+# Remove extra space on the right side of the prompt (for powerlevel10k)
+ZLE_RPROMPT_INDENT=0
+
 # Set comment color (zsh-syntax-highlighting)
 typeset -A ZSH_HIGHLIGHT_STYLES
 ZSH_HIGHLIGHT_STYLES[comment]="fg=#565f89"
