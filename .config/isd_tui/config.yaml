@@ -1,0 +1,217 @@
+# yaml-language-server: $schema=schema.json
+# ^ This links to the JSON Schema that provides auto-completion support
+#   and dynamically checks the input. For this to work, your editor must have
+#   support for the `yaml-language-server`
+#   - <https://github.com/redhat-developer/yaml-language-server>
+#
+#   Check the `Clients` section for more information:
+#   - <https://github.com/redhat-developer/yaml-language-server?tab=readme-ov-file#clients>
+#
+# To create a fresh `config.yaml` file with the defaults,
+# simply delete this file. It will be re-created when `isd` starts.
+
+## The systemctl startup mode (`user`/`system`).
+## By default loads the mode from the last session (`auto`).
+# startup_mode: "auto"
+
+## Auto refresh the preview unit _and_ unit states of selected units.
+## Example: When a selected unit changes from running to failed
+## the unit state color and preview window will be updated after this
+## time has passed, even if _nothing_ is pressed.
+# preview_and_selection_refresh_interval_sec: 1
+
+## Auto refresh all unit states.
+## This is important to find new units that have been added
+## since the start of `isd`.
+## Please note that low values will cause many and large systemctl calls.
+# full_refresh_interval_sec: 10
+
+## Cache the unit search text input across restarts.
+## Enabled by default.
+# cache_input: True
+
+## Seconds to wait before computing state updates (default 0.05s).
+## For example, time after input has changed before updating the selection.
+## Or time to wait to update preview window after highlighting new value.
+## The idea is to minimize the number of 'irrelevant' updated during fast
+## scrolling through the unit list or quick typing.
+# updates_throttle_sec: 0.05
+
+## Editor to use; Default = `auto`
+## Defaults to the first editor defined in one of the environment variables:
+## - $SYSTEMD_EDITOR, $EDITOR, $VISUAL
+## and then falls back to the first available editor:
+## - `editor`, `nano`, `vim`, `vi`.
+# editor: "auto"
+
+## Default pager to open preview tabs in (except for `Journal`). Default = `auto`
+## Defaults to the first pager defined in one of the environment variables:
+## - `SYSTEMD_PAGER`, `PAGER`
+## and then falls back to the first available pager:
+## - `less`, `more`.
+##
+## Note: Input is always provided via STDIN to the pager!
+# default_pager: "auto"
+
+## Default pager to open preview for `Journal` tab. Default = `auto`
+## Defaults to the first pager defined in one of the environment variables:
+## - `SYSTEMD_PAGER`, `PAGER`
+## and then falls back to the first available pager:
+## - `less`, `more`.
+##
+## Note: Input is always provided via STDIN to the pager!
+# journal_pager: "auto"
+
+## Default arguments for `journalctl` to generate the
+## output of the `Journal` preview window.
+# journalctl_args:
+#   - "--catalog"
+#   - "--lines=1000"
+
+## The theme of the application.
+theme: "terminal-derived-theme"
+
+## Relative height compared to preview height.
+# search_results_height_fraction: 1
+
+## Relative height compared to search result height.
+# preview_height_fraction: 2
+
+## Uncategorized generic keybindings for
+## toggling screens/modals and opening settings.
+# generic_keybindings:
+#   # Systemctl action
+#   toggle_systemctl_modal: "ctrl+o"
+#   # Open config in editor
+#   open_config: "ctrl+g"
+
+## Configurable keybindings for common actions on the main screen.
+## These keybindings must be unique across the entire application.
+# main_keybindings:
+#   # Next preview tab
+#   next_preview_tab: "full_stop"
+#   # Previous preview tab
+#   previous_preview_tab: "comma"
+#   # Clear search input
+#   clear_input: "backspace,ctrl+backspace"
+#   # Jump to search input
+#   jump_to_input: "slash"
+#   # Copy highlighted unit path to clipboard
+#   copy_unit_path: "ctrl+x"
+#   # Open in pager
+#   open_preview_in_pager: "enter"
+#   # Open in editor
+#   open_preview_in_editor: "ctrl+v"
+#   # Toggle mode
+#   toggle_mode: "ctrl+t"
+#   # Increase height of currently focused widget
+#   increase_widget_height: "plus"
+#   # Decrease height of currently focused widget
+#   decrease_widget_height: "minus"
+
+## Keybindings specific to navigation.
+## These will be applied to _all_ widgets that
+## have any navigational component.
+## To avoid confusion, these must be unique across the entire application;
+## even if a given widget does not have horizontal navigation.
+# navigation_keybindings:
+#   # Down
+#   down: "down,j"
+#   # Up
+#   up: "up,k"
+#   # Page down
+#   page_down: "ctrl+down,ctrl+f,pagedown"
+#   # Page up
+#   page_up: "ctrl+up,ctrl+b,pageup"
+#   # Goto top
+#   top: "home"
+#   # Goto bottom
+#   bottom: "end"
+#   # Left
+#   left: "left,h"
+#   # Right
+#   right: "right,l"
+#   # Page left
+#   page_left: "ctrl+left"
+#   # Page right
+#   page_right: "ctrl+right"
+
+## List of configurable systemctl subcommand keybindings.
+## The exact subcommand (including arguments) can be defined by setting `command`.
+## The `modal_keybinding`s provide the shortcut key(s)
+## for the modal action window.
+## Optionally, `direct_keybinding`s can be configured to
+## immediately trigger the systemctl action from the main screen
+## without having to open the modal first.
+##
+## The description is used to describe the subcommand
+## in the `CommandPalette`
+# systemctl_commands:
+#   - command: "start"
+#     modal_keybinding: "a"
+#     direct_keybinding: null
+#     description: "Start unit(s)"
+#   - command: "stop"
+#     modal_keybinding: "o"
+#     direct_keybinding: "ctrl+s"
+#     description: "Stop unit(s)"
+#   - command: "restart"
+#     modal_keybinding: "s"
+#     direct_keybinding: null
+#     description: "Restart unit(s)"
+#   - command: "edit"
+#     modal_keybinding: "e"
+#     direct_keybinding: null
+#     description: "Edit highlighted unit via drop-in with configured editor"
+#   - command: "edit --full"
+#     modal_keybinding: "f"
+#     direct_keybinding: null
+#     description: "Edit highlighted unit source with configured editor"
+#   - command: "edit --runtime"
+#     modal_keybinding: "r"
+#     direct_keybinding: null
+#     description: "Edit highlighted unit only for current runtime"
+#   - command: "reload"
+#     modal_keybinding: "d"
+#     direct_keybinding: null
+#     description: "Reload unit(s)"
+#   - command: "enable"
+#     modal_keybinding: "n"
+#     direct_keybinding: null
+#     description: "Enable unit(s)"
+#   - command: "disable"
+#     modal_keybinding: "i"
+#     direct_keybinding: null
+#     description: "Disable unit(s)."
+#   - command: "mask"
+#     modal_keybinding: "m"
+#     direct_keybinding: null
+#     description: "Mask/Disable starting unit(s)"
+#   - command: "unmask"
+#     modal_keybinding: "u"
+#     direct_keybinding: null
+#     description: "Undo masking of unit(s)"
+#   - command: "reset-failed"
+#     modal_keybinding: "-"
+#     direct_keybinding: null
+#     description: "Reset failed state of unit(s), including the restart counter."
+
+## Arguments passed to the configured `default_pager`.
+## Should NOT be required most of the time.
+## As for most pagers, the correct arguments/environment variables are set by default
+## if this value is unset (`null`).
+# default_pager_args: null
+
+## Arguments passed to the configured `journal_pager`.
+## Should NOT be required most of the time.
+## As for most pagers, the correct arguments/environment variables are set by default
+## if this value is unset (`null`).
+# journal_pager_args: null
+
+## How many lines to show in the preview windows.
+## Setting this value too large, especially with long journal entries
+## will considerably slow down the application.
+## Usually the default should be left as is.
+##
+## Note: The output is not trimmed when a pager or editor is opened!
+# preview_max_lines: 500

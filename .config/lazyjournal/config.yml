@@ -1,0 +1,86 @@
+# Default flag values
+settings:
+  tailModeDisable: false
+  tailModeLines: 10000
+  updateInterval: 5
+  minSymbolFilter: 3
+  timezoneFilter: +00:00
+  mouseDisable: false
+  wrapModeDisable: false
+  dockerStreamOnly: false
+  dockerContext: default
+  podmanContext: ""
+  kubernetesContext: default
+  kubernetesNamespace: all
+  unitType: service
+  customPath: ""
+  colorMode: default
+  colorActionsDisable: false
+  disableFastMode: false
+
+# Default interface settings
+interface:
+  # Lists in panels when the interface is started
+  # Available system log lists: systemUnits, userUnits, kernelBoot, auditd
+  systemLogList: systemUnits
+  # Available file log lists: varlog, customPath, home, descriptor
+  fileLogList: varlog
+  # Available container log lists: docker, compose, podman, kubernetes
+  containerLogList: docker
+  # Enable filtering by date when the interface is started (today by default)
+  sinceDateFilterMode: false
+  untilDateFilterMode: false
+  # Available colors: default, green, black, yellow, red, blue, cyan, magenta, white
+  foregroundColor: default
+  backgroundColor: default
+  selectedForegroundColor: black
+  selectedBackgroundColor: green
+  frameColor: default
+  titleColor: default
+  selectedFrameColor: green
+  selectedTitleColor: green
+  errorColor: red
+
+# Available hotkeys:
+# a-z, shift+<a-z>, ctrl+<a-z>, 0-9, f1-f12 and any other symbols
+# tab, shift+tab, enter, space, backspace, del/delete and esc/escape
+hotkeys:
+  showHelp: f1
+  showManager: f2
+  switchWindow: tab
+  backSwitchWindows: shift+tab
+  up: k
+  quickUp: shift+k
+  veryQuickUp: ctrl+k
+  switchFilterMode: ctrl+k
+  down: j
+  quickDown: shift+j
+  veryQuickDown: ctrl+j
+  backSwitchFilterMode: ctrl+j
+  left: h
+  right: l
+  disableFilterByDate: delete
+  loadJournal: enter
+  goToFilter: /
+  goToEnd: ctrl+e
+  goToTop: ctrl+a
+  tailModeMore: "]"
+  tailModeLess: "["
+  updateIntervalMore: "}"
+  updateIntervalLess: "{"
+  autoUpdateJournal: ctrl+u
+  updateJournal: ctrl+r
+  updateLists: ctrl+q
+  switchColorMode: ctrl+w
+  switchPriority: ctrl+p
+  switchDockerMode: ctrl+d
+  switchStreamMode: ctrl+s
+  timestampShow: ctrl+t
+  exit: ctrl+c
+
+# List of ssh hosts with flags for connection from the interface
+# ssh:
+#   hosts:
+#     - lifailon@192.168.3.101
+#     - lifailon@192.168.3.105 -p 2121 -o Compression=yes
+#     - lifailon@192.168.3.106 -o StrictHostKeyChecking=no -o ConnectTimeout=5

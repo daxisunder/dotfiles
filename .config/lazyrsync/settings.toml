@@ -1,0 +1,18 @@
+skip_delete_warning = false
+skip_run_confirm = false
+skip_remove_confirm = false
+hints = true
+last_profile = ""
+rsync_path = "rsync"
+
+[theme]
+accent = "lightblue"
+on_accent = "black"
+secondary = "lightcyan"
+border = "#292e42"
+muted = "darkgray"
+added = "green"
+modified = "yellow"
+deleted = "red"
+warn = "yellow"
+bytes = "blue"
