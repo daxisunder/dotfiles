@@ -29,9 +29,6 @@ export PATH="$HOME/.config/emacs/bin:$PATH"
 # Flatpak exports path
 export PATH="/var/lib/flatpak/exports/share:$PATH"
 
-# GitArbor TUI
-export PATH="$HOME/.gitarbor/bin:$PATH"
-
 # OpenHuman path
 export PATH="$HOME/Applications/openhuman_e76783d639bc72fe9d7d8ac279780b7f:$PATH"
 
@@ -41,20 +38,6 @@ export PATH="$HOME/.opencode/bin:$PATH"
 
 # Source api keys (has to be sourced before zsh-ai gemini provider)
 source $HOME/projects/dotfiles/api.env
-
-# ZSH AI integration with local AI models
-export ZSH_AI_PROVIDER="gemini" # (anthropic (default), ollama (local), gemini, opennai)
-export ZSH_AI_OLLAMA_MODEL="llama3.2"
-export ZSH_AI_GEMINI_MODEL="gemini-3-flash-preview"
-export ZSH_AI_PROMPT_EXTEND="Always prefer modern CLI tools like ripgrep, fd, and bat."
-
-# Set pop to use outlook SMTP server (for sending emails from CLI)
-# export POP_SMTP_HOST=smtp-mail.outlook.com
-# export POP_SMTP_PORT=587
-# export POP_SMTP_USERNAME=daxisunder@hotmail.com
-# export POP_SMTP_PASSWORD=
-export POP_FROM=onboarding@resend.dev
-export POP_SIGNATURE="Sent with [Pop](https://github.com/charmbracelet/pop)!"
 
 # XDG runtime dir (onedrive)
 export XDG_RUNTIME_DIR="/run/user/$UID"
@@ -510,10 +493,6 @@ source /home/daxis/.config/broot/launcher/bash/br
 
 # Television integration
 eval "$(tv init zsh)"
-
-# Display Pokemon-colorscripts
-# Project page: https://gitlab.com/phoneybadger/pokemon-colorscripts#on-other-distros-and-macos
-#pokemon-colorscripts --no-title -s -r
 
 # Display colorscripts
 #colorscript -r
