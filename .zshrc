@@ -36,6 +36,13 @@ export PATH="$HOME/Applications/openhuman_e76783d639bc72fe9d7d8ac279780b7f:$PATH
 export PATH="$HOME/.opencode/bin:$PATH"
 . "$HOME/.local/bin/env"
 
+# NPM path/environment variables
+export NPM_CONFIG_PREFIX="$HOME/.npm-global"
+export PATH="$NPM_CONFIG_PREFIX/bin:$PATH"
+export ANTHROPIC_BASE_URL="http://localhost:20128/v1"
+export ANTHROPIC_AUTH_TOKEN="omniroute"
+export ANTHROPIC_MODEL="auto/best-free"   # or a specific model from the dashboard
+
 # Source api keys (has to be sourced before zsh-ai gemini provider)
 source $HOME/projects/dotfiles/api.env
 
