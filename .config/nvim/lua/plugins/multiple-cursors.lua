@@ -23,7 +23,7 @@ return {
     { "<C-Down>", "<Cmd>MultipleCursorsAddDown<CR>", mode = { "n", "i", "x" }, desc = "Add cursor and move down" },
     { "<C-Up>", "<Cmd>MultipleCursorsAddUp<CR>", mode = { "n", "i", "x" }, desc = "Add cursor and move up" },
     { "<C-LeftMouse>", "<Cmd>MultipleCursorsMouseAddDelete<CR>", mode = { "n", "i" }, desc = "Add or remove cursor" },
-    { "<C-Return>", "<Cmd>MultipleCursorsAddDelete<CR>", mode = { "n", "i" }, desc = "Add or remove cursor" },
+    { "<C-Return>", "<Cmd>MultipleCursorsAddDelete<CR>", mode = { "n" }, desc = "Add or remove cursor" },
     {
       "<leader>mm",
       "<Cmd>MultipleCursorsAddVisualArea<CR>",
