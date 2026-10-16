@@ -65,7 +65,7 @@ fi
 
 if [[ -z "$GEMINI_API_KEY" ]]; then
   if can_notify; then
-    notify-send -u critical -i github "Dotfiles" "GEMINI_API_KEY not set. Falling back to timestamped commit."
+    notify-send -u critical -i github "Dotfiles" "GEMINI_API_KEY not set. Falling back to timestamped commit.to timestamped commit."
   fi
   COMMIT_MSG="chore: dotfiles update $(date '+%Y-%m-%d %H:%M')"
 else
@@ -154,9 +154,9 @@ else
     if can_notify; then
       if [[ "$USED_FALLBACK_MODEL" -eq 1 ]]; then
         ERROR_MSG=$(jq -r '.error.message // "Unknown error"' /tmp/gemini_response.json 2>/dev/null || echo "HTTP $HTTP_CODE")
-        notify-send -u normal -i github "Dotfiles" "Gemini-3.6-flash failed: $ERROR_MSG. Falling back."
+        notify-send -u normal -i github "Dotfiles" "Gemini-3.6-flash failed: $ERROR_MSG. Falling back to timestamped commit."
       else
-        notify-send -u normal -i github "Dotfiles" "Gemini failed: $PRIMARY_ERROR_MSG. Falling back."
+        notify-send -u normal -i github "Dotfiles" "Gemini failed: $PRIMARY_ERROR_MSG. Falling back to timestamped commit."
       fi
     fi
     COMMIT_MSG="chore: dotfiles update $(date '+%Y-%m-%d %H:%M')"
@@ -165,7 +165,7 @@ else
     if [[ "$CANDIDATES" -eq 0 ]]; then
       if can_notify; then
         PROMPT_BLOCK=$(jq -r '.promptFeedback.blockReason // "empty candidates"' /tmp/gemini_response.json)
-        notify-send -u normal -i github "Dotfiles" "Gemini returned no candidates ($PROMPT_BLOCK). Falling back."
+        notify-send -u normal -i github "Dotfiles" "Gemini returned no candidates ($PROMPT_BLOCK). Falling back to timestamped commit."
       fi
       COMMIT_MSG="chore: dotfiles update $(date '+%Y-%m-%d %H:%M')"
     else
@@ -178,7 +178,7 @@ else
 
       if [[ -z "$COMMIT_MSG" ]]; then
         if can_notify; then
-          notify-send -u normal -i github "Dotfiles" "Gemini returned empty text. Falling back to timestamped commit."
+          notify-send -u normal -i github "Dotfiles" "Gemini returned empty text. Falling back to timestamped commit.to timestamped commit."
         fi
         COMMIT_MSG="chore: dotfiles update $(date '+%Y-%m-%d %H:%M')"
       fi
