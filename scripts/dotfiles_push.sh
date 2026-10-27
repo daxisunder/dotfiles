@@ -10,7 +10,7 @@ fi
 
 GEMINI_API_KEY="${GEMINI_API_KEY:-}"
 GEMINI_MODEL="gemini-3.8-flash"
-FALLBACK_GEMINI_MODEL="gemini-3.5-flash"
+FALLBACK_GEMINI_MODEL="gemini-3.6-flash"
 MAX_DIFF_CHARS=320000
 TIMEOUT=240
 
@@ -143,7 +143,7 @@ else
       USED_FALLBACK_MODEL=1
 
       if can_notify; then
-        notify-send -u normal -i github "Dotfiles" "Gemini-3.8-flash failed: $PRIMARY_ERROR_MSG. Retrying with gemini-3.5-flash."
+        notify-send -u normal -i github "Dotfiles" "Gemini-3.8-flash failed: $PRIMARY_ERROR_MSG. Retrying with gemini-3.6-flash."
       fi
 
       run_gemini_request "$FALLBACK_GEMINI_MODEL"
