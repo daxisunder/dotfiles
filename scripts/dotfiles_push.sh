@@ -9,7 +9,7 @@ if [[ -f "$API_ENV" ]]; then
 fi
 
 GEMINI_API_KEY="${GEMINI_API_KEY:-}"
-GEMINI_MODEL="gemini-3.8-flash"
+GEMINI_MODEL="gemini-4-hydrogen"
 FALLBACK_GEMINI_MODEL="gemini-3.6-flash"
 MAX_DIFF_CHARS=320000
 TIMEOUT=240
